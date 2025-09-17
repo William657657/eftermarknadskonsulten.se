@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cookies | EMK Sverige AB</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{--gold:#D4AF37;--ink:#2B2410;--paper:#FAF7EF}
+    body{background:var(--paper);color:#1A1A1A;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial}
+    .brand-primary{color:var(--ink)}
+    .card{background:#fff;border:1px solid #E5E7EB;border-radius:1rem}
+    a{color:#374151;text-decoration:underline}
+  </style>
+</head>
+<body>
+  <main class="max-w-3xl mx-auto px-4 md:px-6 py-10">
+    <a href="/" class="inline-flex items-center text-sm mb-6">← Till startsidan</a>
+    <h1 class="text-3xl font-semibold brand-primary">Cookie-policy</h1>
+    <div class="card p-6 md:p-8 text-gray-800 mt-6">
+      <p>Vi använder nödvändiga cookies för att webbplatsen ska fungera. Analyscookies sätts endast om du samtycker via vår cookie-banner.</p>
+
+      <h2 class="text-xl font-semibold brand-primary mt-6">Typer av cookies</h2>
+      <ul class="list-disc ml-5">
+        <li><b>Nödvändiga</b> – sessionshantering, säkerhet.</li>
+        <li><b>Funktionella</b> – t.ex. förifyllnad och preferenser.</li>
+        <li><b>Analys</b> (valfritt) – trafik och prestanda, först efter samtycke.</li>
+      </ul>
+
+      <h2 class="text-xl font-semibold brand-primary mt-6">Lagringstider & tredjepart</h2>
+      <p>Lagringstid varierar (session → upp till 24 månader). Tredje parter kan förekomma för drift/analys. Vi anonymiserar IP där det är möjligt.</p>
+
+      <h2 class="text-xl font-semibold brand-primary mt-6">Hantera samtycke</h2>
+      <p>Du kan återkalla eller ändra samtycke via webbläsarens inställningar eller genom att rensa webbplatsens lagring. Om du vill återvisa bannern direkt kan du klicka nedan:</p>
+      <button id="resetConsent" class="mt-3 rounded-xl px-4 py-2 border border-gray-300">Återställ cookie-val</button>
+
+      <p class="text-sm text-gray-600 mt-6">Senast uppdaterad: 17 september 2025.</p>
+    </div>
+  </main>
+  <script>
+    document.getElementById('resetConsent').addEventListener('click', ()=>{
+      localStorage.removeItem('emk_cookie_consent');
+      alert('Cookie-val återställda. Ladda om sidan för att se bannern igen.');
+    });
+  </script>
+</body>
+</html>
