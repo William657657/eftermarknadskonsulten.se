@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Process | EMK Sverige AB</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{--gold:#D4AF37;--ink:#2B2410;--paper:#FAF7EF}
+    body{background:var(--paper);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial}
+    .brand-primary{color:var(--ink)} .card{background:#fff;border:1px solid #E5E7EB;border-radius:1rem}
+    .navlink{color:#4B5563}.navlink[aria-current="page"]{color:#111827;font-weight:600}
+  </style>
+</head>
+<body>
+<header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-gray-200">
+  <div class="max-w-6xl mx-auto h-16 px-4 md:px-8 flex items-center justify-between">
+    <a href="/"><img src="/assets/customcolor_logo_customcolor_background.png" class="h-9 w-auto" alt="EMK logotyp" /></a>
+    <nav class="hidden md:flex items-center gap-6 text-sm">
+      <a href="/tjanster.html" class="navlink hover:underline">Tjänster</a>
+      <a href="/process.html"  class="navlink hover:underline">Process</a>
+      <a href="/case.html"     class="navlink hover:underline">Case</a>
+      <a href="/policy.html"   class="navlink hover:underline">Policy</a>
+      <a href="/#kontakt"      class="navlink hover:underline">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4 md:px-8 py-10">
+  <h1 class="text-3xl md:text-5xl font-semibold brand-primary">Vår 4-stegsprocess</h1>
+  <div class="grid md:grid-cols-2 gap-6 mt-8">
+    <div class="card p-6">
+      <h2 class="font-semibold brand-primary">1. Diagnos</h2>
+      <p class="text-sm text-gray-700 mt-2">Genomlysning av ärendet, underlag och tidslinje. Risk/konsekvens-bedömning samt initial rekommendationer.</p>
+      <ul class="mt-3 text-sm text-gray-700 list-disc ml-5">
+        <li>Insamling: avtal, felbeskrivning, verkstadsintyg</li><li>Gap-analys mot KKL & praxis</li><li>Kommunikationsplan</li>
+      </ul>
+    </div>
+    <div class="card p-6">
+      <h2 class="font-semibold brand-primary">2. Design</h2>
+      <p class="text-sm text-gray-700 mt-2">Strategi och beslutsmatris (reparation/omleverans/prisavdrag) + mallar för återkommande situationer.</p>
+      <ul class="mt-3 text-sm text-gray-700 list-disc ml-5">
+        <li>Best practice-mallar</li><li>Argumentationslinje mot ARN</li><li>Ansvars-/kostnadsstyrning</li>
+      </ul>
+    </div>
+    <div class="card p-6">
+      <h2 class="font-semibold brand-primary">3. Införande</h2>
+      <p class="text-sm text-gray-700 mt-2">Operativt stöd i skarpa ärenden och införande av nya arbetssätt.</p>
+      <ul class="mt-3 text-sm text-gray-700 list-disc ml-5">
+        <li>Yttrande & bemötanden</li><li>Verkstadsdialog & offerter</li><li>Spårbar dokumentation</li>
+      </ul>
+    </div>
+    <div class="card p-6">
+      <h2 class="font-semibold brand-primary">4. Finjustering</h2>
+      <p class="text-sm text-gray-700 mt-2">Uppföljning av nyckeltal, justeringar och överlämning av ägarskap internt.</p>
+      <ul class="mt-3 text-sm text-gray-700 list-disc ml-5">
+        <li>Ledtider & kostnad/ärende</li><li>Kunskapsöverföring</li><li>Utbildning sälj/eftermarknad</li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<footer class="mt-10 border-t border-gray-200">
+  <div class="max-w-6xl mx-auto px-4 md:px-8 py-8 text-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-gray-600">
+    <div class="flex items-center gap-2">
+      <img src="/assets/customcolor_icon_customcolor_background.png" alt="EMK logotyp" class="h-8 w-8 rounded-lg" />
+      <div><div class="font-medium brand-primary">EMK Sverige AB</div><div>Org.nr 559514-0111 · Trensum</div></div>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6 w-full md:w-auto">
+      <div><div class="font-medium mb-1 brand-primary">Kontakt</div><a class="hover:underline" href="mailto:william@emksab.se">william@emksab.se</a><div>0708-26 33 66</div></div>
+      <div><div class="font-medium mb-1 brand-primary">Sidor</div><a href="/tjanster.html" class="block hover:underline">Tjänster</a><a href="/process.html" class="block hover:underline">Process</a><a href="/case.html" class="block hover:underline">Case</a><a href="/policy.html" class="block hover:underline">Policy</a></div>
+      <div><div class="font-medium mb-1 brand-primary">Länkar</div><a href="/integritet.html" class="block hover:underline">Integritet</a><a href="/cookies.html" class="block hover:underline">Cookies</a><a href="/villkor.html" class="block hover:underline">Allmänna villkor</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>(function(){const p=location.pathname.replace(/\/$/,'');document.querySelectorAll('nav a').forEach(a=>{if(a.getAttribute('href').replace(/\/$/,'')===p)a.setAttribute('aria-current','page');});})();</script>
+</body>
+</html>
