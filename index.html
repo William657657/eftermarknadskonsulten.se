@@ -18,7 +18,7 @@
     .brand-primary{color:var(--ink)}
     .card{background:#fff;border:1px solid #E5E7EB;border-radius:1rem}
     .btn-gold{background:var(--gold);color:#111827}
-    .btn-ghost{border:1px solid #E5E7EB;color:var(--ink)}
+    .btn-ghost{border:1px solid #E5E7EB;color:#2B2410}
     /* Ankarlänkar landar under sticky headern */
     section[id]{ scroll-margin-top: 6.5rem; }
   </style>
@@ -84,44 +84,54 @@
 
   <!-- Tjänster -->
   <section id="tjanster" class="py-14 px-4 md:px-8">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
-      <div class="card p-6">
-        <div class="flex items-center justify-between">
-          <h3 class="text-lg font-semibold brand-primary">Akut ARN-respons</h3>
-          <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium" style="background:#D4AF3726;color:var(--ink)">Snabbstart</span>
-        </div>
-        <p class="mt-2 text-sm text-gray-600">Genomgång av ärende & underlag, riskbedömning, åtgärdsplan och första utkast till yttrande.</p>
-        <ul class="mt-4 text-sm space-y-2 text-gray-600">
-          <li>• Checklista skickas efter bokning</li>
-          <li>• Språk & tonläge mot kund/ARN</li>
-          <li>• Rekommenderade temporära åtgärder</li>
-        </ul>
+    <div class="max-w-6xl mx-auto">
+      <!-- Kort notis (diskret) -->
+      <div class="mb-6 text-sm text-gray-600">
+        Vi hjälper även i ärenden som <b>riskerar</b> att bli ARN-ärenden (förebyggande stöd). Dessutom kan vi bygga ett
+        <b>kostnadseffektivt eftermarknadsverktyg</b> som ni själva äger från dag 1 – för handlare, egen verkstad, inköp m.fl.
+        <a href="/verktyg.html" class="underline">Läs mer</a>.
       </div>
 
-      <div class="card p-6">
-        <div class="flex items-center justify-between">
-          <h3 class="text-lg font-semibold brand-primary">Yttrande & bemötande</h3>
-          <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium" style="background:#D4AF3726;color:var(--ink)">Huvudtjänst</span>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card p-6">
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg font-semibold brand-primary">Akut ARN-respons</h3>
+            <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium" style="background:#D4AF3726;color:var(--ink)">Snabbstart</span>
+          </div>
+          <p class="mt-2 text-sm text-gray-600">Genomgång av ärende & underlag, riskbedömning, åtgärdsplan och första utkast till yttrande.</p>
+          <ul class="mt-4 text-sm space-y-2 text-gray-600">
+            <li>• Checklista skickas efter bokning</li>
+            <li>• Språk & tonläge mot kund/ARN</li>
+            <li>• Rekommenderade temporära åtgärder</li>
+            <li>• <b>Förebyggande stöd</b> i ärenden som kan bli ARN</li>
+          </ul>
         </div>
-        <p class="mt-2 text-sm text-gray-600">Komplett yttrande till ARN, bevisning, praxisstöd, och strategi för alternativ lösning vid behov.</p>
-        <ul class="mt-4 text-sm space-y-2 text-gray-600">
-          <li>• KKL & prop. 2021/22:85 kopplat till ditt fall</li>
-          <li>• Tidplan & milstolpar</li>
-          <li>• Slutgenomläsning med beslutsfattare</li>
-        </ul>
-      </div>
 
-      <div class="card p-6">
-        <div class="flex items-center justify-between">
-          <h3 class="text-lg font-semibold brand-primary">Full ärendeledning</h3>
-          <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium" style="background:#D4AF3726;color:var(--ink)">End-to-end</span>
+        <div class="card p-6">
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg font-semibold brand-primary">Yttrande & bemötande</h3>
+            <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium" style="background:#D4AF3726;color:var(--ink)">Huvudtjänst</span>
+          </div>
+          <p class="mt-2 text-sm text-gray-600">Komplett yttrande till ARN, bevisning, praxisstöd, och strategi för alternativ lösning vid behov.</p>
+          <ul class="mt-4 text-sm space-y-2 text-gray-600">
+            <li>• KKL & prop. 2021/22:85 kopplat till ditt fall</li>
+            <li>• Tidplan & milstolpar</li>
+            <li>• Slutgenomläsning med beslutsfattare</li>
+          </ul>
         </div>
-        <p class="mt-2 text-sm text-gray-600">Vi tar lead på hela ärendet: kunddialog, verkstadskontakt, offerter och slutlig överenskommelse.</p>
-        <ul class="mt-4 text-sm space-y-2 text-gray-600">
-          <li>• En kontaktväg för allt</li>
-          <li>• Mål: undvika hävning & minimera kostnad</li>
-          <li>• Lärdomar → rutiner i verksamheten</li>
-        </ul>
+
+        <div class="card p-6">
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg font-semibold brand-primary">Full ärendeledning</h3>
+            <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium" style="background:#D4AF3726;color:var(--ink)">End-to-end</span>
+          </div>
+          <p class="mt-2 text-sm text-gray-600">Vi tar lead på hela ärendet: kunddialog, verkstadskontakt, offerter och slutlig överenskommelse.</p>
+          <ul class="mt-4 text-sm space-y-2 text-gray-600">
+            <li>• En kontaktväg för allt</li>
+            <li>• Mål: undvika hävning & minimera kostnad</li>
+            <li>• Lärdomar → rutiner i verksamheten</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -240,7 +250,7 @@
         </div>
         <div>
           <div class="font-medium mb-1 brand-primary">Länkar</div>
-          <a class="block hover:underline" href="/integritet.html">GDPR-Policy</a>
+          <a class="block hover:underline" href="/integritet.html">Integritet</a>
           <a class="block hover:underline" href="/cookies.html">Cookies</a>
           <a class="block hover:underline" href="/villkor.html">Allmänna villkor</a>
         </div>
@@ -275,10 +285,8 @@
       function get(){ return localStorage.getItem(KEY); }
 
       function loadAnalytics(){
-        // Ladda t.ex. GA först efter samtycke
-        // Ersätt G-XXXXXXX med ditt mät-ID
         const id = 'G-XXXXXXX';
-        if (id === 'G-XXXXXXX') return; // skydd om ID ej satt
+        if (id === 'G-XXXXXXX') return;
         const s = document.createElement('script');
         s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
         s.async = true; document.head.appendChild(s);
