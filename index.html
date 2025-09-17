@@ -14,12 +14,12 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root{--gold:#D4AF37;--ink:#2B2410;--paper:#FAF7EF}
-    body{background:var(--paper);color:#1A1A1A;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial}
+    body{background:var(--paper);color:#1A1A1A;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial;overflow-x:hidden;-webkit-text-size-adjust:100%}
     .brand-primary{color:var(--ink)}
     .card{background:#fff;border:1px solid #E5E7EB;border-radius:1rem}
     .btn-gold{background:var(--gold);color:#111827}
-    .btn-ghost{border:1px solid #E5E7EB;color:#2B2410}
-    /* Ankarlänkar landar under sticky headern */
+    .btn-ghost{border:1px solid #E5E7EB;color:var(--ink)}
+    /* Ankarens landningsposition under sticky headern */
     section[id]{ scroll-margin-top: 6.5rem; }
   </style>
 </head>
@@ -35,8 +35,28 @@
         <a href="#policy" class="hover:underline">Policy</a>
         <a href="#kontakt" class="hover:underline">Kontakt</a>
       </nav>
-      <a href="#kontakt" class="hidden md:inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm btn-gold">Boka ett samtal</a>
+      <div class="flex items-center gap-2">
+        <a href="#kontakt" class="hidden md:inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm btn-gold">Boka ett samtal</a>
+        <!-- Mobilmeny-knapp -->
+        <button id="navToggle" aria-expanded="false" aria-controls="mobileNav"
+          class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-gray-300 text-gray-700">
+          <span class="sr-only">Öppna meny</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
     </div>
+    <!-- Mobilmeny -->
+    <nav id="mobileNav" class="md:hidden hidden border-t border-gray-200 bg-white">
+      <div class="px-4 py-3 grid gap-3 text-sm text-gray-700">
+        <a href="#tjanster" class="block">Tjänster</a>
+        <a href="#process"  class="block">Process</a>
+        <a href="#case"     class="block">Case</a>
+        <a href="#policy"   class="block">Policy</a>
+        <a href="#kontakt"  class="block">Kontakt</a>
+      </div>
+    </nav>
   </header>
 
   <!-- Hero -->
@@ -85,11 +105,11 @@
   <!-- Tjänster -->
   <section id="tjanster" class="py-14 px-4 md:px-8">
     <div class="max-w-6xl mx-auto">
-      <!-- Kort notis (diskret) -->
+      <!-- Kort notis -->
       <div class="mb-6 text-sm text-gray-600">
-        Vi hjälper även i ärenden som <b>riskerar</b> att bli ARN-ärenden (förebyggande stöd). Dessutom kan vi bygga ett
-        <b>kostnadseffektivt eftermarknadsverktyg</b> som ni själva äger från dag 1 – för handlare, egen verkstad, inköp m.fl.
-        <a href="/verktyg.html" class="underline">Läs mer</a>.
+        Vi hjälper även i ärenden som <b>riskerar</b> att bli ARN-ärenden (förebyggande stöd). Dessutom kan vi bygga en
+        <b>kostnadseffektiv eftermarknadsplattform</b> som ni själva äger från dag 1 – för handlare, egen verkstad, inköp m.fl.
+        <a href="/plattform.html" class="underline">Läs mer</a>.
       </div>
 
       <div class="grid md:grid-cols-3 gap-6">
@@ -210,7 +230,7 @@
         <h3 class="text-lg font-semibold brand-primary">Boka ett samtal</h3>
         <p class="mt-2 text-sm text-gray-600">Kort lära-känna-möte (15 min) för att se hur vi bäst hjälper i ert läge.</p>
         <div class="mt-4 flex gap-3 flex-wrap">
-          <a href="https://forms.gle/aZxAZ8xNqv9PPuF18" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm btn-gold">Begär checklista + boka</a>
+          <a href="https://forms.gle/CNSjqMaRJ6McyXp57" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm btn-gold">Begär checklista + boka</a>
           <a href="tel:+46708263366" class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold btn-ghost">Ring nu</a>
         </div>
         <p class="text-xs mt-2 text-gray-500">Mötesunderlag (checklista + tidslinje) skickas efter bokning och ingår i uppstarten av vårt arbete – inte som fristående material.</p>
@@ -247,6 +267,7 @@
           <a class="block hover:underline" href="#tjanster">Tjänster</a>
           <a class="block hover:underline" href="#process">Process</a>
           <a class="block hover:underline" href="#policy">Policy</a>
+          <a class="block hover:underline" href="/plattform.html">Plattform</a>
         </div>
         <div>
           <div class="font-medium mb-1 brand-primary">Länkar</div>
@@ -257,6 +278,20 @@
       </div>
     </div>
   </footer>
+
+  <!-- Mobilmeny-script -->
+  <script>
+    (function(){
+      const btn=document.getElementById('navToggle');
+      const nav=document.getElementById('mobileNav');
+      if(!btn||!nav) return;
+      btn.addEventListener('click',()=>{
+        const open = nav.classList.contains('hidden');
+        nav.classList.toggle('hidden', !open);
+        btn.setAttribute('aria-expanded', String(open));
+      });
+    })();
+  </script>
 
   <!-- Cookie banner -->
   <div id="cookieBanner" class="fixed inset-x-0 bottom-0 z-40">
@@ -285,8 +320,10 @@
       function get(){ return localStorage.getItem(KEY); }
 
       function loadAnalytics(){
+        // Ladda t.ex. GA först efter samtycke
+        // Ersätt G-XXXXXXX med ditt mät-ID
         const id = 'G-XXXXXXX';
-        if (id === 'G-XXXXXXX') return;
+        if (id === 'G-XXXXXXX') return; // skydd om ID ej satt
         const s = document.createElement('script');
         s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
         s.async = true; document.head.appendChild(s);
