@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="sv">
 <head>
-  <meta charset="utf-4" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Eftermarknadskonsulten – ARN-stöd för bilhandlare | EMK Sverige AB</title>
   <meta name="description" content="Praktiskt stöd i ARN-processen för bilhandlare: snabb respons, kompletta yttranden, beslutsmatris och utbildning.">
@@ -13,11 +13,12 @@
   <meta property="og:image" content="/assets/customcolor_textlogo_customcolor_background.png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body{background:#FAF7EF;color:#1A1A1A;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
-    .brand-primary{color:#2B2410}
+    :root{--gold:#D4AF37;--ink:#2B2410;--paper:#FAF7EF}
+    body{background:var(--paper);color:#1A1A1A;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial}
+    .brand-primary{color:var(--ink)}
     .card{background:#fff;border:1px solid #E5E7EB;border-radius:1rem}
-    .btn-gold{background:#D4AF37;color:#111827}
-    .btn-ghost{border:1px solid #E5E7EB;color:#2B2410}
+    .btn-gold{background:var(--gold);color:#111827}
+    .btn-ghost{border:1px solid #E5E7EB;color:var(--ink)}
   </style>
 </head>
 <body>
@@ -38,12 +39,12 @@
 
   <!-- Hero -->
   <section class="relative overflow-hidden">
-    <div class="absolute inset-0 -z-10" style="background: radial-gradient(1200px 400px at 10% -10%, #D4AF3755, transparent), linear-gradient(180deg, #fff, #FAF7EF)"></div>
+    <div class="absolute inset-0 -z-10" style="background: radial-gradient(1200px 400px at 10% -10%, #D4AF3755, transparent), linear-gradient(180deg, #fff, var(--paper))"></div>
     <div class="max-w-6xl mx-auto px-4 md:px-8 pt-16 md:pt-24 pb-12 md:pb-16 grid md:grid-cols-2 gap-8">
       <div>
-        <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium" style="background:#D4AF3726;color:#2B2410">Experter på ARN-processer · Snabbt & strukturerat</span>
+        <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium" style="background:#D4AF3726;color:var(--ink)">Experter på ARN-processer · Snabbt & strukturerat</span>
         <h1 class="mt-4 text-3xl md:text-5xl font-semibold leading-tight brand-primary">
-          Hjälp i <span class="underline decoration-4" style="text-decoration-color:#D4AF37">ARN-processen</span> för bilhandlare
+          Hjälp i <span class="underline decoration-4" style="text-decoration-color:var(--gold)">ARN-processen</span> för bilhandlare
         </h1>
         <p class="mt-4 text-base md:text-lg text-gray-600">
           Vi minskar risken för hävning och onödiga kostnader genom skarpa yttranden, smart dokumentation och en tydlig beslutsmatris — byggt på Konsumentköplagen och aktuell ARN-praxis.
@@ -56,13 +57,13 @@
         </div>
         <ul class="mt-6 text-sm md:text-base grid gap-2 text-gray-600">
           <li>• 30-dagars sprint: diagnos → design → införande</li>
-          <li>• För bilhandlare som säljer 10-10,000 bilar/år</li>
+          <li>• För bilhandlare som säljer 10–10 000 bilar/år</li>
           <li>• Lång erfarenhet från skadereglering & regressprocesser på bolagssidan</li>
         </ul>
       </div>
       <div>
         <div class="relative">
-          <div class="absolute -inset-2 rounded-3xl blur-xl opacity-40" style="background:#D4AF37"></div>
+          <div class="absolute -inset-2 rounded-3xl blur-xl opacity-40" style="background:var(--gold)"></div>
           <div class="relative card p-6 md:p-8">
             <h3 class="text-lg font-semibold brand-primary">Vad vi levererar</h3>
             <ul class="mt-4 grid gap-3 text-sm text-gray-600">
@@ -85,7 +86,7 @@
       <div class="card p-6">
         <div class="flex items-center justify-between">
           <h3 class="text-lg font-semibold brand-primary">Akut ARN-respons</h3>
-          <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium" style="background:#D4AF3726;color:#2B2410">Snabbstart</span>
+          <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium" style="background:#D4AF3726;color:var(--ink)">Snabbstart</span>
         </div>
         <p class="mt-2 text-sm text-gray-600">Genomgång av ärende & underlag, riskbedömning, åtgärdsplan och första utkast till yttrande.</p>
         <ul class="mt-4 text-sm space-y-2 text-gray-600">
@@ -98,7 +99,7 @@
       <div class="card p-6">
         <div class="flex items-center justify-between">
           <h3 class="text-lg font-semibold brand-primary">Yttrande & bemötande</h3>
-          <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium" style="background:#D4AF3726;color:#2B2410">Huvudtjänst</span>
+          <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium" style="background:#D4AF3726;color:var(--ink)">Huvudtjänst</span>
         </div>
         <p class="mt-2 text-sm text-gray-600">Komplett yttrande till ARN, bevisning, praxisstöd, och strategi för alternativ lösning vid behov.</p>
         <ul class="mt-4 text-sm space-y-2 text-gray-600">
@@ -111,7 +112,7 @@
       <div class="card p-6">
         <div class="flex items-center justify-between">
           <h3 class="text-lg font-semibold brand-primary">Full ärendeledning</h3>
-          <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium" style="background:#D4AF3726;color:#2B2410">End-to-end</span>
+          <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium" style="background:#D4AF3726;color:var(--ink)">End-to-end</span>
         </div>
         <p class="mt-2 text-sm text-gray-600">Vi tar lead på hela ärendet: kunddialog, verkstadskontakt, offerter och slutlig överenskommelse.</p>
         <ul class="mt-4 text-sm space-y-2 text-gray-600">
@@ -128,28 +129,28 @@
     <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-6">
       <div class="card p-6">
         <div class="flex items-center gap-3">
-          <div class="h-9 w-9 rounded-xl flex items-center justify-center font-bold" style="background:#D4AF3733;color:#2B2410">1</div>
+          <div class="h-9 w-9 rounded-xl flex items-center justify-center font-bold" style="background:#D4AF3733;color:var(--ink)">1</div>
           <h4 class="font-semibold brand-primary">Diagnos</h4>
         </div>
         <p class="mt-2 text-sm text-gray-600">Nuläge, risker, genomlysning av dokumentation & ärenden.</p>
       </div>
       <div class="card p-6">
         <div class="flex items-center gap-3">
-          <div class="h-9 w-9 rounded-xl flex items-center justify-center font-bold" style="background:#D4AF3733;color:#2B2410">2</div>
+          <div class="h-9 w-9 rounded-xl flex items-center justify-center font-bold" style="background:#D4AF3733;color:var(--ink)">2</div>
           <h4 class="font-semibold brand-primary">Design</h4>
         </div>
         <p class="mt-2 text-sm text-gray-600">Rutiner, beslutsmatris, mallar och utbildningsupplägg.</p>
       </div>
       <div class="card p-6">
         <div class="flex items-center gap-3">
-          <div class="h-9 w-9 rounded-xl flex items-center justify-center font-bold" style="background:#D4AF3733;color:#2B2410">3</div>
+          <div class="h-9 w-9 rounded-xl flex items-center justify-center font-bold" style="background:#D4AF3733;color:var(--ink)">3</div>
           <h4 class="font-semibold brand-primary">Införande</h4>
         </div>
         <p class="mt-2 text-sm text-gray-600">Inför nya arbetssätt, stöd i skarpa ärenden (ARN).</p>
       </div>
       <div class="card p-6">
         <div class="flex items-center gap-3">
-          <div class="h-9 w-9 rounded-xl flex items-center justify-center font-bold" style="background:#D4AF3733;color:#2B2410">4</div>
+          <div class="h-9 w-9 rounded-xl flex items-center justify-center font-bold" style="background:#D4AF3733;color:var(--ink)">4</div>
           <h4 class="font-semibold brand-primary">Finjustering</h4>
         </div>
         <p class="mt-2 text-sm text-gray-600">Mät effekten, justera, och säkra ägarskap internt.</p>
@@ -236,13 +237,63 @@
         </div>
         <div>
           <div class="font-medium mb-1 brand-primary">Länkar</div>
-          <a class="block hover:underline" href="#">Integritet</a>
-          <a class="block hover:underline" href="#">Cookies</a>
-          <a class="block hover:underline" href="#">Allmänna villkor</a>
+          <a class="block hover:underline" href="/integritet.html">Integritet</a>
+          <a class="block hover:underline" href="/cookies.html">Cookies</a>
+          <a class="block hover:underline" href="/villkor.html">Allmänna villkor</a>
         </div>
       </div>
     </div>
   </footer>
+
+  <!-- Cookie banner -->
+  <div id="cookieBanner" class="fixed inset-x-0 bottom-0 z-40">
+    <div class="mx-auto max-w-6xl m-4 card p-4 md:p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <p class="text-sm text-gray-700">
+        Vi använder nödvändiga cookies för att sidan ska fungera. Analyscookies sätts bara om du samtycker.
+        Läs mer i vår <a class="underline" href="/cookies.html">cookie-policy</a>.
+      </p>
+      <div class="flex gap-2">
+        <button id="cookieReject" class="btn-ghost rounded-xl px-4 py-2 text-sm">Avvisa</button>
+        <button id="cookieAccept" class="btn-gold rounded-xl px-4 py-2 text-sm">Tillåt analyscookies</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Enkel samtyckeshantering
+    (function(){
+      const KEY = 'emk_cookie_consent';
+      const banner = document.getElementById('cookieBanner');
+      const accept = document.getElementById('cookieAccept');
+      const reject = document.getElementById('cookieReject');
+
+      function hide(){ banner.style.display='none'; }
+      function set(val){ localStorage.setItem(KEY, val); }
+      function get(){ return localStorage.getItem(KEY); }
+
+      function loadAnalytics(){
+        // Ladda t.ex. GA först efter samtycke
+        // Ersätt G-XXXXXXX med ditt mät-ID
+        const id = 'G-XXXXXXX';
+        if (id === 'G-XXXXXXX') return; // skydd om ID ej satt
+        const s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+        s.async = true; document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', id, { anonymize_ip: true });
+      }
+
+      const val = get();
+      if (val === 'accepted') { hide(); loadAnalytics(); }
+      else if (val === 'rejected') { hide(); }
+      else { banner.style.display='block'; }
+
+      accept.addEventListener('click', () => { set('accepted'); hide(); loadAnalytics(); });
+      reject.addEventListener('click', () => { set('rejected'); hide(); });
+    })();
+  </script>
 </body>
 </html>
-
