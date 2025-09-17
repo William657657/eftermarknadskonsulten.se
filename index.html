@@ -11,6 +11,7 @@
   <meta property="og:description" content="Praktiskt stöd i konsumentköpsfrågor och ARN-ärenden för bilhandlare." />
   <meta property="og:url" content="https://www.eftermarknadskonsulten.se" />
   <meta property="og:image" content="/assets/customcolor_textlogo_customcolor_background.png" />
+  <link rel="canonical" href="https://www.eftermarknadskonsulten.se/" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root{--gold:#D4AF37;--ink:#2B2410;--paper:#FAF7EF}
@@ -19,280 +20,56 @@
     .card{background:#fff;border:1px solid #E5E7EB;border-radius:1rem}
     .btn-gold{background:var(--gold);color:#111827}
     .btn-ghost{border:1px solid #E5E7EB;color:var(--ink)}
+    .navlink{color:#4B5563} .navlink[aria-current="page"]{color:#111827;font-weight:600}
   </style>
 </head>
 <body>
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white px-3 py-2 rounded">Hoppa till innehåll</a>
+
   <!-- Header -->
   <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-gray-200">
     <div class="max-w-6xl mx-auto h-16 px-4 md:px-8 flex items-center justify-between">
-      <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK logotyp" class="h-9 w-auto" />
-      <nav class="hidden md:flex items-center gap-6 text-sm text-gray-600">
-        <a href="#tjanster" class="hover:underline">Tjänster</a>
-        <a href="#process" class="hover:underline">Process</a>
-        <a href="#case" class="hover:underline">Case</a>
-        <a href="#policy" class="hover:underline">Policy</a>
-        <a href="#kontakt" class="hover:underline">Kontakt</a>
+      <a href="/"><img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK logotyp" class="h-9 w-auto" /></a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="/tjanster.html" class="navlink hover:underline">Tjänster</a>
+        <a href="/process.html"  class="navlink hover:underline">Process</a>
+        <a href="/case.html"     class="navlink hover:underline">Case</a>
+        <a href="/policy.html"   class="navlink hover:underline">Policy</a>
+        <a href="#kontakt"       class="navlink hover:underline">Kontakt</a>
       </nav>
       <a href="#kontakt" class="hidden md:inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm btn-gold">Boka ett samtal</a>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 -z-10" style="background: radial-gradient(1200px 400px at 10% -10%, #D4AF3755, transparent), linear-gradient(180deg, #fff, var(--paper))"></div>
-    <div class="max-w-6xl mx-auto px-4 md:px-8 pt-16 md:pt-24 pb-12 md:pb-16 grid md:grid-cols-2 gap-8">
-      <div>
-        <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium" style="background:#D4AF3726;color:var(--ink)">Experter på ARN-processer · Snabbt & strukturerat</span>
-        <h1 class="mt-14 font-semibold brand-primary hero-title">
-  Hjälp i <span class="underline decoration-4 decoration-[#D4AF37] underline-offset-4">ARN-processen</span> för bilhandlare
-</h1>
-        <p class="mt-4 text-base md:text-lg text-gray-600">
-          Vi minskar risken för hävning och onödiga kostnader genom skarpa yttranden, smart dokumentation och en tydlig beslutsmatris — byggt på Konsumentköplagen och aktuell ARN-praxis.
-        </p>
-        <div class="mt-6 flex flex-wrap items-center gap-3">
-          <a href="https://forms.gle/CNSjqMaRJ6McyXp57" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm btn-gold">
-            Begär checklista + boka genomgång
-          </a>
-          <a href="#tjanster" class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold btn-ghost">Se tjänster</a>
-        </div>
-        <ul class="mt-6 text-sm md:text-base grid gap-2 text-gray-600">
-          <li>• 30-dagars sprint: Verksamhetsanalys → Företagsanpassad Eftermarknadsprocess → Implementering samt Utbildning → Resultatuppföljning - Utvärdering</li>
-          <li>• För bilhandlare som säljer 10–10 000 bilar/år</li>
-          <li>• Lång erfarenhet från skadereglering & regressprocesser på bolagssidan</li>
-        </ul>
-      </div>
-      <div>
-        <div class="relative">
-          <div class="absolute -inset-2 rounded-3xl blur-xl opacity-40" style="background:var(--gold)"></div>
-          <div class="relative card p-6 md:p-8">
-            <h3 class="text-lg font-semibold brand-primary">Vad vi levererar</h3>
-            <ul class="mt-4 grid gap-3 text-sm text-gray-600">
-              <li>• Akut stöd: första bedömning inom 12h*</li>
-              <li>• Yttranden och bemötanden till ARN</li>
-              <li>• Beslutsmatris: när reparera, omleverera, prisavdrag?</li>
-              <li>• <b>Mötesunderlag</b> (checklista + tidslinje) skickas efter bokning – ej offentlig nedladdning</li>
-              <li>• Utbildning sälj/eftermarknad i KKL §§25–28 & praxis</li>
-            </ul>
-            <p class="mt-4 text-xs text-gray-500">*Arbetas vardagar. Brådskande ärenden utanför normal arbetstid, enligt överenskommelse.</p>
+  <main id="main">
+    <!-- Hero -->
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 -z-10" style="background: radial-gradient(1200px 400px at 10% -10%, #D4AF3755, transparent), linear-gradient(180deg, #fff, var(--paper))"></div>
+      <div class="max-w-6xl mx-auto px-4 md:px-8 pt-16 md:pt-24 pb-12 md:pb-16 grid md:grid-cols-2 gap-8">
+        <div>
+          <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium" style="background:#D4AF3726;color:var(--ink)">Experter på ARN-processer · Snabbt & strukturerat</span>
+          <h1 class="mt-4 text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.1] brand-primary">
+            Hjälp i <span class="underline decoration-4" style="text-decoration-color:var(--gold)">ARN-processen</span> för bilhandlare
+          </h1>
+          <p class="mt-4 text-base md:text-lg text-gray-600">
+            Vi minskar risken för hävning och onödiga kostnader genom skarpa yttranden, smart dokumentation och en tydlig beslutsmatris — byggt på Konsumentköplagen och aktuell ARN-praxis.
+          </p>
+          <div class="mt-6 flex flex-wrap items-center gap-3">
+            <a href="https://forms.gle/CNSjqMaRJ6McyXp57" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm btn-gold">
+              Begär checklista + boka genomgång
+            </a>
+            <a href="/tjanster.html" class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold btn-ghost">Se tjänster</a>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tjänster -->
-  <section id="tjanster" class="py-14 px-4 md:px-8">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
-      <div class="card p-6">
-        <div class="flex items-center justify-between">
-          <h3 class="text-lg font-semibold brand-primary">Akut ARN-respons</h3>
-          <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium" style="background:#D4AF3726;color:var(--ink)">Snabbstart</span>
-        </div>
-        <p class="mt-2 text-sm text-gray-600">Genomgång av ärende & underlag, riskbedömning, åtgärdsplan och första utkast till yttrande.</p>
-        <ul class="mt-4 text-sm space-y-2 text-gray-600">
-          <li>• Checklista skickas efter bokning</li>
-          <li>• Språk & tonläge mot kund/ARN</li>
-          <li>• Rekommenderade temporära åtgärder</li>
-        </ul>
-      </div>
-
-      <div class="card p-6">
-        <div class="flex items-center justify-between">
-          <h3 class="text-lg font-semibold brand-primary">Yttrande & bemötande</h3>
-          <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium" style="background:#D4AF3726;color:var(--ink)">Huvudtjänst</span>
-        </div>
-        <p class="mt-2 text-sm text-gray-600">Komplett yttrande till ARN, bevisning, praxisstöd, och strategi för alternativ lösning vid behov.</p>
-        <ul class="mt-4 text-sm space-y-2 text-gray-600">
-          <li>• KKL & prop. 2021/22:85 kopplat till ditt fall</li>
-          <li>• Tidplan & milstolpar</li>
-          <li>• Slutgenomläsning med beslutsfattare</li>
-        </ul>
-      </div>
-
-      <div class="card p-6">
-        <div class="flex items-center justify-between">
-          <h3 class="text-lg font-semibold brand-primary">Full ärendeledning</h3>
-          <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium" style="background:#D4AF3726;color:var(--ink)">End-to-end</span>
-        </div>
-        <p class="mt-2 text-sm text-gray-600">Vi tar lead på hela ärendet: kunddialog, verkstadskontakt, offerter och slutlig överenskommelse.</p>
-        <ul class="mt-4 text-sm space-y-2 text-gray-600">
-          <li>• En kontaktväg för allt</li>
-          <li>• Mål: undvika hävning & minimera kostnad</li>
-          <li>• Lärdomar → rutiner i verksamheten</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Process -->
-  <section id="process" class="py-14 px-4 md:px-8">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-6">
-      <div class="card p-6">
-        <div class="flex items-center gap-3">
-          <div class="h-9 w-9 rounded-xl flex items-center justify-center font-bold" style="background:#D4AF3733;color:var(--ink)">1</div>
-          <h4 class="font-semibold brand-primary">Verksamhetsanalys</h4>
-        </div>
-        <p class="mt-2 text-sm text-gray-600">Nuläge, risker, genomlysning av dokumentation & ärenden.</p>
-      </div>
-      <div class="card p-6">
-        <div class="flex items-center gap-3">
-          <div class="h-9 w-9 rounded-xl flex items-center justify-center font-bold" style="background:#D4AF3733;color:var(--ink)">2</div>
-          <h4 class="font-semibold brand-primary">Upprättande - Företagsanpassad Eftermarknadsprocess</h4>
-        </div>
-        <p class="mt-2 text-sm text-gray-600">Rutiner, beslutsmatris, mallar och utbildningsupplägg.</p>
-      </div>
-      <div class="card p-6">
-        <div class="flex items-center gap-3">
-          <div class="h-9 w-9 rounded-xl flex items-center justify-center font-bold" style="background:#D4AF3733;color:var(--ink)">3</div>
-          <h4 class="font-semibold brand-primary">Implementering - Utbildning</h4>
-        </div>
-        <p class="mt-2 text-sm text-gray-600">Inför nya arbetssätt, stöd i skarpa ärenden (ARN).</p>
-      </div>
-      <div class="card p-6">
-        <div class="flex items-center gap-3">
-          <div class="h-9 w-9 rounded-xl flex items-center justify-center font-bold" style="background:#D4AF3733;color:var(--ink)">4</div>
-          <h4 class="font-semibold brand-primary">Resultatuppföljning - Utvärdering</h4>
-        </div>
-        <p class="mt-2 text-sm text-gray-600">Mät effekten, justera, och säkra ägarskap internt.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Case -->
-  <section id="case" class="py-14 px-4 md:px-8">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
-      <div class="card p-6">
-        <h4 class="font-semibold brand-primary">Exempel – Fördröjd leverans</h4>
-        <p class="mt-2 text-sm text-gray-600">Kund yrkar hävning p.g.a. väntetid. Vi visar proportionalitet & alternativ ersättning. Utfallet blev 2 % prisavdrag utan hävning.</p>
-      </div>
-      <div class="card p-6">
-        <h4 class="font-semibold brand-primary">Exempel – Tekniskt fel – BMW M6 </h4>
-        <p class="mt-2 text-sm text-gray-600">Auktoriserad verkstad inkopplad utan samråd. Vi styr beviskrav & process, återför kontroll till säljaren och undviker felaktigt kostnadsansvar - fordonsägare får betala reparation.</p>
-      </div>
-      <div class="card p-6">
-        <h4 class="font-semibold brand-primary">Exempel - Otydliga villkor på egna lämnade garantier</h4>
-        <p class="mt-2 text-sm text-gray-600">Standardiserade villkorsbilagor & utbildning gav färre tvister och snabbare beslut i aktuellt bolags eftermarknadsprocess. Färre kostnader - ökat eget bolagskapital.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Policy -->
-  <section id="policy" class="py-14 px-4 md:px-8">
-    <div class="max-w-6xl mx-auto">
-      <div class="card p-6 md:p-8">
-        <h3 class="text-lg font-semibold brand-primary">Verkstad & felsökning – policy</h3>
-        <ul class="mt-4 grid gap-3 text-sm text-gray-600">
-          <li>• <b>Förstahandsval:</b> bilhandlarens egen eller utvalda verkstad.</li>
-          <li>• Om felets art gör detta olämpligt/omöjligt kan <b>extern felsökning</b> godkännas <b>upp till 2 500 kr</b>.</li>
-          <li>• Felsökning ska <b>dokumenteras</b> (diagnosprotokoll/offert) och <b>delas med säljaren</b> innan vidare åtgärder.</li>
-          <li>• <b>Ytterligare arbete</b> får inte påbörjas utan <b>uttryckligt godkännande</b> från säljaren/bilhandlaren alternativt representerande ombud EMK Sverige AB (eftermarknadskonsulten.se).</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Kontakt -->
-  <section id="kontakt" class="py-14 px-4 md:px-8">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 items-start">
-      <div class="card p-6">
-        <h3 class="text-lg font-semibold brand-primary">Boka ett samtal</h3>
-        <p class="mt-2 text-sm text-gray-600">Kort lära-känna-möte (15 min) för att se hur vi bäst hjälper i ert läge.</p>
-        <div class="mt-4 flex gap-3 flex-wrap">
-          <a href="https://forms.gle/aZxAZ8xNqv9PPuF18" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm btn-gold">Begär checklista + boka</a>
-          <a href="tel:+46708263366" class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold btn-ghost">Ring nu</a>
-        </div>
-        <p class="text-xs mt-2 text-gray-500">Mötesunderlag (checklista + tidslinje) skickas efter bokning och ingår i uppstarten av vårt arbete – inte som fristående material.</p>
-      </div>
-      <div class="grid gap-6">
-        <div class="card p-6">
-          <h4 class="font-semibold brand-primary">Juridisk notis</h4>
-          <p class="mt-2 text-xs text-gray-600">EMK Sverige AB ger praktiskt stöd i konsumentköpsfrågor och processer mot ARN. Vi är inte advokatbyrå; vid behov samarbetar vi med juridiska ombud.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="mt-10 border-t border-gray-200">
-    <div class="max-w-6xl mx-auto px-4 md:px-8 py-8 text-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-gray-600">
-      <div class="flex items-center gap-2">
-        <img src="/assets/customcolor_icon_customcolor_background.png" alt="EMK logotyp" class="h-8 w-8 rounded-lg" />
-        <div>
-          <div class="font-medium brand-primary">EMK Sverige AB</div>
-          <div>Org.nr 559514-0111 · Trensum</div>
-        </div>
-      </div>
-      <div class="grid md:grid-cols-3 gap-6 w-full md:w-auto">
-        <div>
-          <div class="font-medium mb-1 brand-primary">Kontakt</div>
-          <div><a class="hover:underline" href="mailto:william@emksab.se">william@emksab.se</a></div>
-          <div>0708-26 33 66</div>      
+          <ul class="mt-6 text-sm md:text-base grid gap-2 text-gray-600">
+            <li>• 30-dagars sprint: diagnos → design → införande</li>
+            <li>• För bilhandlare som säljer 10–10 000 bilar/år</li>
+            <li>• Lång erfarenhet från skadereglering & regressprocesser</li>
+          </ul>
         </div>
         <div>
-          <div class="font-medium mb-1 brand-primary">Sidor</div>
-          <a class="block hover:underline" href="#tjanster">Tjänster</a>
-          <a class="block hover:underline" href="#process">Process</a>
-          <a class="block hover:underline" href="#policy">Policy</a>
-        </div>
-        <div>
-          <div class="font-medium mb-1 brand-primary">Länkar</div>
-          <a class="block hover:underline" href="/integritet.html">Integritet</a>
-          <a class="block hover:underline" href="/cookies.html">Cookies</a>
-          <a class="block hover:underline" href="/villkor.html">Allmänna villkor</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Cookie banner -->
-  <div id="cookieBanner" class="fixed inset-x-0 bottom-0 z-40">
-    <div class="mx-auto max-w-6xl m-4 card p-4 md:p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-      <p class="text-sm text-gray-700">
-        Vi använder nödvändiga cookies för att sidan ska fungera. Analyscookies sätts bara om du samtycker.
-        Läs mer i vår <a class="underline" href="/cookies.html">cookie-policy</a>.
-      </p>
-      <div class="flex gap-2">
-        <button id="cookieReject" class="btn-ghost rounded-xl px-4 py-2 text-sm">Avvisa</button>
-        <button id="cookieAccept" class="btn-gold rounded-xl px-4 py-2 text-sm">Tillåt analyscookies</button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Enkel samtyckeshantering
-    (function(){
-      const KEY = 'emk_cookie_consent';
-      const banner = document.getElementById('cookieBanner');
-      const accept = document.getElementById('cookieAccept');
-      const reject = document.getElementById('cookieReject');
-
-      function hide(){ banner.style.display='none'; }
-      function set(val){ localStorage.setItem(KEY, val); }
-      function get(){ return localStorage.getItem(KEY); }
-
-      function loadAnalytics(){
-        // Ladda t.ex. GA först efter samtycke
-        // Ersätt G-XXXXXXX med ditt mät-ID
-        const id = 'G-XXXXXXX';
-        if (id === 'G-XXXXXXX') return; // skydd om ID ej satt
-        const s = document.createElement('script');
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
-        s.async = true; document.head.appendChild(s);
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){ dataLayer.push(arguments); }
-        window.gtag = gtag;
-        gtag('js', new Date());
-        gtag('config', id, { anonymize_ip: true });
-      }
-
-      const val = get();
-      if (val === 'accepted') { hide(); loadAnalytics(); }
-      else if (val === 'rejected') { hide(); }
-      else { banner.style.display='block'; }
-
-      accept.addEventListener('click', () => { set('accepted'); hide(); loadAnalytics(); });
-      reject.addEventListener('click', () => { set('rejected'); hide(); });
-    })();
-  </script>
-</body>
-</html>
+          <div class="relative">
+            <div class="absolute -inset-2 rounded-3xl blur-xl opacity-40" style="background:var(--gold)"></div>
+            <div class="relative card p-6 md:p-8">
+              <h3 class="text-lg font-semibold brand-primary">Vad vi levererar</h3>
+              <ul class="mt-4 grid gap-3 text-sm text-gray-600">
+                <li>• Akut stöd: första bedömning inom 12h*</li*
