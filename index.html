@@ -19,7 +19,7 @@
     .card{background:#fff;border:1px solid #E5E7EB;border-radius:1rem}
     .btn-gold{background:var(--gold);color:#111827}
     .btn-ghost{border:1px solid #E5E7EB;color:var(--ink)}
-    /* Ankarens landningsposition under sticky headern */
+    /* Ankarlänkar landar snyggt under sticky-headern */
     section[id]{ scroll-margin-top: 6.5rem; }
   </style>
 </head>
@@ -36,8 +36,14 @@
         <a href="#kontakt" class="hover:underline">Kontakt</a>
       </nav>
       <div class="flex items-center gap-2">
+        <!-- Desktop CTA -->
         <a href="#kontakt" class="hidden md:inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm btn-gold">Boka ett samtal</a>
-        <!-- Mobilmeny-knapp -->
+        <!-- Mobil CTA -->
+        <a href="https://forms.gle/CNSjqMaRJ6McyXp57" target="_blank" rel="noopener"
+           class="md:hidden inline-flex items-center justify-center rounded-lg px-3 py-2 text-sm font-semibold shadow-sm btn-gold">
+          Begär demo
+        </a>
+        <!-- Hamburger -->
         <button id="navToggle" aria-expanded="false" aria-controls="mobileNav"
           class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-gray-300 text-gray-700">
           <span class="sr-only">Öppna meny</span>
@@ -105,11 +111,16 @@
   <!-- Tjänster -->
   <section id="tjanster" class="py-14 px-4 md:px-8">
     <div class="max-w-6xl mx-auto">
-      <!-- Kort notis -->
-      <div class="mb-6 text-sm text-gray-600">
-        Vi hjälper även i ärenden som <b>riskerar</b> att bli ARN-ärenden (förebyggande stöd). Dessutom kan vi bygga en
-        <b>kostnadseffektiv eftermarknadsplattform</b> som ni själva äger från dag 1 – för handlare, egen verkstad, inköp m.fl.
-        <a href="/plattform.html" class="underline">Läs mer</a>.
+      <!-- Notis i egen cell (card) -->
+      <div class="relative mb-6">
+        <div class="absolute -inset-2 rounded-3xl blur-xl opacity-25" style="background:var(--gold)"></div>
+        <div class="relative card p-6">
+          <p class="text-sm text-gray-700">
+            Vi hjälper även i ärenden som <b>riskerar</b> att bli ARN-ärenden (förebyggande stöd). Dessutom kan vi bygga en
+            <b>kostnadseffektiv eftermarknadsplattform</b> som ni själva äger från dag 1 – för handlare, egen verkstad, inköp m.fl.
+            <a href="/plattform.html" class="underline">Läs mer</a>.
+          </p>
+        </div>
       </div>
 
       <div class="grid md:grid-cols-3 gap-6">
@@ -320,10 +331,8 @@
       function get(){ return localStorage.getItem(KEY); }
 
       function loadAnalytics(){
-        // Ladda t.ex. GA först efter samtycke
-        // Ersätt G-XXXXXXX med ditt mät-ID
         const id = 'G-XXXXXXX';
-        if (id === 'G-XXXXXXX') return; // skydd om ID ej satt
+        if (id === 'G-XXXXXXX') return;
         const s = document.createElement('script');
         s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
         s.async = true; document.head.appendChild(s);
