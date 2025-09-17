@@ -24,15 +24,10 @@
     const FORM_URL = ""; // t.ex. "https://forms.gle/xxxxx"
     const MAILTO_FALLBACK =
       "mailto:william@emksab.se"
-      + "?subject=" + encodeURIComponent("Begär checklista + bokning (ARN)")
+      + "?subject=" + encodeURIComponent("Första kontakt (ARN)")
       + "&body=" + encodeURIComponent(
-        "Hej EMK,\\n\\nVi vill boka en 15 min genomgång och få er checklista som mötesunderlag.\\nFyllt inför samtalet:\\n\\n" +
-        "Företag: \\nKontaktperson: \\nTelefon: \\nE‑post: \\n\\n" +
-        "Bil modell/årsmodell: \\nRegnr/VIN: \\nKöpt/leveransdatum: \\n\\n" +
-        "Felbeskrivning kort:\\n\\n" +
-        "Eventuell felsökning: Ja/Nej\\n" +
-        "Verkstad (egen/utvald i första hand): \\n\\n" +
-        "[ ] Vi bekräftar: om egen/utvald verkstad inte är lämplig, godkänns extern felsökning upp till 2 500 kr. Underlag delas med säljaren innan vidare åtgärder.\\n\\nTack!"
+        "Hej EMK Sverige AB,\\n\\nVi vill boka en 15 min genomgång och få era första tankar runt ett ärende som dykt upp och som vi troligen kommer behöva få hjälp med. \nFyllt inför samtalet:\\n\\n" +
+        "Företag: \\nKontaktperson: \\nTelefon: \\nE‑post: \\n\\n"
       );
     document.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll("[data-cta='form']").forEach(b => {
@@ -83,7 +78,7 @@
           <div class="relative card p-6 md:p-8">
             <h3 class="text-lg font-semibold brand-primary">Vad vi levererar</h3>
             <ul class="mt-4 grid gap-3 text-sm text-gray-600">
-              <li>• Akut stöd: första bedömning inom 24h*</li>
+              <li>• Akut stöd: första bedömning inom 12h*</li>
               <li>• Yttranden och bemötanden till ARN</li>
               <li>• Beslutsmatris: när reparera, omleverera, prisavdrag?</li>
               <li>• <b>Mötesunderlag</b> (checklista + tidslinje) skickas efter bokning – ej offentlig nedladdning</li>
