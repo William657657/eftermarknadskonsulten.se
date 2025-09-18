@@ -1,147 +1,116 @@
 <!doctype html>
 <html lang="sv">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Eftermarknadsverktyg – ägd lösning | EMK Sverige AB</title>
-  <meta name="description" content="Ägd, kostnadseffektiv eftermarknadslösning för bilhandlare – du äger koden från dag 1. Stöd för handlare, verkstad, inköp m.fl.">
-  <link rel="icon" href="/favicon.ico" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root{--gold:#D4AF37;--ink:#2B2410;--paper:#FAF7EF}
-    body{background:var(--paper);color:#1A1A1A;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial}
-    .brand-primary{color:var(--ink)}
-    .card{background:#fff;border:1px solid #E5E7EB;border-radius:1rem}
-    .btn-gold{background:var(--gold);color:#111827}
-    .btn-ghost{border:1px solid #E5E7EB;color:#2B2410}
-    section[id]{ scroll-margin-top: 6.5rem; }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verktyg | EMK Sverige AB</title>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/assets/emk-theme.css?v=5">
 </head>
 <body>
-  <!-- Header (menylänkarna pekar till startsidans ankare) -->
-  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-gray-200">
-    <div class="max-w-6xl mx-auto h-16 px-4 md:px-8 flex items-center justify-between">
-      <a href="/"><img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK logotyp" class="h-9 w-auto" /></a>
-      <nav class="hidden md:flex items-center gap-6 text-sm text-gray-600">
-        <a href="/#tjanster" class="hover:underline">Tjänster</a>
-        <a href="/#process" class="hover:underline">Process</a>
-        <a href="/#case" class="hover:underline">Case</a>
-        <a href="/#policy" class="hover:underline">Policy</a>
-        <a href="/#kontakt" class="hover:underline">Kontakt</a>
+  <!-- HEADER (identisk med övriga sidor) -->
+  <header class="topbar" role="banner">
+    <div class="container wrap">
+      <a class="logo" href="/index.html">
+        <img src="/favicon.ico" alt="EMK Sverige AB"><span>EMK Sverige AB</span>
+      </a>
+      <nav class="nav" aria-label="Huvudmeny">
+        <a href="/index.html">Hem</a>
+        <a href="/tjanster.html">Tjänster</a>
+        <a href="/process.html">Process</a>
+        <a href="/case.html">Case</a>
+        <a href="/policy.html">Policy</a>
+        <a href="/Om-Oss.html">Om oss</a>
+        <a href="/formular.html">Kontakt</a>
       </nav>
-      <a href="/#kontakt" class="hidden md:inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm btn-gold">Boka ett samtal</a>
     </div>
   </header>
+  <script>
+    (function(){
+      var p = location.pathname.replace(/\/+$/,''); // markerar aktiv länk om ruta finns i menyn
+      document.querySelectorAll('.topbar .nav a').forEach(function(a){
+        if(a.getAttribute('href')===p){ a.classList.add('active'); a.setAttribute('aria-current','page'); }
+      });
+    })();
+  </script>
 
-  <main class="max-w-6xl mx-auto px-4 md:px-8 py-10">
-    <h1 class="text-3xl md:text-5xl font-semibold brand-primary">Eftermarknadsverktyg – ägd lösning</h1>
-    <p class="mt-3 text-sm md:text-base text-gray-700 max-w-3xl">
-      Vi bygger ett <b>kostnadseffektivt, webbaserat verktyg</b> som stödjer er eftermarknadsprocess – från ärendeintag till beslut och uppföljning.
-      Ni <b>äger koden från dag 1</b> (repo + rättigheter), utan inlåsning. Vi kan uppgradera och anpassa på löpande avtal vid behov.
-    </p>
+  <!-- INNEHÅLL -->
+  <main class="section">
+    <div class="container">
+      <h1>Verktyg</h1>
+      <p class="text-muted">Praktiska mallar och arbetsdokument som stödjer eftermarknadsarbetet och KKL/ARN-processen.</p>
 
-    <div class="grid md:grid-cols-2 gap-6 mt-8">
-      <div class="card p-6">
-        <h2 class="text-lg font-semibold brand-primary">Vad verktyget täcker</h2>
-        <ul class="mt-3 text-sm text-gray-700 space-y-2">
-          <li>• Ärendeintag (kund/fordon, felbeskrivning, bilagor)</li>
-          <li>• Styrt verkstadsval & felsökningsflöde</li>
-          <li>• Beslutsmatris (reparation/omleverans/prisavdrag)</li>
-          <li>• Tidslinje & dokumentation (spårbarhet)</li>
-          <li>• Roller: handlare, egen verkstad, inköp m.fl.</li>
-        </ul>
+      <div class="grid-3">
+        <article class="card">
+          <h2>Beslutsmatris (KKL §§25–28)</h2>
+          <p>Styr återkoppling och åtgärdsval (reparation, omleverans, prisavdrag) utifrån feltyp, bevisning och tidslinje.</p>
+          <ul class="list">
+            <li>Inmatning: felbeskrivning, bevisning</li>
+            <li>Viktning/prioritering</li>
+            <li>Rekommenderad åtgärd + motivering</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Yttrande- & bemötandemall</h2>
+          <p>Strukturerar underlag, praxisreferenser och sakframställan för ett komplett yttrande till ARN.</p>
+          <ul class="list">
+            <li>Checklista för bilagor</li>
+            <li>Disposition & rubriker</li>
+            <li>Mall för sammanfattning</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Felsökningsprotokoll</h2>
+          <p>Dokumenterar verkstadsfynd, kontakt med kund/säljare och godkännanden innan nästa steg.</p>
+          <ul class="list">
+            <li>Spårbar tidslinje</li>
+            <li>Fotobilagor</li>
+            <li>Godkännandefält</li>
+          </ul>
+        </article>
       </div>
-      <div class="card p-6">
-        <h2 class="text-lg font-semibold brand-primary">Ägande & drift</h2>
-        <ul class="mt-3 text-sm text-gray-700 space-y-2">
-          <li>• Ni får <b>kod och repo</b> från start – ni äger lösningen</li>
-          <li>• Kan hostas där ni vill (eget konto/leverantör)</li>
-          <li>• Inga licenslås – uppgraderingar vid behov</li>
-          <li>• Avtal om förvaltning/vidareutveckling är <b>valfritt</b></li>
-        </ul>
+
+      <div class="grid-3" style="margin-top:20px">
+        <article class="card">
+          <h2>Leverans- & reklamationslogg</h2>
+          <p>Samlar leveransanmärkningar och efterföljande hantering för snabbare beslut.</p>
+        </article>
+
+        <article class="card">
+          <h2>Mall för kundkommunikation</h2>
+          <p>Standardiserade formuleringar (inledande svar, kompletteringsbegäran, besked).</p>
+        </article>
+
+        <article class="card">
+          <h2>Dokumentbibliotek</h2>
+          <p>Strukturerad lagring av avtal, intyg och bilagor – lätt att dela i ärenden.</p>
+        </article>
       </div>
-    </div>
 
-    <div class="card p-6 mt-6">
-      <h2 class="text-lg font-semibold brand-primary">Förebyggande stöd – pre-ARN</h2>
-      <p class="mt-2 text-sm text-gray-700">
-        Vi hjälper även i ärenden som <b>kan</b> bli ARN-ärenden: tidig analys, dokumentationsplan, kommunikationsstöd och rekommenderade åtgärder för att minska risken
-        för tvist och kostnad.
-      </p>
-    </div>
-
-    <div class="mt-8 flex gap-3">
-      <a href="https://forms.gle/CNSjqMaRJ6McyXp57" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm btn-gold">Begär demo + genomgång</a>
-      <a href="/#tjanster" class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold btn-ghost">Tillbaka till tjänster</a>
+      <div class="card" style="margin-top:20px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+        <div>
+          <h2>Vill ni ha verktygen implementerade?</h2>
+          <p class="text-muted">Vi sätter upp mallarna i er miljö och utbildar teamet.</p>
+        </div>
+        <p style="margin:0">
+          <a class="btn btn-primary" href="/formular.html">Kontakta oss</a>
+          <a class="btn btn-outline" href="/policy.html">Läs policy</a>
+        </p>
+      </div>
     </div>
   </main>
 
-  <!-- Footer (samma som index) -->
-  <footer class="mt-10 border-t border-gray-200">
-    <div class="max-w-6xl mx-auto px-4 md:px-8 py-8 text-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-gray-600">
-      <div class="flex items-center gap-2">
-        <img src="/assets/customcolor_icon_customcolor_background.png" alt="EMK logotyp" class="h-8 w-8 rounded-lg" />
-        <div>
-          <div class="font-medium brand-primary">EMK Sverige AB</div>
-          <div>Org.nr 559514-0111 · Trensum</div>
-        </div>
-      </div>
-      <div class="grid md:grid-cols-3 gap-6 w-full md:w-auto">
-        <div>
-          <div class="font-medium mb-1 brand-primary">Kontakt</div>
-          <div><a class="hover:underline" href="mailto:william@emksab.se">william@emksab.se</a></div>
-          <div>0708-26 33 66</div>
-          <div>0708-801 118</div>
-          <div>0708-26 33 66</div>
-        </div>
-        <div>
-          <div class="font-medium mb-1 brand-primary">Sidor</div>
-          <a class="block hover:underline" href="/#tjanster">Tjänster</a>
-          <a class="block hover:underline" href="/#process">Process</a>
-          <a class="block hover:underline" href="/#policy">Policy</a>
-        </div>
-        <div>
-          <div class="font-medium mb-1 brand-primary">Länkar</div>
-          <a class="block hover:underline" href="/integritet.html">Integritet</a>
-          <a class="block hover:underline" href="/cookies.html">Cookies</a>
-          <a class="block hover:underline" href="/villkor.html">Allmänna villkor</a>
-        </div>
-      </div>
+  <!-- FOOTER (identisk) -->
+  <footer class="footer" role="contentinfo">
+    <div class="container wrap">
+      <small>© EMK Sverige AB</small>
+      <small><a href="/integritet.html">Integritet & GDPR</a></small>
+      <small><a href="/cookies.html">Cookies</a></small>
+      <small><a href="/policy.html">Policy</a></small>
+      <small><a href="/case.html">Case</a></small>
     </div>
   </footer>
-
-  <!-- Cookie banner -->
-  <div id="cookieBanner" class="fixed inset-x-0 bottom-0 z-40" style="display:none">
-    <div class="mx-auto max-w-6xl m-4 card p-4 md:p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-      <p class="text-sm text-gray-700">
-        Vi använder nödvändiga cookies för att sidan ska fungera. Analyscookies sätts bara om du samtycker.
-        Läs mer i vår <a class="underline" href="/cookies.html">cookie-policy</a>.
-      </p>
-      <div class="flex gap-2">
-        <button id="cookieReject" class="btn-ghost rounded-xl px-4 py-2 text-sm">Avvisa</button>
-        <button id="cookieAccept" class="btn-gold rounded-xl px-4 py-2 text-sm">Tillåt analyscookies</button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Cookie consent (samma logik som index)
-    (function(){
-      const KEY='emk_cookie_consent', b=document.getElementById('cookieBanner');
-      const a=document.getElementById('cookieAccept'), r=document.getElementById('cookieReject');
-      function show(){ b.style.display='block'; } function hide(){ b.style.display='none'; }
-      function loadAnalytics(){
-        const id='G-XXXXXXX'; if(id==='G-XXXXXXX') return;
-        const s=document.createElement('script'); s.src='https://www.googletagmanager.com/gtag/js?id='+id; s.async=true; document.head.appendChild(s);
-        window.dataLayer=window.dataLayer||[]; window.gtag=function(){dataLayer.push(arguments);} ; gtag('js', new Date()); gtag('config', id, { anonymize_ip: true });
-      }
-      const v=localStorage.getItem(KEY);
-      if(v==='accepted'){ loadAnalytics(); }
-      else if(v==='rejected'){ /* no-op */ }
-      else { show(); }
-      a?.addEventListener('click', ()=>{ localStorage.setItem(KEY,'accepted'); hide(); loadAnalytics(); });
-      r?.addEventListener('click', ()=>{ localStorage.setItem(KEY,'rejected'); hide(); });
-    })();
-  </script>
 </body>
 </html>
