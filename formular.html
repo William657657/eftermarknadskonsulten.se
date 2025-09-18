@@ -90,14 +90,9 @@
           <label>Do not fill<input id="website" type="text" tabindex="-1" autocomplete="off"></label>
         </div>
 
-        <div class="flex flex-wrap items-center gap-3 mt-2">
+        <div class="flex items-center gap-3 mt-2">
           <button type="submit" class="btn-gold rounded-xl px-5 py-3 text-sm font-semibold">Öppna e-post</button>
-          <a id="rawMailto" href="mailto:info@emksab.se" class="btn-ghost rounded-xl px-5 py-3 text-sm font-semibold">Skicka med e-postklient</a>
         </div>
-
-        <p id="hint" class="mt-2 text-xs text-gray-500">
-          Om inget händer kan din webbläsare blockera pop-ups. Använd knappen ”Skicka med e-postklient” i stället.
-        </p>
       </form>
     </div>
   </main>
@@ -105,10 +100,9 @@
   <script>
     (function(){
       const form = document.getElementById('contactForm');
-      const raw = document.getElementById('rawMailto');
       const TO = 'info@emksab.se'; // ändra vid behov
 
-      // Encode body for mailto with CRLF (Outlook kräver \r\n)
+      // Encode body for mailto with CRLF (Outlook vänligt)
       function encBody(s){
         const withCrlf = (s || '').replace(/\r?\n/g, '\r\n'); // LF -> CRLF
         return encodeURIComponent(withCrlf);
@@ -140,21 +134,15 @@
           message,
           '',
           '—',
-           '—',
-  'Detta mail är initierat via formulär på eftermarknadskonsulten.se'
+          'Detta mail är initierat via formulär på eftermarknadskonsulten.se'
+          // OBS: Ingen "Vänligen svara till: …" längre
         ];
 
         const body = bodyLines.join('\n');
-
         const mailto = `mailto:${TO}?subject=${encSubject(subject)}&body=${encBody(body)}`;
 
-        // Längdvarning (mailto bryts ofta > ~2000 tecken)
-        if (mailto.length > 1900) {
-          alert('Ditt meddelande är ovanligt långt. En del text kan kapas i mailklienten. Kopiera gärna texten innan du fortsätter.');
-        }
-
-        raw.href = mailto;             // uppdatera fallback-länken
-        window.open(mailto, '_blank'); // öppna ny flik/fönster
+        // Öppna användarens e-postklient (ingen popup, fungerar bättre)
+        window.location.href = mailto;
       });
     })();
   </script>
