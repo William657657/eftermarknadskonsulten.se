@@ -3,14 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Eftermarknadskonsulten – ARN-stöd för bilhandlare | EMK Sverige AB</title>
-  <meta name="description" content="Praktiskt stöd i ARN-processen för bilhandlare: snabb respons, kompletta yttranden, beslutsmatris och utbildning.">
+
+  <!-- SEO -->
+  <title>ARN-stöd för bilhandlare – yttranden, rådgivning & process | EMK Sverige AB</title>
+  <meta name="description" content="Eftermarknadskonsulten hjälper bilhandlare med ARN: bedömning, yttranden, bemötande och strategi enligt Konsumentköplagen. Snabbt stöd – boka ett samtal.">
+  <link rel="canonical" href="https://www.eftermarknadskonsulten.se/">
+
+  <!-- Icons / Open Graph -->
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
   <meta property="og:title" content="Eftermarknadskonsulten – ARN-stöd för bilhandlare | EMK Sverige AB" />
   <meta property="og:description" content="Praktiskt stöd i konsumentköpsfrågor och ARN-ärenden för bilhandlare." />
   <meta property="og:url" content="https://www.eftermarknadskonsulten.se" />
   <meta property="og:image" content="/assets/customcolor_textlogo_customcolor_background.png" />
+
+  <!-- Preload viktig logga (LCP) -->
+  <link rel="preload" as="image" href="/assets/customcolor_logo_customcolor_background.png" fetchpriority="high">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root{--gold:#D4AF37;--ink:#2B2410;--paper:#FAF7EF}
@@ -22,6 +31,47 @@
     /* Ankarlänkar landar snyggt under sticky-headern (ca 7rem marginal) */
     section[id]{ scroll-margin-top: 7.0rem; }
   </style>
+
+  <!-- JSON-LD: Organization + Website + Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.eftermarknadskonsulten.se/#org",
+        "name": "EMK Sverige AB",
+        "url": "https://www.eftermarknadskonsulten.se/",
+        "logo": "https://www.eftermarknadskonsulten.se/assets/customcolor_logo_customcolor_background.png",
+        "foundingDate": "2023",
+        "address": { "@type": "PostalAddress", "addressLocality": "Trensum", "addressCountry": "SE" },
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "email": "info@emksab.se",
+          "telephone": "+46-708-263366",
+          "areaServed": "SE",
+          "availableLanguage": ["sv"]
+        }]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.eftermarknadskonsulten.se/#website",
+        "url": "https://www.eftermarknadskonsulten.se/",
+        "name": "Eftermarknadskonsulten",
+        "publisher": { "@id": "https://www.eftermarknadskonsulten.se/#org" }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://www.eftermarknadskonsulten.se/#service",
+        "serviceType": "ARN-stöd för bilhandlare",
+        "provider": { "@id": "https://www.eftermarknadskonsulten.se/#org" },
+        "areaServed": { "@type": "AdministrativeArea", "name": "Sverige" },
+        "audience": { "@type": "BusinessAudience", "name": "Bilhandlare" }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- Header -->
@@ -40,9 +90,9 @@
       </nav>
 
       <div class="flex items-center gap-2">
-        <!-- Desktop CTA (ankarlänk enligt tidigare) -->
+        <!-- Desktop CTA -->
         <a href="#kontakt" class="hidden md:inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm btn-gold">Boka ett samtal</a>
-        <!-- Mobil CTA (till egen kontaktsida) -->
+        <!-- Mobil CTA -->
         <a href="/formular.html" target="_blank" rel="noopener"
            class="md:hidden inline-flex items-center justify-center rounded-lg px-3 py-2 text-sm font-semibold shadow-sm btn-gold">
           Kontakta oss
@@ -243,11 +293,50 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section id="faq" class="py-14 px-4 md:px-8">
+    <div class="max-w-3xl mx-auto card p-6 md:p-8">
+      <h3 class="text-lg font-semibold brand-primary">Vanliga frågor om ARN-stöd</h3>
+      <div class="mt-4 grid gap-4 text-sm text-gray-700">
+        <div>
+          <p class="font-medium">Hur snabbt får vi återkoppling?</p>
+          <p>Vi gör en första bedömning inom 12 arbetstimmar och föreslår åtgärdsplan.</p>
+        </div>
+        <div>
+          <p class="font-medium">Kan ni skriva yttrandet till ARN?</p>
+          <p>Ja, vi tar fram kompletta yttranden med bevisning och praxisstöd.</p>
+        </div>
+        <div>
+          <p class="font-medium">Arbetar ni enligt Konsumentköplagen?</p>
+          <p>Ja, vi utgår från KKL och gällande ARN-praxis och ger tydliga rekommendationer.</p>
+        </div>
+        <div>
+          <p class="font-medium">Vi vill undvika hävning – vad gör ni?</p>
+          <p>Vi styr processen, föreslår proportionerliga lösningar och minimerar kostnader.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"Hur snabbt får vi återkoppling?","acceptedAnswer":{"@type":"Answer","text":"Vi gör en första bedömning inom 12 arbetstimmar och föreslår åtgärdsplan."}},
+      {"@type":"Question","name":"Kan ni skriva yttrandet till ARN?","acceptedAnswer":{"@type":"Answer","text":"Ja, vi tar fram kompletta yttranden med bevisning och praxisstöd."}},
+      {"@type":"Question","name":"Arbetar ni enligt Konsumentköplagen?","acceptedAnswer":{"@type":"Answer","text":"Ja, vi utgår från KKL och gällande ARN-praxis och ger tydliga rekommendationer."}},
+      {"@type":"Question","name":"Vi vill undvika hävning – vad gör ni?","acceptedAnswer":{"@type":"Answer","text":"Vi styr processen, föreslår proportionerliga lösningar och minimerar kostnader."}}
+    ]
+  }
+  </script>
+
   <!-- Footer -->
   <footer class="mt-10 border-t border-gray-200">
     <div class="max-w-6xl mx-auto px-4 md:px-8 py-8 text-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-gray-600">
       <div class="flex items-center gap-2">
-        <img src="/assets/customcolor_icon_customcolor_background.png" alt="EMK logotyp" class="h-8 w-8 rounded-lg" />
+        <img src="/assets/customcolor_icon_customcolor_background.png" alt="EMK logotyp" class="h-8 w-8 rounded-lg" loading="lazy" decoding="async" />
         <div>
           <div class="font-medium brand-primary">EMK Sverige AB</div>
           <div>Org.nr 559514-0111 · Trensum</div>
