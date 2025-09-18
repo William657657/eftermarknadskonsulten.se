@@ -6,114 +6,85 @@
   <title>Eftermarknadskonsulten – ARN-stöd & eftermarknadsprocesser för bilhandlare | EMK Sverige AB</title>
   <meta name="description" content="Praktiskt ARN-stöd för bilhandlare: kompletta yttranden, beslutsmatris enligt KKL, utbildning och processplattform. Snabb respons, lugnare affär – EMK Sverige AB." />
   <link rel="canonical" href="https://www.eftermarknadskonsulten.se/" />
-  <meta name="theme-color" content="#111827" />
+  <meta name="theme-color" content="#000000" />
 
-  <!-- Open Graph / Twitter -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Eftermarknadskonsulten – ARN-stöd för bilhandlare" />
   <meta property="og:description" content="Kompletta yttranden, beslutsmatris och eftermarknadsprocesser som minskar tvister. EMK Sverige AB." />
   <meta property="og:url" content="https://www.eftermarknadskonsulten.se/" />
   <meta property="og:image" content="https://www.eftermarknadskonsulten.se/assets/og-cover.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
 
-  <!-- Tailwind via CDN för enkel styling -->
+  <!-- Tailwind setup med dina färger -->
+  <script>
+    tailwind = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#000000',
+              gold: '#D4AF37',
+              white: '#ffffff'
+            }
+          }
+        }
+      }
+    }
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Structured data: ProfessionalService + FAQ -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Eftermarknadskonsulten – EMK Sverige AB",
-    "url": "https://www.eftermarknadskonsulten.se/",
-    "logo": "https://www.eftermarknadskonsulten.se/assets/customcolor_icon_customcolor_background.png",
-    "image": "https://www.eftermarknadskonsulten.se/assets/og-cover.jpg",
-    "description": "ARN-stöd, yttranden och eftermarknadsprocesser för bilhandlare.",
-    "areaServed": "SE",
-    "telephone": "+46 708 26 33 66",
-    "email": "info@emksab.se",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Törnerydsvägen 42-40",
-      "postalCode": "374 96",
-      "addressLocality": "Trensum",
-      "addressCountry": "SE"
-    },
-    "sameAs": []
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [{
-      "@type": "Question",
-      "name": "Vad ingår i ert ARN-stöd?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Snabb bedömning, faktainsamling, komplett yttrande till ARN, beslutsmatris enligt KKL och rekommenderade åtgärder för att minska risken framåt."
-      }
-    },{
-      "@type": "Question",
-      "name": "Vem äger koden om vi bygger en intern processplattform?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ni äger koden från dag ett. Vi kan förvalta och vidareutveckla på löpande avtal om ni vill."
-      }
-    },{
-      "@type": "Question",
-      "name": "Hur snabbt kan ni leverera ett yttrande?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Vi arbetar i sprintformat. Ofta kan ett första utkast levereras inom 24–72 timmar efter komplett underlag."
-      }
-    }]
-  }
-  </script>
+  <style>
+    h1, h2, h3 { word-break: break-word; hyphens: auto; }
+  </style>
 </head>
-<body class="bg-white text-gray-900 antialiased">
+<body class="bg-brand-white text-brand-black antialiased">
   <!-- Header -->
-  <header class="border-b">
+  <header class="border-b border-brand-black/10">
     <div class="max-w-6xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
       <a href="/" class="flex items-center gap-3">
         <img src="/assets/customcolor_icon_customcolor_background.png" alt="EMK logotyp" class="w-8 h-8 rounded-lg" />
         <span class="font-semibold">Eftermarknadskonsulten</span>
       </a>
       <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="#tjanster" class="hover:underline">Tjänster</a>
-        <a href="#process" class="hover:underline">Process</a>
-        <a href="/plattform.html" class="hover:underline">Plattform</a>
-        <a href="/formular.html" class="hover:underline">Kontakt</a>
+        <a href="#tjanster" class="hover:text-brand-gold">Tjänster</a>
+        <a href="#process" class="hover:text-brand-gold">Process</a>
+        <a href="/plattform.html" class="hover:text-brand-gold">Plattform</a>
+        <a href="/formular.html" class="hover:text-brand-gold">Kontakt</a>
       </nav>
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="bg-gray-50 border-b">
-    <div class="max-w-6xl mx-auto px-4 md:px-8 py-12 md:py-20 grid md:grid-cols-2 gap-8 items-center">
+  <section class="bg-brand-white border-b border-brand-black/10">
+    <div class="max-w-6xl mx-auto px-4 md:px-8 py-12 md:py-20 grid md:grid-cols-2 gap-10 lg:gap-14 items-start">
       <div>
-        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">ARN-stöd & eftermarknadsprocesser för bilhandlare</h1>
-        <p class="mt-4 text-gray-700 text-lg">Färre tvister, kortare ledtider och lugnare säljare. Vi skriver kompletta yttranden, bygger beslutsmatriser enligt KKL och sätter en process som håller.</p>
+        <h1 class="text-3xl md:text-5xl font-extrabold leading-snug md:leading-tight">
+          ARN-stöd & eftermarknadsprocesser för bilhandlare
+        </h1>
+        <p class="mt-4 text-base md:text-lg text-brand-black/80">
+          Färre tvister, kortare ledtider och lugnare säljare. Vi skriver kompletta yttranden,
+          bygger beslutsmatriser enligt KKL och sätter en process som håller.
+        </p>
         <div class="mt-6 flex flex-wrap gap-3">
-          <a href="/formular.html" class="px-5 py-3 rounded-xl bg-black text-white hover:opacity-90">Boka samtal</a>
-          <a href="#tjanster" class="px-5 py-3 rounded-xl border hover:bg-gray-100">Se tjänster</a>
+          <a href="/formular.html" class="px-5 py-3 rounded-xl bg-brand-black text-white hover:bg-brand-gold hover:text-brand-black">Boka samtal</a>
+          <a href="#tjanster" class="px-5 py-3 rounded-xl border border-brand-black hover:bg-brand-gold hover:text-brand-black">Se tjänster</a>
         </div>
-        <p class="mt-3 text-xs text-gray-500">ICP: Bilhandlare som säljer 50–2 500 bilar/år.</p>
+        <p class="mt-3 text-xs text-brand-black/60">ICP: Bilhandlare som säljer 50–2 500 bilar/år.</p>
       </div>
-      <div class="p-6 bg-white rounded-2xl shadow-sm border">
+
+      <aside class="p-6 bg-brand-white rounded-2xl shadow-sm border border-brand-black/10">
         <h2 class="text-lg font-semibold">Snabb väg in</h2>
-        <ul class="mt-3 text-sm text-gray-700 space-y-2 list-disc pl-5">
-          <li>Akut ARN-ärende? <a class="underline" href="mailto:info@emksab.se?subject=Akut%20ARN-ärende%20-%20EMK">Maila oss direkt</a>.</li>
+        <ul class="mt-3 text-sm text-brand-black/80 space-y-2 list-disc pl-5">
+          <li>Akut ARN-ärende? <a class="underline text-brand-gold" href="mailto:info@emksab.se?subject=Akut%20ARN-ärende%20-%20EMK">Maila oss direkt</a>.</li>
           <li>Vill ni äga koden? Vi bygger er egen plattform – ni äger från dag 1.</li>
           <li>Utbildning för sälj & verkstad – minska risken innan den uppstår.</li>
         </ul>
         <div class="mt-4">
-          <a href="/integritet.html" class="text-xs underline text-gray-600">Integritet & dataskydd</a>
+          <a href="/integritet.html" class="text-xs underline text-brand-black/60">Integritet & dataskydd</a>
         </div>
-      </div>
+      </aside>
     </div>
   </section>
 
@@ -121,88 +92,88 @@
   <section id="tjanster" class="max-w-6xl mx-auto px-4 md:px-8 py-14">
     <h2 class="text-2xl md:text-3xl font-bold">Tjänster för bilhandlare</h2>
     <div class="mt-8 grid md:grid-cols-3 gap-6">
-      <article class="p-6 border rounded-2xl">
+      <article class="p-6 border border-brand-black/10 rounded-2xl">
         <h3 class="font-semibold">ARN-stöd & yttranden</h3>
-        <p class="mt-2 text-sm text-gray-700">Faktainsamling, juridisk struktur enligt KKL och komplett yttrande till ARN. Vi bemöter påståenden sakligt och processar bevisning effektivt.</p>
-        <ul class="mt-3 text-sm text-gray-700 list-disc pl-5 space-y-1">
+        <p class="mt-2 text-sm text-brand-black/80">Faktainsamling, juridisk struktur enligt KKL och komplett yttrande till ARN. Vi bemöter påståenden sakligt och processar bevisning effektivt.</p>
+        <ul class="mt-3 text-sm text-brand-black/80 list-disc pl-5 space-y-1">
           <li>Klargörande av ansvar (25–27 §§ KKL)</li>
           <li>Bedömning av avhjälpande/omleverans</li>
           <li>Argumentation mot hävning vid olägenhet</li>
         </ul>
       </article>
-      <article class="p-6 border rounded-2xl">
+      <article class="p-6 border border-brand-black/10 rounded-2xl">
         <h3 class="font-semibold">Beslutsmatris & dokumentation</h3>
-        <p class="mt-2 text-sm text-gray-700">Standardisera reklamationsprotokoll och bestäm beslutsvägar i förväg. Gör rätt första gången och spara veckor.</p>
-        <ul class="mt-3 text-sm text-gray-700 list-disc pl-5 space-y-1">
+        <p class="mt-2 text-sm text-brand-black/80">Standardisera reklamationsprotokoll och bestäm beslutsvägar i förväg. Gör rätt första gången och spara veckor.</p>
+        <ul class="mt-3 text-sm text-brand-black/80 list-disc pl-5 space-y-1">
           <li>Mallpaket för sälj/verkstad</li>
           <li>Checklista in/utleverans</li>
           <li>Kommunikationsscript till kund</li>
         </ul>
       </article>
-      <article class="p-6 border rounded-2xl">
+      <article class="p-6 border border-brand-black/10 rounded-2xl">
         <h3 class="font-semibold">Plattform – ni äger koden</h3>
-        <p class="mt-2 text-sm text-gray-700">Vi bygger en enkel, skalbar processplattform ni kontrollerar själva. Uppgraderingar kan beställas löpande.</p>
-        <a href="/plattform.html" class="mt-3 inline-block text-sm underline">Läs mer</a>
+        <p class="mt-2 text-sm text-brand-black/80">Vi bygger en enkel, skalbar processplattform ni kontrollerar själva. Uppgraderingar kan beställas löpande.</p>
+        <a href="/plattform.html" class="mt-3 inline-block text-sm underline text-brand-gold">Läs mer</a>
       </article>
     </div>
     <div class="mt-8">
-      <a href="/formular.html" class="px-5 py-3 rounded-xl bg-black text-white hover:opacity-90">Be om offert</a>
+      <a href="/formular.html" class="px-5 py-3 rounded-xl bg-brand-black text-white hover:bg-brand-gold hover:text-brand-black">Be om offert</a>
     </div>
   </section>
 
   <!-- Process -->
-  <section id="process" class="bg-gray-50 border-y">
+  <section id="process" class="bg-brand-white border-y border-brand-black/10">
     <div class="max-w-6xl mx-auto px-4 md:px-8 py-14">
       <h2 class="text-2xl md:text-3xl font-bold">Så jobbar vi – 30-dagars sprint</h2>
       <ol class="mt-6 grid md:grid-cols-4 gap-6 text-sm">
-        <li class="p-5 bg-white border rounded-2xl"><span class="font-semibold">1. Diagnos</span><br/>Snabb genomlysning av ärenden & flaskhalsar.</li>
-        <li class="p-5 bg-white border rounded-2xl"><span class="font-semibold">2. Design</span><br/>Beslutsmatris, mallar & ansvar.</li>
-        <li class="p-5 bg-white border rounded-2xl"><span class="font-semibold">3. Införande</span><br/>Träning, kommunikation & första ARN-yttranden.</li>
-        <li class="p-5 bg-white border rounded-2xl"><span class="font-semibold">4. Finjustering</span><br/>Mätetal och förbättringar vecka 3–4.</li>
+        <li class="p-5 bg-brand-white border border-brand-black/10 rounded-2xl"><span class="font-semibold">1. Diagnos</span><br/>Snabb genomlysning av ärenden & flaskhalsar.</li>
+        <li class="p-5 bg-brand-white border border-brand-black/10 rounded-2xl"><span class="font-semibold">2. Design</span><br/>Beslutsmatris, mallar & ansvar.</li>
+        <li class="p-5 bg-brand-white border border-brand-black/10 rounded-2xl"><span class="font-semibold">3. Införande</span><br/>Träning, kommunikation & första ARN-yttranden.</li>
+        <li class="p-5 bg-brand-white border border-brand-black/10 rounded-2xl"><span class="font-semibold">4. Finjustering</span><br/>Mätetal och förbättringar vecka 3–4.</li>
       </ol>
-      <p class="mt-6 text-sm text-gray-700">Målet: kortare ledtider, färre tvister – och lugnare säljare.</p>
+      <p class="mt-6 text-sm text-brand-black/80">Målet: kortare ledtider, färre tvister – och lugnare säljare.</p>
     </div>
   </section>
 
-  <!-- Social proof / Case (placeholder) -->
+  <!-- Varför EMK -->
   <section class="max-w-6xl mx-auto px-4 md:px-8 py-14">
     <h2 class="text-2xl md:text-3xl font-bold">Varför EMK?</h2>
     <div class="mt-6 grid md:grid-cols-3 gap-6 text-sm">
-      <div class="p-6 border rounded-2xl"><strong>Bilhandlarfokus</strong><br/>ICP 50–2 500 bilar/år – våra mallar är byggda för er vardag.</div>
-      <div class="p-6 border rounded-2xl"><strong>Praktisk juridik</strong><br/>Konsumentköplagen i praktiken, inte bara teori.</div>
-      <div class="p-6 border rounded-2xl"><strong>Ägd kod</strong><br/>System ni kontrollerar – med support när ni vill.</div>
+      <div class="p-6 border border-brand-black/10 rounded-2xl"><strong>Bilhandlarfokus</strong><br/>ICP 50–2 500 bilar/år – våra mallar är byggda för er vardag.</div>
+      <div class="p-6 border border-brand-black/10 rounded-2xl"><strong>Praktisk juridik</strong><br/>Konsumentköplagen i praktiken, inte bara teori.</div>
+      <div class="p-6 border border-brand-black/10 rounded-2xl"><strong>Ägd kod</strong><br/>System ni kontrollerar – med support när ni vill.</div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="bg-black text-white">
+  <section class="bg-brand-black text-brand-white">
     <div class="max-w-6xl mx-auto px-4 md:px-8 py-12 text-center">
       <h2 class="text-2xl md:text-3xl font-bold">Färre ARN-ärenden. Mer tid till affärer.</h2>
-      <p class="mt-3 text-gray-200">Boka ett kort behovssamtal – kostnadsfritt.</p>
+      <p class="mt-3 text-brand-white/80">Boka ett kort behovssamtal – kostnadsfritt.</p>
       <div class="mt-6 flex justify-center gap-3">
-        <a href="/formular.html" class="px-5 py-3 rounded-xl bg-white text-black">Boka samtal</a>
-        <a href="mailto:info@emksab.se" class="px-5 py-3 rounded-xl border border-white">Maila oss</a>
+        <a href="/formular.html" class="px-5 py-3 rounded-xl bg-brand-white text-brand-black hover:bg-brand-gold">Boka samtal</a>
+        <a href="mailto:info@emksab.se" class="px-5 py-3 rounded-xl border border-brand-white hover:bg-brand-gold hover:text-brand-black">Maila oss</a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="border-t">
-    <div class="max-w-6xl mx-auto px-4 md:px-8 py-8 text-sm text-gray-600 grid md:grid-cols-3 gap-6">
+  <footer class="border-t border-brand-black/10">
+    <div class="max-w-6xl mx-auto px-4 md:px-8 py-8 text-sm text-brand-black/80 grid md:grid-cols-3 gap-6">
       <div>
-        <div class="font-semibold text-gray-800">EMK Sverige AB</div>
+        <div class="font-semibold text-brand-black">EMK Sverige AB</div>
         <div>Törnerydsvägen 42-40, 374 96 Trensum</div>
         <div><a class="underline" href="mailto:info@emksab.se">info@emksab.se</a> · +46 708 26 33 66</div>
       </div>
       <div class="space-y-1">
-        <a href="/integritet.html" class="hover:underline">Integritet</a><br/>
-        <a href="/cookies.html" class="hover:underline">Cookies</a><br/>
-        <a href="/villkor.html" class="hover:underline">Villkor</a>
+        <a href="/integritet.html" class="hover:text-brand-gold">Integritet</a><br/>
+        <a href="/cookies.html" class="hover:text-brand-gold">Cookies</a><br/>
+        <a href="/villkor.html" class="hover:text-brand-gold">Villkor</a>
       </div>
       <div class="space-y-1">
-        <a href="/plattform.html" class="hover:underline">Plattform</a><br/>
-        <a href="/formular.html" class="hover:underline">Kontakt</a><br/>
-        <a href="/sitemap.xml" class="hover:underline">Sitemap</a>
+        <a href="/plattform.html" class="hover:text-brand-gold">Plattform</a><br/>
+        <a href="/formular.html" class="hover:text-brand-gold">Kontakt</a><br/>
+        <a href="/sitemap.xml" class="hover:text-brand-gold">Sitemap</a>
       </div>
     </div>
   </footer>
