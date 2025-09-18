@@ -1,48 +1,46 @@
 /* ===== EMK Sverige AB – Globalt tema (guld/beige) ===== */
 :root{
   /* Ytor */
-  --bg:       #f7f3ea;   /* varm ljus bakgrund */
-  --surface:  #ffffff;   /* kort/sektioner */
-  --elev:     #faf7f0;   /* lätt upphöjd yta */
+  --bg:#f7f3ea;      /* varm ljus bakgrund */
+  --surface:#ffffff; /* kort/sektioner */
+  --elev:#faf7f0;    /* lätt upphöjd yta */
 
   /* Text */
-  --text:     #1f2937;   /* nästan svart */
-  --muted:    #6b7280;   /* sekundär text */
+  --text:#1f2937;    /* nästan svart */
+  --muted:#6b7280;   /* sekundär text */
 
   /* Brand */
-  --primary:  #D4AF37;   /* EMK guld */
-  --primary-contrast:#1f2937; /* text på guldknappar */
-  --tint:     #f6ecd2;   /* ljus ton för aktiva länkar/hover */
-  --link:     var(--primary);
+  --primary:#D4AF37;            /* EMK guld */
+  --primary-contrast:#1f2937;   /* text på guldknapp */
+  --tint:#f6ecd2;               /* ljus ton för hover/active */
+  --link:var(--primary);
 
   /* Linjer & radius */
-  --border:   #e8e2d6;
-  --radius:   16px;
+  --border:#e8e2d6;
+  --radius:16px;
 
   /* Layout */
-  --maxw: 1140px;
-  --pad:  24px;
+  --maxw:1140px;
+  --pad:24px;
 }
 
-/* ===== Bas + fix mot hoppande layout ===== */
+/* ===== Bas + fix mot hoppande meny ===== */
 *{box-sizing:border-box}
 html{
   height:100%;
-  /* Lås scroll-gutter så logga/meny inte hoppar i sidled mellan sidor */
-  scrollbar-gutter: stable both-edges;
-  /* Fallback för äldre webbläsare: visa alltid vertikal scroll */
-  overflow-y: scroll;
+  scrollbar-gutter: stable both-edges; /* lås bredden när sida scrollar */
+  overflow-y: scroll;                  /* fallback för äldre browsers */
 }
 body{
   min-height:100%;
   margin:0;
   background:var(--bg);
   color:var(--text);
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
   line-height:1.6;
 }
 
-/* ===== Utilities ===== */
+/* ===== Utilities (påverkar inte din text) ===== */
 .container{max-width:var(--maxw);margin:0 auto;padding:var(--pad)}
 .section{padding:56px 0}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
@@ -54,50 +52,55 @@ body{
 a{color:var(--link);text-decoration:none}
 a:hover{text-decoration:underline}
 
-/* ===== Knapp ===== */
-.btn{
-  display:inline-block; padding:12px 18px; border-radius:12px;
-  border:1px solid transparent; text-decoration:none; font-weight:600
-}
-.btn-primary{background:var(--primary); color:var(--primary-contrast)}
-.btn-outline{background:transparent; border-color:var(--primary); color:var(--primary)}
-.btn-ghost{background:transparent; color:var(--primary)}
+/* ===== Knapp (om/ där du använder .btn) ===== */
+.btn{display:inline-block;padding:12px 18px;border-radius:12px;border:1px solid transparent;text-decoration:none;font-weight:600}
+.btn-primary{background:var(--primary);color:var(--primary-contrast)}
+.btn-outline{background:transparent;border-color:var(--primary);color:var(--primary)}
 .btn:hover{filter:brightness(0.98)}
 
-/* ===== Navbar (samma på ALLA sidor) ===== */
-.navbar{background:var(--surface); border-bottom:1px solid var(--border)}
-.navbar .wrap{display:flex; align-items:center; justify-content:space-between}
-.logo{font-weight:800; color:var(--text); text-decoration:none}
-.nav{display:flex; gap:18px; align-items:center}
-.nav a{
-  display:inline-block;
+/* ===== Navbar (generiskt – ingen copy ändras) ===== */
+header{background:var(--surface);border-bottom:1px solid var(--border)}
+header .wrap{display:flex;align-items:center;justify-content:space-between}
+header a.logo{font-weight:800;color:var(--text);text-decoration:none}
+header nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+header nav a{
   color:var(--text); text-decoration:none;
   padding:10px 10px; border-radius:10px;
   transition:background .15s,color .15s;
-  /* Ingen font-weight-skillnad på active → förhindrar “bredd-hopp” */
-  font-weight:600;
+  font-weight:600; /* samma vikt på/av active => ingen breddryck */
 }
-.nav a.active, .nav a:hover{
+header nav a.active,
+header nav a[aria-current="page"],
+header nav a:hover{
   color:var(--text);
-  background:var(--tint);   /* INGEN border/padding-förändring → ingen hoppning */
+  background:var(--tint); /* mjuk markering utan att ändra padding/border */
 }
 
-/* ===== Hero ===== */
-.hero .kicker{letter-spacing:.06em; text-transform:uppercase; color:var(--muted); font-size:.9rem; margin:0 0 6px}
-.hero h1{margin:0 0 10px 0; line-height:1.25}
-.hero .cta{display:flex; gap:12px; flex-wrap:wrap}
+/* ===== Hero-typografi (om du har .hero) ===== */
+.hero .kicker{letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-size:.9rem;margin:0 0 6px}
+.hero h1{margin:0 0 10px 0;line-height:1.25}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
 
-/* ===== Listor ===== */
+/* ===== Listor/avdelare ===== */
 .list{margin:0 0 0 18px}
 .list li{margin:.35rem 0}
+hr{border:0;border-top:1px solid var(--border)}
 
 /* ===== Footer ===== */
-.footer{border-top:1px solid var(--border); color:var(--muted)}
-.footer .wrap{display:flex; gap:12px; flex-wrap:wrap; justify-content:space-between; align-items:center}
+.footer{border-top:1px solid var(--border);color:var(--muted)}
+.footer .wrap{display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between;align-items:center}
 
-/* ===== Badge (guld-accent) ===== */
+/* ===== Badge (valfri guldchipp) ===== */
 .badge{
-  display:inline-block; padding:6px 10px; border-radius:999px;
-  background:linear-gradient(90deg, var(--primary), #f3d37a);
-  color:#1f2937; font-weight:700; font-size:.8rem
+  display:inline-block;padding:6px 10px;border-radius:999px;
+  background:linear-gradient(90deg,var(--primary),#f3d37a);
+  color:#1f2937;font-weight:700;font-size:.8rem
+}
+
+/* ===== Mobilfinlir ===== */
+@media (max-width:720px){
+  .section{padding:40px 0}
+  .card{padding:18px}
+  header nav{gap:12px}
+  h1{font-size:1.9rem}
 }
