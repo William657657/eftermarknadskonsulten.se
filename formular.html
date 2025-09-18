@@ -94,15 +94,23 @@
           <button type="submit" class="btn-gold rounded-xl px-5 py-3 text-sm font-semibold">Öppna e-post</button>
         </div>
       </form>
+
+      <!-- Fallback om JS är avstängt -->
+      <noscript>
+        <p class="mt-4 text-sm">
+          JavaScript är avstängt. Klicka här för att kontakta oss:
+          <a class="underline" href="mailto:info@emksab.se?subject=Kontakt via eftermarknadskonsulten.se">info@emksab.se</a>
+        </p>
+      </noscript>
     </div>
   </main>
 
   <script>
     (function(){
       const form = document.getElementById('contactForm');
-      const TO = 'info@emksab.se'; // ändra vid behov
+      const TO = 'info@emksab.se'; // fast mottagare
 
-      // Encode body for mailto with CRLF (Outlook vänligt)
+      // Encode body för mailto med CRLF (bra för Outlook)
       function encBody(s){
         const withCrlf = (s || '').replace(/\r?\n/g, '\r\n'); // LF -> CRLF
         return encodeURIComponent(withCrlf);
@@ -135,13 +143,12 @@
           '',
           '—',
           'Detta mail är initierat via formulär på eftermarknadskonsulten.se'
-          // OBS: Ingen "Vänligen svara till: …" längre
         ];
 
         const body = bodyLines.join('\n');
         const mailto = `mailto:${TO}?subject=${encSubject(subject)}&body=${encBody(body)}`;
 
-        // Öppna användarens e-postklient (ingen popup, fungerar bättre)
+        // Öppna användarens e-postklient i samma flik (stabilast)
         window.location.href = mailto;
       });
     })();
