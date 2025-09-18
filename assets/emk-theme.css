@@ -70,4 +70,5 @@ a:hover{text-decoration:underline}
 .badge{
   display:inline-block;padding:6px 10px;border-radius:999px;
   background:linear-gradient(90deg,var(--accent),#f3d37a);
-  color:#1f2937;
+  color:#1f2937;font-weight:700;font-size:.8rem
+}
