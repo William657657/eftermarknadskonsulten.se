@@ -41,7 +41,7 @@ a{color:var(--link);text-decoration:none}
 a:hover{text-decoration:underline}
 hr{border:0;border-top:1px solid var(--border)}
 
-/* ===== Knappar (om/ där du använder .btn) ===== */
+/* ===== Knappar ===== */
 .btn{display:inline-block;padding:12px 18px;border-radius:12px;border:1px solid transparent;text-decoration:none;font-weight:600}
 .btn-primary{background:var(--primary);color:var(--primary-contrast)}
 .btn-outline{background:transparent;border-color:var(--primary);color:var(--primary)}
@@ -50,20 +50,16 @@ hr{border:0;border-top:1px solid var(--border)}
 /* ===== TOPPBAR (identisk på ALLA sidor) ===== */
 .topbar{background:var(--surface);border-bottom:1px solid var(--border)}
 .topbar .wrap{display:flex;align-items:center;justify-content:space-between}
-.logo{
-  display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:800
-}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:800}
 .logo img{height:44px;width:auto;display:block;border-radius:6px}
 .nav{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
 .nav a{
   color:var(--text);text-decoration:none;padding:10px 12px;border-radius:10px;
-  transition:background .15s,color .15s; font-weight:600; /* samma vikt aktiv/ej aktiv */
+  transition:background .15s,color .15s;font-weight:600; /* samma vikt aktiv/ej aktiv */
 }
-.nav a.active,.nav a[aria-current="page"],.nav a:hover{
-  color:var(--text);background:var(--tint);
-}
+.nav a.active,.nav a[aria-current="page"],.nav a:hover{color:var(--text);background:var(--tint)}
 
-/* ===== Hero-typografi (om sidan har .hero) ===== */
+/* ===== Hero ===== */
 .hero .kicker{letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-size:.9rem;margin:0 0 6px}
 .hero h1{margin:0 0 10px 0;line-height:1.25}
 .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
@@ -72,7 +68,7 @@ hr{border:0;border-top:1px solid var(--border)}
 .footer{border-top:1px solid var(--border);color:var(--muted)}
 .footer .wrap{display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between;align-items:center}
 
-/* ===== Mobiljusteringar ===== */
+/* ===== Mobil ===== */
 @media (max-width:720px){
   .section{padding:40px 0}
   .card{padding:18px}
