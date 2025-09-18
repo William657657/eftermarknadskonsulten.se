@@ -6,79 +6,136 @@
   <title>Integritet & dataskydd (GDPR) | EMK Sverige AB – Eftermarknadskonsulten</title>
   <meta name="description" content="Integritetspolicy för EMK Sverige AB / eftermarknadskonsulten.se. Så behandlar vi personuppgifter och cookies." />
   <link rel="canonical" href="https://www.eftermarknadskonsulten.se/integritet.html" />
+  <meta name="theme-color" content="#000000" />
   <link rel="icon" href="/favicon.ico" />
-  <!-- Tailwind via CDN för enkel styling -->
+  <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
+
+  <!-- Tailwind med brandfärger -->
+  <script>
+    tailwind = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { black:'#000000', gold:'#D4AF37', white:'#ffffff' }
+          }
+        }
+      }
+    }
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>h1,h2,h3{word-break:break-word;hyphens:auto}</style>
+
+  <!-- Structured data (Organization) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"EMK Sverige AB – Eftermarknadskonsulten",
+    "url":"https://www.eftermarknadskonsulten.se/",
+    "logo":"https://www.eftermarknadskonsulten.se/assets/customcolor_icon_customcolor_background.png",
+    "email":"info@emksab.se",
+    "telephone":"+46 708 26 33 66"
+  }
+  </script>
 </head>
-<body class="bg-white text-gray-900 antialiased">
-  <header class="border-b">
-    <div class="max-w-5xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
-      <a href="/" class="font-semibold">EMK Sverige AB</a>
-      <nav class="text-sm space-x-4">
-        <a href="/" class="hover:underline">Hem</a>
-        <a href="/plattform.html" class="hover:underline">Plattform</a>
-        <a href="/formular.html" class="hover:underline">Kontakt</a>
+<body class="bg-brand-white text-brand-black antialiased">
+  <!-- Header -->
+  <header class="border-b border-brand-black/10">
+    <div class="max-w-6xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <img src="/assets/customcolor_icon_customcolor_background.png" alt="EMK logotyp" class="w-8 h-8 rounded-lg" />
+        <span class="font-semibold">Eftermarknadskonsulten</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="/#tjanster" class="hover:text-brand-gold">Tjänster</a>
+        <a href="/#process" class="hover:text-brand-gold">Process</a>
+        <a href="/plattform.html" class="hover:text-brand-gold">Plattform</a>
+        <a href="/formular.html" class="hover:text-brand-gold">Kontakt</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="max-w-3xl mx-auto px-4 md:px-8 py-10">
-      <h1 class="text-2xl md:text-3xl font-bold">Integritet & dataskydd (GDPR)</h1>
-      <p class="mt-3 text-gray-700">Här beskriver vi hur EMK Sverige AB behandlar personuppgifter på
-        <span class="font-medium">eftermarknadskonsulten.se</span>.</p>
-    </section>
-
-    <!-- DITT AVSNITT: Kontaktformulär via e-post -->
-    <section id="kontaktform-email" class="max-w-3xl mx-auto px-4 md:px-8 py-8 bg-gray-50 rounded-xl">
-      <h2 class="text-lg font-semibold">Kontaktformulär via e-post</h2>
-      <p class="mt-2 text-sm text-gray-700">
-        När du kontaktar oss via formuläret på eftermarknadskonsulten.se öppnas din egen e-postklient med
-        ett färdigifyllt meddelande. Ingen information skickas eller lagras på vår webbserver innan du själv
-        väljer att skicka e-posten. Mottagare är alltid
-        <a class="underline" href="mailto:info@emksab.se">info@emksab.se</a>.
+    <section class="max-w-5xl mx-auto px-4 md:px-8 py-10">
+      <h1 class="text-3xl md:text-4xl font-extrabold">Integritet & dataskydd (GDPR)</h1>
+      <p class="mt-3 text-brand-black/80">Denna policy beskriver hur EMK Sverige AB behandlar personuppgifter
+        på <span class="font-medium">eftermarknadskonsulten.se</span>. Senast uppdaterad:
+        <time datetime="2025-09-18">18 september 2025</time>.
       </p>
     </section>
 
-    <!-- Platshållare för övrig policy – fyll på när redo -->
-    <section class="max-w-3xl mx-auto px-4 md:px-8 py-10">
-      <h2 class="text-lg font-semibold">1. Personuppgiftsansvarig</h2>
-      <p class="mt-2 text-sm text-gray-700">EMK Sverige AB (org.nr 559514-0111), Törnerydsvägen 42-40, 374 96 Trensum.
-        E-post: <a class="underline" href="mailto:info@emksab.se">info@emksab.se</a>. Telefon: +46 708 26 33 66.</p>
+    <!-- Kontaktformulär via e-post (din text) -->
+    <section id="kontaktform-email" class="max-w-3xl mx-auto px-4 md:px-8 py-8 bg-white rounded-2xl border border-brand-black/10">
+      <h2 class="text-lg font-semibold">Kontaktformulär via e-post</h2>
+      <p class="mt-2 text-sm text-brand-black/80">
+        När du kontaktar oss via formuläret på eftermarknadskonsulten.se öppnas din egen e-postklient med
+        ett färdigifyllt meddelande. Ingen information skickas eller lagras på vår webbserver innan du själv
+        väljer att skicka e-posten. Mottagare är alltid
+        <a class="underline text-brand-gold" href="mailto:info@emksab.se">info@emksab.se</a>.
+      </p>
+    </section>
 
-      <h2 class="mt-8 text-lg font-semibold">2. Kategorier av uppgifter & ändamål</h2>
-      <p class="mt-2 text-sm text-gray-700">Lägg in dina underrubriker här (t.ex. kundkommunikation, fakturering,
-        supportärenden, webbplatsloggar, etc.).</p>
+    <section class="max-w-5xl mx-auto px-4 md:px-8 py-10">
+      <h2 class="text-xl font-semibold">1. Personuppgiftsansvarig</h2>
+      <p class="mt-2 text-sm text-brand-black/80">
+        EMK Sverige AB (org.nr 559514-0111), Törnerydsvägen 42-40, 374 96 Trensum.
+        E-post: <a class="underline" href="mailto:info@emksab.se">info@emksab.se</a>, Tel: +46 708 26 33 66.
+      </p>
 
-      <h2 class="mt-8 text-lg font-semibold">3. Rättslig grund</h2>
-      <p class="mt-2 text-sm text-gray-700">Exempel: Avtal, rättslig förpliktelse, berättigat intresse eller samtycke.</p>
-
-      <h2 class="mt-8 text-lg font-semibold">4. Lagringstid</h2>
-      <p class="mt-2 text-sm text-gray-700">Beskriv hur länge olika uppgifter sparas och varför.</p>
-
-      <h2 class="mt-8 text-lg font-semibold">5. Dina rättigheter</h2>
-      <ul class="mt-2 text-sm text-gray-700 list-disc pl-5 space-y-1">
-        <li>Tillgång till dina uppgifter</li>
-        <li>Rättelse och radering</li>
-        <li>Begränsning och invändning</li>
-        <li>Dataportabilitet</li>
-        <li>Rätt att lämna klagomål till IMY</li>
+      <h2 class="mt-8 text-xl font-semibold">2. Vilka uppgifter vi behandlar</h2>
+      <ul class="mt-2 text-sm text-brand-black/80 list-disc pl-5 space-y-1">
+        <li>Kontaktuppgifter (namn, e-post, telefon) när du hör av dig till oss.</li>
+        <li>Ärenderelaterat innehåll du skickar (ex. beskrivning av ärende).</li>
+        <li>Teknisk information vid sidvisning (IP-adress, webbläsare, tidsstämplar) i loggar.</li>
       </ul>
 
-      <h2 class="mt-8 text-lg font-semibold">6. Cookies</h2>
-      <p class="mt-2 text-sm text-gray-700">Se <a class="underline" href="/cookies.html">cookies.html</a> för detaljer.</p>
+      <h2 class="mt-8 text-xl font-semibold">3. Ändamål & rättslig grund</h2>
+      <ul class="mt-2 text-sm text-brand-black/80 list-disc pl-5 space-y-1">
+        <li><strong>Kundkommunikation</strong> – berättigat intresse/avtal.</li>
+        <li><strong>Fakturering & administration</strong> – avtal/rättslig förpliktelse.</li>
+        <li><strong>Webbplatsdrift & säkerhet</strong> – berättigat intresse.</li>
+      </ul>
 
-      <h2 class="mt-8 text-lg font-semibold">7. Kontakt</h2>
-      <p class="mt-2 text-sm text-gray-700">För frågor om dataskydd, kontakta <a class="underline" href="mailto:info@emksab.se">info@emksab.se</a>.</p>
+      <h2 class="mt-8 text-xl font-semibold">4. Lagringstid</h2>
+      <p class="mt-2 text-sm text-brand-black/80">Vi sparar personuppgifter endast så länge det behövs för ändamålen ovan
+        eller enligt lagkrav. Underlag i pågående uppdrag sparas normalt i 24 månader efter avslut.</p>
+
+      <h2 class="mt-8 text-xl font-semibold">5. Mottagare & överföringar</h2>
+      <p class="mt-2 text-sm text-brand-black/80">Vi delar inte uppgifter med tredje part utanför nödvändiga personuppgiftsbiträden
+        (IT-drift, e-postleverantör). Överföring till tredjeland sker inte utan lämpliga skyddsåtgärder.</p>
+
+      <h2 class="mt-8 text-xl font-semibold">6. Dina rättigheter</h2>
+      <ul class="mt-2 text-sm text-brand-black/80 list-disc pl-5 space-y-1">
+        <li>Tillgång till registerutdrag</li>
+        <li>Rättelse och radering</li>
+        <li>Begränsning av behandling och invändning</li>
+        <li>Dataportabilitet</li>
+        <li>Klagomål till Integritetsskyddsmyndigheten (IMY)</li>
+      </ul>
+
+      <h2 class="mt-8 text-xl font-semibold">7. Cookies</h2>
+      <p class="mt-2 text-sm text-brand-black/80">Se <a class="underline text-brand-gold" href="/cookies.html">cookies.html</a> för detaljer om cookies.</p>
     </section>
   </main>
 
-  <footer class="border-t">
-    <div class="max-w-5xl mx-auto px-4 md:px-8 py-6 text-sm text-gray-600 flex flex-wrap gap-x-6 gap-y-2">
-      <span>© EMK Sverige AB</span>
-      <a href="/integritet.html" class="hover:underline">Integritet</a>
-      <a href="/cookies.html" class="hover:underline">Cookies</a>
-      <a href="/villkor.html" class="hover:underline">Villkor</a>
+  <!-- Footer -->
+  <footer class="border-t border-brand-black/10">
+    <div class="max-w-6xl mx-auto px-4 md:px-8 py-8 text-sm text-brand-black/80 grid md:grid-cols-3 gap-6">
+      <div>
+        <div class="font-semibold text-brand-black">EMK Sverige AB</div>
+        <div>Törnerydsvägen 42-40, 374 96 Trensum</div>
+        <div><a class="underline" href="mailto:info@emksab.se">info@emksab.se</a> · +46 708 26 33 66</div>
+      </div>
+      <div class="space-y-1">
+        <a href="/integritet.html" class="hover:text-brand-gold">Integritet</a><br/>
+        <a href="/cookies.html" class="hover:text-brand-gold">Cookies</a><br/>
+        <a href="/villkor.html" class="hover:text-brand-gold">Villkor</a>
+      </div>
+      <div class="space-y-1">
+        <a href="/plattform.html" class="hover:text-brand-gold">Plattform</a><br/>
+        <a href="/formular.html" class="hover:text-brand-gold">Kontakt</a><br/>
+        <a href="/sitemap.xml" class="hover:text-brand-gold">Sitemap</a>
+      </div>
     </div>
   </footer>
 </body>
