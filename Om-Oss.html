@@ -1,156 +1,69 @@
 <!doctype html>
 <html lang="sv">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Om oss – EMK Sverige AB</title>
-  <meta name="description" content="EMK Sverige AB – Eftermarknadskonsulten. Vi effektiviserar eftermarknadsprocesser för bilhandlare med praktiskt ARN-stöd, beslutsmatris och utbildning.">
-  <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root{ --gold:#D4AF37; --ink:#2B2410; --paper:#FAF7EF; --card:#ffffff; --line:#E6E0D4; }
-    html,body{ background:var(--paper); color:var(--ink); font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial }
-    a{ color:var(--ink) } a:hover{ color:var(--gold) }
-    .card{ background:var(--card); border:1px solid var(--gold); border-radius:1rem }
-    .btn-gold{ background:var(--gold); color:var(--ink) }
-    .site-header{ background:color-mix(in srgb, var(--paper) 90%, white 10%); border-bottom:1px solid var(--gold) }
-    .h1{ font-size:32px; line-height:1.15; font-weight:800; letter-spacing:-.015em }
-    @media (min-width:640px){ .h1{ font-size:36px } }
-    @media (min-width:768px){ .h1{ font-size:40px } }
-    @media (min-width:1024px){ .h1{ font-size:44px } }
-    section[id]{ scroll-margin-top:7rem }
-  </style>
+  <link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/emk-theme.css?v=5">
 </head>
 <body>
+  <!-- HEADER -->
+  <header class="topbar" role="banner"><div class="container wrap">
+    <a class="logo" href="/index.html"><img src="/favicon.ico" alt="EMK Sverige AB"><span>EMK Sverige AB</span></a>
+    <nav class="nav" aria-label="Huvudmeny">
+      <a href="/index.html">Hem</a><a href="/tjanster.html">Tjänster</a><a href="/process.html">Process</a><a href="/case.html">Case</a><a href="/policy.html">Policy</a><a href="/Om-Oss.html">Om oss</a><a href="/formular.html">Kontakt</a>
+    </nav></div></header>
+  <script>(function(){var p=location.pathname.replace(/\/+$/,'');document.querySelectorAll('.topbar .nav a').forEach(a=>{if(a.getAttribute('href')===p)a.classList.add('active')});})();</script>
 
-  <!-- Header (samma som index) -->
-  <header class="site-header sticky top-0 z-30 backdrop-blur">
-    <div class="max-w-6xl mx-auto h-20 px-4 md:px-8 flex items-center justify-between">
-      <a href="/" aria-label="Gå till startsidan" class="inline-flex items-center">
-        <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK logotyp" class="h-12 md:h-16 w-auto" />
-      </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="/om-oss.html" class="hover:underline">Om oss</a>
-        <a href="/#tjanster" class="hover:underline">Tjänster</a>
-        <a href="/#process" class="hover:underline">Process</a>
-        <a href="/#case" class="hover:underline">Case</a>
-        <a href="/#kontakt" class="hover:underline">Kontakt</a>
-      </nav>
-      <div class="flex items-center gap-2">
-        <a href="/#kontakt" class="hidden md:inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold btn-gold">Boka ett samtal</a>
-        <a href="/formular.html" target="_blank" rel="noopener" class="md:hidden inline-flex items-center justify-center rounded-lg px-3 py-2 text-sm font-semibold btn-gold">Kontakta oss</a>
-      </div>
-    </div>
-  </header>
+  <main class="section">
+    <div class="container">
+      <h1>EMK Sverige AB – Om oss</h1>
+      <p>Vi hjälper bilhandlare att minska tvister och ledtider med praktiskt ARN-stöd, beslutsmatris och utbildning – så att fler affärer landar snabbt och tryggt.</p>
 
-  <!-- Hero -->
-  <section class="max-w-6xl mx-auto px-4 md:px-8 pt-12 md:pt-20 pb-10">
-    <div class="max-w-3xl">
-      <h1 class="h1">EMK Sverige AB – Om oss</h1>
-      <p class="mt-4 text-base md:text-lg opacity-90">
-        Vi hjälper bilhandlare att minska tvister och ledtider med praktiskt ARN-stöd, beslutsmatris och utbildning – så att fler affärer landar snabbt och tryggt.
-      </p>
-    </div>
-  </section>
+      <article class="card"><h2>Företagsöversikt</h2>
+        <p>EMK Sverige AB (Eftermarknadskonsulten) levererar skräddarsytt stöd till återförsäljare av begagnade bilar. Vi verkar både online och i fysiska möten och kombinerar branschkunskap med ett praktiskt arbetssätt. Fokus: identifiera och lösa utmaningar på eftermarknaden som påverkar ekonomi, kundnöjdhet och tempo.</p>
+      </article>
 
-  <!-- Företagsöversikt -->
-  <section class="max-w-6xl mx-auto px-4 md:px-8 py-6">
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="card p-6 md:p-8">
-        <h2 class="text-xl font-semibold">Företagsöversikt</h2>
-        <p class="mt-3 text-sm leading-relaxed">
-          <b>EMK Sverige AB</b> (Eftermarknadskonsulten) levererar skräddarsytt stöd till återförsäljare av begagnade bilar. Vi verkar både online och i fysiska möten och kombinerar
-          branschkunskap med ett praktiskt arbetssätt. Fokus: identifiera och lösa utmaningar på eftermarknaden som påverkar ekonomi, kundnöjdhet och tempo.
-        </p>
-      </div>
-      <div class="card p-6 md:p-8">
-        <h2 class="text-xl font-semibold">Ursprung & vision</h2>
-        <p class="mt-3 text-sm leading-relaxed">
-          EMK startade med en tydlig vision: effektivisera eftermarknadsprocessen för bilhandlare i Sverige. Vi bygger
-          långsiktiga relationer genom att leverera konkreta resultat, tydlig kommunikation och personlig service – från start med en engagerad konsult till ett skalbart team när behoven växer.
-        </p>
-      </div>
-    </div>
-  </section>
+      <article class="card" style="margin-top:20px"><h2>Ursprung & vision</h2>
+        <p>EMK startade med en tydlig vision: effektivisera eftermarknadsprocessen för bilhandlare i Sverige. Vi bygger långsiktiga relationer genom att leverera konkreta resultat, tydlig kommunikation och personlig service – från start med en engagerad konsult till ett skalbart team när behoven växer.</p>
+      </article>
 
-  <!-- Konkurrensfördel -->
-  <section class="max-w-6xl mx-auto px-4 md:px-8 py-6">
-    <div class="card p-6 md:p-8">
-      <h2 class="text-xl font-semibold">Konkurrensfördel</h2>
-      <p class="mt-3 text-sm leading-relaxed">
-        Vår styrka är <b>djup branschexpertis</b> och <b>kundnära samarbete</b>. Genom tät dialog förstår vi era specifika utmaningar och levererar skräddarsydda lösningar som fungerar i praktiken.
-        Kontinuerlig uppföljning gör att ni alltid känner stöd – även mellan ärendena.
-      </p>
-    </div>
-  </section>
+      <article class="card" style="margin-top:20px"><h2>Konkurrensfördel</h2>
+        <p>Vår styrka är djup branschexpertis och kundnära samarbete. Genom tät dialog förstår vi era specifika utmaningar och levererar skräddarsydda lösningar som fungerar i praktiken. Kontinuerlig uppföljning gör att ni alltid känner stöd – även mellan ärendena.</p>
+      </article>
 
-  <!-- Finansiell sammanfattning -->
-  <section class="max-w-6xl mx-auto px-4 md:px-8 py-6">
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="card p-6 md:p-8">
-        <h2 class="text-xl font-semibold">Finansiell sammanfattning</h2>
-        <p class="mt-3 text-sm leading-relaxed">
-          Vi planerar lönsamhet från dag ett och arbetar mot hållbar tillväxt (~15% i plan). Tillväxten drivs av fokus på
-          högvolyms- och högintäkts-handlare, samt att vi kombinerar digitalt stöd med hands-on införande hos kund.
-        </p>
-      </div>
-      <div class="card p-6 md:p-8">
-        <h2 class="text-xl font-semibold">Hur det märks för kunden</h2>
-        <ul class="mt-3 text-sm leading-relaxed space-y-2">
-          <li>• Kortare ledtider i ärenden och snabbare beslut</li>
-          <li>• Färre tvister/hävningar och bättre marginaler</li>
-          <li>• Tryggare säljare genom tydlig beslutsmatris och mallar</li>
-          <li>• Högre kundnöjdhet i eftermarknad</li>
+      <article class="card" style="margin-top:20px"><h2>Finansiell sammanfattning</h2>
+        <p>Vi planerar lönsamhet från dag ett och arbetar mot hållbar tillväxt (~15% i plan). Tillväxten drivs av fokus på högvolyms- och högintäkts-handlare, samt att vi kombinerar digitalt stöd med hands-on införande hos kund.</p>
+      </article>
+
+      <article class="card" style="margin-top:20px"><h2>Hur det märks för kunden</h2>
+        <ul class="list">
+          <li>Kortare ledtider i ärenden och snabbare beslut</li>
+          <li>Färre tvister/hävningar och bättre marginaler</li>
+          <li>Tryggare säljare genom tydlig beslutsmatris och mallar</li>
+          <li>Högre kundnöjdhet i eftermarknad</li>
         </ul>
-      </div>
-    </div>
-  </section>
+      </article>
 
-  <!-- Styrkor -->
-  <section class="max-w-6xl mx-auto px-4 md:px-8 py-6">
-    <div class="card p-6 md:p-8">
-      <h2 class="text-xl font-semibold">Våra styrkor</h2>
-      <ul class="mt-3 text-sm leading-relaxed space-y-2">
-        <li><b>Expertis inom branschen:</b> Djup kunskap i bilhandelssektorn – lösningar som matchar verkliga behov.</li>
-        <li><b>Starka relationer:</b> Nära samarbete med handlare för bättre förståelse och snabbare resultat.</li>
-        <li><b>Hög kundnöjdhet:</b> Proaktiv uppföljning och support bygger förtroende och lojalitet.</li>
-        <li><b>Flexibilitet:</b> Vi anpassar erbjudandet efter marknad och situation – från akut ARN-respons till plattformsbyggande.</li>
-        <li><b>Online + fysisk närvaro:</b> Bred räckvidd och hög tillgänglighet – ni får hjälp där ni är.</li>
-      </ul>
-    </div>
-  </section>
+      <article class="card" style="margin-top:20px"><h2>Våra styrkor</h2>
+        <ul class="list">
+          <li>Expertis inom branschen</li>
+          <li>Starka relationer</li>
+          <li>Hög kundnöjdhet</li>
+          <li>Flexibilitet</li>
+          <li>Online + fysisk närvaro</li>
+        </ul>
+      </article>
 
-  <!-- CTA -->
-  <section class="max-w-6xl mx-auto px-4 md:px-8 py-12">
-    <div class="card p-6 md:p-8 text-center">
-      <h2 class="text-2xl font-bold">Vill ni veta hur EMK kan sänka era tvistkostnader?</h2>
-      <p class="mt-3 text-sm md:text-base opacity-90">Boka ett kort behovssamtal. Vi visar hur beslutsmatris, mallar och praktiskt ARN-stöd minskar risken – och ökar tempot.</p>
-      <div class="mt-6 flex justify-center gap-3">
-        <a href="/formular.html" class="px-5 py-3 rounded-xl btn-gold hover:opacity-90">Boka samtal</a>
-        <a href="mailto:info@emksab.se" class="px-5 py-3 rounded-xl" style="border:1px solid var(--gold)">Maila oss</a>
-      </div>
+      <article class="card" style="margin-top:20px">
+        <h2>Vill ni veta hur EMK kan sänka era tvistkostnader?</h2>
+        <p>Boka ett kort behovssamtal. Vi visar hur beslutsmatris, mallar och praktiskt ARN-stöd minskar risken – och ökar tempot.</p>
+      </article>
     </div>
-  </section>
+  </main>
 
-  <!-- Footer -->
-  <footer style="border-top:1px solid var(--gold)">
-    <div class="max-w-6xl mx-auto px-4 md:px-8 py-8 text-sm grid md:grid-cols-3 gap-6">
-      <div>
-        <div class="font-semibold">EMK Sverige AB</div>
-        <div>Törnerydsvägen 42-40, 374 96 Trensum</div>
-        <div><a class="underline" href="mailto:info@emksab.se">info@emksab.se</a> · +46 708 26 33 66</div>
-      </div>
-      <div class="space-y-1">
-        <a href="/integritet.html" class="hover:text-[var(--gold)]">Integritet</a><br/>
-        <a href="/cookies.html" class="hover:text-[var(--gold)]">Cookies</a><br/>
-        <a href="/villkor.html" class="hover:text-[var(--gold)]">Villkor</a>
-      </div>
-      <div class="space-y-1">
-        <a href="/plattform.html" class="hover:text-[var(--gold)]">Plattform</a><br/>
-        <a href="/formular.html" class="hover:text-[var(--gold)]">Kontakt</a><br/>
-        <a href="/sitemap.xml" class="hover:text-[var(--gold)]">Sitemap</a>
-      </div>
-    </div>
-  </footer>
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo"><div class="container wrap">
+    <small>© EMK Sverige AB</small><small><a href="/integritet.html">Integritet & GDPR</a></small><small><a href="/cookies.html">Cookies</a></small><small><a href="/policy.html">Policy</a></small><small><a href="/case.html">Case</a></small>
+  </div></footer>
 </body>
 </html>
