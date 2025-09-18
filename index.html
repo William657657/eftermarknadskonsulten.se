@@ -12,26 +12,14 @@
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
 
-  <!-- OG -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Eftermarknadskonsulten – ARN-stöd för bilhandlare | EMK Sverige AB" />
   <meta property="og:description" content="Praktiskt stöd i konsumentköpsfrågor och ARN-ärenden för bilhandlare." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.eftermarknadskonsulten.se/" />
 
-  <!-- Tema CSS: relativ länk först -->
-  <link rel="preload" as="style" href="assets/theme.css?v=3">
-  <link rel="stylesheet" href="assets/theme.css?v=3">
-  <!-- Fallback: testa även rot-absolut sökväg om första inte finns -->
-  <script>
-  (function(){
-    var probe = getComputedStyle(document.documentElement).getPropertyValue('--primary');
-    if(!probe || !probe.trim()){
-      var l=document.createElement('link');
-      l.rel='stylesheet'; l.href='/assets/theme.css?v=3';
-      document.head.appendChild(l);
-    }
-  })();
-  </script>
+  <!-- Tema (enda platsen där färger definieras) -->
+  <link rel="stylesheet" href="./assets/theme.css?v=5" />
 </head>
 <body>
   <!-- NAV -->
@@ -67,7 +55,7 @@
     </div>
   </section>
 
-  <!-- Tjänster / Tre kort -->
+  <!-- Tjänster -->
   <section class="section" role="region" aria-label="Tjänster">
     <div class="container grid-3">
       <article class="card">
