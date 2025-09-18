@@ -2,7 +2,7 @@
 :root{
   --bg:#f5f6f8;      /* mjuk bakgrund – ej vit */
   --surface:#ffffff; /* kort/sektioner */
-  --elev:#fafafa;    /* lätt upphöjd yta */
+  --elev:#fafafa;    /* lätt upphöjd yta */ 
 
   --text:#0f172a;    /* huvudtext */
   --muted:#475569;   /* sekundär text */
