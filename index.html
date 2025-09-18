@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Eftermarknadskonsulten – ARN-stöd för bilhandlare | EMK Sverige AB</title>
-  <meta name="description" content="Praktiskt stöd i ARN-processen för bilhandlare: snabb respons, kompletta yttranden, beslutsmatris och utbildning.">
+  <meta name="description" content="Praktiskt stöd i ARN-processen för bilhandlare: snabb respons, kompletta yttranden, beslutsmatris och utbildning." />
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
   <meta property="og:title" content="Eftermarknadskonsulten – ARN-stöd för bilhandlare | EMK Sverige AB" />
@@ -13,194 +13,200 @@
   <meta property="og:url" content="https://www.eftermarknadskonsulten.se/" />
   <link rel="canonical" href="https://www.eftermarknadskonsulten.se/" />
 
-  <!-- Tailwind via CDN (behåller din utility-stil) -->
+  <!-- Tailwind (utilities) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- DINA FÄRGER: låsning till svart/guld --> 
+  <!-- EMK SVART/GULD THEME – enhetlig på alla sidor -->
   <style>
     :root{
-      --brand-bg: #ffffff;
-      --brand-text: #0b0b0b;
-      --brand-primary: #111111;   /* svart */
-      --brand-accent: #D4AF37;    /* guld */
-      --brand-muted: #f5f5f5;
-      --brand-border: #e5e7eb;
+      --emk-bg-dark-1:#0b0b0b;
+      --emk-bg-dark-2:#111111;
+      --emk-text:#f3f3f3;
+      --emk-muted:#c7c7c7;
+      --emk-panel:#171717;
+      --emk-card:#ffffff;
+      --emk-border:#2a2a2a;
+      --emk-accent:#D4AF37; /* guld */
+      --emk-black:#000;
     }
-    body { background: var(--brand-bg); color: var(--brand-text); }
-    .brand-gradient { background: linear-gradient(180deg, #fff 0%, #fafafa 100%); }
-
-    /* Komponent-hjälpare som ersätter ev. blå standardklasser */
-    .btn-brand { background: var(--brand-accent) !important; color:#000 !important; }
-    .btn-brand:hover { filter: brightness(0.92); }
-    .btn-ghost { border:1px solid var(--brand-border); background:#fff; color:var(--brand-primary); }
-    .btn-ghost:hover { background:#f9f9f9; }
-    .link-brand { color: var(--brand-accent) !important; }
-    .link-brand:hover { text-decoration: underline; }
-    .card-brand { background:#fff; border:1px solid var(--brand-border); }
-    .tag { background: var(--brand-muted); border:1px solid var(--brand-border); color:var(--brand-primary); }
-    .h1 { letter-spacing:-0.02em; }
-    .nav-link { color:#111 !important; }
-    .nav-link:hover { color:#000 !important; }
-    /* Fokus-stilar för a11y */
-    .focus-ring:focus { outline: 2px solid var(--brand-accent); outline-offset: 2px; }
+    /* Baslayout mörk */
+    body.emk-body{background:linear-gradient(180deg,var(--emk-bg-dark-2) 0%, var(--emk-bg-dark-1) 100%); color:var(--emk-text);}
+    .container{max-width:80rem;margin-inline:auto;padding-inline:clamp(1rem,3vw,2rem);}
+    section{padding-block:clamp(2rem,4vw,3.5rem);}
+    /* Header/Nav */
+    .emk-header{position:sticky;top:0;z-index:50;background:rgba(17,17,17,.85);backdrop-filter:saturate(1.1) blur(6px);border-bottom:1px solid var(--emk-border);}
+    .emk-nav a{color:#f0f0f0 !important;font-weight:500}
+    .emk-nav a:hover{color:#fff !important}
+    /* Typografi */
+    .h1, h1{letter-spacing:-0.02em;color:var(--emk-accent)}
+    h2,h3,h4{color:#fff}
+    p,li,small{color:var(--emk-text)}
+    /* Komponenter */
+    .btn-brand{background:var(--emk-accent) !important;color:var(--emk-black) !important;border-radius:.7rem;padding:.85rem 1.1rem;font-weight:700}
+    .btn-brand:hover{filter:brightness(.92)}
+    .btn-ghost{background:transparent;color:#fff;border:1px solid var(--emk-border);border-radius:.7rem;padding:.85rem 1.1rem;font-weight:600}
+    .btn-ghost:hover{background:#1b1b1b}
+    .card-brand{background:var(--emk-card);color:#111;border:1px solid #e5e7eb;border-radius:1rem;padding:1.25rem}
+    .tag{background:#1e1e1e;border:1px solid var(--emk-border);color:#ddd;padding:.2rem .6rem;border-radius:.5rem;font-size:.75rem}
+    .panel{background:var(--emk-panel);border:1px solid var(--emk-border);border-radius:1rem}
+    /* Fokus för a11y */
+    .focus-ring:focus{outline:2px solid var(--emk-accent);outline-offset:2px}
+    /* Tvinga bort Tailwinds blå */
+    .text-indigo-*, .text-sky-* {color:var(--emk-accent) !important}
+    .bg-indigo-*, .bg-sky-* {background:var(--emk-accent) !important;color:#000 !important}
+    .ring-indigo-*, .ring-sky-* {--tw-ring-color:var(--emk-accent) !important}
+    .from-indigo-*, .via-indigo-*, .to-indigo-*, .from-sky-*, .via-sky-*, .to-sky-* {--tw-gradient-from:var(--emk-accent)!important;--tw-gradient-to:var(--emk-accent)!important;--tw-gradient-stops:var(--emk-accent),var(--emk-accent)!important}
   </style>
 
-  <!-- Schema.org för SEO -->
+  <!-- Schema.org -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "EMK Sverige AB – Eftermarknadskonsulten",
-    "url": "https://www.eftermarknadskonsulten.se/",
-    "logo": "https://www.eftermarknadskonsulten.se/assets/customcolor_icon_customcolor_background.png",
-    "description": "ARN-stöd för bilhandlare, beslutsmatriser, kompletta yttranden enligt KKL och 30-dagarssprint för eftermarknad.",
-    "areaServed": "SE",
-    "email": "info@emksab.se",
-    "telephone": "+46 708 26 33 66",
-    "sameAs": []
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "name":"EMK Sverige AB – Eftermarknadskonsulten",
+    "url":"https://www.eftermarknadskonsulten.se/",
+    "logo":"https://www.eftermarknadskonsulten.se/assets/customcolor_icon_customcolor_background.png",
+    "description":"ARN-stöd för bilhandlare, beslutsmatriser, kompletta yttranden enligt KKL och 30-dagarssprint för eftermarknad.",
+    "areaServed":"SE",
+    "email":"info@emksab.se",
+    "telephone":"+46 708 26 33 66",
+    "sameAs":[]
   }
   </script>
 </head>
-<body class="antialiased">
-  <!-- Header / Nav -->
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
-    <div class="mx-auto max-w-7xl px-4 md:px-8 py-3 flex items-center justify-between">
+
+<body class="emk-body antialiased">
+  <!-- Header -->
+  <header class="emk-header">
+    <div class="container py-3 flex items-center justify-between">
       <a href="/" class="flex items-center gap-3 focus-ring">
-        <img src="/assets/customcolor_icon_customcolor_background.png" alt="EMK" class="h-8 w-8 rounded"/>
-        <span class="font-semibold tracking-tight">EMK Sverige AB</span>
+        <img src="/assets/customcolor_icon_customcolor_background.png" alt="EMK" class="h-8 w-8 rounded" />
+        <span class="font-semibold tracking-tight text-white">EMK Sverige AB</span>
       </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="/" class="nav-link font-medium focus-ring">Hem</a>
-        <a href="/tjanster.html" class="nav-link font-medium focus-ring">Tjänster</a>
-        <a href="/arn-stod.html" class="nav-link font-medium focus-ring">ARN-stöd</a>
-        <a href="/process.html" class="nav-link font-medium focus-ring">Process</a>
-        <a href="/policy.html" class="nav-link font-medium focus-ring">Policy</a>
-        <a href="/kontakt.html" class="nav-link font-medium focus-ring">Kontakt</a>
-        <a href="/om-oss.html" class="nav-link font-semibold focus-ring">Om oss</a>
+      <nav class="emk-nav hidden md:flex items-center gap-6 text-sm">
+        <a href="/" class="focus-ring">Hem</a>
+        <a href="/tjanster.html" class="focus-ring">Tjänster</a>
+        <a href="/arn-stod.html" class="focus-ring">ARN-stöd</a>
+        <a href="/process.html" class="focus-ring">Process</a>
+        <a href="/policy.html" class="focus-ring">Policy</a>
+        <a href="/kontakt.html" class="focus-ring">Kontakt</a>
+        <a href="/om-oss.html" class="focus-ring font-semibold" style="color:var(--emk-accent)!important">Om oss</a>
       </nav>
-      <a href="/kontakt.html" class="btn-brand px-4 py-2 rounded-lg text-sm font-medium focus-ring">Boka genomgång</a>
+      <a href="/kontakt.html" class="btn-brand focus-ring">Boka genomgång</a>
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="brand-gradient">
-    <div class="mx-auto max-w-7xl px-4 md:px-8 py-16 md:py-24">
-      <div class="grid md:grid-cols-2 gap-10 items-start">
-        <div>
-          <h1 class="h1 text-4xl md:text-6xl font-extrabold leading-tight">
-            ARN-stöd för bilhandlare –<br />
-            snabbt, korrekt och<br />
-            affärsmässigt
-          </h1>
-          <p class="mt-6 text-lg text-gray-700 max-w-2xl">
-            EMK Sverige AB hjälper dig att förebygga tvister och vinna tid:
-            beslutsmatriser, kompletta yttranden och 30-dagarssprint för att få
-            kontroll i eftermarknaden.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="/kontakt.html" class="btn-brand px-5 py-3 rounded-lg font-medium focus-ring">Boka genomgång</a>
-            <a href="#snabbstart" class="btn-ghost px-5 py-3 rounded-lg font-medium focus-ring">Läs mer</a>
-          </div>
-        </div>
-
-        <!-- Snabbstart-box -->
-        <div id="snabbstart" class="card-brand rounded-2xl p-6 md:p-8">
-          <h2 class="text-lg font-semibold">Snabbstart</h2>
-          <ul class="mt-4 space-y-3 text-sm">
-            <li class="flex gap-3">
-              <span class="tag px-2 py-1 rounded text-xs">30 dagar</span>
-              <span>Diagnos → design → införande (30 dagar)</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="tag px-2 py-1 rounded text-xs">Protokoll</span>
-              <span>Standardiserade reklamationsprotokoll</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="tag px-2 py-1 rounded text-xs">Matris</span>
-              <span>Beslutsmatris för kompensation & åtgärd</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="tag px-2 py-1 rounded text-xs">Utbildning</span>
-              <span>Utbildning av sälj & eftermarknad</span>
-            </li>
-          </ul>
+  <section>
+    <div class="container grid md:grid-cols-2 gap-10 items-start">
+      <div>
+        <h1 class="h1 text-4xl md:text-6xl font-extrabold leading-tight">
+          ARN-stöd för bilhandlare –<br/> snabbt, korrekt och affärsmässigt
+        </h1>
+        <p class="mt-6 text-lg text-neutral-200 max-w-2xl">
+          EMK Sverige AB hjälper dig att förebygga tvister och vinna tid:
+          beslutsmatriser, kompletta yttranden och 30-dagarssprint för att få
+          kontroll i eftermarknaden.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="/kontakt.html" class="btn-brand focus-ring">Boka genomgång</a>
+          <a href="#snabbstart" class="btn-ghost focus-ring">Läs mer</a>
         </div>
       </div>
 
-      <!-- Tre värdekort -->
-      <div class="mt-14 grid md:grid-cols-3 gap-6">
-        <div class="card-brand rounded-xl p-6">
-          <h3 class="text-base font-semibold">Kompletta yttranden</h3>
-          <p class="mt-2 text-sm text-gray-700">Vi strukturerar svar till ARN enligt KKL & praxis.</p>
-        </div>
-        <div class="card-brand rounded-xl p-6">
-          <h3 class="text-base font-semibold">Färre tvister</h3>
-          <p class="mt-2 text-sm text-gray-700">Standardiserade flöden som minskar fel och väntetid.</p>
-        </div>
-        <div class="card-brand rounded-xl p-6">
-          <h3 class="text-base font-semibold">Du äger koden</h3>
-          <p class="mt-2 text-sm text-gray-700">System & mallar ni kan äga och vidareutveckla internt.</p>
-        </div>
+      <!-- Snabbstart-box -->
+      <div id="snabbstart" class="panel p-6 md:p-8">
+        <h2 class="text-lg font-semibold">Snabbstart</h2>
+        <ul class="mt-4 space-y-3 text-sm">
+          <li class="flex gap-3 items-center">
+            <span class="tag">30 dagar</span><span>Diagnos → design → införande (30 dagar)</span>
+          </li>
+          <li class="flex gap-3 items-center">
+            <span class="tag">Protokoll</span><span>Standardiserade reklamationsprotokoll</span>
+          </li>
+          <li class="flex gap-3 items-center">
+            <span class="tag">Matris</span><span>Beslutsmatris för kompensation & åtgärd</span>
+          </li>
+          <li class="flex gap-3 items-center">
+            <span class="tag">Utbildning</span><span>Utbildning av sälj & eftermarknad</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Tre värdekort -->
+    <div class="container mt-14 grid md:grid-cols-3 gap-6">
+      <div class="card-brand">
+        <h3 class="text-base font-semibold">Kompletta yttranden</h3>
+        <p class="mt-2 text-sm text-neutral-700">Vi strukturerar svar till ARN enligt KKL & praxis.</p>
+      </div>
+      <div class="card-brand">
+        <h3 class="text-base font-semibold">Färre tvister</h3>
+        <p class="mt-2 text-sm text-neutral-700">Standardiserade flöden som minskar fel och väntetid.</p>
+      </div>
+      <div class="card-brand">
+        <h3 class="text-base font-semibold">Du äger koden</h3>
+        <p class="mt-2 text-sm text-neutral-700">System & mallar ni kan äga och vidareutveckla internt.</p>
       </div>
     </div>
   </section>
 
   <!-- Callout -->
-  <section class="py-12 md:py-16">
-    <div class="mx-auto max-w-7xl px-4 md:px-8">
-      <div class="card-brand rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+  <section>
+    <div class="container">
+      <div class="panel p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div>
-          <h3 class="text-xl font-semibold">Redo att få ordning på eftermarknaden?</h3>
-          <p class="mt-2 text-sm text-gray-700">Börja med en kostnadsfri behovsgenomgång. Vi återkommer inom 24 timmar.</p>
+          <h3 class="text-xl font-semibold text-white">Redo att få ordning på eftermarknaden?</h3>
+          <p class="mt-2 text-sm text-neutral-200">Börja med en kostnadsfri behovsgenomgång. Vi återkommer inom 24 timmar.</p>
         </div>
         <div class="flex gap-3">
-          <a href="/kontakt.html" class="btn-brand px-5 py-3 rounded-lg font-medium focus-ring">Boka genomgång</a>
-          <a href="/policy.html" class="btn-ghost px-5 py-3 rounded-lg font-medium focus-ring">Integritet & Policy</a>
+          <a href="/kontakt.html" class="btn-brand focus-ring">Boka genomgång</a>
+          <a href="/policy.html" class="btn-ghost focus-ring">Integritet & Policy</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-gray-100">
-    <div class="mx-auto max-w-7xl px-4 md:px-8 py-10">
+  <footer class="border-t border-[color:var(--emk-border)]">
+    <div class="container py-10">
       <div class="grid md:grid-cols-4 gap-8 text-sm">
         <div>
           <div class="flex items-center gap-3">
             <img src="/assets/customcolor_icon_customcolor_background.png" alt="EMK" class="h-8 w-8 rounded"/>
-            <span class="font-semibold">EMK Sverige AB</span>
+            <span class="font-semibold text-white">EMK Sverige AB</span>
           </div>
-          <p class="mt-3 text-gray-600">Org.nr 559514-0111</p>
-          <p class="mt-1 text-gray-600">info@emksab.se</p>
+          <p class="mt-3 text-neutral-300">Org.nr 559514-0111</p>
+          <p class="mt-1 text-neutral-300">info@emksab.se</p>
         </div>
         <div>
-          <h4 class="font-semibold">Sidor</h4>
+          <h4 class="font-semibold text-white">Sidor</h4>
           <ul class="mt-3 space-y-2">
-            <li><a class="link-brand" href="/om-oss.html">Om oss</a></li>
-            <li><a class="link-brand" href="/tjanster.html">Tjänster</a></li>
-            <li><a class="link-brand" href="/arn-stod.html">ARN-stöd</a></li>
-            <li><a class="link-brand" href="/process.html">Process</a></li>
-            <li><a class="link-brand" href="/policy.html">Policy</a></li>
-            <li><a class="link-brand" href="/kontakt.html">Kontakt</a></li>
+            <li><a class="text-neutral-200 hover:underline" href="/om-oss.html">Om oss</a></li>
+            <li><a class="text-neutral-200 hover:underline" href="/tjanster.html">Tjänster</a></li>
+            <li><a class="text-neutral-200 hover:underline" href="/arn-stod.html">ARN-stöd</a></li>
+            <li><a class="text-neutral-200 hover:underline" href="/process.html">Process</a></li>
+            <li><a class="text-neutral-200 hover:underline" href="/policy.html">Policy</a></li>
+            <li><a class="text-neutral-200 hover:underline" href="/kontakt.html">Kontakt</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="font-semibold">Resurser</h4>
+          <h4 class="font-semibold text-white">Resurser</h4>
           <ul class="mt-3 space-y-2">
-            <li><a class="link-brand" href="/integritet.html">Integritet</a></li>
-            <li><a class="link-brand" href="/sitemap.xml">Sitemap</a></li>
-            <li><a class="link-brand" href="/robots.txt">Robots</a></li>
+            <li><a class="text-neutral-200 hover:underline" href="/integritet.html">Integritet</a></li>
+            <li><a class="text-neutral-200 hover:underline" href="/sitemap.xml">Sitemap</a></li>
+            <li><a class="text-neutral-200 hover:underline" href="/robots.txt">Robots</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="font-semibold">Adress</h4>
-          <p class="mt-3 text-gray-600">
+          <h4 class="font-semibold text-white">Adress</h4>
+          <p class="mt-3 text-neutral-300">
             Törnerydsvägen 42-40<br/>374 96 Trensum
           </p>
-          <a href="/kontakt.html" class="mt-4 inline-block link-brand">Boka genomgång</a>
+          <a href="/kontakt.html" class="mt-4 inline-block text-[color:var(--emk-accent)] hover:underline">Boka genomgång</a>
         </div>
       </div>
-      <div class="mt-8 text-xs text-gray-500">© <span id="y"></span> EMK Sverige AB. Alla rättigheter förbehållna.</div>
+      <div class="mt-8 text-xs text-neutral-400">© <span id="y"></span> EMK Sverige AB. Alla rättigheter förbehållna.</div>
     </div>
     <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
   </footer>
