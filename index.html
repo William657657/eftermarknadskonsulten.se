@@ -1,22 +1,22 @@
 <!doctype html>
 <html lang="sv">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Eftermarknadskonsulten – ARN-stöd för bilhandlare | EMK Sverige AB</title>
-  <meta name="description" content="Praktiskt stöd i ARN-processen för bilhandlare: snabb respons, kompletta yttranden, beslutsmatris och utbildning.">
-  <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://www.eftermarknadskonsulten.se/">
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="stylesheet" href="/assets/emk-theme.css?v=4" />
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/assets/emk-theme.css?v=5">
 </head>
 <body>
-  <!-- NAV (copy oförändrad) -->
-  <header role="banner">
+
+  <!-- HEADER -->
+  <header class="topbar" role="banner">
     <div class="container wrap">
-      <a class="logo" href="/index.html">EMK Sverige AB</a>
-      <nav aria-label="Huvudmeny">
-        <a href="/index.html" class="active" aria-current="page">Hem</a>
+      <a class="logo" href="/index.html">
+        <img src="/favicon.ico" alt="EMK Sverige AB"><span>EMK Sverige AB</span>
+      </a>
+      <nav class="nav" aria-label="Huvudmeny">
+        <a href="/index.html">Hem</a>
         <a href="/tjanster.html">Tjänster</a>
         <a href="/process.html">Process</a>
         <a href="/case.html">Case</a>
@@ -26,9 +26,13 @@
       </nav>
     </div>
   </header>
+  <script>(function(){var p=location.pathname.replace(/\/+$/,'')||'/index.html';
+    document.querySelectorAll('.topbar .nav a').forEach(function(a){
+      if(a.getAttribute('href')===p){a.classList.add('active');a.setAttribute('aria-current','page');}
+    });})();</script>
 
-  <!-- HERO (copy oförändrad) -->
-  <section class="section hero" role="region" aria-label="Introduktion">
+  <!-- INNEHÅLL (din text) -->
+  <main class="section hero">
     <div class="container">
       <div class="card elev">
         <span class="badge">Eftermarknad</span>
@@ -43,10 +47,9 @@
         </div>
       </div>
     </div>
-  </section>
+  </main>
 
-  <!-- TRE KORT (copy oförändrad) -->
-  <section class="section" role="region" aria-label="Tjänster">
+  <section class="section">
     <div class="container grid-3">
       <article class="card">
         <h3>ARN-stöd</h3>
@@ -63,8 +66,7 @@
     </div>
   </section>
 
-  <!-- WHY (copy oförändrad) -->
-  <section class="section" role="region" aria-label="Varför EMK?">
+  <section class="section">
     <div class="container">
       <div class="card">
         <h2>Varför EMK?</h2>
@@ -77,22 +79,19 @@
     </div>
   </section>
 
-  <!-- CTA (copy oförändrad) -->
-  <section class="section" role="region" aria-label="Kontakta oss">
+  <section class="section">
     <div class="container">
       <div class="card" style="display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap">
         <div>
           <h2>Klara case eller vill ni förebygga?</h2>
           <p class="text-muted">Vi börjar med en kostnadsfri behovsgenomgång.</p>
         </div>
-        <div>
-          <a class="btn btn-primary" href="/formular.html">Kontakta oss</a>
-        </div>
+        <div><a class="btn btn-primary" href="/formular.html">Kontakta oss</a></div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER (copy oförändrad) -->
+  <!-- FOOTER -->
   <footer class="footer" role="contentinfo">
     <div class="container wrap">
       <small>© EMK Sverige AB</small>
