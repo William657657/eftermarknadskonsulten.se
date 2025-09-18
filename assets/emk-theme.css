@@ -12,7 +12,7 @@
   /* Brand */
   --primary:  #D4AF37;   /* EMK guld */
   --primary-contrast:#1f2937; /* text på guldknappar */
-  --tint:     #f6ecd2;   /* ljus tonad bakgrund för aktiva länkar */
+  --tint:     #f6ecd2;   /* ljus ton för aktiva länkar/hover */
   --link:     var(--primary);
 
   /* Linjer & radius */
@@ -24,10 +24,17 @@
   --pad:  24px;
 }
 
-/* ===== Bas ===== */
+/* ===== Bas + fix mot hoppande layout ===== */
 *{box-sizing:border-box}
-html,body{height:100%}
+html{
+  height:100%;
+  /* Lås scroll-gutter så logga/meny inte hoppar i sidled mellan sidor */
+  scrollbar-gutter: stable both-edges;
+  /* Fallback för äldre webbläsare: visa alltid vertikal scroll */
+  overflow-y: scroll;
+}
 body{
+  min-height:100%;
   margin:0;
   background:var(--bg);
   color:var(--text);
@@ -57,18 +64,22 @@ a:hover{text-decoration:underline}
 .btn-ghost{background:transparent; color:var(--primary)}
 .btn:hover{filter:brightness(0.98)}
 
-/* ===== Navbar ===== */
+/* ===== Navbar (samma på ALLA sidor) ===== */
 .navbar{background:var(--surface); border-bottom:1px solid var(--border)}
 .navbar .wrap{display:flex; align-items:center; justify-content:space-between}
 .logo{font-weight:800; color:var(--text); text-decoration:none}
 .nav{display:flex; gap:18px; align-items:center}
 .nav a{
-  color:var(--text); text-decoration:none; padding:10px 10px;
-  border-radius:10px; transition:background .15s,color .15s;
+  display:inline-block;
+  color:var(--text); text-decoration:none;
+  padding:10px 10px; border-radius:10px;
+  transition:background .15s,color .15s;
+  /* Ingen font-weight-skillnad på active → förhindrar “bredd-hopp” */
+  font-weight:600;
 }
 .nav a.active, .nav a:hover{
   color:var(--text);
-  background:var(--tint); /* <— INGEN hårdkodad turkos längre */
+  background:var(--tint);   /* INGEN border/padding-förändring → ingen hoppning */
 }
 
 /* ===== Hero ===== */
