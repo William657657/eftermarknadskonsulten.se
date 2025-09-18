@@ -3,45 +3,117 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cookies | EMK Sverige AB</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root{--gold:#D4AF37;--ink:#2B2410;--paper:#FAF7EF}
-    body{background:var(--paper);color:#1A1A1A;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial}
-    .brand-primary{color:var(--ink)}
-    .card{background:#fff;border:1px solid #E5E7EB;border-radius:1rem}
-    a{color:#374151;text-decoration:underline}
-  </style>
-</head>
-<body>
-  <main class="max-w-3xl mx-auto px-4 md:px-6 py-10">
-    <a href="/" class="inline-flex items-center text-sm mb-6">← Till startsidan</a>
-    <h1 class="text-3xl font-semibold brand-primary">Cookie-policy</h1>
-    <div class="card p-6 md:p-8 text-gray-800 mt-6">
-      <p>Vi använder nödvändiga cookies för att webbplatsen ska fungera. Analyscookies sätts endast om du samtycker via vår cookie-banner.</p>
+  <title>Cookies | EMK Sverige AB – Eftermarknadskonsulten</title>
+  <meta name="description" content="Information om cookies på eftermarknadskonsulten.se och hur du styr dem." />
+  <link rel="canonical" href="https://www.eftermarknadskonsulten.se/cookies.html" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
 
-      <h2 class="text-xl font-semibold brand-primary mt-6">Typer av cookies</h2>
-      <ul class="list-disc ml-5">
-        <li><b>Nödvändiga</b> – sessionshantering, säkerhet.</li>
-        <li><b>Funktionella</b> – t.ex. förifyllnad och preferenser.</li>
-        <li><b>Analys</b> (valfritt) – trafik och prestanda, först efter samtycke.</li>
+  <!-- Tailwind med brandfärger -->
+  <script>
+    tailwind = {
+      theme: { extend: { colors: { brand:{black:'#000000', gold:'#D4AF37', white:'#ffffff'} } } }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>h1,h2,h3{word-break:break-word;hyphens:auto}</style>
+</head>
+<body class="bg-brand-white text-brand-black antialiased">
+  <!-- Header -->
+  <header class="border-b border-brand-black/10">
+    <div class="max-w-6xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <img src="/assets/customcolor_icon_customcolor_background.png" alt="EMK logotyp" class="w-8 h-8 rounded-lg" />
+        <span class="font-semibold">Eftermarknadskonsulten</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="/#tjanster" class="hover:text-brand-gold">Tjänster</a>
+        <a href="/#process" class="hover:text-brand-gold">Process</a>
+        <a href="/plattform.html" class="hover:text-brand-gold">Plattform</a>
+        <a href="/formular.html" class="hover:text-brand-gold">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="max-w-5xl mx-auto px-4 md:px-8 py-10">
+      <h1 class="text-3xl md:text-4xl font-extrabold">Cookies</h1>
+      <p class="mt-3 text-brand-black/80">Vi använder endast nödvändiga cookies för grundläggande funktioner och säker drift av webbplatsen. Ingen spårning sätts utan ditt uttryckliga val.</p>
+      <p class="mt-2 text-sm text-brand-black/60">Senast uppdaterad: <time datetime="2025-09-18">18 september 2025</time>.</p>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-4 md:px-8 pb-10">
+      <h2 class="text-xl font-semibold">Cookie-kategorier</h2>
+      <div class="mt-4 grid md:grid-cols-3 gap-6 text-sm">
+        <div class="p-5 border border-brand-black/10 rounded-2xl">
+          <strong>Nödvändiga</strong>
+          <p class="mt-1 text-brand-black/80">Krävs för att webbplatsen ska fungera (t.ex. lastbalansering, sessions-ID). Dessa kan inte stängas av.</p>
+        </div>
+        <div class="p-5 border border-brand-black/10 rounded-2xl">
+          <strong>Funktionella</strong>
+          <p class="mt-1 text-brand-black/80">Valfria bekvämligheter (t.ex. komma ihåg formulärval). Används endast om du godkänner dem.</p>
+        </div>
+        <div class="p-5 border border-brand-black/10 rounded-2xl">
+          <strong>Analys</strong>
+          <p class="mt-1 text-brand-black/80">Vi kör för närvarande <em>ingen</em> tredjepartsanalys. Om vi lägger till integritetsvänlig mätning informerar vi här först.</p>
+        </div>
+      </div>
+
+      <h2 class="mt-10 text-xl font-semibold">Styr dina cookies</h2>
+      <ul class="mt-2 text-sm text-brand-black/80 list-disc pl-5 space-y-1">
+        <li>Du kan radera/blockera cookies i din webbläsare. Se inställningar för Safari, Chrome, Edge eller Firefox.</li>
+        <li>Nödvändiga cookies kan inte inaktiveras då sidan slutar fungera korrekt.</li>
       </ul>
 
-      <h2 class="text-xl font-semibold brand-primary mt-6">Lagringstider & tredjepart</h2>
-      <p>Lagringstid varierar (session → upp till 24 månader). Tredje parter kan förekomma för drift/analys. Vi anonymiserar IP där det är möjligt.</p>
+      <h2 class="mt-10 text-xl font-semibold">Lista över cookies</h2>
+      <div class="mt-3 overflow-x-auto">
+        <table class="min-w-full text-sm border border-brand-black/10 rounded-2xl overflow-hidden">
+          <thead class="bg-brand-black text-white">
+            <tr>
+              <th class="text-left px-4 py-2">Namn</th>
+              <th class="text-left px-4 py-2">Syfte</th>
+              <th class="text-left px-4 py-2">Kategori</th>
+              <th class="text-left px-4 py-2">Lagringstid</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t border-brand-black/10">
+              <td class="px-4 py-2">lb_session</td>
+              <td class="px-4 py-2">Lastbalansering/säker drift</td>
+              <td class="px-4 py-2">Nödvändig</td>
+              <td class="px-4 py-2">Session</td>
+            </tr>
+            <!-- Lägg till fler vid behov -->
+          </tbody>
+        </table>
+      </div>
 
-      <h2 class="text-xl font-semibold brand-primary mt-6">Hantera samtycke</h2>
-      <p>Du kan återkalla eller ändra samtycke via webbläsarens inställningar eller genom att rensa webbplatsens lagring. Om du vill återvisa bannern direkt kan du klicka nedan:</p>
-      <button id="resetConsent" class="mt-3 rounded-xl px-4 py-2 border border-gray-300">Återställ cookie-val</button>
-
-      <p class="text-sm text-gray-600 mt-6">Senast uppdaterad: 17 september 2025.</p>
-    </div>
+      <div class="mt-8 text-sm text-brand-black/80">
+        Frågor? Maila <a href="mailto:info@emksab.se" class="underline text-brand-gold">info@emksab.se</a>.
+      </div>
+    </section>
   </main>
-  <script>
-    document.getElementById('resetConsent').addEventListener('click', ()=>{
-      localStorage.removeItem('emk_cookie_consent');
-      alert('Cookie-val återställda. Ladda om sidan för att se bannern igen.');
-    });
-  </script>
+
+  <!-- Footer -->
+  <footer class="border-t border-brand-black/10">
+    <div class="max-w-6xl mx-auto px-4 md:px-8 py-8 text-sm text-brand-black/80 grid md:grid-cols-3 gap-6">
+      <div>
+        <div class="font-semibold text-brand-black">EMK Sverige AB</div>
+        <div>Törnerydsvägen 42-40, 374 96 Trensum</div>
+        <div><a class="underline" href="mailto:info@emksab.se">info@emksab.se</a> · +46 708 26 33 66</div>
+      </div>
+      <div class="space-y-1">
+        <a href="/integritet.html" class="hover:text-brand-gold">Integritet</a><br/>
+        <a href="/cookies.html" class="hover:text-brand-gold">Cookies</a><br/>
+        <a href="/villkor.html" class="hover:text-brand-gold">Villkor</a>
+      </div>
+      <div class="space-y-1">
+        <a href="/plattform.html" class="hover:text-brand-gold">Plattform</a><br/>
+        <a href="/formular.html" class="hover:text-brand-gold">Kontakt</a><br/>
+        <a href="/sitemap.xml" class="hover:text-brand-gold">Sitemap</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
