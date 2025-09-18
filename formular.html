@@ -1,157 +1,79 @@
 <!doctype html>
 <html lang="sv">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kontakta oss – EMK Sverige AB</title>
-  <meta name="description" content="Kontakta EMK Sverige AB (Eftermarknadskonsulten). Skicka ett mail från din egen e-postklient via detta formulär." />
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    :root{--gold:#D4AF37;--ink:#2B2410;--paper:#FAF7EF}
-    body{background:var(--paper);color:#1A1A1A;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial;overflow-x:hidden;-webkit-text-size-adjust:100%}
-    .brand-primary{color:var(--ink)}
-    .card{background:#fff;border:1px solid #E5E7EB;border-radius:1rem}
-    .btn-gold{background:var(--gold);color:#111827}
-    .btn-ghost{border:1px solid #E5E7EB;color:var(--ink)}
-    a{color:#111827}
-  </style>
+  <link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/emk-theme.css?v=5">
 </head>
 <body>
-  <!-- Header (mini) -->
-  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-gray-200">
-    <div class="max-w-4xl mx-auto h-20 px-4 md:px-8 flex items-center justify-between">
-      <a href="/" aria-label="Gå till startsidan" class="inline-flex items-center">
-        <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK logotyp" class="h-12 md:h-16 w-auto" />
-      </a>
-      <a href="/" class="text-sm text-gray-600 hover:underline">Tillbaka</a>
-    </div>
-  </header>
+  <!-- HEADER -->
+  <header class="topbar" role="banner"><div class="container wrap">
+    <a class="logo" href="/index.html"><img src="/favicon.ico" alt="EMK Sverige AB"><span>EMK Sverige AB</span></a>
+    <nav class="nav" aria-label="Huvudmeny">
+      <a href="/index.html">Hem</a><a href="/tjanster.html">Tjänster</a><a href="/process.html">Process</a><a href="/case.html">Case</a><a href="/policy.html">Policy</a><a href="/Om-Oss.html">Om oss</a><a href="/formular.html">Kontakt</a>
+    </nav></div></header>
+  <script>(function(){var p=location.pathname.replace(/\/+$/,'');document.querySelectorAll('.topbar .nav a').forEach(a=>{if(a.getAttribute('href')===p)a.classList.add('active')});})();</script>
 
-  <main class="max-w-4xl mx-auto px-4 md:px-8 py-10">
-    <div class="mb-6">
-      <h1 class="text-2xl md:text-3xl font-semibold brand-primary">Kontakta oss</h1>
-      <p class="mt-2 text-sm md:text-base text-gray-700">
-        Fyll i och tryck <b>Öppna e-post</b>. Din e-postklient startar med ett färdigifyllt meddelande.
-        Inga uppgifter sparas på vår webb.
-      </p>
-    </div>
+  <main class="section">
+    <div class="container">
+      <h1>Kontakta oss</h1>
+      <p class="text-muted">Fyll i och tryck <strong>Öppna e-post</strong>. Din e-postklient startar med ett färdigifyllt meddelande. Inga uppgifter sparas på vår webb.</p>
 
-    <div class="card p-6 md:p-8">
-      <form id="contactForm" class="grid gap-4">
-        <div class="grid md:grid-cols-2 gap-4">
-          <div>
-            <label for="name" class="block text-sm font-medium text-gray-700">Namn*</label>
-            <input id="name" name="name" type="text" required class="mt-1 w-full rounded-xl border border-gray-300 px-3 py-2" />
+      <div class="card">
+        <form id="mailForm" onsubmit="openMail(event)">
+          <div style="display:grid;gap:12px;grid-template-columns:1fr 1fr;max-width:800px">
+            <label> Namn*<br><input required name="namn" type="text" style="width:100%"></label>
+            <label> E-post*<br><input required name="epost" type="email" style="width:100%"></label>
+            <label> Telefon<br><input name="tel" type="tel" style="width:100%"></label>
+            <label> Företag<br><input name="foretag" type="text" style="width:100%"></label>
+            <label style="grid-column:1/3"> Ämne
+              <select name="amne" style="width:100%">
+                <option>Allmänt</option>
+                <option>ARN-ärende</option>
+                <option>Eftermarknadsprocess</option>
+                <option>Utbildning</option>
+                <option>Övrigt</option>
+              </select>
+            </label>
+            <label style="grid-column:1/3"> Rubrik<br><input name="rubrik" type="text" style="width:100%"></label>
+            <label style="grid-column:1/3"> Meddelande*<br>
+              <textarea required name="meddelande" rows="6" style="width:100%"></textarea>
+            </label>
+            <input type="text" name="trap" style="display:none">
           </div>
-          <div>
-            <label for="email" class="block text-sm font-medium text-gray-700">E-post*</label>
-            <input id="email" name="email" type="email" required class="mt-1 w-full rounded-xl border border-gray-300 px-3 py-2" />
+          <div style="margin-top:14px">
+            <button class="btn btn-primary" type="submit">Öppna e-post</button>
           </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-4">
-          <div>
-            <label for="phone" class="block text-sm font-medium text-gray-700">Telefon</label>
-            <input id="phone" name="phone" type="tel" class="mt-1 w-full rounded-xl border border-gray-300 px-3 py-2" />
-          </div>
-          <div>
-            <label for="company" class="block text-sm font-medium text-gray-700">Företag</label>
-            <input id="company" name="company" type="text" class="mt-1 w-full rounded-xl border border-gray-300 px-3 py-2" />
-          </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-4">
-          <div>
-            <label for="topic" class="block text-sm font-medium text-gray-700">Ämne</label>
-            <select id="topic" name="topic" class="mt-1 w-full rounded-xl border border-gray-300 px-3 py-2">
-              <option value="Allmänt">Allmänt</option>
-              <option value="ARN-ärende">ARN-ärende</option>
-              <option value="Eftermarknadsprocess">Eftermarknadsprocess</option>
-              <option value="Utbildning">Utbildning</option>
-              <option value="Övrigt">Övrigt</option>
-            </select>
-          </div>
-          <div>
-            <label for="subject" class="block text-sm font-medium text-gray-700">Rubrik</label>
-            <input id="subject" name="subject" type="text" placeholder="Kort rubrik" class="mt-1 w-full rounded-xl border border-gray-300 px-3 py-2" />
-          </div>
-        </div>
-
-        <div>
-          <label for="message" class="block text-sm font-medium text-gray-700">Meddelande*</label>
-          <textarea id="message" name="message" rows="6" required class="mt-1 w-full rounded-xl border border-gray-300 px-3 py-2"></textarea>
-          <p class="mt-1 text-xs text-gray-500">Tips: Håll det gärna relativt kort. Bilagor kan du lägga till i e-postklienten.</p>
-        </div>
-
-        <!-- Honeypot (anti-spam) -->
-        <div class="hidden" aria-hidden="true">
-          <label>Do not fill<input id="website" type="text" tabindex="-1" autocomplete="off"></label>
-        </div>
-
-        <div class="flex items-center gap-3 mt-2">
-          <button type="submit" class="btn-gold rounded-xl px-5 py-3 text-sm font-semibold">Öppna e-post</button>
-        </div>
-      </form>
-
-      <!-- Fallback om JS är avstängt -->
-      <noscript>
-        <p class="mt-4 text-sm">
-          JavaScript är avstängt. Klicka här för att kontakta oss:
-          <a class="underline" href="mailto:info@emksab.se?subject=Kontakt via eftermarknadskonsulten.se">info@emksab.se</a>
-        </p>
-      </noscript>
+        </form>
+        <noscript>
+          JavaScript är avstängt. Klicka här för att kontakta oss: <a href="mailto:info@emksab.se">info@emksab.se</a>
+        </noscript>
+      </div>
     </div>
   </main>
 
   <script>
-    (function(){
-      const form = document.getElementById('contactForm');
-      const TO = 'info@emksab.se'; // fast mottagare
-
-      // Encode body för mailto med CRLF (bra för Outlook)
-      function encBody(s){
-        const withCrlf = (s || '').replace(/\r?\n/g, '\r\n'); // LF -> CRLF
-        return encodeURIComponent(withCrlf);
-      }
-      function encSubject(s){ return encodeURIComponent(s || ''); }
-
-      form.addEventListener('submit', function(e){
-        e.preventDefault();
-        if (document.getElementById('website').value) return; // bot-fälla
-
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        const company = document.getElementById('company').value.trim();
-        const topic = document.getElementById('topic').value;
-        const subjectInput = document.getElementById('subject').value.trim();
-        const message = document.getElementById('message').value.trim();
-
-        const subject = subjectInput || `Kontakt via eftermarknadskonsulten.se — ${topic}`;
-
-        const bodyLines = [
-          `Namn: ${name}`,
-          `E-post: ${email}`,
-          `Telefon: ${phone || '-'}`,
-          `Företag: ${company || '-'}`,
-          `Ämne: ${topic}`,
-          '',
-          'Meddelande:',
-          message,
-          '',
-          '—',
-          'Detta mail är initierat via formulär på eftermarknadskonsulten.se'
-        ];
-
-        const body = bodyLines.join('\n');
-        const mailto = `mailto:${TO}?subject=${encSubject(subject)}&body=${encBody(body)}`;
-
-        // Öppna användarens e-postklient i samma flik (stabilast)
-        window.location.href = mailto;
-      });
-    })();
+  function openMail(e){
+    e.preventDefault();
+    var f=e.target;
+    if(f.trap.value) return; // bot honeypot
+    var to="info@emksab.se";
+    var subject=(f.rubrik.value||"Kontakt via webb")+" – "+(f.amne.value||"");
+    var body=[
+      "Namn: "+f.namn.value,
+      "E-post: "+f.epost.value,
+      "Telefon: "+(f.tel.value||""),
+      "Företag: "+(f.foretag.value||""),
+      "",
+      f.meddelande.value
+    ].join("%0D%0A");
+    window.location.href="mailto:"+to+"?subject="+encodeURIComponent(subject)+"&body="+body;
+  }
   </script>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo"><div class="container wrap">
+    <small>© EMK Sverige AB</small><small><a href="/integritet.html">Integritet & GDPR</a></small><small><a href="/cookies.html">Cookies</a></small><small><a href="/policy.html">Policy</a></small><small><a href="/case.html">Case</a></small>
+  </div></footer>
 </body>
 </html>
