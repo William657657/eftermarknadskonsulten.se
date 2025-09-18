@@ -1,1 +1,33 @@
-
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.eftermarknadskonsulten.se/</loc>
+    <lastmod>2025-09-18</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://www.eftermarknadskonsulten.se/formular.html</loc>
+    <lastmod>2025-09-18</lastmod>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://www.eftermarknadskonsulten.se/plattform.html</loc>
+    <lastmod>2025-09-18</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://www.eftermarknadskonsulten.se/integritet.html</loc>
+    <lastmod>2025-09-18</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://www.eftermarknadskonsulten.se/cookies.html</loc>
+    <lastmod>2025-09-18</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://www.eftermarknadskonsulten.se/villkor.html</loc>
+    <lastmod>2025-09-18</lastmod>
+    <priority>0.50</priority>
+  </url>
+</urlset>
