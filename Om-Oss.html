@@ -4,57 +4,220 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Om oss | EMK Sverige AB – Eftermarknadskonsulten</title>
-  <meta name="description" content="Om EMK Sverige AB – vårt ursprung, styrkor och konkurrensfördelar.">
+  <meta name="description" content="Om EMK Sverige AB – vårt ursprung, mål och förmåga.">
   <link rel="icon" href="favicon.ico" />
   <link rel="icon" href="assets/customcolor_icon_customcolor_background.png" type="image/png" />
   <meta property="og:title" content="Om oss | EMK Sverige AB – Eftermarknadskonsulten" />
-  <meta property="og:description" content="Företagsöversikt, ursprung och styrkor hos EMK Sverige AB (Eftermarknadskonsulten)." />
+  <meta property="og:description" content="Backstory, målbild och styrkor hos EMK Sverige AB (Eftermarknadskonsulten)." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/customcolor_logo_customcolor_background.png" />
 
-  <!-- Tailwind -->
+  <!-- Layout-hjälp (ingen färgstyrning här) -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- EMK Theme -->
+  <!-- LÅST TEMA -->
   <link rel="stylesheet" href="assets/emk-theme.css" />
 </head>
-<body class="antialiased">
+<body class="antialiased" style="background:var(--brand-bg); color:var(--brand-text);">
+
+  <!-- Header -->
   <header>
-    <div class="mx-auto max-w-7xl px-4 md:px-6 wrap">
-      <a href="/" class="logo">
-        <img src="assets/customcolor_logo_customcolor_background.png" alt="EMK">
-        <span>Eftermarknadskonsulten</span>
-      </a>
-      <nav class="nav">
-        <a href="index.html">Hem</a>
-        <a href="om-oss.html" aria-current="page" class="active">Om oss</a>
-        <a href="integritet.html">Policy</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
+    <div id="topbar" class="topbar">
+      <div class="container wrap" style="height:80px;">
+        <a href="index.html" class="logo" aria-label="Gå till startsidan">
+          <img src="assets/customcolor_logo_customcolor_background.png" alt="EMK logotyp" />
+          <span class="strong" style="display:none;">Eftermarknadskonsulten</span>
+        </a>
+
+        <nav class="nav hidden md:flex">
+          <a href="index.html">Hem</a>
+          <a href="om-oss.html" aria-current="page" class="active">Om oss</a>
+          <a href="integritet.html">Integritet</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+
+        <!-- Desktop CTA -->
+        <div class="hidden md:block">
+          <a href="formular.html" class="btn btn-primary">Kontakta oss</a>
+        </div>
+
+        <!-- Mobil: hamburgare -->
+        <button id="navToggle" class="md:hidden hambox" aria-expanded="false" aria-controls="mobileNav" aria-label="Öppna meny">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Off-canvas mobilmeny -->
+    <div id="mobileNav" class="offcanvas" hidden>
+      <div class="scrim" data-close=""></div>
+      <div class="panel">
+        <div class="flex items-center justify-between">
+          <strong>Menyn</strong>
+          <button class="hambox" data-close="" aria-label="Stäng meny">×</button>
+        </div>
+        <div class="mt-3 grid gap-1">
+          <a href="index.html" data-close="">Hem</a>
+          <a href="om-oss.html" aria-current="page" class="active" data-close="">Om oss</a>
+          <a href="integritet.html" data-close="">Integritet</a>
+          <a href="#kontakt" data-close="">Kontakt</a>
+          <a href="formular.html" class="btn btn-primary mt-2" data-close="">Kontakta oss</a>
+        </div>
+      </div>
     </div>
   </header>
 
+  <!-- Hero/intro -->
+  <section class="section hero-bg">
+    <div class="container">
+      <span class="chip">EMK Sverige AB</span>
+      <h1 class="hero-title mt-4">
+        Om EMK Sverige AB <span class="hero-underline">(Eftermarknadskonsulten)</span>
+      </h1>
+      <p class="lead mt-3">Vi hjälper bilhandlare att vinna eftermarknaden — med struktur, tempo och praxisnära beslut.</p>
+    </div>
+  </section>
+
+  <!-- Innehåll -->
   <main class="section">
-    <div class="mx-auto max-w-4xl px-4 md:px-6">
-      <h1>Om EMK Sverige AB (Eftermarknadskonsulten)</h1>
-      <p>Här följer företagsöversikt, ursprung, konkurrensfördelar och styrkor.</p>
-      <!-- Din textinnehåll här -->
+    <div class="container">
+      <div class="grid md:grid-cols-3 gap-6 items-start">
+        <!-- Vänster kolumn -->
+        <div class="card elev">
+          <h3 class="strong">Ursprung & uppdrag</h3>
+          <p class="mt-2 fine">
+            EMK Sverige AB (Eftermarknadskonsulten) växte fram ur en enkel insikt: bilhandlare förlorar tid, marginal och förtroende när
+            eftermarknadsprocessen haltar. Med rötter i skadereglering, regress och praktiskt tvistarbete startade vi som ett
+            fokuserat, personligt rådgivningsbolag — med ambitionen att göra komplicerade ARN-frågor handlingsbara och lönsamma.
+          </p>
+          <ul class="mt-3 bullets">
+            <li>• Grundidé: effektivisera eftermarknad & ARN för svenska bilhandlare</li>
+            <li>• Arbetssätt: digitalt + på plats, alltid nära affären</li>
+            <li>• Löfte: tydliga beslut, snabb respons, noll fluff</li>
+          </ul>
+        </div>
+
+        <!-- Mitten kolumn -->
+        <div class="card elev">
+          <h3 class="strong">Styrkor</h3>
+          <p class="mt-2 fine">Det som gör skillnad i vardagen — från första bedömning till stängd affär.</p>
+          <ul class="mt-3 bullets">
+            <li>• Djup branschkunskap: skräddarsyr lösningar efter er verklighet</li>
+            <li>• Starka relationer: tät dialog ger rätt åtgärd i rätt tid</li>
+            <li>• Hög kundnöjdhet: uppföljning och support som faktiskt leder vidare</li>
+            <li>• Flexibilitet: justerar upplägg och mallar när läget svänger</li>
+            <li>• Närvaro online & fysiskt: vi finns där det behövs — inte tvärtom</li>
+          </ul>
+        </div>
+
+        <!-- Höger kolumn -->
+        <div class="card elev">
+          <h3 class="strong">Konkurrensfördelar</h3>
+          <p class="mt-2 fine">
+            Vi kombinerar juridiskt ramverk (KKL & aktuell ARN-praxis) med verkstadens verklighet och säljarens tempo.
+            Resultatet är skarpa yttranden, en beslutsmatris som minskar hävningsrisk — och en process ni kan äga själva.
+          </p>
+          <ul class="mt-3 bullets">
+            <li>• Snabbstart: första bedömning inom 12h (vardagar)</li>
+            <li>• End-to-end vid behov: kunddialog, verkstad, offert, överenskommelse</li>
+            <li>• Förebyggande stöd: fånga ärenden innan de blir ARN</li>
+          </ul>
+          <p class="small mt-3">*Brådskande ärenden utanför arbetstid enligt överenskommelse.</p>
+        </div>
+      </div>
+
+      <!-- Textcell – Backstory & målbild -->
+      <div class="textcell mt-6">
+        <h3 class="strong">Backstory, mål & vår förmåga</h3>
+        <p class="mt-2 fine">
+          EMK startades som ett medvetet litet och dedikerat bolag — för att kunna vara snabbfotat, personligt och affärsnära.
+          Målet är tydligt: göra eftermarknaden till en konkurrensfördel för bilhandlare som säljer allt från 10 till 10 000 bilar/år.
+          Vi arbetar sprintbaserat (analys → företagsanpassad process → implementering/utbildning → uppföljning) och levererar
+          underlag som går att använda samma dag: yttranden, mallar, checklistor och en beslutsmatris som väger reparation,
+          omleverans eller prisavdrag mot risk och kostnad.
+        </p>
+        <p class="mt-2 fine">
+          Vår tillväxtplan är pragmatisk: skapa värde från dag ett, växa på kundnöjdhet och upprepade resultat. Med kombinationen
+          av branscherfarenhet, tät dialog och konsekvent uppföljning bygger vi långsiktiga relationer — där färre tvister, snabbare
+          beslut och färre onödiga kostnader syns i sista raden. Kort sagt: vi gör det lätt att göra rätt, snabbt.
+        </p>
+      </div>
     </div>
   </main>
 
-  <footer class="footer">
-    <div class="mx-auto max-w-7xl px-4 md:px-6 wrap">
-      <div class="flex items-center gap-3">
-        <img src="assets/customcolor_logo_customcolor_background.png" alt="EMK" class="h-8 w-auto">
-        <span>© <span id="y"></span> EMK Sverige AB</span>
+  <!-- Kontakt-ankare på denna sida -->
+  <section id="kontakt" class="section">
+    <div class="container">
+      <div class="card elev">
+        <h3 class="strong">Kontakta oss</h3>
+        <p class="mt-2 fine">Boka ett kort lära-känna-möte (15 min) så visar vi hur vi bäst hjälper i ert läge.</p>
+        <div class="mt-4 flex gap-2 flex-wrap">
+          <a href="formular.html" class="btn btn-primary">Kontakta oss</a>
+          <a href="mailto:info@emksab.se" class="btn btn-outline">info@emksab.se</a>
+          <a href="tel:+46708263366" class="btn btn-outline">0708-26 33 66</a>
+        </div>
       </div>
-      <nav class="nav">
-        <a href="index.html">Hem</a>
-        <a href="integritet.html">Integritet</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" style="padding-top:24px; padding-bottom:24px;">
+    <div class="container wrap">
+      <div class="flex items-center gap-2">
+        <img src="assets/customcolor_icon_customcolor_background.png" alt="EMK logotyp" style="height:32px;width:32px;border-radius:8px;" />
+        <div>
+          <div class="strong">© <span id="y"></span> EMK Sverige AB</div>
+          <div>Org.nr 559514-0111 · Trensum</div>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div>
+          <div class="strong">Kontakt</div>
+          <div><a href="mailto:info@emksab.se">info@emksab.se</a></div>
+          <div><a href="tel:+46708263366">0708-26 33 66</a></div>
+        </div>
+        <div>
+          <div class="strong">Sidor</div>
+          <a href="index.html">Hem</a>
+          <a href="om-oss.html" aria-current="page" class="active">Om oss</a>
+          <a href="integritet.html">Integritet</a>
+        </div>
+        <div>
+          <div class="strong">Hjälp</div>
+          <a href="#kontakt">Boka samtal</a>
+          <a href="formular.html">Formulär</a>
+        </div>
+      </div>
     </div>
   </footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+
+  <!-- Scripts (samma som index) -->
+  <script>
+    // År i footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Sticky-skugga på scroll
+    (function(){
+      const bar = document.getElementById('topbar');
+      function onScroll(){ if(window.scrollY > 6) bar.classList.add('is-scrolled'); else bar.classList.remove('is-scrolled'); }
+      onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+    })();
+
+    // Off-canvas mobilmeny
+    (function(){
+      const toggle = document.getElementById('navToggle');
+      const oc = document.getElementById('mobileNav');
+      if(!toggle || !oc) return;
+      const scrim = oc.querySelector('.scrim');
+      const closers = oc.querySelectorAll('[data-close]');
+      function open(){ oc.hidden=false; oc.classList.add('open'); toggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+      function close(){ oc.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; setTimeout(()=>{ oc.hidden=true; },200); }
+      toggle.addEventListener('click', open);
+      scrim && scrim.addEventListener('click', close);
+      closers.forEach(el=>el.addEventListener('click', close));
+      window.addEventListener('keydown', e=>{ if(e.key==='Escape' && !oc.hidden) close(); });
+    })();
+  </script>
 </body>
 </html>
