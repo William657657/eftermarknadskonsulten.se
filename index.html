@@ -34,7 +34,7 @@
     .btn-ghost{border:1px solid var(--gold);color:var(--ink)}
     /* ====== HEADER ====== */
     .site-header{background:color-mix(in srgb, var(--paper) 90%, white 10%);backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid var(--gold)}
-    /* Större, tydlig logga + lite högre header */
+    /* Större logga + lite högre header */
     .brand-logo{height:72px;width:auto;display:block}
     @media (min-width:640px){.brand-logo{height:80px}}
     @media (min-width:1024px){.brand-logo{height:92px}}
@@ -43,7 +43,6 @@
     /* ====== HERO ====== */
     .hero{background:var(--paper)}
     .hero h1{font-weight:800;letter-spacing:-.015em}
-    /* storlek kontrollerad, inga “gigantiska” rubriker */
     .h1{font-size:36px;line-height:1.15}
     @media (min-width:640px){.h1{font-size:40px}}
     @media (min-width:768px){.h1{font-size:44px}}
@@ -56,7 +55,6 @@
   <header class="site-header sticky top-0 z-30">
     <div class="header-wrap max-w-6xl mx-auto px-4 md:px-8 flex items-center justify-between">
       <a href="/" aria-label="Gå till startsidan" class="inline-flex items-center">
-        <!-- RÄTT LOGGA – större så sloganen syns -->
         <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK logotyp" class="brand-logo" />
       </a>
       <nav class="hidden md:flex items-center gap-6 text-sm">
@@ -142,13 +140,37 @@
     </div>
   </section>
 
-  <!-- VARFÖR EMK -->
+  <!-- CASE (uppdaterad enligt bilden) -->
   <section id="case" class="max-w-6xl mx-auto px-4 md:px-8 py-14">
-    <h2 class="text-2xl md:text-3xl font-bold">Varför EMK?</h2>
-    <div class="mt-6 grid md:grid-cols-3 gap-6 text-sm">
-      <div class="p-6 card"><strong>Bilhandlarfokus</strong><br/>ICP 50–2 500 bilar/år – våra mallar är byggda för er vardag.</div>
-      <div class="p-6 card"><strong>Praktisk juridik</strong><br/>Konsumentköplagen i praktiken, inte bara teori.</div>
-      <div class="p-6 card"><strong>Ägd kod</strong><br/>System ni kontrollerar – med support när ni vill.</div>
+    <h2 class="text-2xl md:text-3xl font-bold">Case</h2>
+
+    <div class="mt-8 grid md:grid-cols-3 gap-6">
+      <!-- Kort 1 -->
+      <article class="p-6 card">
+        <h3 class="font-semibold">Fördröjd leverans</h3>
+        <p class="mt-2 text-sm opacity-90">
+          Kund yrkar hävning p.g.a. väntid. Vi visar proportionalitet &amp; alternativ ersättning.
+          Utfallet: 2&nbsp;% prisavdrag, ingen hävning.
+        </p>
+      </article>
+
+      <!-- Kort 2 -->
+      <article class="p-6 card">
+        <h3 class="font-semibold">Tekniskt fel – BMW M6</h3>
+        <p class="mt-2 text-sm opacity-90">
+          Auktoriserad verkstad inkopplad utan samråd. Vi styr beviskrav &amp; process – återför kontroll till
+          säljaren. Reparation bekostas av fordonsägaren.
+        </p>
+      </article>
+
+      <!-- Kort 3 -->
+      <article class="p-6 card">
+        <h3 class="font-semibold">Otydliga garantivillkor</h3>
+        <p class="mt-2 text-sm opacity-90">
+          Standardiserade villkor + utbildning gav färre tvister och snabbare beslut i
+          eftermarknadsprocessen. Lägre kostnader – högre eget kapital.
+        </p>
+      </article>
     </div>
   </section>
 
