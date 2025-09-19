@@ -3,57 +3,63 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Integritet & GDPR | EMK Sverige AB</title>
-  <meta name="description" content="Integritetspolicy (GDPR) för EMK Sverige AB.">
+  <title>Integritetspolicy | EMK Sverige AB</title>
+  <meta name="description" content="Integritetspolicy för EMK Sverige AB – hantering av personuppgifter och e-post.">
   <link rel="icon" href="favicon.ico" />
+  <link rel="icon" href="assets/customcolor_icon_customcolor_background.png" type="image/png" />
+  <meta property="og:title" content="Integritetspolicy | EMK Sverige AB" />
+  <meta property="og:description" content="Integritetspolicy för EMK Sverige AB – hantering av personuppgifter och e-post." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/customcolor_logo_customcolor_background.png" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- EMK Theme -->
   <link rel="stylesheet" href="assets/emk-theme.css" />
 </head>
-<body>
-
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="brand">
-        <img src="assets/customcolor_logo_customcolor_background.png" alt="EMK Sverige AB" height="38" />
+<body class="antialiased">
+  <header>
+    <div class="mx-auto max-w-7xl px-4 md:px-6 wrap">
+      <a href="/" class="logo">
+        <img src="assets/customcolor_logo_customcolor_background.png" alt="EMK">
+        <span>Eftermarknadskonsulten</span>
       </a>
       <nav class="nav">
         <a href="index.html">Hem</a>
-        <a href="Om-Oss.html">Om oss</a>
-        <a href="policy.html">Policy</a>
-        <a href="integritet.html" aria-current="page">Integritet</a>
-        <a href="index.html#kontakt">Kontakt</a>
+        <a href="om-oss.html">Om oss</a>
+        <a href="integritet.html" aria-current="page" class="active">Policy</a>
+        <a href="#kontakt">Kontakt</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="container">
-      <div class="card" style="padding:24px">
-        <h1 class="h1">Integritet &amp; GDPR</h1>
-
-        <section class="max-w-3xl">
-          <h2 class="text-lg font-semibold">Kontaktformulär via e-post</h2>
-          <p class="mt-2 text-sm">
-            När du kontaktar oss via formuläret på eftermarknadskonsulten.se öppnas din egen e-postklient med
-            ett färdigifyllt meddelande. Ingen information skickas eller lagras på vår webbserver innan du själv
-            väljer att skicka e-posten. Mottagare är alltid
-            <a class="underline" href="mailto:info@emksab.se">info@emksab.se</a>.
-          </p>
-        </section>
-
-        <!-- …resten av din GDPR-text… -->
-      </div>
-    </section>
+  <main class="section">
+    <div class="mx-auto max-w-3xl px-4 md:px-6">
+      <h1>Integritetspolicy</h1>
+      <p>
+        När du kontaktar oss via formuläret på eftermarknadskonsulten.se öppnas din egen e-postklient
+        med ett färdigifyllt meddelande. Ingen information skickas eller lagras på vår webbserver
+        innan du själv väljer att skicka e-posten. Mottagare är alltid
+        <a href="mailto:info@emksab.se">info@emksab.se</a>.
+      </p>
+    </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© EMK Sverige AB</p>
-      <div class="footer-links">
-        <a href="policy.html">Policy</a>
-        <a href="integritet.html" aria-current="page">Integritet</a>
+  <footer class="footer">
+    <div class="mx-auto max-w-7xl px-4 md:px-6 wrap">
+      <div class="flex items-center gap-3">
+        <img src="assets/customcolor_logo_customcolor_background.png" alt="EMK" class="h-8 w-auto">
+        <span>© <span id="y"></span> EMK Sverige AB</span>
       </div>
+      <nav class="nav">
+        <a href="index.html">Hem</a>
+        <a href="om-oss.html">Om oss</a>
+        <a href="integritet.html" aria-current="page">Integritet</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
     </div>
   </footer>
-
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
