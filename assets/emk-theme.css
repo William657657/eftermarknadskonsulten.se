@@ -5,16 +5,16 @@
 
 :root {
   /* Ytor */
-  --brand-bg:        #f7f3ea;   /* varm ljus bakgrund */
+  --brand-bg:        #FAF7EF;   /* varm ljus bakgrund (låst) */
   --brand-surface:   #ffffff;   /* kort/sektioner */
   --brand-elev:      #faf7f0;   /* lätt upphöjd yta */
 
   /* Text */
-  --brand-text:      #1f2937;   /* nästan svart */
+  --brand-text:      #2B2410;   /* djup mörk text (låst) */
   --brand-muted:     #6b7280;   /* sekundär text */
 
   /* Brand */
-  --brand-accent:    #D4AF37;   /* EMK guld */
+  --brand-accent:    #D4AF37;   /* EMK guld (låst) */
   --brand-contrast:  #1f2937;   /* text på guldknapp */
   --brand-tint:      #f6ecd2;   /* mjuk markering för hover/active */
   --brand-link:      var(--brand-accent);
