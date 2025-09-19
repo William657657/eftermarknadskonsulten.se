@@ -12,110 +12,99 @@
   <meta property="og:url" content="https://www.eftermarknadskonsulten.se" />
   <meta property="og:image" content="/assets/customcolor_textlogo_customcolor_background.png" />
 
+  <!-- Layout-hjälp (utan färgklasser) -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- LÅST FÄRGPALETT -->
-  <link rel="stylesheet" href="/emk-theme.css" />
+  <!-- LÅST TEMA -->
+  <link rel="stylesheet" href="/assets/emk-theme.css" />
 
   <style>
-    /* ===== Brand helpers – använder ENBART variabler från emk-theme.css ===== */
-    :root { /* variablerna definieras i emk-theme.css; inga färghex här */ }
-    body{background:var(--paper);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial;overflow-x:hidden;-webkit-text-size-adjust:100%}
-    .brand-primary{color:var(--ink)}
-    .muted{color:var(--ink);opacity:.82}
-    .fine{color:var(--ink);opacity:.72}
-    .border-subtle{border-color: rgba(0,0,0,.08)} /* diskret; påverkar ej palett */
-    .chip{background: color-mix(in srgb, var(--gold) 18%, transparent); color: var(--ink)}
-    .glow{background: var(--gold); opacity:.40; filter: blur(24px)}
-    .card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:1rem}
-    .btn-gold{background:var(--gold);color:#111827}
-    .btn-ghost{border:1px solid rgba(0,0,0,.12);color:var(--ink);background:transparent}
-    .hero-grad{background: radial-gradient(1200px 400px at 10% -10%, color-mix(in srgb, var(--gold) 33%, transparent), transparent), linear-gradient(180deg, #fff, var(--paper))}
-    /* Ankarlänkar landar snyggt under sticky-headern (ca 7rem marginal) */
-    section[id]{ scroll-margin-top: 7.0rem; }
+    /* Endast layout/effekter som bygger på brand-variabler */
+    body { background:var(--brand-bg); color:var(--brand-text); }
+    .brand-primary { color:var(--brand-text); }
+    .hero-bg {
+      background:
+        radial-gradient(1200px 420px at 10% -10%, var(--brand-tint), transparent),
+        linear-gradient(180deg, var(--brand-tint), var(--brand-bg));
+    }
+    .chip { background: var(--brand-tint); color: var(--brand-text); border-radius:999px; padding:6px 10px; font-weight:600; font-size:.8rem; letter-spacing:.01em; }
+    .soft-glow { position:absolute; inset:-8px; border-radius:24px; background:var(--brand-accent); opacity:.18; filter:blur(18px); }
+    section[id]{ scroll-margin-top: 7rem; }
   </style>
 </head>
 <body>
   <!-- Header -->
-  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-subtle">
-    <div class="max-w-6xl mx-auto h-20 px-4 md:px-8 flex items-center justify-between">
-      <!-- LOGO -->
-      <a href="/" aria-label="Gå till startsidan" class="inline-flex items-center">
-        <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK logotyp" class="h-12 md:h-16 w-auto" />
-      </a>
-
-      <nav class="hidden md:flex items-center gap-6 text-sm fine">
-        <a href="#tjanster" class="hover:underline">Tjänster</a>
-        <a href="#process" class="hover:underline">Process</a>
-        <a href="#case" class="hover:underline">Case</a>
-        <a href="#policy" class="hover:underline">Policy</a>
-        <a href="#kontakt" class="hover:underline">Kontakt</a>
-      </nav>
-
-      <div class="flex items-center gap-2">
-        <a href="#kontakt" class="hidden md:inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm btn-gold">Boka ett samtal</a>
-        <a href="/formular.html" target="_blank" rel="noopener"
-           class="md:hidden inline-flex items-center justify-center rounded-lg px-3 py-2 text-sm font-semibold shadow-sm btn-gold">
-          Kontakta oss
+  <header>
+    <div class="topbar">
+      <div class="container wrap" style="height:80px;">
+        <a href="/" class="logo" aria-label="Gå till startsidan">
+          <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK logotyp" />
         </a>
-        <!-- Hamburger -->
-        <button id="navToggle" aria-expanded="false" aria-controls="mobileNav"
-          class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-subtle brand-primary">
-          <span class="sr-only">Öppna meny</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
+
+        <nav class="nav hidden md:flex">
+          <a href="#tjanster">Tjänster</a>
+          <a href="#process">Process</a>
+          <a href="#case">Case</a>
+          <a href="#policy">Policy</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+
+        <div class="hidden md:block">
+          <a href="#kontakt" class="btn btn-primary">Boka ett samtal</a>
+        </div>
+
+        <!-- Mobilmeny-knapp -->
+        <button id="navToggle" aria-expanded="false" aria-controls="mobileNav" class="md:hidden btn btn-outline" style="padding:8px 10px;">
+          Meny
         </button>
       </div>
     </div>
     <!-- Mobilmeny -->
-    <nav id="mobileNav" class="md:hidden hidden border-t border-subtle bg-white">
-      <div class="px-4 py-3 grid gap-3 text-sm brand-primary">
-        <a href="#tjanster" class="block">Tjänster</a>
-        <a href="#process"  class="block">Process</a>
-        <a href="#case"     class="block">Case</a>
-        <a href="#policy"   class="block">Policy</a>
-        <a href="#kontakt"  class="block">Kontakt</a>
+    <nav id="mobileNav" class="md:hidden hidden" style="border-top:1px solid var(--brand-border); background:var(--brand-surface);">
+      <div class="container" style="display:grid; gap:10px; padding-top:12px; padding-bottom:12px;">
+        <a href="#tjanster">Tjänster</a>
+        <a href="#process">Process</a>
+        <a href="#case">Case</a>
+        <a href="#policy">Policy</a>
+        <a href="#kontakt">Kontakt</a>
       </div>
     </nav>
   </header>
 
   <!-- Hero -->
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 -z-10 hero-grad"></div>
-    <div class="max-w-6xl mx-auto px-4 md:px-8 pt-16 md:pt-24 pb-12 md:pb-16 grid md:grid-cols-2 gap-8">
-      <div>
-        <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium chip">Experter på ARN-processer · Snabbt & strukturerat</span>
-        <h1 class="mt-14 font-semibold brand-primary">
-          Hjälp i <span class="underline decoration-4 decoration-[var(--gold)] underline-offset-4">ARN-processen</span> för bilhandlare
-        </h1>
-        <p class="mt-4 text-base md:text-lg muted">
-          Vi minskar risken för hävning och onödiga kostnader genom skarpa yttranden, smart dokumentation och en tydlig beslutsmatris — byggt på Konsumentköplagen och aktuell ARN-praxis.
-        </p>
-        <div class="mt-6 flex flex-wrap items-center gap-3">
-          <a href="/formular.html" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm btn-gold">
-            Kontakta oss
-          </a>
-          <a href="#tjanster" class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold btn-ghost">Se tjänster</a>
+  <section class="hero section hero-bg">
+    <div class="container">
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+        <div>
+          <span class="chip">Experter på ARN-processer · Snabbt & strukturerat</span>
+          <h1 class="mt-6" style="font-weight:800;">
+            Hjälp i <span style="text-decoration:underline; text-decoration-thickness:4px; text-decoration-color:var(--brand-accent); text-underline-offset:6px;">ARN-processen</span> för bilhandlare
+          </h1>
+          <p class="mt-4" style="color:var(--brand-text); opacity:.88;">
+            Vi minskar risken för hävning och onödiga kostnader genom skarpa yttranden, smart dokumentation och en tydlig beslutsmatris — byggt på Konsumentköplagen och aktuell ARN-praxis.
+          </p>
+          <div class="cta mt-5">
+            <a href="/formular.html" target="_blank" rel="noopener" class="btn btn-primary">Kontakta oss</a>
+            <a href="#tjanster" class="btn btn-outline">Se tjänster</a>
+          </div>
+          <ul class="mt-6" style="opacity:.85;">
+            <li>• 30-dagars sprint: Verksamhetsanalys → Företagsanpassad Eftermarknadsprocess → Implementering samt Utbildning → Resultatuppföljning - Utvärdering</li>
+            <li>• För bilhandlare som säljer 10–10 000 bilar/år</li>
+            <li>• Lång erfarenhet från skadereglering & regressprocesser på bolagssidan</li>
+          </ul>
         </div>
-        <ul class="mt-6 text-sm md:text-base fine">
-          <li>• 30-dagars sprint: Verksamhetsanalys → Företagsanpassad Eftermarknadsprocess → Implementering samt Utbildning → Resultatuppföljning - Utvärdering</li>
-          <li>• För bilhandlare som säljer 10–10 000 bilar/år</li>
-          <li>• Lång erfarenhet från skadereglering & regressprocesser på bolagssidan</li>
-        </ul>
-      </div>
-      <div>
+
         <div class="relative">
-          <div class="absolute -inset-2 rounded-3xl glow"></div>
-          <div class="relative card p-6 md:p-8">
-            <h3 class="text-lg font-semibold brand-primary">Vad vi levererar</h3>
-            <ul class="mt-4 grid gap-3 text-sm fine">
+          <div class="soft-glow" aria-hidden="true"></div>
+          <div class="card">
+            <h3 style="font-weight:700;">Vad vi levererar</h3>
+            <ul class="mt-3" style="opacity:.9;">
               <li>• Akut stöd: första bedömning inom 12h*</li>
               <li>• Yttranden och bemötanden till ARN</li>
               <li>• Beslutsmatris: när reparera, omleverera, prisavdrag?</li>
               <li>• <b>Mötesunderlag</b> (checklista + tidslinje) skickas efter bokning – ej offentlig nedladdning</li>
               <li>• Utbildning sälj/eftermarknad i KKL §§25–28 & praxis</li>
             </ul>
-            <p class="mt-4 text-xs fine">*Arbetas vardagar. Brådskande ärenden utanför normal arbetstid, enligt överenskommelse.</p>
+            <p class="mt-4" style="font-size:.82rem; opacity:.7;">*Arbetas vardagar. Brådskande ärenden utanför normal arbetstid, enligt överenskommelse.</p>
           </div>
         </div>
       </div>
@@ -123,27 +112,27 @@
   </section>
 
   <!-- Tjänster -->
-  <section id="tjanster" class="py-14 px-4 md:px-8">
-    <div class="max-w-6xl mx-auto">
+  <section id="tjanster" class="section">
+    <div class="container">
       <div class="relative mb-6">
-        <div class="absolute -inset-2 rounded-3xl glow"></div>
-        <div class="relative card p-6">
-          <p class="text-sm muted">
+        <div class="soft-glow" aria-hidden="true" style="inset:-6px; border-radius:16px;"></div>
+        <div class="card">
+          <p style="opacity:.9;">
             Vi hjälper även i ärenden som <b>riskerar</b> att bli ARN-ärenden (förebyggande stöd). Dessutom kan vi bygga en
             <b>kostnadseffektiv eftermarknadsplattform</b> som ni själva äger från dag 1 – för handlare, egen verkstad, inköp m.fl.
-            <a href="/plattform.html" class="underline brand-primary">Läs mer</a>.
+            <a href="/plattform.html">Läs mer</a>.
           </p>
         </div>
       </div>
 
       <div class="grid md:grid-cols-3 gap-6">
-        <div class="card p-6">
+        <div class="card">
           <div class="flex items-center justify-between">
-            <h3 class="text-lg font-semibold brand-primary">Akut ARN-respons</h3>
-            <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium chip">Snabbstart</span>
+            <h3 style="font-weight:700;">Akut ARN-respons</h3>
+            <span class="badge">Snabbstart</span>
           </div>
-          <p class="mt-2 text-sm muted">Genomgång av ärende & underlag, riskbedömning, åtgärdsplan och första utkast till yttrande.</p>
-          <ul class="mt-4 text-sm space-y-2 fine">
+          <p class="mt-2" style="opacity:.9;">Genomgång av ärende & underlag, riskbedömning, åtgärdsplan och första utkast till yttrande.</p>
+          <ul class="mt-3" style="opacity:.85;">
             <li>• Checklista skickas efter bokning</li>
             <li>• Språk & tonläge mot kund/ARN</li>
             <li>• Rekommenderade temporära åtgärder</li>
@@ -151,26 +140,26 @@
           </ul>
         </div>
 
-        <div class="card p-6">
+        <div class="card">
           <div class="flex items-center justify-between">
-            <h3 class="text-lg font-semibold brand-primary">Yttrande & bemötande</h3>
-            <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium chip">Huvudtjänst</span>
+            <h3 style="font-weight:700;">Yttrande & bemötande</h3>
+            <span class="badge">Huvudtjänst</span>
           </div>
-          <p class="mt-2 text-sm muted">Komplett yttrande till ARN, bevisning, praxisstöd, och strategi för alternativ lösning vid behov.</p>
-          <ul class="mt-4 text-sm space-y-2 fine">
+          <p class="mt-2" style="opacity:.9;">Komplett yttrande till ARN, bevisning, praxisstöd, och strategi för alternativ lösning vid behov.</p>
+          <ul class="mt-3" style="opacity:.85;">
             <li>• KKL & prop. 2021/22:85 kopplat till ditt fall</li>
             <li>• Tidplan & milstolpar</li>
             <li>• Slutgenomläsning med beslutsfattare</li>
           </ul>
         </div>
 
-        <div class="card p-6">
+        <div class="card">
           <div class="flex items-center justify-between">
-            <h3 class="text-lg font-semibold brand-primary">Full ärendeledning</h3>
-            <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium chip">End-to-end</span>
+            <h3 style="font-weight:700;">Full ärendeledning</h3>
+            <span class="badge">End-to-end</span>
           </div>
-          <p class="mt-2 text-sm muted">Vi tar lead på hela ärendet: kunddialog, verkstadskontakt, offerter och slutlig överenskommelse.</p>
-          <ul class="mt-4 text-sm space-y-2 fine">
+          <p class="mt-2" style="opacity:.9;">Vi tar lead på hela ärendet: kunddialog, verkstadskontakt, offerter och slutlig överenskommelse.</p>
+          <ul class="mt-3" style="opacity:.85;">
             <li>• En kontaktväg för allt</li>
             <li>• Mål: undvika hävning & minimera kostnad</li>
             <li>• Lärdomar → rutiner i verksamheten</li>
@@ -181,63 +170,67 @@
   </section>
 
   <!-- Process -->
-  <section id="process" class="py-14 px-4 md:px-8">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-6">
-      <div class="card p-6">
-        <div class="flex items-center gap-3">
-          <div class="h-9 w-9 rounded-xl flex items-center justify-center font-bold" style="background:color-mix(in srgb, var(--gold) 20%, transparent);color:var(--ink)">1</div>
-          <h4 class="font-semibold brand-primary">Verksamhetsanalys</h4>
+  <section id="process" class="section">
+    <div class="container">
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="card">
+          <div class="flex items-center gap-3">
+            <div style="height:36px;width:36px;border-radius:12px;background:var(--brand-tint);display:flex;align-items:center;justify-content:center;font-weight:800;">1</div>
+            <h4 style="font-weight:700;">Verksamhetsanalys</h4>
+          </div>
+          <p class="mt-2" style="opacity:.9;">Nuläge, risker, genomlysning av dokumentation & ärenden.</p>
         </div>
-        <p class="mt-2 text-sm muted">Nuläge, risker, genomlysning av dokumentation & ärenden.</p>
-      </div>
-      <div class="card p-6">
-        <div class="flex items-center gap-3">
-          <div class="h-9 w-9 rounded-xl flex items-center justify-center font-bold" style="background:color-mix(in srgb, var(--gold) 20%, transparent);color:var(--ink)">2</div>
-          <h4 class="font-semibold brand-primary">Upprättande - Företagsanpassad Eftermarknadsprocess</h4>
+        <div class="card">
+          <div class="flex items-center gap-3">
+            <div style="height:36px;width:36px;border-radius:12px;background:var(--brand-tint);display:flex;align-items:center;justify-content:center;font-weight:800;">2</div>
+            <h4 style="font-weight:700;">Upprättande - Företagsanpassad Eftermarknadsprocess</h4>
+          </div>
+          <p class="mt-2" style="opacity:.9;">Rutiner, beslutsmatris, mallar och utbildningsupplägg.</p>
         </div>
-        <p class="mt-2 text-sm muted">Rutiner, beslutsmatris, mallar och utbildningsupplägg.</p>
-      </div>
-      <div class="card p-6">
-        <div class="flex items-center gap-3">
-          <div class="h-9 w-9 rounded-xl flex items-center justify-center font-bold" style="background:color-mix(in srgb, var(--gold) 20%, transparent);color:var(--ink)">3</div>
-          <h4 class="font-semibold brand-primary">Implementering - Utbildning</h4>
+        <div class="card">
+          <div class="flex items-center gap-3">
+            <div style="height:36px;width:36px;border-radius:12px;background:var(--brand-tint);display:flex;align-items:center;justify-content:center;font-weight:800;">3</div>
+            <h4 style="font-weight:700;">Implementering - Utbildning</h4>
+          </div>
+          <p class="mt-2" style="opacity:.9;">Inför nya arbetssätt, stöd i skarpa ärenden (ARN).</p>
         </div>
-        <p class="mt-2 text-sm muted">Inför nya arbetssätt, stöd i skarpa ärenden (ARN).</p>
-      </div>
-      <div class="card p-6">
-        <div class="flex items-center gap-3">
-          <div class="h-9 w-9 rounded-xl flex items-center justify-center font-bold" style="background:color-mix(in srgb, var(--gold) 20%, transparent);color:var(--ink)">4</div>
-          <h4 class="font-semibold brand-primary">Resultatuppföljning - Utvärdering</h4>
+        <div class="card">
+          <div class="flex items-center gap-3">
+            <div style="height:36px;width:36px;border-radius:12px;background:var(--brand-tint);display:flex;align-items:center;justify-content:center;font-weight:800;">4</div>
+            <h4 style="font-weight:700;">Resultatuppföljning - Utvärdering</h4>
+          </div>
+          <p class="mt-2" style="opacity:.9;">Mät effekten, justera, och säkra ägarskap internt.</p>
         </div>
-        <p class="mt-2 text-sm muted">Mät effekten, justera, och säkra ägarskap internt.</p>
       </div>
     </div>
   </section>
 
   <!-- Case -->
-  <section id="case" class="py-14 px-4 md:px-8">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
-      <div class="card p-6">
-        <h4 class="font-semibold brand-primary">Exempel – Fördröjd leverans</h4>
-        <p class="mt-2 text-sm muted">Kund yrkar hävning p.g.a. väntid. Vi visar proportionalitet & alternativ ersättning. Utfallet blev 2 % prisavdrag utan hävning.</p>
-      </div>
-      <div class="card p-6">
-        <h4 class="font-semibold brand-primary">Exempel – Tekniskt fel – BMW M6 </h4>
-        <p class="mt-2 text-sm muted">Auktoriserad verkstad inkopplad utan samråd. Vi styr beviskrav & process, återför kontroll till säljaren och undviker felaktigt kostnadsansvar - fordonsägare får betala reparation.</p>
-      </div>
-      <div class="card p-6">
-        <h4 class="font-semibold brand-primary">Exempel - Otydliga villkor på egna lämnade garantier</h4>
-        <p class="mt-2 text-sm muted">Standardiserade villkorsbilagor & utbildning gav färre tvister och snabbare beslut i aktuellt bolags eftermarknadsprocess. Färre kostnader - ökat eget bolagskapital.</p>
+  <section id="case" class="section">
+    <div class="container">
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card">
+          <h4 style="font-weight:700;">Exempel – Fördröjd leverans</h4>
+          <p class="mt-2" style="opacity:.9;">Kund yrkar hävning p.g.a. väntid. Vi visar proportionalitet & alternativ ersättning. Utfallet blev 2 % prisavdrag utan hävning.</p>
+        </div>
+        <div class="card">
+          <h4 style="font-weight:700;">Exempel – Tekniskt fel – BMW M6</h4>
+          <p class="mt-2" style="opacity:.9;">Auktoriserad verkstad inkopplad utan samråd. Vi styr beviskrav & process, återför kontroll till säljaren och undviker felaktigt kostnadsansvar – fordonsägare får betala reparation.</p>
+        </div>
+        <div class="card">
+          <h4 style="font-weight:700;">Exempel – Otydliga villkor på egna lämnade garantier</h4>
+          <p class="mt-2" style="opacity:.9;">Standardiserade villkorsbilagor & utbildning gav färre tvister och snabbare beslut i aktuellt bolags eftermarknadsprocess. Färre kostnader – ökat eget bolagskapital.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Policy -->
-  <section id="policy" class="py-14 px-4 md:px-8">
-    <div class="max-w-6xl mx-auto">
-      <div class="card p-6 md:p-8">
-        <h3 class="text-lg font-semibold brand-primary">Verkstad & felsökning – policy</h3>
-        <ul class="mt-4 grid gap-3 text-sm muted">
+  <section id="policy" class="section">
+    <div class="container">
+      <div class="card">
+        <h3 style="font-weight:700;">Verkstad & felsökning – policy</h3>
+        <ul class="mt-3" style="opacity:.9;">
           <li>• <b>Förstahandsval:</b> bilhandlarens egen eller utvalda verkstad.</li>
           <li>• Om felets art gör detta olämpligt/omöjligt kan <b>extern felsökning</b> godkännas <b>upp till 2 500 kr</b>.</li>
           <li>• Felsökning ska <b>dokumenteras</b> (diagnosprotokoll/offert) och <b>delas med säljaren</b> innan vidare åtgärder.</li>
@@ -248,61 +241,80 @@
   </section>
 
   <!-- Kontakt -->
-  <section id="kontakt" class="py-14 px-4 md:px-8">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 items-start">
-      <div class="card p-6">
-        <h3 class="text-lg font-semibold brand-primary">Boka ett samtal</h3>
-        <p class="mt-2 text-sm muted">Kort lära-känna-möte (15 min) för att se hur vi bäst hjälper i ert läge.</p>
-        <div class="mt-4 flex gap-3 flex-wrap">
-          <a href="/formular.html" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm btn-gold">Kontakta oss</a>
-          <a href="tel:+46708263366" class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold btn-ghost">Ring nu</a>
+  <section id="kontakt" class="section">
+    <div class="container">
+      <div class="grid md:grid-cols-2 gap-6 items-start">
+        <div class="card">
+          <h3 style="font-weight:700;">Boka ett samtal</h3>
+          <p class="mt-2" style="opacity:.9;">Kort lära-känna-möte (15 min) för att se hur vi bäst hjälper i ert läge.</p>
+          <div class="mt-4 flex gap-3 flex-wrap">
+            <a href="/formular.html" target="_blank" rel="noopener" class="btn btn-primary">Kontakta oss</a>
+            <a href="tel:+46708263366" class="btn btn-outline">Ring nu</a>
+          </div>
+          <p class="mt-2" style="font-size:.85rem; opacity:.7;">Mötesunderlag (checklista + tidslinje) skickas efter bokning och ingår i uppstarten av vårt arbete – inte som fristående material.</p>
         </div>
-        <p class="text-xs fine">Mötesunderlag (checklista + tidslinje) skickas efter bokning och ingår i uppstarten av vårt arbete – inte som fristående material.</p>
-      </div>
-      <div class="grid gap-6">
-        <div class="card p-6">
-          <h4 class="font-semibold brand-primary">Juridisk notis</h4>
-          <p class="mt-2 text-xs fine">EMK Sverige AB ger praktiskt stöd i konsumentköpsfrågor och processer mot ARN. Vi är inte advokatbyrå; vid behov samarbetar vi med juridiska ombud.</p>
+        <div class="grid gap-6">
+          <div class="card">
+            <h4 style="font-weight:700;">Juridisk notis</h4>
+            <p class="mt-2" style="font-size:.85rem; opacity:.8;">EMK Sverige AB ger praktiskt stöd i konsumentköpsfrågor och processer mot ARN. Vi är inte advokatbyrå; vid behov samarbetar vi med juridiska ombud.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="mt-10 border-t border-subtle">
-    <div class="max-w-6xl mx-auto px-4 md:px-8 py-8 text-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4 fine">
+  <footer class="footer section" style="padding-top:24px; padding-bottom:24px;">
+    <div class="container wrap">
       <div class="flex items-center gap-2">
-        <img src="/assets/customcolor_icon_customcolor_background.png" alt="EMK logotyp" class="h-8 w-8 rounded-lg" />
+        <img src="/assets/customcolor_icon_customcolor_background.png" alt="EMK logotyp" style="height:32px;width:32px;border-radius:8px;" />
         <div>
-          <div class="font-medium brand-primary">EMK Sverige AB</div>
+          <div style="font-weight:700; color:var(--brand-text);">EMK Sverige AB</div>
           <div>Org.nr 559514-0111 · Trensum</div>
         </div>
       </div>
-      <div class="grid md:grid-cols-3 gap-6 w-full md:w-auto">
+      <div class="grid md:grid-cols-3 gap-6">
         <div>
-          <div class="font-medium mb-1 brand-primary">Kontakt</div>
-          <div><a class="hover:underline" href="mailto:william@emksab.se">william@emksab.se</a></div>
+          <div style="font-weight:700; color:var(--brand-text);">Kontakt</div>
+          <div><a href="mailto:william@emksab.se">william@emksab.se</a></div>
           <div>0708-26 33 66</div>
         </div>
         <div>
-          <div class="font-medium mb-1 brand-primary">Sidor</div>
-          <a class="block hover:underline" href="#tjanster">Tjänster</a>
-          <a class="block hover:underline" href="#process">Process</a>
-          <a class="block hover:underline" href="#policy">Policy</a>
-          <a class="block hover:underline" href="/plattform.html">Plattform</a>
+          <div style="font-weight:700; color:var(--brand-text);">Sidor</div>
+          <a href="#tjanster">Tjänster</a>
+          <a href="#process">Process</a>
+          <a href="#policy">Policy</a>
+          <a href="/plattform.html">Plattform</a>
         </div>
         <div>
-          <div class="font-medium mb-1 brand-primary">Länkar</div>
-          <a class="block hover:underline" href="/integritet.html">Integritet</a>
-          <a class="block hover:underline" href="/cookies.html">Cookies</a>
-          <a class="block hover:underline" href="/villkor.html">Allmänna villkor</a>
+          <div style="font-weight:700; color:var(--brand-text);">Länkar</div>
+          <a href="/integritet.html">Integritet</a>
+          <a href="/cookies.html">Cookies</a>
+          <a href="/villkor.html">Allmänna villkor</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Mobilmeny-script -->
+  <!-- Cookie banner -->
+  <div id="cookieBanner" class="fixed inset-x-0 bottom-0" style="z-index:40;">
+    <div class="container" style="margin:16px auto;">
+      <div class="card" style="display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap; background:var(--brand-elev);">
+        <p style="margin:0; opacity:.9;">
+          Vi använder nödvändiga cookies för att sidan ska fungera. Analyscookies sätts bara om du samtycker.
+          Läs mer i vår <a href="/cookies.html">cookie-policy</a>.
+        </p>
+        <div class="flex gap-2">
+          <button id="cookieReject" class="btn btn-outline">Avvisa</button>
+          <button id="cookieAccept" class="btn btn-primary">Tillåt analyscookies</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
   <script>
+    // Mobilnavigering
     (function(){
       const btn=document.getElementById('navToggle');
       const nav=document.getElementById('mobileNav');
@@ -313,54 +325,33 @@
         btn.setAttribute('aria-expanded', String(open));
       });
     })();
-  </script>
 
-  <!-- Cookie banner -->
-  <div id="cookieBanner" class="fixed inset-x-0 bottom-0 z-40">
-    <div class="mx-auto max-w-6xl m-4 card p-4 md:p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-      <p class="text-sm brand-primary" style="opacity:.82">
-        Vi använder nödvändiga cookies för att sidan ska fungera. Analyscookies sätts bara om du samtycker.
-        Läs mer i vår <a class="underline" href="/cookies.html">cookie-policy</a>.
-      </p>
-      <div class="flex gap-2">
-        <button id="cookieReject" class="btn-ghost rounded-xl px-4 py-2 text-sm">Avvisa</button>
-        <button id="cookieAccept" class="btn-gold rounded-xl px-4 py-2 text-sm">Tillåt analyscookies</button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Enkel samtyckeshantering
+    // Cookie consent (utan externa färger)
     (function(){
       const KEY = 'emk_cookie_consent';
       const banner = document.getElementById('cookieBanner');
       const accept = document.getElementById('cookieAccept');
       const reject = document.getElementById('cookieReject');
-
-      function hide(){ banner.style.display='none'; }
-      function set(val){ localStorage.setItem(KEY, val); }
-      function get(){ return localStorage.getItem(KEY); }
+      const hide = () => banner.style.display='none';
+      const set  = (v) => localStorage.setItem(KEY, v);
+      const get  = () => localStorage.getItem(KEY);
 
       function loadAnalytics(){
-        const id = 'G-XXXXXXX';
-        if (id === 'G-XXXXXXX') return;
-        const s = document.createElement('script');
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
-        s.async = true; document.head.appendChild(s);
+        const id='G-XXXXXXX'; if(id==='G-XXXXXXX') return;
+        const s=document.createElement('script');
+        s.src='https://www.googletagmanager.com/gtag/js?id='+id; s.async=true; document.head.appendChild(s);
         window.dataLayer = window.dataLayer || [];
         function gtag(){ dataLayer.push(arguments); }
-        window.gtag = gtag;
-        gtag('js', new Date());
-        gtag('config', id, { anonymize_ip: true });
+        window.gtag = gtag; gtag('js', new Date()); gtag('config', id, { anonymize_ip:true });
       }
 
       const val = get();
-      if (val === 'accepted') { hide(); loadAnalytics(); }
-      else if (val === 'rejected') { hide(); }
+      if (val==='accepted') { hide(); loadAnalytics(); }
+      else if (val==='rejected') { hide(); }
       else { banner.style.display='block'; }
 
-      accept.addEventListener('click', () => { set('accepted'); hide(); loadAnalytics(); });
-      reject.addEventListener('click', () => { set('rejected'); hide(); });
+      accept.addEventListener('click', ()=>{ set('accepted'); hide(); loadAnalytics(); });
+      reject.addEventListener('click', ()=>{ set('rejected'); hide(); });
     })();
   </script>
 </body>
