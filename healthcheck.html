@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EMK – Healthcheck</title>
+  <link rel="stylesheet" href="assets/emk-theme.css">
+  <style>
+    body{font:14px/1.5 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;margin:0;background:#f7f3ea;color:#1f2937}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    h1{margin:0 0 8px}
+    .card{background:#fff;border:1px solid #e8e2d6;border-radius:16px;padding:18px;margin:14px 0}
+    code,pre{background:#faf7f0;border:1px solid #e8e2d6;border-radius:8px;padding:2px 6px}
+    .ok{color:#15803d;font-weight:700}
+    .warn{color:#a16207;font-weight:700}
+    .err{color:#b91c1c;font-weight:700}
+    .muted{color:#6b7280}
+    table{width:100%;border-collapse:collapse;margin-top:8px}
+    th,td{border-bottom:1px solid #e8e2d6;padding:8px;text-align:left;vertical-align:top}
+    .badge{display:inline-block;background:linear-gradient(90deg,#D4AF37,#f3d37a);color:#1f2937;border-radius:999px;padding:4px 8px;font-weight:700}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>EMK – Healthcheck <span class="badge">repo-scan</span></h1>
+    <p class="muted">Verifierar att alla sidor som nämns i <code>index.html</code> finns och att de laddar <code>assets/emk-theme.css</code>.</p>
+
+    <div id="summary" class="card">Kör…</div>
+    <div id="details" class="card"><strong>Detaljer</strong><div id="table"></div></div>
+    <div class="card">
+      <strong>Vad som kollas</strong>
+      <ul>
+        <li>Samlar alla <code>&lt;a href&gt;</code> från huvudmeny och sidan (samma origin, ej mailto, ej #ankare).</li>
+        <li>Hämtar varje sida och kollar HTTP-status.</li>
+        <li>Parsar HTML och kontrollerar att en <code>&lt;link rel="stylesheet" href="assets/emk-theme.css"&gt;</code> finns.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    async function fetchText(url){
+      const res = await fetch(url, {redirect:"follow"});
+      const ok = res.ok;
+      const status = res.status;
+      const text = ok ? await res.text() : "";
+      return {ok, status, text};
+    }
+
+    function absoluteToRelative(url){
+      try{
+        const u = new URL(url, location.href);
+        if(u.origin !== location.origin) return null;
+        return u.pathname.replace(/^\/+/, '');
+      }catch(e){ return null; }
+    }
+
+    function extractLinksFromHTML(html, base){
+      const dom = new DOMParser().parseFromString(html, "text/html");
+      const as = Array.from(dom.querySelectorAll('a[href]'));
+      const set = new Set();
+      as.forEach(a=>{
+        const href = a.getAttribute('href');
+        if(!href || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+        if(href.startsWith('#')) return;
+        const rel = absoluteToRelative(new URL(href, base).href);
+        if(!rel) return;
+        if(!rel.endsWith('.html')) return; // bara html-sidor
+        set.add(rel);
+      });
+      return Array.from(set);
+    }
+
+    function hasThemeLink(html){
+      const dom = new DOMParser().parseFromString(html, "text/html");
+      return !!dom.querySelector('link[rel="stylesheet"][href="assets/emk-theme.css"]');
+    }
+
+    (async function run(){
+      const summary = document.getElementById('summary');
+      const tableWrap = document.getElementById('table');
+
+      // Hämta index.html som text
+      const idxPath = location.href.endsWith('healthcheck.html') ? 'index.html' : location.pathname.split('/').pop();
+      const {ok:okIndex, status:stIndex, text:indexHTML} = await fetchText(idxPath);
+      if(!okIndex){
+        summary.innerHTML = `<span class="err">Kunde inte läsa index.html (status ${stIndex}).</span>`;
+        return;
+      }
+
+      // Hitta länkar
+      const links = extractLinksFromHTML(indexHTML, location.href);
+      // Lägg alltid till index.html själv i kontrollen
+      if(!links.includes('index.html')) links.unshift('index.html');
+
+      // Kör kontroller
+      const results = [];
+      for(const rel of links){
+        const {ok, status, text} = await fetchText(rel);
+        const theme = ok ? hasThemeLink(text) : false;
+        results.push({page: rel, ok, status, theme});
+      }
+
+      // Rendera tabell
+      const rows = results.map(r=>{
+        const s = r.ok ? `<span class="ok">OK</span>` : `<span class="err">${r.status}</span>`;
+        const t = r.theme ? `<span class="ok">Hittad</span>` : `<span class="err">Saknas</span>`;
+        return `<tr>
+          <td><code>${r.page}</code></td>
+          <td>${s}</td>
+          <td>${t}</td>
+        </tr>`;
+      }).join('');
+      tableWrap.innerHTML = `<table><thead><tr><th>Sida</th><th>Status</th><th>assets/emk-theme.css</th></tr></thead><tbody>${rows}</tbody></table>`;
+
+      // Sammanfattning
+      const missing = results.filter(r=>!r.ok || !r.theme);
+      if(missing.length === 0){
+        summary.innerHTML = `<span class="ok">Allt ser bra ut. Alla sidor hittades och laddar temat.</span>`;
+      }else{
+        const list = missing.map(m=>`<li><code>${m.page}</code> – status: ${m.status}, theme: ${m.theme ? 'OK' : 'saknas'}</li>`).join('');
+        summary.innerHTML = `<span class="warn">Vissa sidor behöver åtgärd:</span><ul>${list}</ul>`;
+      }
+    })();
+  </script>
+</body>
+</html>
