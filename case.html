@@ -1,34 +1,63 @@
 <!doctype html>
 <html lang="sv">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Case & resultat | EMK Sverige AB</title>
-  <link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/emk-theme.css?v=5">
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="assets/emk-theme.css" />
 </head>
 <body>
   <!-- HEADER -->
-  <header class="topbar" role="banner"><div class="container wrap">
-    <a class="logo" href="/index.html"><img src="/favicon.ico" alt="EMK Sverige AB"><span>EMK Sverige AB</span></a>
-    <nav class="nav" aria-label="Huvudmeny">
-      <a href="/index.html">Hem</a><a href="/tjanster.html">Tjänster</a><a href="/process.html">Process</a><a href="/case.html">Case</a><a href="/policy.html">Policy</a><a href="/Om-Oss.html">Om oss</a><a href="/formular.html">Kontakt</a>
-    </nav></div></header>
-  <script>(function(){var p=location.pathname.replace(/\/+$/,'');document.querySelectorAll('.topbar .nav a').forEach(a=>{if(a.getAttribute('href')===p)a.classList.add('active')});})();</script>
+  <header class="topbar" role="banner">
+    <div class="container wrap">
+      <a class="logo" href="index.html">
+        <img src="assets/customcolor_logo_customcolor_background.png" alt="EMK Sverige AB" />
+        <span>EMK Sverige AB</span>
+      </a>
+      <nav class="nav" aria-label="Huvudmeny">
+        <a href="index.html">Hem</a>
+        <!-- Dessa länkar finns bara om du har separata sidor. Annars lämna bort dem. -->
+        <!-- <a href="tjanster.html">Tjänster</a> -->
+        <!-- <a href="process.html">Process</a> -->
+        <a href="case.html" aria-current="page" class="active">Case</a>
+        <a href="integritet.html">Policy</a>
+        <a href="om-oss.html">Om oss</a>
+        <!-- <a href="formular.html">Kontakt</a> -->
+        <a href="mailto:info@emksab.se">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <script>
+    // Markera aktiv länk robust, oavsett /case.html eller case.html
+    (function(){
+      var p = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.topbar .nav a').forEach(a=>{
+        var href = a.getAttribute('href');
+        if (href && href.split('/').pop() === p) a.classList.add('active');
+      });
+    })();
+  </script>
 
   <main class="section">
     <div class="container">
       <h1>Case & resultat</h1>
 
-      <article class="card"><h2>Fördröjd leverans</h2>
+      <article class="card">
+        <h2>Fördröjd leverans</h2>
         <p>Kund yrkade hävning p.g.a. väntetid. Vi drev proportionalitet & alternativa lösningar.</p>
-        <p><strong>Utfall:</strong> 2 % prisavdrag, ingen hävning.</p>
+        <p><strong>Utfall:</strong> 2&nbsp;% prisavdrag, ingen hävning.</p>
       </article>
 
-      <article class="card" style="margin-top:20px"><h2>Tekniskt fel – BMW M6</h2>
+      <article class="card" style="margin-top:20px">
+        <h2>Tekniskt fel – BMW M6</h2>
         <p>Auktoriserad verkstad kopplades in utan samråd. Vi styrde beviskrav & process tillbaka till säljaren.</p>
         <p><strong>Utfall:</strong> felaktigt kostnadsansvar undveks.</p>
       </article>
 
-      <article class="card" style="margin-top:20px"><h2>Egna garantier</h2>
+      <article class="card" style="margin-top:20px">
+        <h2>Egna garantier</h2>
         <p>Otydliga villkor skapade tvist. Vi standardiserade bilagor och utbildade personal.</p>
         <p><strong>Utfall:</strong> färre tvister & snabbare beslut.</p>
       </article>
@@ -41,8 +70,14 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="footer" role="contentinfo"><div class="container wrap">
-    <small>© EMK Sverige AB</small><small><a href="/integritet.html">Integritet & GDPR</a></small><small><a href="/cookies.html">Cookies</a></small><small><a href="/policy.html">Policy</a></small><small><a href="/case.html">Case</a></small>
-  </div></footer>
+  <footer class="footer" role="contentinfo">
+    <div class="container wrap">
+      <small>© <span id="y"></span> EMK Sverige AB</small>
+      <small><a href="integritet.html">Integritet & GDPR</a></small>
+      <!-- <small><a href="cookies.html">Cookies</a></small> -->
+      <small><a href="case.html">Case</a></small>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
