@@ -10,36 +10,57 @@
   <meta property="og:title" content="Eftermarknadskonsulten – ARN-stöd för bilhandlare | EMK Sverige AB" />
   <meta property="og:description" content="Praktiskt stöd i konsumentköpsfrågor och ARN-ärenden för bilhandlare." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="/assets/customcolor_logo_customcolor_background.png" /> 
+  <meta property="og:image" content="/assets/customcolor_logo_customcolor_background.png" />
 
-  <!-- Tailwind via CDN --> 
+  <!-- Tailwind via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- Din centrala färgfil -->
+  <link rel="stylesheet" href="/assets/theme.css" />
+
   <style>
-    /* Säkerställ att rubriker inte flyter ut på mobil */
+    /* Fallback om theme.css av någon anledning inte laddas */
+    :root{
+      --brand-bg:#0b0b0b;         /* sidbakgrund */
+      --brand-surface:#111214;    /* mörk sektion */
+      --brand-text:#ffffff;       /* grundtext på mörk bakgrund */
+      --brand-accent:#D4AF37;     /* guldaccent */
+    }
     .clamp-heading {
       font-size: clamp(1.5rem, 3.5vw, 2.75rem);
       line-height: 1.15;
       word-break: break-word;
       overflow-wrap: anywhere;
     }
-    /* Begränsa loggans maxstorlek (fix för "loggbuggen") */
     .brand-logo {
-      max-height: 56px; /* 14 * 4px */
+      max-height: 56px;
       width: auto;
     }
-    /* Vit “textcell”-stil för policy m.m. */
     .textcell {
-      background: white;
+      background: #ffffff;
       border-radius: 0.75rem;
       box-shadow: 0 1px 6px rgba(0,0,0,0.06);
       padding: 1.25rem;
+      color: #111; /* mörk text i vita kort */
     }
+    .btn-accent{
+      background: var(--brand-accent);
+      color: #111;
+    }
+    .btn-accent-outline{
+      border: 1px solid var(--brand-accent);
+      color: var(--brand-accent);
+    }
+    .btn-accent-outline:hover{
+      background: var(--brand-accent);
+      color: #111;
+    }
+    .link-accent{ color: var(--brand-accent); }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-900 antialiased">
+<body class="bg-[var(--brand-bg)] text-[var(--brand-text)] antialiased">
   <!-- HEADER / NAV -->
-  <header class="bg-white/80 backdrop-blur sticky top-0 z-50 border-b">
+  <header class="bg-[var(--brand-bg)]/80 backdrop-blur sticky top-0 z-50 border-0">
     <div class="mx-auto max-w-7xl px-4 md:px-6">
       <div class="flex items-center justify-between py-3">
         <a href="/" class="flex items-center gap-3">
@@ -52,37 +73,39 @@
           <a href="#case" class="hover:underline">Case</a>
           <a href="integritet.html" class="hover:underline">Policy</a>
           <a href="om-oss.html" class="hover:underline">Om oss</a>
-          <a href="#kontakt" class="inline-flex items-center rounded-xl border px-3 py-2 hover:bg-gray-100">Kontakt</a>
+          <a href="mailto:info@emksab.se?subject=Kontakt%20-%20EMK%20Sverige%20AB"
+             class="inline-flex items-center rounded-xl btn-accent-outline px-3 py-2">Kontakt</a>
         </nav>
-        <a href="mailto:info@emksab.se" class="md:hidden inline-flex items-center rounded-xl border px-3 py-2 hover:bg-gray-100">Kontakta oss</a>
+        <a href="mailto:info@emksab.se?subject=Kontakt%20-%20EMK%20Sverige%20AB"
+           class="md:hidden inline-flex items-center rounded-xl btn-accent-outline px-3 py-2">Kontakta oss</a>
       </div>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="bg-white border-b">
+  <section class="bg-[var(--brand-surface)] border-b border-white/5">
     <div class="mx-auto max-w-7xl px-4 md:px-6 py-12 md:py-16">
       <div class="grid md:grid-cols-2 items-center gap-8">
         <div>
           <h1 class="clamp-heading font-bold">
             ARN-stöd & eftermarknadsstruktur för bilhandlare
           </h1>
-          <p class="mt-4 text-gray-700">
+          <p class="mt-4 text-white/80">
             Snabb respons, kompletta yttranden och verktyg som gör att du äger din egen process från dag ett.
           </p>
           <div class="mt-6 flex flex-wrap gap-3">
-            <a href="om-oss.html" class="rounded-xl bg-black text-white px-4 py-2">Om EMK</a>
+            <a href="om-oss.html" class="rounded-xl btn-accent px-4 py-2">Om EMK</a>
             <a href="mailto:info@emksab.se?subject=Förfrågan%20-%20EMK%20Sverige%20AB"
-               class="rounded-xl border px-4 py-2">Kontakta oss</a>
+               class="rounded-xl btn-accent-outline px-4 py-2">Kontakta oss</a>
           </div>
         </div>
         <div class="textcell">
-          <h2 class="text-lg font-semibold">Vad vi hjälper dig med</h2>
+          <h2 class="text-lg font-semibold text-gray-900">Vad vi hjälper dig med</h2>
           <ul class="mt-3 space-y-2 text-sm text-gray-700">
             <li>• Yttranden till ARN enligt KKL och praxis</li>
             <li>• Beslutsmatris för reklamationer</li>
             <li>• Standardiserade protokoll & mallar</li>
-            <li>• 30-dagars sprint: analys → design → införande → finjustering</li>
+            <li>• 30-dagars sprint: diagnos → design → införande → finjustering</li>
           </ul>
         </div>
       </div>
@@ -109,7 +132,7 @@
   </section>
 
   <!-- PROCESS -->
-  <section id="process" class="bg-white border-y">
+  <section id="process" class="bg-[var(--brand-surface)] border-y border-white/5">
     <div class="mx-auto max-w-7xl px-4 md:px-6 py-12">
       <h3 class="text-2xl font-semibold">Vår process</h3>
       <div class="mt-6 grid md:grid-cols-4 gap-6">
@@ -149,13 +172,13 @@
   </section>
 
   <!-- POLICY-TEASER -->
-  <section class="bg-white border-y">
+  <section class="bg-[var(--brand-surface)] border-y border-white/5">
     <div class="mx-auto max-w-7xl px-4 md:px-6 py-12">
       <div class="textcell">
-        <h3 class="text-xl font-semibold">Integritet & GDPR</h3>
+        <h3 class="text-xl font-semibold text-gray-900">Integritet & GDPR</h3>
         <p class="mt-2 text-sm text-gray-700">
-          Läs hur vi hanterar personuppgifter och e-post via formulär. 
-          <a href="integritet.html" class="underline">Till policyn</a>.
+          Läs hur vi hanterar personuppgifter och e-post via formulär.
+          <a href="integritet.html" class="underline link-accent">Till policyn</a>.
         </p>
       </div>
     </div>
@@ -164,22 +187,25 @@
   <!-- KONTAKT -->
   <section id="kontakt" class="mx-auto max-w-7xl px-4 md:px-6 py-12">
     <div class="textcell">
-      <h3 class="text-2xl font-semibold">Kontakt</h3>
+      <h3 class="text-2xl font-semibold text-gray-900">Kontakt</h3>
       <p class="mt-2 text-sm text-gray-700">EMK Sverige AB – Eftermarknadskonsulten</p>
-      <p class="text-sm text-gray-700">E-post: <a class="underline" href="mailto:info@emksab.se">info@emksab.se</a></p>
+      <p class="text-sm text-gray-700">
+        E-post:
+        <a class="underline link-accent" href="mailto:info@emksab.se">info@emksab.se</a>
+      </p>
       <div class="mt-4">
         <a href="mailto:info@emksab.se?subject=Förfrågan%20-%20EMK%20Sverige%20AB"
-           class="inline-flex items-center rounded-xl bg-black text-white px-4 py-2">Skicka e-post</a>
+           class="inline-flex items-center rounded-xl btn-accent px-4 py-2">Skicka e-post</a>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-white border-t">
+  <footer class="bg-[var(--brand-surface)] border-t border-white/5">
     <div class="mx-auto max-w-7xl px-4 md:px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-3">
         <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK" class="h-8 w-auto">
-        <span class="text-sm text-gray-600">© <span id="y"></span> EMK Sverige AB</span>
+        <span class="text-sm text-white/70">© <span id="y"></span> EMK Sverige AB</span>
       </div>
       <nav class="text-sm flex flex-wrap gap-4">
         <a href="om-oss.html" class="hover:underline">Om oss</a>
@@ -189,9 +215,6 @@
     </div>
   </footer>
 
-  <script>
-    // aktuellt år i footern
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
