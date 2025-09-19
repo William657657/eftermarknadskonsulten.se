@@ -6,48 +6,55 @@
   <title>Eftermarknadskonsulten – ARN-stöd för bilhandlare | EMK Sverige AB</title>
   <meta name="description" content="Praktiskt stöd i ARN-processen för bilhandlare: snabb respons, kompletta yttranden, beslutsmatris och utbildning.">
   <link rel="icon" href="favicon.ico" />
-  <link rel="icon" href="assets/customcolor_icon_customcolor_background.png" type="image/png" />
-  <meta property="og:title" content="Eftermarknadskonsulten – ARN-stöd för bilhandlare | EMK Sverige AB" />
-  <meta property="og:description" content="Praktiskt stöd i konsumentköpsfrågor och ARN-ärenden för bilhandlare." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/customcolor_logo_customcolor_background.png" />
-
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- EMK Theme -->
   <link rel="stylesheet" href="assets/emk-theme.css" />
 </head>
-<body class="antialiased">
-  <!-- HEADER / NAV -->
-  <header>
-    <div class="mx-auto max-w-7xl px-4 md:px-6">
-      <div class="flex items-center justify-between py-3">
-        <a href="/" class="flex items-center gap-3 logo">
-          <img src="assets/customcolor_logo_customcolor_background.png" alt="Eftermarknadskonsulten – EMK Sverige AB" class="brand-logo">
-          <span>Eftermarknadskonsulten</span>
-        </a>
-        <nav class="nav">
-          <a href="#tjanster">Tjänster</a>
-          <a href="#process">Process</a>
-          <a href="#case">Case</a>
-          <a href="integritet.html">Policy</a>
-          <a href="om-oss.html">Om oss</a>
-          <a href="mailto:info@emksab.se">Kontakt</a>
-        </nav>
-      </div>
+<body>
+  <!-- HEADER -->
+  <header class="topbar" role="banner">
+    <div class="container wrap">
+      <a class="logo" href="index.html">
+        <img src="assets/customcolor_logo_customcolor_background.png" alt="EMK Sverige AB" />
+        <span>Eftermarknadskonsulten</span>
+      </a>
+      <nav class="nav" aria-label="Huvudmeny">
+        <a href="index.html" aria-current="page" class="active">Hem</a>
+        <a href="#tjanster">Tjänster</a>
+        <a href="#process">Process</a>
+        <a href="case.html">Case</a>
+        <a href="integritet.html">Policy</a>
+        <a href="Om-Oss.html">Om oss</a> <!-- ← MATCHAR FILNAMNET -->
+        <a href="mailto:info@emksab.se">Kontakt</a>
+      </nav>
     </div>
   </header>
 
+  <!-- AKTIV MENY (för #ankare behålls Hem aktiv) -->
+  <script>
+    (function(){
+      var p = location.pathname.split('/').pop() || 'index.html';
+      var isIndex = (p === '' || p === 'index.html');
+      document.querySelectorAll('.topbar .nav a').forEach(a=>{
+        a.classList.remove('active');
+        var href = a.getAttribute('href');
+        if (isIndex && (href === 'index.html' || href === '#tjanster' || href === '#process')) {
+          document.querySelector('.topbar .nav a[href="index.html"]')?.classList.add('active');
+        } else if (!isIndex && href && href.split('#')[0] === p) {
+          a.classList.add('active');
+        } else if (isIndex && href === 'index.html') {
+          a.classList.add('active');
+        }
+      });
+    })();
+  </script>
+
   <!-- HERO -->
   <section class="hero section">
-    <div class="mx-auto max-w-7xl px-4 md:px-6">
+    <div class="container">
+      <p class="kicker">EMK Sverige AB</p>
       <h1>ARN-stöd & eftermarknadsstruktur för bilhandlare</h1>
-      <p class="lead">
-        Snabb respons, kompletta yttranden och verktyg som gör att du äger din egen process från dag ett.
-      </p>
+      <p class="lead">Snabb respons, kompletta yttranden och verktyg som gör att du äger din egen process från dag ett.</p>
       <div class="cta">
-        <a href="om-oss.html" class="btn btn-primary">Om EMK</a>
+        <a href="Om-Oss.html" class="btn btn-primary">Om EMK</a>
         <a href="mailto:info@emksab.se" class="btn btn-outline">Kontakta oss</a>
       </div>
     </div>
@@ -55,19 +62,19 @@
 
   <!-- TJÄNSTER -->
   <section id="tjanster" class="section">
-    <div class="mx-auto max-w-7xl px-4 md:px-6">
-      <h3 class="text-2xl font-semibold">Tjänster</h3>
+    <div class="container">
+      <h3>Tjänster</h3>
       <div class="grid md:grid-cols-3 gap-6 mt-6">
         <div class="card">
-          <h4 class="font-semibold">ARN-stöd</h4>
+          <h4>ARN-stöd</h4>
           <p>Snabbt, tydligt och välunderbyggt svar per ärende.</p>
         </div>
         <div class="card">
-          <h4 class="font-semibold">Process & verktyg</h4>
+          <h4>Process & verktyg</h4>
           <p>Ni äger koden och lösningarna – vi hjälper er att införa dem.</p>
         </div>
         <div class="card">
-          <h4 class="font-semibold">Utbildning</h4>
+          <h4>Utbildning</h4>
           <p>Kortare ledtider, färre tvister och tryggare medarbetare.</p>
         </div>
       </div>
@@ -76,8 +83,8 @@
 
   <!-- PROCESS -->
   <section id="process" class="section">
-    <div class="mx-auto max-w-7xl px-4 md:px-6">
-      <h3 class="text-2xl font-semibold">Vår process</h3>
+    <div class="container">
+      <h3>Vår process</h3>
       <div class="grid md:grid-cols-4 gap-6 mt-6">
         <div class="card"><h4>1. Diagnos</h4><p>Kartlägger nuläge, data och risk.</p></div>
         <div class="card"><h4>2. Design</h4><p>Mallar, beslutsmatris, ansvar.</p></div>
@@ -87,30 +94,27 @@
     </div>
   </section>
 
-  <!-- CASE -->
+  <!-- CASE-TEASER -->
   <section id="case" class="section">
-    <div class="mx-auto max-w-7xl px-4 md:px-6">
-      <h3 class="text-2xl font-semibold">Case</h3>
-      <!-- Tom, fylls med ditt eget innehåll -->
+    <div class="container">
+      <h3>Case</h3>
+      <p>Se fler exempel och utfall i <a href="case.html">våra case</a>.</p>
     </div>
   </section>
 
   <!-- POLICY -->
   <section class="section">
-    <div class="mx-auto max-w-7xl px-4 md:px-6">
+    <div class="container">
       <div class="card">
         <h3>Integritet & GDPR</h3>
-        <p>
-          Läs hur vi hanterar personuppgifter och e-post via formulär.
-          <a href="integritet.html">Till policyn</a>.
-        </p>
+        <p>Läs hur vi hanterar personuppgifter och e-post via formulär. <a href="integritet.html">Till policyn</a>.</p>
       </div>
     </div>
   </section>
 
   <!-- KONTAKT -->
   <section id="kontakt" class="section">
-    <div class="mx-auto max-w-7xl px-4 md:px-6">
+    <div class="container">
       <div class="card">
         <h3>Kontakt</h3>
         <p>EMK Sverige AB – Eftermarknadskonsulten</p>
@@ -120,20 +124,13 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="mx-auto max-w-7xl px-4 md:px-6 wrap">
-      <div class="flex items-center gap-3">
-        <img src="assets/customcolor_logo_customcolor_background.png" alt="EMK" class="h-8 w-auto">
-        <span>© <span id="y"></span> EMK Sverige AB</span>
-      </div>
-      <nav class="nav">
-        <a href="om-oss.html">Om oss</a>
-        <a href="integritet.html">Integritet</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
+  <footer class="footer" role="contentinfo">
+    <div class="container wrap">
+      <small>© <span id="y"></span> EMK Sverige AB</small>
+      <small><a href="integritet.html">Integritet & GDPR</a></small>
+      <small><a href="case.html">Case</a></small>
     </div>
   </footer>
-
-  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
