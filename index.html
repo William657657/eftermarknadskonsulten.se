@@ -12,116 +12,17 @@
   <meta property="og:url" content="https://www.eftermarknadskonsulten.se" />
   <meta property="og:image" content="/assets/customcolor_textlogo_customcolor_background.png" />
 
-  <!-- Layout (utan färgklasser) -->
+  <!-- Layout-hjälp (ingen färgstyrning här) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- LÅST TEMA -->
   <link rel="stylesheet" href="/assets/emk-theme.css" />
-
-  <style>
-    /* =========================
-       Globala justeringar
-       ========================= */
-    body{ background:var(--brand-bg); color:var(--brand-text); }
-    section[id]{ scroll-margin-top: 7rem; }
-    .brand-primary{ color:var(--brand-text); }
-    .muted{ color:var(--brand-text); opacity:.88; }
-    .fine{ color:var(--brand-text); opacity:.78; }
-
-    /* =========================
-       1) HEADER – spacing, skugga, klickytor, mobil glide-in
-       ========================= */
-    header{ position:sticky; top:0; z-index:50; }
-    .topbar{ position:relative; height:80px; background:var(--brand-surface); border-bottom:1px solid var(--brand-border); }
-    .topbar .wrap{ display:flex; align-items:center; justify-content:space-between; gap:16px; max-width:var(--brand-maxw); margin:0 auto; padding:0 var(--brand-pad); }
-    .logo img{ height:48px; width:auto; border-radius:6px; display:block; }
-    .nav a{ padding:12px 14px; border-radius:10px; }
-    .topbar.is-scrolled{ box-shadow:0 6px 18px color-mix(in srgb,var(--brand-text) 10%, transparent); backdrop-filter:saturate(1.05) blur(6px); }
-
-    /* Mobilmeny (off-canvas) */
-    .offcanvas{ position:fixed; inset:0; z-index:60; display:none; }
-    .offcanvas.open{ display:block; }
-    .offcanvas .scrim{ position:absolute; inset:0; background:color-mix(in srgb,var(--brand-text) 45%, transparent); opacity:0; transition:opacity .2s ease; }
-    .offcanvas.open .scrim{ opacity:.35; }
-    .offcanvas .panel{
-      position:absolute; top:0; right:0; height:100%; width:min(82vw, 360px);
-      background:var(--brand-surface); border-left:1px solid var(--brand-border);
-      transform:translateX(100%); transition:transform .25s ease;
-      display:flex; flex-direction:column; padding:18px;
-    }
-    .offcanvas.open .panel{ transform:translateX(0); }
-    .offcanvas .panel a{ padding:12px; border-radius:10px; text-decoration:none; color:var(--brand-text); }
-    .offcanvas .panel a:hover{ background:var(--brand-tint); }
-
-    .btn { display:inline-block; padding:12px 18px; border-radius:12px; border:1px solid transparent; text-decoration:none; font-weight:600; }
-    .btn-primary { background:var(--brand-accent); color:var(--brand-contrast); border-color:var(--brand-accent); }
-    .btn-outline { background:transparent; border-color:var(--brand-accent); color:var(--brand-accent); }
-
-    /* Klickyta hamburger */
-    .hambox{ display:inline-flex; align-items:center; justify-content:center; padding:10px 12px; border-radius:12px; border:1px solid var(--brand-border); background:var(--brand-surface); }
-
-    /* =========================
-       2) HERO – radbrytning, typgrad, vertikalrytm
-       ========================= */
-    .hero-bg{
-      background:
-        radial-gradient(1200px 420px at 10% -10%, var(--brand-tint), transparent),
-        linear-gradient(180deg, var(--brand-tint), var(--brand-bg));
-    }
-    .chip{ background:var(--brand-tint); color:var(--brand-text); border-radius:999px; padding:6px 10px; font-weight:700; font-size:.8rem; letter-spacing:.02em; display:inline-block; }
-    .hero h1{
-      font-weight:800;
-      line-height:1.18;
-      /* Förhindrar “flyter ut” på smala skärmar */
-      font-size:clamp(1.6rem, 2.4rem + 1vw, 2.6rem);
-      max-width:26ch;
-    }
-    .hero .lead{ max-width:60ch; }
-
-    /* Dekor-glow bakom rutan */
-    .soft-glow{ position:absolute; inset:-8px; border-radius:24px; background:var(--brand-accent); opacity:.18; filter:blur(18px); }
-
-    /* =========================
-       3) Tjänstekort – lika höjd, konsekvent typ
-       ========================= */
-    .card{ background:var(--brand-surface); border:1px solid var(--brand-border); border-radius:var(--brand-radius); padding:24px; display:flex; flex-direction:column; height:100%; }
-    .card h3{ font-weight:700; }
-    .card .grow{ flex:1 1 auto; }
-
-    /* =========================
-       4) Process – 2x2 mobilt, 4 kol på desktop
-       ========================= */
-    .step{ display:flex; flex-direction:column; height:100%; }
-    .step .no{
-      height:36px;width:36px;border-radius:12px;background:var(--brand-tint);
-      display:flex;align-items:center;justify-content:center;font-weight:800;
-      flex:0 0 auto;
-    }
-
-    /* =========================
-       5) Case – jämn höjd, spacing
-       ========================= */
-    .case p{ opacity:.9; }
-
-    /* =========================
-       7) Scrollbars (diskreta)
-       ========================= */
-    /* Firefox */
-    *{ scrollbar-width:thin; scrollbar-color: color-mix(in srgb, var(--brand-text) 25%, transparent) var(--brand-bg); }
-    /* WebKit */
-    ::-webkit-scrollbar{ width:10px; height:10px; }
-    ::-webkit-scrollbar-track{ background:var(--brand-bg); }
-    ::-webkit-scrollbar-thumb{
-      background: color-mix(in srgb, var(--brand-text) 25%, var(--brand-tint));
-      border:3px solid var(--brand-bg); border-radius:999px;
-    }
-  </style>
 </head>
 <body>
 
   <!-- Header -->
   <header>
     <div id="topbar" class="topbar">
-      <div class="wrap">
+      <div class="container wrap" style="height:80px;">
         <a href="/" class="logo" aria-label="Gå till startsidan">
           <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK logotyp" />
         </a>
@@ -140,7 +41,6 @@
 
         <!-- Mobil: hamburgare -->
         <button id="navToggle" class="md:hidden hambox" aria-expanded="false" aria-controls="mobileNav" aria-label="Öppna meny">
-          <!-- enkel ikon -->
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
@@ -169,18 +69,22 @@
   </header>
 
   <!-- Hero -->
-  <section class="hero hero-bg section">
+  <section class="hero section hero-bg">
     <div class="container">
       <div class="grid md:grid-cols-2 gap-8 items-start">
         <div>
           <span class="chip">Experter på ARN-processer · Snabbt & strukturerat</span>
-          <h1 class="mt-6">Hjälp i <span style="text-decoration:underline; text-decoration-thickness:4px; text-decoration-color:var(--brand-accent); text-underline-offset:6px;">ARN-processen</span> för bilhandlare</h1>
-          <p class="lead mt-4">Vi minskar risken för hävning och onödiga kostnader genom skarpa yttranden, smart dokumentation och en tydlig beslutsmatris — byggt på Konsumentköplagen och aktuell ARN-praxis.</p>
-          <div class="mt-5 flex gap-3 flex-wrap">
+          <h1 class="hero-title mt-6">
+            Hjälp i <span class="hero-underline">ARN-processen</span> för bilhandlare
+          </h1>
+          <p class="lead mt-4">
+            Vi minskar risken för hävning och onödiga kostnader genom skarpa yttranden, smart dokumentation och en tydlig beslutsmatris — byggt på Konsumentköplagen och aktuell ARN-praxis.
+          </p>
+          <div class="cta mt-5">
             <a href="/formular.html" target="_blank" rel="noopener" class="btn btn-primary">Kontakta oss</a>
             <a href="#tjanster" class="btn btn-outline">Se tjänster</a>
           </div>
-          <ul class="mt-6 fine">
+          <ul class="bullets mt-6">
             <li>• 30-dagars sprint: Verksamhetsanalys → Företagsanpassad Eftermarknadsprocess → Implementering samt Utbildning → Resultatuppföljning - Utvärdering</li>
             <li>• För bilhandlare som säljer 10–10 000 bilar/år</li>
             <li>• Lång erfarenhet från skadereglering & regressprocesser på bolagssidan</li>
@@ -189,7 +93,7 @@
 
         <div class="relative">
           <div class="soft-glow" aria-hidden="true"></div>
-          <div class="card">
+          <div class="card elev">
             <h3>Vad vi levererar</h3>
             <ul class="mt-3 fine">
               <li>• Akut stöd: första bedömning inom 12h*</li>
@@ -198,7 +102,7 @@
               <li>• <b>Mötesunderlag</b> (checklista + tidslinje) skickas efter bokning – ej offentlig nedladdning</li>
               <li>• Utbildning sälj/eftermarknad i KKL §§25–28 & praxis</li>
             </ul>
-            <p class="mt-4" style="font-size:.85rem; opacity:.72;">*Arbetas vardagar. Brådskande ärenden utanför normal arbetstid, enligt överenskommelse.</p>
+            <p class="mt-4 small">*Arbetas vardagar. Brådskande ärenden utanför normal arbetstid, enligt överenskommelse.</p>
           </div>
         </div>
       </div>
@@ -210,7 +114,7 @@
     <div class="container">
       <div class="relative mb-6">
         <div class="soft-glow" aria-hidden="true" style="inset:-6px; border-radius:16px;"></div>
-        <div class="card">
+        <div class="card elev">
           <p class="muted">
             Vi hjälper även i ärenden som <b>riskerar</b> att bli ARN-ärenden (förebyggande stöd). Dessutom kan vi bygga en
             <b>kostnadseffektiv eftermarknadsplattform</b> som ni själva äger från dag 1 – för handlare, egen verkstad, inköp m.fl.
@@ -220,7 +124,7 @@
       </div>
 
       <div class="grid md:grid-cols-3 gap-6 items-stretch">
-        <div class="card">
+        <div class="card elev">
           <div class="flex items-center justify-between">
             <h3>Akut ARN-respons</h3>
             <span class="badge">Snabbstart</span>
@@ -234,7 +138,7 @@
           </ul>
         </div>
 
-        <div class="card">
+        <div class="card elev">
           <div class="flex items-center justify-between">
             <h3>Yttrande & bemötande</h3>
             <span class="badge">Huvudtjänst</span>
@@ -247,7 +151,7 @@
           </ul>
         </div>
 
-        <div class="card">
+        <div class="card elev">
           <div class="flex items-center justify-between">
             <h3>Full ärendeledning</h3>
             <span class="badge">End-to-end</span>
@@ -270,28 +174,28 @@
         <div class="card step">
           <div class="flex items-center gap-3">
             <div class="no">1</div>
-            <h4 style="font-weight:700;">Verksamhetsanalys</h4>
+            <h4>Verksamhetsanalys</h4>
           </div>
           <p class="mt-2 fine">Nuläge, risker, genomlysning av dokumentation & ärenden.</p>
         </div>
         <div class="card step">
           <div class="flex items-center gap-3">
             <div class="no">2</div>
-            <h4 style="font-weight:700;">Upprättande - Företagsanpassad Eftermarknadsprocess</h4>
+            <h4>Upprättande - Företagsanpassad Eftermarknadsprocess</h4>
           </div>
           <p class="mt-2 fine">Rutiner, beslutsmatris, mallar och utbildningsupplägg.</p>
         </div>
         <div class="card step">
           <div class="flex items-center gap-3">
             <div class="no">3</div>
-            <h4 style="font-weight:700;">Implementering - Utbildning</h4>
+            <h4>Implementering - Utbildning</h4>
           </div>
           <p class="mt-2 fine">Inför nya arbetssätt, stöd i skarpa ärenden (ARN).</p>
         </div>
         <div class="card step">
           <div class="flex items-center gap-3">
             <div class="no">4</div>
-            <h4 style="font-weight:700;">Resultatuppföljning - Utvärdering</h4>
+            <h4>Resultatuppföljning - Utvärdering</h4>
           </div>
           <p class="mt-2 fine">Mät effekten, justera, och säkra ägarskap internt.</p>
         </div>
@@ -303,16 +207,16 @@
   <section id="case" class="section">
     <div class="container">
       <div class="grid md:grid-cols-3 gap-6 items-stretch">
-        <div class="card case">
-          <h4 style="font-weight:700;">Exempel – Fördröjd leverans</h4>
+        <div class="card case elev">
+          <h4>Exempel – Fördröjd leverans</h4>
           <p class="mt-2">Kund yrkar hävning p.g.a. väntid. Vi visar proportionalitet & alternativ ersättning. Utfallet blev 2 % prisavdrag utan hävning.</p>
         </div>
-        <div class="card case">
-          <h4 style="font-weight:700;">Exempel – Tekniskt fel – BMW M6 </h4>
+        <div class="card case elev">
+          <h4>Exempel – Tekniskt fel – BMW M6 </h4>
           <p class="mt-2">Auktoriserad verkstad inkopplad utan samråd. Vi styr beviskrav & process, återför kontroll till säljaren och undviker felaktigt kostnadsansvar - fordonsägare får betala reparation.</p>
         </div>
-        <div class="card case">
-          <h4 style="font-weight:700;">Exempel - Otydliga villkor på egna lämnade garantier</h4>
+        <div class="card case elev">
+          <h4>Exempel - Otydliga villkor på egna lämnade garantier</h4>
           <p class="mt-2">Standardiserade villkorsbilagor & utbildning gav färre tvister och snabbare beslut i aktuellt bolags eftermarknadsprocess. Färre kostnader - ökat eget bolagskapital.</p>
         </div>
       </div>
@@ -322,8 +226,8 @@
   <!-- Policy -->
   <section id="policy" class="section">
     <div class="container">
-      <div class="card">
-        <h3 style="font-weight:700;">Verkstad & felsökning – policy</h3>
+      <div class="card elev">
+        <h3>Verkstad & felsökning – policy</h3>
         <ul class="mt-3 fine">
           <li>• <b>Förstahandsval:</b> bilhandlarens egen eller utvalda verkstad.</li>
           <li>• Om felets art gör detta olämpligt/omöjligt kan <b>extern felsökning</b> godkännas <b>upp till 2 500 kr</b>.</li>
@@ -338,19 +242,19 @@
   <section id="kontakt" class="section">
     <div class="container">
       <div class="grid md:grid-cols-2 gap-6 items-start">
-        <div class="card">
-          <h3 style="font-weight:700;">Boka ett samtal</h3>
+        <div class="card elev">
+          <h3>Boka ett samtal</h3>
           <p class="mt-2 muted">Kort lära-känna-möte (15 min) för att se hur vi bäst hjälper i ert läge.</p>
           <div class="mt-4 flex gap-3 flex-wrap">
             <a href="/formular.html" target="_blank" rel="noopener" class="btn btn-primary">Kontakta oss</a>
             <a href="tel:+46708263366" class="btn btn-outline">Ring nu</a>
           </div>
-          <p class="mt-2" style="font-size:.85rem; opacity:.72;">Mötesunderlag (checklista + tidslinje) skickas efter bokning och ingår i uppstarten av vårt arbete – inte som fristående material.</p>
+          <p class="mt-2 small">Mötesunderlag (checklista + tidslinje) skickas efter bokning och ingår i uppstarten av vårt arbete – inte som fristående material.</p>
         </div>
         <div class="grid gap-6">
-          <div class="card">
-            <h4 style="font-weight:700;">Juridisk notis</h4>
-            <p class="mt-2" style="font-size:.85rem; opacity:.8;">EMK Sverige AB ger praktiskt stöd i konsumentköpsfrågor och processer mot ARN. Vi är inte advokatbyrå; vid behov samarbetar vi med juridiska ombud.</p>
+          <div class="card elev">
+            <h4>Juridisk notis</h4>
+            <p class="mt-2 small">EMK Sverige AB ger praktiskt stöd i konsumentköpsfrågor och processer mot ARN. Vi är inte advokatbyrå; vid behov samarbetar vi med juridiska ombud.</p>
           </div>
         </div>
       </div>
@@ -363,25 +267,25 @@
       <div class="flex items-center gap-2">
         <img src="/assets/customcolor_icon_customcolor_background.png" alt="EMK logotyp" style="height:32px;width:32px;border-radius:8px;" />
         <div>
-          <div style="font-weight:700; color:var(--brand-text);">EMK Sverige AB</div>
+          <div class="strong">EMK Sverige AB</div>
           <div>Org.nr 559514-0111 · Trensum</div>
         </div>
       </div>
       <div class="grid md:grid-cols-3 gap-6">
         <div>
-          <div style="font-weight:700; color:var(--brand-text);">Kontakt</div>
-          <div><a href="mailto:william@emksab.se">william@emksab.se</a></div>
+          <div class="strong">Kontakt</div>
+          <div><a href="mailto:info@emksab.se">info@emksab.se</a></div>
           <div>0708-26 33 66</div>
         </div>
         <div>
-          <div style="font-weight:700; color:var(--brand-text);">Sidor</div>
+          <div class="strong">Sidor</div>
           <a href="#tjanster">Tjänster</a>
           <a href="#process">Process</a>
           <a href="#policy">Policy</a>
           <a href="/plattform.html">Plattform</a>
         </div>
         <div>
-          <div style="font-weight:700; color:var(--brand-text);">Länkar</div>
+          <div class="strong">Länkar</div>
           <a href="/integritet.html">Integritet</a>
           <a href="/cookies.html">Cookies</a>
           <a href="/villkor.html">Allmänna villkor</a>
@@ -391,10 +295,10 @@
   </footer>
 
   <!-- Cookie banner -->
-  <div id="cookieBanner" class="fixed inset-x-0 bottom-0" style="z-index:40;">
-    <div class="container" style="margin:16px auto;">
-      <div class="card" style="display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap; background:var(--brand-elev);">
-        <p style="margin:0;" class="muted">
+  <div id="cookieBanner" class="cookie-banner">
+    <div class="container">
+      <div class="card banner-card">
+        <p class="muted">
           Vi använder nödvändiga cookies för att sidan ska fungera. Analyscookies sätts bara om du samtycker.
           Läs mer i vår <a href="/cookies.html">cookie-policy</a>.
         </p>
@@ -411,12 +315,8 @@
     // Sticky-skugga på scroll
     (function(){
       const bar = document.getElementById('topbar');
-      function onScroll(){
-        if(window.scrollY > 6) bar.classList.add('is-scrolled');
-        else bar.classList.remove('is-scrolled');
-      }
-      onScroll();
-      window.addEventListener('scroll', onScroll, {passive:true});
+      function onScroll(){ if(window.scrollY > 6) bar.classList.add('is-scrolled'); else bar.classList.remove('is-scrolled'); }
+      onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
     })();
 
     // Off-canvas mobilmeny
@@ -425,22 +325,12 @@
       const oc = document.getElementById('mobileNav');
       const scrim = oc.querySelector('.scrim');
       const closers = oc.querySelectorAll('[data-close]');
-      function open(){
-        oc.hidden = false;
-        oc.classList.add('open');
-        toggle.setAttribute('aria-expanded','true');
-        document.body.style.overflow='hidden';
-      }
-      function close(){
-        oc.classList.remove('open');
-        toggle.setAttribute('aria-expanded','false');
-        document.body.style.overflow='';
-        setTimeout(()=>{ oc.hidden = true; }, 200);
-      }
+      function open(){ oc.hidden=false; oc.classList.add('open'); toggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+      function close(){ oc.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; setTimeout(()=>{ oc.hidden=true; },200); }
       toggle && toggle.addEventListener('click', open);
       scrim && scrim.addEventListener('click', close);
       closers.forEach(el=>el.addEventListener('click', close));
-      window.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && !oc.hidden) close(); });
+      window.addEventListener('keydown', e=>{ if(e.key==='Escape' && !oc.hidden) close(); });
     })();
 
     // Cookie consent
