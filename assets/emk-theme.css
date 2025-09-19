@@ -63,12 +63,25 @@ body {
   padding:24px;
 }
 
+/* Liten elevation som tilläggsklass – påverkar inte paletten */
+.elev {
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--brand-text) 10%, transparent);
+}
+
 .textcell {
   background:var(--brand-surface);
   border:1px solid var(--brand-border);
   border-radius:var(--brand-radius);
   padding:24px;
 }
+
+.muted { color:var(--brand-text); opacity:.88; }
+.fine  { color:var(--brand-text); opacity:.78; }
+.small { font-size:.85rem; opacity:.72; }
+.strong{ font-weight:700; color:var(--brand-text); }
+
+/* Punktlista med jämn läsbarhet */
+.bullets { color:var(--brand-text); opacity:.85; }
 
 /* ==========================================================
    Typografi & länkar
@@ -116,6 +129,7 @@ hr { border:0; border-top:1px solid var(--brand-border); }
    ========================================================== */
 
 header {
+  position:sticky; top:0; z-index:50;
   background:var(--brand-surface);
   border-bottom:1px solid var(--brand-border);
 }
@@ -130,7 +144,7 @@ header {
 .nav a {
   color:var(--brand-text);
   text-decoration:none;
-  padding:10px 12px;
+  padding:12px 14px;
   border-radius:10px;
   transition:background .15s,color .15s;
   font-weight:600;
@@ -141,6 +155,34 @@ header {
   color:var(--brand-text);
   background:var(--brand-tint);
 }
+
+/* Sticky-skugga vid scroll */
+.topbar.is-scrolled{
+  box-shadow:0 6px 18px color-mix(in srgb,var(--brand-text) 10%, transparent);
+  backdrop-filter:saturate(1.05) blur(6px);
+}
+
+/* Hamburger-klickyta */
+.hambox{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:10px 12px; border-radius:12px;
+  border:1px solid var(--brand-border); background:var(--brand-surface);
+}
+
+/* Off-canvas mobilmeny */
+.offcanvas{ position:fixed; inset:0; z-index:60; display:none; }
+.offcanvas.open{ display:block; }
+.offcanvas .scrim{ position:absolute; inset:0; background:color-mix(in srgb,var(--brand-text) 45%, transparent); opacity:0; transition:opacity .2s ease; }
+.offcanvas.open .scrim{ opacity:.35; }
+.offcanvas .panel{
+  position:absolute; top:0; right:0; height:100%; width:min(82vw, 360px);
+  background:var(--brand-surface); border-left:1px solid var(--brand-border);
+  transform:translateX(100%); transition:transform .25s ease;
+  display:flex; flex-direction:column; padding:18px;
+}
+.offcanvas.open .panel{ transform:translateX(0); }
+.offcanvas .panel a{ padding:12px; border-radius:10px; text-decoration:none; color:var(--brand-text); }
+.offcanvas .panel a:hover{ background:var(--brand-tint); }
 
 /* ==========================================================
    Hero
@@ -155,6 +197,49 @@ header {
 }
 .hero h1 { margin:0 0 10px 0; line-height:1.25; }
 .hero .cta { display:flex; gap:12px; flex-wrap:wrap; }
+
+/* Bakgrund och typkänsla */
+.hero-bg{
+  background:
+    radial-gradient(1200px 420px at 10% -10%, var(--brand-tint), transparent),
+    linear-gradient(180deg, var(--brand-tint), var(--brand-bg));
+}
+
+/* Rubrik – kontrollerad radbrytning */
+.hero-title{
+  font-weight:800;
+  line-height:1.18;
+  font-size:clamp(1.6rem, 2.4rem + 1vw, 2.6rem);
+  max-width:26ch;
+}
+.hero-underline{
+  text-decoration:underline;
+  text-decoration-thickness:4px;
+  text-decoration-color:var(--brand-accent);
+  text-underline-offset:6px;
+}
+
+/* Lead och listor */
+.lead   { max-width:60ch; color:var(--brand-text); opacity:.88; }
+.bullets{ max-width:66ch; }
+
+/* Badge/chip */
+.chip{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  background:var(--brand-tint);
+  color:var(--brand-text);
+  font-weight:700;
+  font-size:.8rem;
+  letter-spacing:.02em;
+}
+
+/* Glow-dekor bakom kort */
+.soft-glow{
+  position:absolute; inset:-8px; border-radius:24px;
+  background:var(--brand-accent); opacity:.18; filter:blur(18px);
+}
 
 /* ==========================================================
    Footer
@@ -173,7 +258,7 @@ header {
 }
 
 /* ==========================================================
-   Badge
+   Badge (guld)
    ========================================================== */
 
 .badge {
@@ -187,6 +272,33 @@ header {
 }
 
 /* ==========================================================
+   Cookie banner
+   ========================================================== */
+
+.cookie-banner{
+  position:fixed; left:0; right:0; bottom:0; z-index:40;
+  padding:16px 0;
+}
+.cookie-banner .banner-card{
+  display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+  background:var(--brand-elev);
+}
+
+/* ==========================================================
+   Scrollbars (diskreta)
+   ========================================================== */
+
+/* Firefox */
+*{ scrollbar-width:thin; scrollbar-color: color-mix(in srgb, var(--brand-text) 25%, transparent) var(--brand-bg); }
+/* WebKit */
+::-webkit-scrollbar{ width:10px; height:10px; }
+::-webkit-scrollbar-track{ background:var(--brand-bg); }
+::-webkit-scrollbar-thumb{
+  background: color-mix(in srgb, var(--brand-text) 25%, var(--brand-tint));
+  border:3px solid var(--brand-bg); border-radius:999px;
+}
+
+/* ==========================================================
    Mobiljusteringar
    ========================================================== */
 
@@ -194,5 +306,5 @@ header {
   .section { padding:40px 0; }
   .card, .textcell { padding:18px; }
   .nav { gap:12px; }
-  h1 { font-size:1.9rem; }
+  h1, .hero-title { font-size: clamp(1.5rem, 1.3rem + 2.6vw, 2.2rem); }
 }
