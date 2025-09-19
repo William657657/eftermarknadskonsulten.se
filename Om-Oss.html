@@ -5,87 +5,107 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Om oss | EMK Sverige AB – Eftermarknadskonsulten</title>
   <meta name="description" content="EMK Sverige AB hjälper bilhandlare att ta kontroll över processen vid KKL & ARN. Struktur, beslutsmatris och kompletta yttranden.">
-  <link rel="icon" href="favicon.ico" />
-  <link rel="stylesheet" href="assets/emk-theme.css" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{--gold:#D4AF37;--ink:#2B2410;--paper:#FAF7EF;--card:#ffffff;--line:#E6E0D4}
+    html,body{background:var(--paper);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial}
+    a{color:var(--ink)} a:hover{color:var(--gold)}
+    .card{background:var(--card);border:1px solid var(--gold);border-radius:1rem}
+    .site-header{background:color-mix(in srgb, var(--paper) 90%, white 10%);backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid var(--gold)}
+    .brand-logo{height:72px;width:auto;display:block}
+    @media (min-width:640px){.brand-logo{height:80px}}
+    @media (min-width:1024px){.brand-logo{height:92px}}
+    .site-header .header-wrap{height:100px}
+    @media (min-width:1024px){.site-header .header-wrap{height:112px}}
+    .h1{font-size:clamp(26px, 5.5vw, 44px);line-height:1.15;max-width:24ch;overflow-wrap:break-word;hyphens:auto;text-wrap:balance}
+  </style>
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="brand">
-        <img src="assets/customcolor_logo_customcolor_background.png" alt="EMK Sverige AB" height="38" />
+  <!-- Header -->
+  <header class="site-header sticky top-0 z-30">
+    <div class="header-wrap max-w-6xl mx-auto px-4 md:px-8 flex items-center justify-between">
+      <a href="/index.html" class="inline-flex items-center" aria-label="Hem">
+        <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK logotyp" class="brand-logo" />
       </a>
-      <nav class="nav">
-        <a href="index.html">Hem</a>
-        <a href="Om-Oss.html" aria-current="page">Om oss</a>
-        <a href="policy.html">Policy</a>
-        <a href="integritet.html">Integritet</a>
-        <a href="index.html#kontakt">Kontakt</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="/Om-Oss.html" aria-current="page" class="hover:underline">Om oss</a>
+        <a href="/index.html#tjanster" class="hover:underline">Tjänster</a>
+        <a href="/index.html#process" class="hover:underline">Process</a>
+        <a href="/index.html#case" class="hover:underline">Case</a>
+        <a href="/index.html#kontakt" class="hover:underline">Kontakt</a>
       </nav>
     </div>
   </header>
 
   <main>
-
-    <section class="container">
-      <div class="card" style="padding:28px">
-        <p class="eyebrow">EMK Sverige AB · Eftermarknadskonsulten</p>
+    <!-- Intro -->
+    <section class="max-w-6xl mx-auto px-4 md:px-8 pt-12 md:pt-16 pb-10">
+      <div class="card p-6 md:p-8">
         <h1 class="h1">Vi hjälper bilhandlare ta kontroll över processen vid KKL &amp; ARN</h1>
-        <p class="lead">
+        <p class="mt-4 text-base md:text-lg opacity-90">
           Vi är ett oberoende konsultbolag som arbetar enbart för bilhandlarens intresse.
           Fokus: kortare ledtider, färre tvister och trygg hantering av reklamationer.
         </p>
       </div>
     </section>
 
-    <section class="container">
-      <div class="card" style="padding:24px">
-        <h2 class="h2" style="margin:0 0 .5rem;font-size:1.25rem">Vad vi gör</h2>
-        <p style="margin:0 0 1rem">
-          EMK Sverige AB (Eftermarknadskonsulten) hjälper återförsäljare av begagnade bilar att
-          standardisera eftermarknaden: från första kundkontakt och felsökning till beslut,
-          åtgärd och eventuell process i ARN. Vi bygger strukturer som ni själva äger från dag 1.
-        </p>
-        <ul style="margin:.5rem 0 0 1rem">
-          <li>Beslutsmatris för reklamationer (praktisk tillämpning av KKL)</li>
-          <li>Mallar &amp; protokoll (mottagning, felsökning, utlån, besked)</li>
-          <li>Styrning av ärenden till rätt part (egen verkstad/extern/leverantör)</li>
-          <li>Underlag och kompletta yttranden till ARN</li>
-          <li>Utbildning &amp; coachning av sälj/eftermarknad</li>
+    <!-- Vad vi gör -->
+    <section class="max-w-6xl mx-auto px-4 md:px-8 pb-10">
+      <div class="card p-6 md:p-8">
+        <h2 class="text-xl md:text-2xl font-bold">Vad vi gör</h2>
+        <ul class="mt-4 space-y-2 text-sm md:text-base">
+          <li>• Beslutsmatris för reklamationer (praktisk tillämpning av KKL)</li>
+          <li>• Mallar &amp; protokoll (mottagning, felsökning, utlån, besked)</li>
+          <li>• Styrning av ärenden till rätt part (egen verkstad/extern/leverantör)</li>
+          <li>• Underlag och kompletta yttranden till ARN</li>
+          <li>• Utbildning &amp; coachning av sälj/eftermarknad</li>
         </ul>
       </div>
     </section>
 
-    <section class="container">
-      <div class="card" style="padding:24px">
-        <h2 class="h2" style="margin:0 0 .5rem;font-size:1.25rem">Hur vi jobbar – 30-dagars sprint</h2>
-        <ol style="margin:.5rem 0 0 1rem">
-          <li><strong>Diagnos:</strong> nuläge, flöden, flaskhalsar, data</li>
-          <li><strong>Design:</strong> beslutsmatris, mallar, ansvar, SLA</li>
-          <li><strong>Införande:</strong> utbildning och skarpt bruk</li>
-          <li><strong>Finjustering:</strong> uppföljning och förbättringar</li>
-        </ol>
+    <!-- Varför EMK -->
+    <section class="max-w-6xl mx-auto px-4 md:px-8 pb-10">
+      <div class="card p-6 md:p-8">
+        <h2 class="text-xl md:text-2xl font-bold">Varför EMK?</h2>
+        <ul class="mt-4 space-y-2 text-sm md:text-base">
+          <li>• Oberoende partner – vi företräder er, inte motparten</li>
+          <li>• Bevisbar spårbarhet i varje ärende (dokumentation som håller)</li>
+          <li>• Ni äger system och mallar – inga inlåsningar</li>
+        </ul>
       </div>
     </section>
 
-    <section class="container" id="kontakt">
-      <div class="card" style="padding:24px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+    <!-- CTA -->
+    <section class="max-w-6xl mx-auto px-4 md:px-8 pb-14">
+      <div class="card p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
-          <h2 class="h2" style="margin:0 0 .25rem;font-size:1.25rem">Redo att ta nästa steg?</h2>
-          <p style="margin:0">Boka en kostnadsfri genomgång – vi visar hur processen kan se ut hos er.</p>
+          <h2 class="text-xl md:text-2xl font-bold">Redo att ta nästa steg?</h2>
+          <p class="text-sm md:text-base opacity-90 mt-1">Boka en kostnadsfri genomgång – vi visar hur processen kan se ut hos er.</p>
         </div>
-        <a class="btn btn-primary" href="mailto:info@emksab.se?subject=Boka%20genomg%C3%A5ng%20%E2%80%93%20EMK%20Sverige%20AB">Boka genomgång</a>
+        <a href="/formular.html" class="px-5 py-3 rounded-xl" style="background:#D4AF37;color:#2B2410">Boka genomgång</a>
       </div>
     </section>
-
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© EMK Sverige AB</p>
-      <div class="footer-links">
-        <a href="policy.html">Policy</a>
-        <a href="integritet.html">Integritet</a>
+  <footer style="border-top:1px solid #D4AF37">
+    <div class="max-w-6xl mx-auto px-4 md:px-8 py-8 text-sm grid md:grid-cols-3 gap-6">
+      <div>
+        <div class="font-semibold">EMK Sverige AB</div>
+        <div>Törnerydsvägen 42-40, 374 96 Trensum</div>
+        <div><a class="underline" href="mailto:info@emksab.se">info@emksab.se</a> · +46 708 26 33 66</div>
+      </div>
+      <div class="space-y-1">
+        <a href="/integritet.html" class="hover:text-[var(--gold)]">Integritet</a><br/>
+        <a href="/cookies.html" class="hover:text-[var(--gold)]">Cookies</a><br/>
+        <a href="/villkor.html" class="hover:text-[var(--gold)]">Villkor</a>
+      </div>
+      <div class="space-y-1">
+        <a href="/plattform.html" class="hover:text-[var(--gold)]">Plattform</a><br/>
+        <a href="/formular.html" class="hover:text-[var(--gold)]">Kontakt</a><br/>
+        <a href="/sitemap.xml" class="hover:text-[var(--gold)]">Sitemap</a>
       </div>
     </div>
   </footer>
