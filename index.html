@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="sv"> 
+<html lang="sv">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,9 +12,10 @@
   <meta property="og:url" content="https://www.eftermarknadskonsulten.se" />
   <meta property="og:image" content="/assets/customcolor_textlogo_customcolor_background.png" />
 
-  <!-- Layout-hjälp (ingen färgstyrning här) -->
+  <!-- Tailwind endast för layout/spacing/typografi (ingen färg) -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- LÅST TEMA -->
+
+  <!-- LÅST TEMA: färger/komponenter styrs här -->
   <link rel="stylesheet" href="/assets/emk-theme.css" />
 </head>
 <body>
@@ -23,15 +24,16 @@
   <header>
     <div id="topbar" class="topbar">
       <div class="container wrap" style="height:80px;">
-        <a href="/" class="logo" aria-label="Gå till startsidan">
-          <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK logotyp" />
+        <a href="/" class="logo inline-flex items-center" aria-label="Gå till startsidan">
+          <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK logotyp"
+               class="h-[56px] w-auto object-contain" />
         </a>
 
-        <nav class="nav hidden md:flex">
+        <nav class="nav hidden md:flex" aria-label="Huvudmeny">
           <a href="#tjanster">Tjänster</a>
           <a href="#process">Process</a>
           <a href="#case">Case</a>
-          <a href="om-oss.html">Om oss</a>
+          <a href="/om-oss.html">Om oss</a>
           <a href="#policy">Policy</a>
           <a href="#kontakt">Kontakt</a>
         </nav>
@@ -42,7 +44,7 @@
 
         <!-- Mobil: hamburgare -->
         <button id="navToggle" class="md:hidden hambox" aria-expanded="false" aria-controls="mobileNav" aria-label="Öppna meny">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
         </button>
@@ -51,8 +53,8 @@
 
     <!-- Off-canvas mobilmeny -->
     <div id="mobileNav" class="offcanvas" hidden>
-      <div class="scrim" data-close=""></div>
-      <div class="panel">
+      <div class="scrim" data-close="" aria-hidden="true"></div>
+      <div class="panel" role="dialog" aria-label="Mobilmeny">
         <div class="flex items-center justify-between">
           <strong>Menyn</strong>
           <button class="hambox" data-close="" aria-label="Stäng meny">×</button>
@@ -61,7 +63,7 @@
           <a href="#tjanster" data-close="">Tjänster</a>
           <a href="#process" data-close="">Process</a>
           <a href="#case" data-close="">Case</a>
-          <a href="om-oss.html" data-close="">Om oss</a>
+          <a href="/om-oss.html" data-close="">Om oss</a>
           <a href="#policy" data-close="">Policy</a>
           <a href="#kontakt" data-close="">Kontakt</a>
           <a href="/formular.html" class="btn btn-primary mt-2" data-close="">Kontakta oss</a>
@@ -76,7 +78,7 @@
       <div class="grid md:grid-cols-2 gap-8 items-start">
         <div>
           <span class="chip">Experter på ARN-processer · Snabbt & strukturerat</span>
-          <h1 class="hero-title mt-6">
+          <h1 class="hero-title mt-6 break-words leading-tight max-w-[22ch] md:max-w-none">
             Hjälp i <span class="hero-underline">ARN-processen</span> för bilhandlare
           </h1>
           <p class="lead mt-4">
@@ -205,7 +207,7 @@
     </div>
   </section>
 
-  <!-- Om oss – teaser på startsidan -->
+  <!-- Om oss – teaser -->
   <section id="about" class="section">
     <div class="container">
       <div class="grid md:grid-cols-3 gap-6 items-stretch">
@@ -345,7 +347,7 @@
     </div>
   </div>
 
-  <!-- Scripts (samma beteenden som tidigare) -->
+  <!-- Scripts -->
   <script>
     // Sticky-skugga på scroll
     (function(){
@@ -358,11 +360,12 @@
     (function(){
       const toggle = document.getElementById('navToggle');
       const oc = document.getElementById('mobileNav');
+      if(!oc || !toggle) return;
       const scrim = oc.querySelector('.scrim');
       const closers = oc.querySelectorAll('[data-close]');
       function open(){ oc.hidden=false; oc.classList.add('open'); toggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
       function close(){ oc.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; setTimeout(()=>{ oc.hidden=true; },200); }
-      toggle && toggle.addEventListener('click', open);
+      toggle.addEventListener('click', open);
       scrim && scrim.addEventListener('click', close);
       closers.forEach(el=>el.addEventListener('click', close));
       window.addEventListener('keydown', e=>{ if(e.key==='Escape' && !oc.hidden) close(); });
