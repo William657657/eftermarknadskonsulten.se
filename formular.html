@@ -1,53 +1,126 @@
-<!doctype html><html lang="sv"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Kontakta oss – EMK Sverige AB</title>
-<link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/emk-theme.css?v=7">
-</head><body>
-<header class="topbar" role="banner"><div class="container wrap">
-  <a class="logo" href="/index.html">
-    <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK Sverige AB"><span>EMK Sverige AB</span>
-  </a>
-  <nav class="nav" aria-label="Huvudmeny">
-    <a href="/index.html">Hem</a><a href="/tjanster.html">Tjänster</a><a href="/process.html">Process</a><a href="/case.html">Case</a><a href="/verktyg.html">Verktyg</a><a href="/policy.html">Policy</a><a href="/Om-Oss.html">Om oss</a><a href="/formular.html">Kontakt</a>
-  </nav>
-</div></header>
-<script>(function(){var p=location.pathname.replace(/\/+$/,'');document.querySelectorAll('.topbar .nav a').forEach(a=>{if(a.getAttribute('href')===p)a.classList.add('active')});})();</script>
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kontakt / Formulär | EMK Sverige AB</title>
+  <meta name="description" content="Kontakta EMK Sverige AB via formulär eller e-post.">
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
 
-<main class="section"><div class="container">
-  <h1>Kontakta oss</h1>
-  <p class="text-muted">Fyll i och tryck <strong>Öppna e-post</strong>. Din e-postklient startar med ett färdigifyllt meddelande. Inga uppgifter sparas på vår webb.</p>
+  <style>
+    :root{
+      --gold:#D4AF37;
+      --ink:#2B2410;
+      --paper:#FAF7EF;
+      --card:#ffffff;
+      --line:#E6E0D4;
+    }
+    html,body{background:var(--paper);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial}
+    a{color:var(--ink)}
+    a:hover{color:var(--gold)}
+    section[id]{scroll-margin-top:7rem}
 
-  <div class="card">
-    <form id="mailForm" onsubmit="openMail(event)">
-      <div style="display:grid;gap:12px;grid-template-columns:1fr 1fr;max-width:800px">
-        <label> Namn*<br><input required name="namn" type="text" style="width:100%"></label>
-        <label> E-post*<br><input required name="epost" type="email" style="width:100%"></label>
-        <label> Telefon<br><input name="tel" type="tel" style="width:100%"></label>
-        <label> Företag<br><input name="foretag" type="text" style="width:100%"></label>
-        <label style="grid-column:1/3"> Ämne
-          <select name="amne" style="width:100%"><option>Allmänt</option><option>ARN-ärende</option><option>Eftermarknadsprocess</option><option>Utbildning</option><option>Övrigt</option></select>
+    .card{background:var(--card);border:1px solid var(--gold);border-radius:1rem}
+    .btn-gold{background:var(--gold);color:var(--ink)}
+    .btn-ghost{border:1px solid var(--gold);color:var(--ink)}
+
+    /* Header som på index */
+    .site-header{background:color-mix(in srgb, var(--paper) 90%, white 10%);backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid var(--gold)}
+    .brand-logo{height:72px;width:auto;display:block}
+    @media (min-width:640px){.brand-logo{height:80px}}
+    @media (min-width:1024px){.brand-logo{height:92px}}
+    .site-header .header-wrap{height:100px}
+    @media (min-width:1024px){.site-header .header-wrap{height:112px}}
+
+    /* --- Viktigt: begränsa hero-logga på formulärsidan --- */
+    .page-hero-logo{display:block;margin:0 auto 16px;max-width:420px;width:100%;height:auto}
+    @media (min-width:1024px){.page-hero-logo{max-width:520px}}
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header sticky top-0 z-30">
+    <div class="header-wrap max-w-6xl mx-auto px-4 md:px-8 flex items-center justify-between">
+      <a href="/index.html" aria-label="Gå till startsidan" class="inline-flex items-center">
+        <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK logotyp" class="brand-logo" />
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="/index.html#tjanster" class="hover:underline">Tjänster</a>
+        <a href="/index.html#process" class="hover:underline">Process</a>
+        <a href="/index.html#case" class="hover:underline">Case</a>
+        <a href="/index.html#kontakt" class="hover:underline">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO (liten logga, inte helsida) -->
+  <section class="max-w-6xl mx-auto px-4 md:px-8 pt-8 md:pt-12 pb-6">
+    <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK Sverige – Starka relationer · Starka företag" class="page-hero-logo" />
+    <h1 class="text-2xl md:text-3xl font-bold text-center">Kontakta oss</h1>
+    <p class="mt-2 text-sm md:text-base opacity-90 text-center">Fyll i formuläret nedan – vi återkopplar skyndsamt.</p>
+  </section>
+
+  <!-- FORMULÄR -->
+  <main class="max-w-6xl mx-auto px-4 md:px-8 pb-14">
+    <div class="card p-6 md:p-8">
+      <!-- Ersätt gärna fälten nedan med din befintliga markup om du redan har en. -->
+      <form action="mailto:info@emksab.se" method="post" enctype="text/plain" class="grid gap-4">
+        <div class="grid md:grid-cols-2 gap-4">
+          <label class="text-sm">
+            Namn<br>
+            <input type="text" name="Namn" class="mt-1 w-full rounded-lg border px-3 py-2" required>
+          </label>
+          <label class="text-sm">
+            E-post<br>
+            <input type="email" name="E-post" class="mt-1 w-full rounded-lg border px-3 py-2" required>
+          </label>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+          <label class="text-sm">
+            Telefon<br>
+            <input type="tel" name="Telefon" class="mt-1 w-full rounded-lg border px-3 py-2">
+          </label>
+          <label class="text-sm">
+            Ärende<br>
+            <input type="text" name="Ärende" class="mt-1 w-full rounded-lg border px-3 py-2">
+          </label>
+        </div>
+        <label class="text-sm">
+          Meddelande<br>
+          <textarea name="Meddelande" rows="5" class="mt-1 w-full rounded-lg border px-3 py-2"></textarea>
         </label>
-        <label style="grid-column:1/3"> Rubrik<br><input name="rubrik" type="text" style="width:100%"></label>
-        <label style="grid-column:1/3"> Meddelande*<br><textarea required name="meddelande" rows="6" style="width:100%"></textarea></label>
-        <input type="text" name="trap" style="display:none">
+        <div class="flex gap-3">
+          <button type="submit" class="px-5 py-3 rounded-xl btn-gold">Skicka</button>
+          <a href="mailto:info@emksab.se" class="px-5 py-3 rounded-xl btn-ghost">Öppna e-postklient</a>
+        </div>
+        <p class="text-xs opacity-70 mt-2">Mottagare: <a class="underline" href="mailto:info@emksab.se">info@emksab.se</a></p>
+      </form>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer style="border-top:1px solid var(--gold)">
+    <div class="max-w-6xl mx-auto px-4 md:px-8 py-8 text-sm grid md:grid-cols-3 gap-6">
+      <div>
+        <div class="font-semibold">EMK Sverige AB</div>
+        <div>Törnerydsvägen 42-40, 374 96 Trensum</div>
+        <div><a class="underline" href="mailto:info@emksab.se">info@emksab.se</a> · +46 708 26 33 66</div>
       </div>
-      <div style="margin-top:14px"><button class="btn btn-primary" type="submit">Öppna e-post</button></div>
-    </form>
-    <noscript>JavaScript är avstängt. Klicka här: <a href="mailto:info@emksab.se">info@emksab.se</a></noscript>
-  </div>
-</div></main>
+      <div class="space-y-1">
+        <a href="/integritet.html" class="hover:text-[var(--gold)]">Integritet</a><br/>
+        <a href="/cookies.html" class="hover:text-[var(--gold)]">Cookies</a><br/>
+        <a href="/villkor.html" class="hover:text-[var(--gold)]">Villkor</a>
+      </div>
+      <div class="space-y-1">
+        <a href="/plattform.html" class="hover:text-[var(--gold)]">Plattform</a><br/>
+        <a href="/index.html#kontakt" class="hover:text-[var(--gold)]">Kontakt</a><br/>
+        <a href="/sitemap.xml" class="hover:text-[var(--gold)]">Sitemap</a>
+      </div>
+    </div>
+  </footer>
 
-<script>
-function openMail(e){
-  e.preventDefault();var f=e.target;if(f.trap.value)return;
-  var to="info@emksab.se";
-  var subject=(f.rubrik.value||"Kontakt via webb")+" – "+(f.amne.value||"");
-  var body=["Namn: "+f.namn.value,"E-post: "+f.epost.value,"Telefon: "+(f.tel.value||""),"Företag: "+(f.foretag.value||""),"",f.meddelande.value].join("%0D%0A");
-  window.location.href="mailto:"+to+"?subject="+encodeURIComponent(subject)+"&body="+body;
-}
-</script>
-
-<footer class="footer" role="contentinfo"><div class="container wrap">
-  <small>© EMK Sverige AB</small><small><a href="/integritet.html">Integritet & GDPR</a></small><small><a href="/cookies.html">Cookies</a></small><small><a href="/policy.html">Policy</a></small><small><a href="/case.html">Case</a></small>
-</div></footer>
-</body></html>
+</body>
+</html>
