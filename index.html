@@ -12,19 +12,19 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/assets/customcolor_logo_customcolor_background.png" />
 
-  <!-- Tailwind via CDN -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Din centrala färgfil -->
+  <!-- Ladda din färgfil -->
   <link rel="stylesheet" href="/assets/theme.css" />
 
   <style>
-    /* Fallback om theme.css av någon anledning inte laddas */
+    /* Fallback om theme.css inte laddas */
     :root{
-      --brand-bg:#0b0b0b;         /* sidbakgrund */
-      --brand-surface:#111214;    /* mörk sektion */
-      --brand-text:#ffffff;       /* grundtext på mörk bakgrund */
-      --brand-accent:#D4AF37;     /* guldaccent */
+      --brand-bg:#0b0b0b;
+      --brand-surface:#111214;
+      --brand-text:#ffffff;
+      --brand-accent:#D4AF37;
     }
     .clamp-heading {
       font-size: clamp(1.5rem, 3.5vw, 2.75rem);
@@ -32,29 +32,20 @@
       word-break: break-word;
       overflow-wrap: anywhere;
     }
-    .brand-logo {
-      max-height: 56px;
-      width: auto;
-    }
+    .brand-logo { max-height: 56px; width: auto; }
     .textcell {
       background: #ffffff;
       border-radius: 0.75rem;
       box-shadow: 0 1px 6px rgba(0,0,0,0.06);
       padding: 1.25rem;
-      color: #111; /* mörk text i vita kort */
-    }
-    .btn-accent{
-      background: var(--brand-accent);
       color: #111;
     }
+    .btn-accent{ background: var(--brand-accent); color:#111; }
     .btn-accent-outline{
-      border: 1px solid var(--brand-accent);
-      color: var(--brand-accent);
+      border:1px solid var(--brand-accent);
+      color:var(--brand-accent);
     }
-    .btn-accent-outline:hover{
-      background: var(--brand-accent);
-      color: #111;
-    }
+    .btn-accent-outline:hover{ background:var(--brand-accent); color:#111; }
     .link-accent{ color: var(--brand-accent); }
   </style>
 </head>
@@ -156,19 +147,11 @@
     </div>
   </section>
 
-  <!-- CASE -->
+  <!-- CASE (INGA PÅHITTADE TEXTER) -->
   <section id="case" class="mx-auto max-w-7xl px-4 md:px-6 py-12">
     <h3 class="text-2xl font-semibold">Case</h3>
-    <div class="mt-6 grid md:grid-cols-2 gap-6">
-      <div class="textcell">
-        <h4 class="font-semibold">Mindre handlare (350 bilar/år)</h4>
-        <p class="mt-2 text-sm text-gray-700">Införande av reklamationsprotokoll och beslutsmatris.</p>
-      </div>
-      <div class="textcell">
-        <h4 class="font-semibold">Större aktör (2 500 bilar/år)</h4>
-        <p class="mt-2 text-sm text-gray-700">Centraliserad ARN-hantering med tidsvinst och färre tvister.</p>
-      </div>
-    </div>
+    <!-- Medvetet tom sektion för att inte ändra ditt innehåll. 
+         Lägg in exakt din text här när du vill, utan att jag skapar eget innehåll. -->
   </section>
 
   <!-- POLICY-TEASER -->
