@@ -3,182 +3,112 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kontakta oss | EMK Sverige AB</title>
-  <meta name="description" content="Kontakta EMK Sverige AB – vi återkommer snabbt." />
+  <title>Kontaktformulär | EMK Sverige AB – Eftermarknadskonsulten</title>
+  <meta name="description" content="Kontaktformulär som öppnar din e-postklient – ingen data lagras på servern förrän du själv skickar." />
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
-  <meta property="og:title" content="Kontakta oss | EMK Sverige AB" />
-  <meta property="og:description" content="Skicka ett mejl via din egen e-postklient med färdigifyllt innehåll." />
-  <meta property="og:url" content="https://www.eftermarknadskonsulten.se/formular.html" />
-  <meta property="og:image" content="/assets/customcolor_textlogo_customcolor_background.png" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/assets/emk-theme.css" />
+  <meta property="og:title" content="Kontaktformulär | EMK Sverige AB" />
+  <meta property="og:description" content="Kontaktformulär som öppnar din e-postklient – ingen data lagras på servern förrän du själv skickar." />
+  <link rel="stylesheet" href="/emk-theme.css" />
+  <style>
+    .container{max-width:1200px;margin:0 auto;padding:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:40px;width:auto}
+    nav a{text-decoration:none;margin:0 8px;white-space:nowrap}
+    .hero{padding:32px 0}
+    .hero-title{margin:0;font-weight:700;line-height:1.15;font-size:clamp(22px,4.8vw,36px)}
+    .hero-sub{margin-top:8px;line-height:1.5;font-size:clamp(14px,3.6vw,18px)}
+    .card{background:#fff;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.06);padding:18px}
+    .content{overflow-wrap:anywhere;word-break:break-word}
+    .content img{max-width:100%;height:auto}
+    .stack{display:grid;gap:16px}
+    footer{padding:32px 0}
+    form .row{display:grid;gap:12px}
+    input, textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,.12)}
+    button{padding:12px 16px;border-radius:12px;border:0;cursor:pointer}
+  </style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <div id="topbar" class="topbar">
-      <div class="container wrap" style="height:80px;">
-        <a href="/" class="logo inline-flex items-center" aria-label="Gå till startsidan">
-          <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK logotyp" class="h-[56px] w-auto object-contain" />
-        </a>
-        <nav class="nav hidden md:flex" aria-label="Huvudmeny">
-          <a href="/#tjanster">Tjänster</a>
-          <a href="/#process">Process</a>
-          <a href="/#case">Case</a>
-          <a href="/om-oss.html">Om oss</a>
-          <a href="/#policy">Policy</a>
-          <a href="/#kontakt">Kontakt</a>
-        </nav>
-        <div class="hidden md:block">
-          <a href="/formular.html" class="btn btn-primary" aria-current="page">Kontakta oss</a>
-        </div>
-        <button id="navToggle" class="md:hidden hambox" aria-expanded="false" aria-controls="mobileNav" aria-label="Öppna meny">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
-      </div>
-    </div>
-    <div id="mobileNav" class="offcanvas" hidden>
-      <div class="scrim" data-close="" aria-hidden="true"></div>
-      <div class="panel" role="dialog" aria-label="Mobilmeny">
-        <div class="flex items-center justify-between">
-          <strong>Menyn</strong>
-          <button class="hambox" data-close="" aria-label="Stäng meny">×</button>
-        </div>
-        <div class="mt-3 grid gap-1">
-          <a href="/#tjanster" data-close="">Tjänster</a>
-          <a href="/#process" data-close="">Process</a>
-          <a href="/#case" data-close="">Case</a>
-          <a href="/om-oss.html" data-close="">Om oss</a>
-          <a href="/#policy" data-close="">Policy</a>
-          <a href="/#kontakt" data-close="">Kontakt</a>
-          <a href="/formular.html" class="btn btn-primary mt-2" data-close="" aria-current="page">Kontakta oss</a>
-        </div>
-      </div>
+  <header class="site">
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:16px;">
+      <a class="brand" href="/index.html" aria-label="Hem">
+        <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK Sverige AB">
+        <strong>Eftermarknadskonsulten</strong>
+      </a>
+      <nav>
+        <a href="/index.html">Hem</a>
+        <a href="/tjanster.html">Tjänster</a>
+        <a href="/plattform.html">Plattform</a>
+        <a href="/case.html">Case</a>
+        <a href="/om-oss.html">Om&nbsp;oss</a>
+        <a href="/kontakt.html">Kontakt</a>
+      </nav>
     </div>
   </header>
 
-  <!-- Innehåll -->
-  <section class="section hero-bg">
+  <section class="hero">
     <div class="container">
-      <h1 class="hero-title leading-tight">Kontakta oss</h1>
-      <p class="lead mt-3">Fyll i fälten – din e-postklient öppnas med ett färdigifyllt mejl till <b>info@emksab.se</b>.</p>
+      <h1 class="hero-title">Kontaktformulär</h1>
+      <p class="hero-sub">Formuläret öppnar din e-postklient — ingen data sparas hos oss förrän du skickar.</p>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="card elev">
-        <form id="contactForm" class="grid md:grid-cols-2 gap-4" onsubmit="return openMailto(event)">
-          <div>
-            <label class="strong" for="namn">Namn</label>
-            <input id="namn" name="namn" type="text" class="input mt-1 w-full" placeholder="Ditt namn" required />
-          </div>
-          <div>
-            <label class="strong" for="foretag">Företag</label>
-            <input id="foretag" name="foretag" type="text" class="input mt-1 w-full" placeholder="Företagsnamn" />
-          </div>
-          <div class="md:col-span-2">
-            <label class="strong" for="telefon">Telefon</label>
-            <input id="telefon" name="telefon" type="tel" class="input mt-1 w-full" placeholder="+46 ..." />
-          </div>
-          <div class="md:col-span-2">
-            <label class="strong" for="amne">Ämne</label>
-            <input id="amne" name="amne" type="text" class="input mt-1 w-full" placeholder="Kort rubrik" required />
-          </div>
-          <div class="md:col-span-2">
-            <label class="strong" for="meddelande">Meddelande</label>
-            <textarea id="meddelande" name="meddelande" rows="6" class="textarea mt-1 w-full" placeholder="Beskriv ert ärende kortfattat" required></textarea>
-          </div>
-          <div class="md:col-span-2 flex gap-3 mt-2">
-            <button type="submit" class="btn btn-primary">Skicka via e-post</button>
-            <a class="btn btn-outline" href="tel:+46708263366">Eller ring oss</a>
-          </div>
-          <p class="small md:col-span-2 mt-2">
-            Genom att klicka ”Skicka via e-post” öppnas din e-postklient. Ingen data lagras hos oss innan du själv skickar mejlet. Se <a href="/integritet.html">integritetspolicy</a>.
-          </p>
-        </form>
-      </div>
-    </div>
-  </section>
+  <main class="container stack">
+    <article class="card content">
+      <!-- BEFINTLIG LOGIK: “mailto” öppnar användarens klient, ingen serverlagring -->
+      <form class="row" onsubmit="handleMailto(event)">
+        <label>
+          Namn
+          <input type="text" name="namn" required>
+        </label>
+        <label>
+          E-post
+          <input type="email" name="email" required>
+        </label>
+        <label>
+          Ämne
+          <input type="text" name="subject" required>
+        </label>
+        <label>
+          Meddelande
+          <textarea name="message" rows="6" required></textarea>
+        </label>
+        <div>
+          <button type="submit">Öppna e-postklient</button>
+        </div>
+      </form>
+      <script>
+        function handleMailto(e){
+          e.preventDefault();
+          const f = e.target;
+          const namn = encodeURIComponent(f.namn.value.trim());
+          const email = encodeURIComponent(f.email.value.trim());
+          const subject = encodeURIComponent(f.subject.value.trim());
+          const body = encodeURIComponent(
+            `Namn: ${f.namn.value}\nE-post: ${f.email.value}\n\n${f.message.value}`
+          );
+          const to = "info@emksab.se";
+          window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+        }
+      </script>
+    </article>
 
-  <!-- Footer + cookies -->
-  <footer class="footer" style="padding-top:24px; padding-bottom:24px;">
-    <div class="container wrap">
-      <div class="flex items-center gap-2">
-        <img src="/assets/customcolor_icon_customcolor_background.png" alt="EMK logotyp" style="height:32px;width:32px;border-radius:8px;" />
-        <div>
-          <div class="strong">EMK Sverige AB</div>
-          <div>Org.nr 559514-0111 · Trensum</div>
-        </div>
-      </div>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div>
-          <div class="strong">Kontakt</div>
-          <div><a href="mailto:info@emksab.se">info@emksab.se</a></div>
-          <div>0708-26 33 66</div>
-        </div>
-        <div>
-          <div class="strong">Sidor</div>
-          <a href="/#tjanster">Tjänster</a>
-          <a href="/#process">Process</a>
-          <a href="/om-oss.html">Om oss</a>
-          <a href="/#policy">Policy</a>
-          <a href="/plattform.html">Plattform</a>
-        </div>
-        <div>
-          <div class="strong">Länkar</div>
-          <a href="/integritet.html">Integritet</a>
-          <a href="/cookies.html">Cookies</a>
-          <a href="/villkor.html">Allmänna villkor</a>
-        </div>
+    <article class="card content">
+      <h2>GDPR-notis</h2>
+      <p>Som beskrivet i vår integritetspolicy öppnas din egen e-postklient och ingen information lagras på vår webbserver innan du själv skickar.</p>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center">
+      <small>© EMK Sverige AB</small>
+      <div style="display:flex;gap:12px">
+        <a href="/integritet.html">Integritet</a>
+        <a href="/cookies.html">Cookies</a>
+        <a href="/villkor.html">Villkor</a>
+        <a href="/formular.html" aria-current="page"><strong>Formulär</strong></a>
       </div>
     </div>
   </footer>
-
-  <div id="cookieBanner" class="cookie-banner">
-    <div class="container">
-      <div class="card banner-card">
-        <p class="muted">Vi använder nödvändiga cookies. Analyscookies sätts bara om du samtycker. Läs mer i vår <a href="/cookies.html">cookie-policy</a>.</p>
-        <div class="flex gap-2">
-          <button id="cookieReject" class="btn btn-outline">Avvisa</button>
-          <button id="cookieAccept" class="btn btn-primary">Tillåt analyscookies</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    function esc(str){return encodeURIComponent(str||'');}
-    function openMailto(e){
-      e.preventDefault();
-      const namn=document.getElementById('namn').value.trim();
-      const foretag=document.getElementById('foretag').value.trim();
-      const telefon=document.getElementById('telefon').value.trim();
-      const amne=document.getElementById('amne').value.trim();
-      const med=document.getElementById('meddelande').value.trim();
-      const subject=esc('Kontakt: '+amne);
-      const body=esc(
-`Namn: ${namn}
-Företag: ${foretag}
-Telefon: ${telefon}
-
-Ärende:
-${med}
-
-— Skickat via eftermarknadskonsulten.se`);
-      const href=`mailto:info@emksab.se?subject=${subject}&body=${body}`;
-      window.location.href=href;
-      return false;
-    }
-  </script>
-
-  <script>
-    (function(){const b=document.getElementById('topbar');function s(){if(window.scrollY>6)b.classList.add('is-scrolled');else b.classList.remove('is-scrolled');}s();window.addEventListener('scroll',s,{passive:true});})();
-    (function(){const t=document.getElementById('navToggle');const oc=document.getElementById('mobileNav');if(!oc||!t)return;const scr=oc.querySelector('.scrim');const cls=oc.querySelectorAll('[data-close]');function o(){oc.hidden=false;oc.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}function c(){oc.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>{oc.hidden=true;},200);}t.addEventListener('click',o);scr&&scr.addEventListener('click',c);cls.forEach(el=>el.addEventListener('click',c));window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!oc.hidden)c();});})();
-    (function(){const KEY='emk_cookie_consent';const b=document.getElementById('cookieBanner');const a=document.getElementById('cookieAccept');const r=document.getElementById('cookieReject');const hide=()=>b.style.display='none';const set=v=>localStorage.setItem(KEY,v);const get=()=>localStorage.getItem(KEY);function load(){const id='G-XXXXXXX';if(id==='G-XXXXXXX')return;const s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id='+id;s.async=true;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config',id,{anonymize_ip:true});}
-      const v=get();if(v==='accepted'){hide();load();}else if(v==='rejected'){hide();}else{b.style.display='block';}
-      a.addEventListener('click',()=>{set('accepted');hide();load();});r.addEventListener('click',()=>{set('rejected');hide();});})();
-  </script>
 </body>
 </html>
