@@ -12,22 +12,13 @@
   <meta property="og:url" content="https://www.eftermarknadskonsulten.se/formular.html" />
   <meta property="og:image" content="/assets/customcolor_textlogo_customcolor_background.png" />
 
-  <!-- Layout-hjälp (ingen färgstyrning här) -->
+  <!-- Samma imports som index -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- LÅST TEMA -->
   <link rel="stylesheet" href="/assets/emk-theme.css" />
-
-  <!-- Små, säkra layoutfixar (inga färger) -->
-  <style>
-    /* Håll text inom korten */
-    .card, .card h3, .card h4, .card p, .card li, .card label { 
-      overflow-wrap:anywhere; word-break:break-word; hyphens:auto;
-    }
-  </style>
 </head>
 <body>
 
-  <!-- Header (Policy borttagen → FAQ) -->
+  <!-- Header (Policy → FAQ, inget annat ändrat) -->
   <header>
     <div id="topbar" class="topbar">
       <div class="container wrap" style="height:80px;">
@@ -57,7 +48,7 @@
       </div>
     </div>
 
-    <!-- Off-canvas mobilmeny -->
+    <!-- Off-canvas mobilmeny (Policy → FAQ) -->
     <div id="mobileNav" class="offcanvas" hidden>
       <div class="scrim" data-close="" aria-hidden="true"></div>
       <div class="panel" role="dialog" aria-label="Mobilmeny">
@@ -78,7 +69,7 @@
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero (oförändrad layout/typo) -->
   <section class="hero section hero-bg" id="kontakt">
     <div class="container">
       <h1 class="hero-title">Kontaktformulär</h1>
@@ -86,7 +77,7 @@
     </div>
   </section>
 
-  <!-- Innehåll -->
+  <!-- Innehåll (ingen extra style – inputs/textarea tar exakt din emk-theme.css) -->
   <section class="section">
     <div class="container grid gap-6">
       <!-- Form-kort -->
@@ -122,7 +113,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Footer (oförändrad) -->
   <footer>
     <div class="container wrap footer">
       <div class="footer-left">
@@ -137,7 +128,7 @@
     </div>
   </footer>
 
-  <!-- Script: mailto och nav (oförändrat beteende) -->
+  <!-- Script: mailto + nav (oförändrat) -->
   <script>
     function handleMailto(e){
       e.preventDefault();
@@ -172,7 +163,7 @@
       window.addEventListener('keydown', e=>{ if(e.key==='Escape' && !oc.hidden) close(); });
     })();
 
-    // Cookie consent (samma som index)
+    // Cookie consent (oförändrad)
     (function(){
       const KEY = 'emk_cookie_consent';
       const banner = document.getElementById('cookieBanner');
