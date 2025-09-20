@@ -1,84 +1,70 @@
 <!doctype html>
 <html lang="sv">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tjänster | EMK Sverige AB – Eftermarknadskonsulten</title>
-  <meta name="description" content="Strukturerat stöd i ARN-ärenden och eftermarknadsprocesser för bilhandlare. Akut ARN-respons, yttranden, full ärendeledning och förebyggande arbete." />
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
-  <meta property="og:title" content="Tjänster | EMK Sverige AB – Eftermarknadskonsulten" />
-  <meta property="og:description" content="Snabb, affärsnära hjälp i ARN och eftermarknad – med processer ni kan äga själva." />
-  <meta property="og:url" content="https://www.eftermarknadskonsulten.se/tjanster.html" />
-  <meta property="og:image" content="/assets/customcolor_textlogo_customcolor_background.png" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/assets/emk-theme.css?v=1" />
-  <style>
-    @media (max-width: 767px) {
-      .hero .hero-title { display: none !important; }
-      .hero .chip { display:block; text-align:left; font-size: clamp(1rem, 2.8vw + 0.6rem, 1.125rem); line-height:1.25; }
-    }
-    .card, .step, .card h2, .card h3, .card h4, .card p, .card li { overflow-wrap:anywhere; word-break:break-word; hyphens:auto; }
-    .card.step .flex { align-items:flex-start; } .card.step h4 { margin:0; }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tjänster | EMK Sverige AB</title>
+  <meta name="description" content="Praktiska tjänster för bilhandlare: ARN-stöd, eftermarknadsprocess och utbildning.">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png">
+  <link rel="stylesheet" href="/assets/emk-theme.css">
 </head>
-<body>
-  <header>
-    <div id="topbar" class="topbar">
-      <div class="container wrap" style="height:80px;">
-        <a href="/" class="logo inline-flex items-center" aria-label="Gå till startsidan">
-          <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK logotyp" class="h-[56px] w-auto object-contain" />
-        </a>
-        <nav class="nav hidden md:flex" aria-label="Huvudmeny">
-          <a href="/tjanster.html" aria-current="page">Tjänster</a>
-          <a href="/#process">Process</a>
-          <a href="/case.html">Case</a>
-          <a href="/om-oss.html">Om oss</a>
-          <a href="/faq.html">FAQ</a>
-          <a href="/#kontakt">Kontakt</a>
-        </nav>
-        <div class="hidden md:block">
-          <a href="/formular.html" class="btn btn-primary">Kontakta oss</a>
-        </div>
-        <button id="navToggle" class="md:hidden hambox" aria-expanded="false" aria-controls="mobileNav" aria-label="Öppna meny">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
-      </div>
-    </div>
-    <div id="mobileNav" class="offcanvas" hidden>
-      <div class="scrim" data-close="" aria-hidden="true"></div>
-      <div class="panel" role="dialog" aria-label="Mobilmeny">
-        <div class="flex items-center justify-between">
-          <strong>Menyn</strong>
-          <button class="hambox" data-close="" aria-label="Stäng meny">×</button>
-        </div>
-        <div class="mt-3 grid gap-1">
-          <a href="/tjanster.html" data-close="" aria-current="page">Tjänster</a>
-          <a href="/#process" data-close="">Process</a>
-          <a href="/case.html" data-close="">Case</a>
-          <a href="/om-oss.html" data-close="">Om oss</a>
-          <a href="/faq.html" data-close="">FAQ</a>
-          <a href="/#kontakt" data-close="">Kontakt</a>
-          <a href="/formular.html" class="btn btn-primary mt-2" data-close="">Kontakta oss</a>
-        </div>
-      </div>
+<body class="site">
+  <!-- HEADER -->
+  <header class="topbar" role="banner">
+    <div class="container wrap">
+      <a class="logo" href="/index.html" aria-label="EMK Sverige AB">
+        <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK Sverige AB">
+      </a>
+      <nav class="nav" aria-label="Huvudmeny">
+        <a href="/index.html">Hem</a>
+        <a class="active" href="/tjanster.html" aria-current="page">Tjänster</a>
+        <a href="/process.html">Process</a>
+        <a href="/case.html">Case</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/om-oss.html">Om oss</a>
+        <a href="/kontakt.html">Kontakt</a>
+      </nav>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="section hero-bg hero">
-    <div class="container">
-      <span class="chip">Experter på ARN-processer · Snabbt & strukturerat</span>
-      <h1 class="hero-title leading-tight max-w-[22ch] md:max-w-none mt-6">Tjänster</h1>
-      <p class="lead mt-3">Snabbt, affärsnära och strukturerat stöd i eftermarknad och ARN. Vi levererar underlag ni kan använda samma dag – och processer ni kan äga själva.</p>
-      <div class="mt-4 flex gap-3 flex-wrap">
-        <a href="/formular.html" class="btn btn-primary">Boka ett kort samtal</a>
-        <a href="/om-oss.html" class="btn btn-outline">Om EMK Sverige AB</a>
+  <!-- INNEHÅLL -->
+  <main id="main" class="page">
+    <section class="hero hero-small">
+      <div class="container">
+        <h1>Tjänster</h1>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- (resten oförändrat – dina kort/sektioner/faq etc.) -->
-  <!-- … -->
+    <section class="container stack">
+      <article class="card">
+        <h2>ARN-stöd för bilhandlare</h2>
+        <p>Snabb analys, strukturerat yttrande och tidsstyrning enligt KKL & praxis. Fokus: minska kostnad och risk, vinna tid.</p>
+      </article>
+
+      <article class="card">
+        <h2>Eftermarknadsprocess</h2>
+        <p>Inför rutiner, mallar och beslutsmatris för reklamationer. Målet är färre tvister och snabbare beslut.</p>
+      </article>
+
+      <article class="card">
+        <h2>Utbildning & implementering</h2>
+        <p>Praktisk träning för sälj/verkstad/ledning. Vi implementerar och lämnar över så att arbetssättet stannar hos er.</p>
+      </article>
+
+      <div class="card">
+        <h3>Nästa steg</h3>
+        <p>Vill du veta vad vi kan göra hos er första 30 dagarna?</p>
+        <p><a class="btn" href="/formular.html">Boka ett kort samtal</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>© EMK Sverige AB</p>
+    </div>
+  </footer>
 </body>
 </html>
