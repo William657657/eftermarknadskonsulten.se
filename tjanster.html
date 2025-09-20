@@ -8,14 +8,36 @@
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
   <meta property="og:title" content="Tjänster | EMK Sverige AB – Eftermarknadskonsulten" />
-  <meta property="og:description" content="Snabb, affärsnära hjälp i ARN och eftermarknad – med processer ni kan äga själva." /> 
+  <meta property="og:description" content="Snabb, affärsnära hjälp i ARN och eftermarknad – med processer ni kan äga själva." />
   <meta property="og:url" content="https://www.eftermarknadskonsulten.se/tjanster.html" />
   <meta property="og:image" content="/assets/customcolor_textlogo_customcolor_background.png" />
 
   <!-- Tailwind endast för layout/typografi -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Låst tema (färger i denna fil) -->
-  <link rel="stylesheet" href="/assets/emk-theme.css" />
+  <!-- Låst tema (alla färger här) -->
+  <link rel="stylesheet" href="/assets/emk-theme.css?v=1" />
+
+  <!-- Små, säkra layoutfixar (inga färger) -->
+  <style>
+    /* MOBILE HERO: dölj stora H1 på mobil; gör chip-raden till mobilrubrik */
+    @media (max-width: 767px) {
+      .hero .hero-title { display: none !important; }
+      .hero .chip {
+        display: block;
+        text-align: left;
+        font-size: clamp(1rem, 2.8vw + 0.6rem, 1.125rem);
+        line-height: 1.25;
+      }
+    }
+    /* WRAP-FIX i kort: hindra spill */
+    .card, .step, .card h2, .card h3, .card h4, .card p, .card li {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      hyphens: auto;
+    }
+    .card.step .flex { align-items: flex-start; }
+    .card.step h4 { margin: 0; }
+  </style>
 </head>
 <body>
   <!-- Header -->
@@ -64,9 +86,10 @@
   </header>
 
   <!-- Hero -->
-  <section class="section hero-bg">
+  <section class="section hero-bg hero">
     <div class="container">
-      <h1 class="hero-title leading-tight max-w-[22ch] md:max-w-none">Tjänster</h1>
+      <span class="chip">Experter på ARN-processer · Snabbt & strukturerat</span>
+      <h1 class="hero-title leading-tight max-w-[22ch] md:max-w-none mt-6">Tjänster</h1>
       <p class="lead mt-3">Snabbt, affärsnära och strukturerat stöd i eftermarknad och ARN. Vi levererar underlag ni kan använda samma dag – och processer ni kan äga själva.</p>
       <div class="mt-4 flex gap-3 flex-wrap">
         <a href="/formular.html" class="btn btn-primary">Boka ett kort samtal</a>
@@ -84,9 +107,7 @@
             <h3>Akut ARN-respons</h3>
             <span class="badge">Snabbstart</span>
           </div>
-          <p class="mt-2 muted grow">
-            Genomgång av ärende & underlag, riskbedömning, åtgärdsplan och första utkast till yttrande.
-          </p>
+          <p class="mt-2 muted grow">Genomgång av ärende & underlag, riskbedömning, åtgärdsplan och första utkast till yttrande.</p>
           <ul class="mt-3 fine">
             <li>• Första bedömning inom 12h* (vardagar)</li>
             <li>• Checklista & dokumentationskrav</li>
@@ -100,9 +121,7 @@
             <h3>Yttrande & bemötande</h3>
             <span class="badge">Huvudtjänst</span>
           </div>
-          <p class="mt-2 muted grow">
-            Komplett yttrande till ARN inklusive bevisning, praxisstöd och strategi för alternativ lösning vid behov.
-          </p>
+          <p class="mt-2 muted grow">Komplett yttrande till ARN inklusive bevisning, praxisstöd och strategi för alternativ lösning vid behov.</p>
           <ul class="mt-3 fine">
             <li>• KKL & prop. 2021/22:85 kopplat till fallet</li>
             <li>• Tidplan & milstolpar</li>
@@ -116,13 +135,11 @@
             <h3>Full ärendeledning</h3>
             <span class="badge">End-to-end</span>
           </div>
-          <p class="mt-2 muted grow">
-            Vi tar lead på hela ärendet: kunddialog, verkstad, offerter och överenskommelse – med målet att undvika ARN och minimera kostnad.
-          </p>
+          <p class="mt-2 muted grow">Vi tar lead på hela ärendet: kunddialog, verkstad, offerter och slutlig överenskommelse.</p>
           <ul class="mt-3 fine">
             <li>• En kontaktväg för allt</li>
+            <li>• Mål: undvika ARN & minimera kostnad</li>
             <li>• Lärdomar → rutiner i verksamheten</li>
-            <li>• Uppföljning tills målbilden är nådd</li>
           </ul>
           <a href="/formular.html" class="btn btn-outline mt-3">Prata upplägg</a>
         </div>
@@ -149,7 +166,7 @@
           <h3>Akut ARN-respons – innehåll</h3>
           <ul class="mt-2 fine bullets">
             <li>• Snabb genomlysning av bakgrund, bevisning och tidslinje</li>
-            <li>• Riskanalys: hävningsrisk, kostnadsrisk, kommunikationsrisk</li>
+            <li>• Riskanalys: ARN-risk, kostnadsrisk, kommunikationsrisk</li>
             <li>• Rekommenderad strategi (omgående)</li>
             <li>• Första utkast till yttrande (vid behov)</li>
           </ul>
@@ -208,7 +225,7 @@
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- FAQ/CTA -->
   <section class="section">
     <div class="container">
       <div class="grid md:grid-cols-2 gap-6 items-start">
@@ -268,10 +285,7 @@
   <div id="cookieBanner" class="cookie-banner">
     <div class="container">
       <div class="card banner-card">
-        <p class="muted">
-          Vi använder nödvändiga cookies för att sidan ska fungera. Analyscookies sätts bara om du samtycker.
-          Läs mer i vår <a href="/cookies.html">cookie-policy</a>.
-        </p>
+        <p class="muted">Vi använder nödvändiga cookies. Analyscookies sätts bara om du samtycker. Läs mer i vår <a href="/cookies.html">cookie-policy</a>.</p>
         <div class="flex gap-2">
           <button id="cookieReject" class="btn btn-outline">Avvisa</button>
           <button id="cookieAccept" class="btn btn-primary">Tillåt analyscookies</button>
@@ -280,57 +294,13 @@
     </div>
   </div>
 
-  <!-- Scripts (samma som övriga) -->
+  <!-- Scripts -->
   <script>
-    // Sticky-skugga
-    (function(){
-      const bar = document.getElementById('topbar');
-      function onScroll(){ if(window.scrollY > 6) bar.classList.add('is-scrolled'); else bar.classList.remove('is-scrolled'); }
-      onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
-    })();
-
-    // Mobilmeny
-    (function(){
-      const toggle = document.getElementById('navToggle');
-      const oc = document.getElementById('mobileNav');
-      if(!oc || !toggle) return;
-      const scrim = oc.querySelector('.scrim');
-      const closers = oc.querySelectorAll('[data-close]');
-      function open(){ oc.hidden=false; oc.classList.add('open'); toggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
-      function close(){ oc.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; setTimeout(()=>{ oc.hidden=true; },200); }
-      toggle.addEventListener('click', open);
-      scrim && scrim.addEventListener('click', close);
-      closers.forEach(el=>el.addEventListener('click', close));
-      window.addEventListener('keydown', e=>{ if(e.key==='Escape' && !oc.hidden) close(); });
-    })();
-
-    // Cookie consent
-    (function(){
-      const KEY = 'emk_cookie_consent';
-      const banner = document.getElementById('cookieBanner');
-      const accept = document.getElementById('cookieAccept');
-      const reject = document.getElementById('cookieReject');
-      const hide = () => banner.style.display='none';
-      const set  = (v) => localStorage.setItem(KEY, v);
-      const get  = () => localStorage.getItem(KEY);
-
-      function loadAnalytics(){
-        const id='G-XXXXXXX'; if(id==='G-XXXXXXX') return;
-        const s=document.createElement('script');
-        s.src='https://www.googletagmanager.com/gtag/js?id='+id; s.async=true; document.head.appendChild(s);
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){ dataLayer.push(arguments); }
-        window.gtag = gtag; gtag('js', new Date()); gtag('config', id, { anonymize_ip:true });
-      }
-
-      const val = get();
-      if (val==='accepted') { hide(); loadAnalytics(); }
-      else if (val==='rejected') { hide(); }
-      else { banner.style.display='block'; }
-
-      accept.addEventListener('click', ()=>{ set('accepted'); hide(); loadAnalytics(); });
-      reject.addEventListener('click', ()=>{ set('rejected'); hide(); });
-    })();
+    (function(){const bar=document.getElementById('topbar');function s(){if(window.scrollY>6)bar.classList.add('is-scrolled');else bar.classList.remove('is-scrolled');}s();window.addEventListener('scroll',s,{passive:true});})();
+    (function(){const t=document.getElementById('navToggle');const oc=document.getElementById('mobileNav');if(!oc||!t)return;const scr=oc.querySelector('.scrim');const cls=oc.querySelectorAll('[data-close]');function o(){oc.hidden=false;oc.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}function c(){oc.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>{oc.hidden=true;},200);}t.addEventListener('click',o);scr&&scr.addEventListener('click',c);cls.forEach(el=>el.addEventListener('click',c));window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!oc.hidden)c();});})();
+    (function(){const KEY='emk_cookie_consent';const b=document.getElementById('cookieBanner');const a=document.getElementById('cookieAccept');const r=document.getElementById('cookieReject');const hide=()=>b.style.display='none';const set=v=>localStorage.setItem(KEY,v);const get=()=>localStorage.getItem(KEY);function load(){const id='G-XXXXXXX';if(id==='G-XXXXXXX')return;const s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id='+id;s.async=true;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config',id,{anonymize_ip:true});}
+      const v=get();if(v==='accepted'){hide();load();}else if(v==='rejected'){hide();}else{b.style.display='block';}
+      a.addEventListener('click',()=>{set('accepted');hide();load();});r.addEventListener('click',()=>{set('rejected');hide();});})();
   </script>
 </body>
 </html>
