@@ -1,88 +1,16 @@
 <!doctype html>
 <html lang="sv">
-<head> 
+<head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tjänster | EMK Sverige AB – Eftermarknadskonsulten</title>
   <meta name="description" content="Strukturerat stöd i ARN-ärenden och eftermarknadsprocesser för bilhandlare. Akut ARN-respons, yttranden, full ärendeledning och förebyggande arbete." />
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
-
-  <!-- SEO: canonical + robots -->
-  <link rel="canonical" href="https://www.eftermarknadskonsulten.se/tjanster.html" />
-  <meta name="robots" content="index,follow" />
-
-  <!-- Open Graph -->
   <meta property="og:title" content="Tjänster | EMK Sverige AB – Eftermarknadskonsulten" />
   <meta property="og:description" content="Snabb, affärsnära hjälp i ARN och eftermarknad – med processer ni kan äga själva." />
   <meta property="og:url" content="https://www.eftermarknadskonsulten.se/tjanster.html" />
   <meta property="og:image" content="/assets/customcolor_textlogo_customcolor_background.png" />
-  <meta property="og:image:secure_url" content="https://www.eftermarknadskonsulten.se/assets/customcolor_textlogo_customcolor_background.png" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Eftermarknadskonsulten" />
-  <meta property="og:locale" content="sv_SE" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Tjänster | EMK Sverige AB – Eftermarknadskonsulten" />
-  <meta name="twitter:description" content="Snabb, affärsnära hjälp i ARN och eftermarknad – med processer ni kan äga själva." />
-  <meta name="twitter:image" content="https://www.eftermarknadskonsulten.se/assets/customcolor_textlogo_customcolor_background.png" />
-
-  <!-- Structured data: WebPage + Breadcrumb -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebPage",
-    "name":"Tjänster",
-    "description":"Strukturerat stöd i ARN-ärenden och eftermarknadsprocesser för bilhandlare.",
-    "url":"https://www.eftermarknadskonsulten.se/tjanster.html",
-    "breadcrumb":{
-      "@type":"BreadcrumbList",
-      "itemListElement":[
-        {"@type":"ListItem","position":1,"name":"Hem","item":"https://www.eftermarknadskonsulten.se/"},
-        {"@type":"ListItem","position":2,"name":"Tjänster","item":"https://www.eftermarknadskonsulten.se/tjanster.html"}
-      ]
-    }
-  }
-  </script>
-
-  <!-- Structured data: Service (sammanfattar tre tjänster som finns på sidan) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Service",
-    "name":"Eftermarknadskonsulten – Tjänster",
-    "serviceType":"Akut ARN-respons; Yttrande & bemötande; Full ärendeledning",
-    "areaServed":"SE",
-    "provider":{
-      "@type":"Organization",
-      "name":"EMK Sverige AB",
-      "url":"https://www.eftermarknadskonsulten.se"
-    },
-    "hasOfferCatalog":{
-      "@type":"OfferCatalog",
-      "name":"Tjänster",
-      "itemListElement":[
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Akut ARN-respons"}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Yttrande & bemötande"}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Full ärendeledning"}}
-      ]
-    }
-  }
-  </script>
-
-  <!-- Structured data: FAQ (matchar FAQ-sektionen i body) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Kan ni ta över ett pågående ARN-ärende?","acceptedAnswer":{"@type":"Answer","text":"Ja. Vi gör en snabb genomlysning, säkrar bevisning och föreslår strategi."}},
-      {"@type":"Question","name":"Jobbar ni med fasta priser?","acceptedAnswer":{"@type":"Answer","text":"Både fast och rörligt beroende på omfattning. Be om offert."}},
-      {"@type":"Question","name":"Är ni en advokatbyrå?","acceptedAnswer":{"@type":"Answer","text":"Nej. Vi ger praktiskt stöd; vid behov samarbetar vi med juridiska ombud."}}
-    ]
-  }
-  </script>
 
   <!-- Tailwind endast för layout/typografi -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -124,7 +52,7 @@
           <a href="/#process">Process</a>
           <a href="/#case">Case</a>
           <a href="/om-oss.html">Om oss</a>
-          <!-- Policy -> FAQ (enda ändringen) -->
+          <!-- Policy -> FAQ -->
           <a href="/#faq">FAQ</a>
           <a href="/#kontakt">Kontakt</a>
         </nav>
@@ -150,7 +78,7 @@
           <a href="/#process" data-close="">Process</a>
           <a href="/#case" data-close="">Case</a>
           <a href="/om-oss.html" data-close="">Om oss</a>
-          <!-- Policy -> FAQ (enda ändringen) -->
+          <!-- Policy -> FAQ -->
           <a href="/#faq" data-close="">FAQ</a>
           <a href="/#kontakt" data-close="">Kontakt</a>
           <a href="/formular.html" class="btn btn-primary mt-2" data-close="">Kontakta oss</a>
@@ -162,12 +90,12 @@
   <!-- Hero -->
   <section class="section hero-bg hero">
     <div class="container">
-      <span class="chip">Experter på ARN-processer · Snabbt & strukturerat</span>
+      <span class="chip">Akut ARN-stöd för bilhandlare · Snabbt & strukturerat</span>
       <h1 class="hero-title leading-tight max-w-[22ch] md:max-w-none mt-6">Tjänster</h1>
       <p class="lead mt-3">Snabbt, affärsnära och strukturerat stöd i eftermarknad och ARN. Vi levererar underlag ni kan använda samma dag – och processer ni kan äga själva.</p>
       <div class="mt-4 flex gap-3 flex-wrap">
-        <a href="/formular.html" class="btn btn-primary">Boka ett kort samtal</a>
-        <a href="/om-oss.html" class="btn btn-outline">Om EMK Sverige AB</a>
+        <a href="/formular.html" class="btn btn-primary">Få första bedömning inom 12h</a>
+        <a href="/formular.html" class="btn btn-outline">Starta ärende nu</a>
       </div>
     </div>
   </section>
@@ -342,7 +270,7 @@
           <a href="/tjanster.html" aria-current="page">Tjänster</a>
           <a href="/#process">Process</a>
           <a href="/om-oss.html">Om oss</a>
-          <a href="/#faq">FAQ</a>
+          <a href="/#policy">Policy</a>
           <a href="/plattform.html">Plattform</a>
         </div>
         <div>
@@ -372,7 +300,12 @@
   <script>
     (function(){const bar=document.getElementById('topbar');function s(){if(window.scrollY>6)bar.classList.add('is-scrolled');else bar.classList.remove('is-scrolled');}s();window.addEventListener('scroll',s,{passive:true});})();
     (function(){const t=document.getElementById('navToggle');const oc=document.getElementById('mobileNav');if(!oc||!t)return;const scr=oc.querySelector('.scrim');const cls=oc.querySelectorAll('[data-close]');function o(){oc.hidden=false;oc.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}function c(){oc.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>{oc.hidden=true;},200);}t.addEventListener('click',o);scr&&scr.addEventListener('click',c);cls.forEach(el=>el.addEventListener('click',c));window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!oc.hidden)c();});})();
-    (function(){const KEY='emk_cookie_consent';const b=document.getElementById('cookieBanner');const a=document.getElementById('cookieAccept');const r=document.getElementById('cookieReject');const hide=()=>b.style.display='none';const set=v=>localStorage.setItem(KEY,v);const get=()=>localStorage.getItem(KEY);function load(){const id='G-XXXXXXX';if(id==='G-XXXXXXX')return;const s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id='+id;s.async=true;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config',id,{anonymize_ip:true});}
+    (function(){const KEY='emk_cookie_consent';const b=document.getElementById('cookieBanner');const a=document.getElementById('cookieAccept');const r=document.getElementById('cookieReject');const hide=()=>b.style.display='none';const set=v=>localStorage.setItem(KEY,v);const get=()=>localStorage.getItem(KEY);
+      function load(){const id='G-W07T4YVG4E';if(!id||id==='G-XXXXXXX')return;
+        const s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id='+id;s.async=true;document.head.appendChild(s);
+        window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;
+        gtag('js',new Date());gtag('config',id,{anonymize_ip:true});
+      }
       const v=get();if(v==='accepted'){hide();load();}else if(v==='rejected'){hide();}else{b.style.display='block';}
       a.addEventListener('click',()=>{set('accepted');hide();load();});r.addEventListener('click',()=>{set('rejected');hide();});})();
   </script>
