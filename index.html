@@ -3,16 +3,68 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Eftermarknadskonsulten – ARN-stöd för bilhandlare | EMK Sverige AB</title>
   <meta name="description" content="Praktiskt stöd i ARN-processen för bilhandlare: snabb respons, kompletta yttranden, beslutsmatris och utbildning.">
+
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
+
+  <!-- SEO: canonical + robots -->
+  <link rel="canonical" href="https://www.eftermarknadskonsulten.se/" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
   <meta property="og:title" content="Eftermarknadskonsulten – ARN-stöd för bilhandlare | EMK Sverige AB" />
   <meta property="og:description" content="Praktiskt stöd i konsumentköpsfrågor och ARN-ärenden för bilhandlare." />
-  <meta property="og:url" content="https://www.eftermarknadskonsulten.se" />
+  <meta property="og:url" content="https://www.eftermarknadskonsulten.se/" />
   <meta property="og:image" content="/assets/customcolor_textlogo_customcolor_background.png" />
+  <meta property="og:image:secure_url" content="https://www.eftermarknadskonsulten.se/assets/customcolor_textlogo_customcolor_background.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Eftermarknadskonsulten" />
+  <meta property="og:locale" content="sv_SE" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Eftermarknadskonsulten – ARN-stöd för bilhandlare | EMK Sverige AB" />
+  <meta name="twitter:description" content="Praktiskt stöd i konsumentköpsfrågor och ARN-ärenden för bilhandlare." />
+  <meta name="twitter:image" content="https://www.eftermarknadskonsulten.se/assets/customcolor_textlogo_customcolor_background.png" />
+
+  <!-- Structured data: WebPage (Home) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.eftermarknadskonsulten.se/#webpage",
+    "url": "https://www.eftermarknadskonsulten.se/",
+    "name": "Eftermarknadskonsulten – ARN-stöd för bilhandlare | EMK Sverige AB",
+    "description": "Praktiskt stöd i ARN-processen för bilhandlare: snabb respons, kompletta yttranden, beslutsmatris och utbildning.",
+    "inLanguage": "sv-SE"
+  }
+  </script>
+
+  <!-- Structured data: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"EMK Sverige AB",
+    "url":"https://www.eftermarknadskonsulten.se/",
+    "logo":"https://www.eftermarknadskonsulten.se/assets/customcolor_icon_customcolor_background.png",
+    "contactPoint":[{
+      "@type":"ContactPoint",
+      "telephone":"+46 708 26 33 66",
+      "contactType":"customer support",
+      "areaServed":"SE",
+      "availableLanguage":["sv"]
+    }]
+  }
+  </script>
+
+  <!-- Tailwind endast för layout/typografi -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/assets/emk-theme.css" />
+
   <style>
     /* Mobil: dölj stor H1, visa chip som rubrik */
     @media (max-width: 767px) {
@@ -39,11 +91,12 @@
         </a>
         <nav class="nav hidden md:flex" aria-label="Huvudmeny">
           <a href="/tjanster.html">Tjänster</a>
-          <a href="/process.html">Process</a>
-          <a href="/case.html">Case</a>
+          <a href="/#process">Process</a>
+          <a href="/#case">Case</a>
           <a href="/om-oss.html">Om oss</a>
-          <a href="/faq.html">FAQ</a>
-          <a href="/kontakt.html">Kontakt</a>
+          <!-- FAQ-länk enligt samma princip som tjanster.html -->
+          <a href="/#faq">FAQ</a>
+          <a href="/#kontakt">Kontakt</a>
         </nav>
         <div class="hidden md:block">
           <a href="/formular.html" class="btn btn-primary">Kontakta oss</a>
@@ -62,11 +115,11 @@
         </div>
         <div class="mt-3 grid gap-1">
           <a href="/tjanster.html" data-close="">Tjänster</a>
-          <a href="/process.html" data-close="">Process</a>
-          <a href="/case.html" data-close="">Case</a>
+          <a href="/#process" data-close="">Process</a>
+          <a href="/#case" data-close="">Case</a>
           <a href="/om-oss.html" data-close="">Om oss</a>
-          <a href="/faq.html" data-close="">FAQ</a>
-          <a href="/kontakt.html" data-close="">Kontakt</a>
+          <a href="/#faq" data-close="">FAQ</a>
+          <a href="/#kontakt" data-close="">Kontakt</a>
           <a href="/formular.html" class="btn btn-primary mt-2" data-close="">Kontakta oss</a>
         </div>
       </div>
