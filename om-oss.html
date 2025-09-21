@@ -3,19 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Om oss | EMK Sverige AB – Eftermarknadskonsulten</title>
-  <meta name="description" content="EMK Sverige AB hjälper bilhandlare att vinna tid och minska kostnader i eftermarknaden och i ARN-processer.">
+  <title>Om oss | EMK Sverige AB</title>
+  <meta name="description" content="Om EMK Sverige AB – Eftermarknadskonsulten.">
   <link rel="icon" href="/favicon.ico">
   <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png">
-  <meta property="og:title" content="Om oss | EMK Sverige AB – Eftermarknadskonsulten">
-  <meta property="og:description" content="Bakgrund, mål och förmåga. Vi gör komplexa ARN- och eftermarknadsfrågor handlingsbara, med mätbar effekt.">
-  <meta property="og:url" content="https://www.eftermarknadskonsulten.se/om-oss.html">
-  <meta property="og:image" content="/assets/customcolor_textlogo_customcolor_background.png">
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Rätt tema (utan ?v=...) -->
   <link rel="stylesheet" href="/assets/emk-theme.css">
-
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @media (max-width: 767px){
       .hero .hero-title{display:none!important}
@@ -26,7 +19,7 @@
     .card.step h4{margin:0}
   </style>
 </head>
-<body class="site">
+<body class="site hero-bg">
   <!-- HEADER -->
   <header class="topbar" role="banner">
     <div class="container wrap" style="height:80px;">
@@ -70,13 +63,13 @@
   <!-- HERO -->
   <section class="section hero-bg hero">
     <div class="container">
-      <span class="chip"></span>
+      <span class="chip">Om EMK Sverige AB</span>
       <h1 class="hero-title leading-tight max-w-[22ch] md:max-w-none mt-2">Om EMK Sverige AB</h1>
       <p class="lead mt-3">Vi gör eftermarknaden till en konkurrensfördel och driver ner kostnader i svåra ärenden – särskilt när ARN och KKL kommer in i bilden.</p>
     </div>
   </section>
 
-  <!-- INNEHÅLL (din text oförändrad) -->
+  <!-- INNEHÅLL -->
   <section class="section">
     <div class="container">
       <div class="grid md:grid-cols-3 gap-6 items-start">
@@ -170,7 +163,7 @@
     </div>
   </footer>
 
-  <!-- SCRIPTS -->
+  <!-- SCRIPTS (oförändrade) -->
   <script>
     (function(){const b=document.getElementById('topbar');function s(){b.classList.toggle('is-scrolled', window.scrollY>6)};s();window.addEventListener('scroll',s,{passive:true});})();
     (function(){const t=document.getElementById('navToggle');const oc=document.getElementById('mobileNav');if(!oc||!t)return;const scr=oc.querySelector('.scrim');const cls=oc.querySelectorAll('[data-close]');function o(){oc.hidden=false;oc.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}function c(){oc.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>oc.hidden=true,200)}t.addEventListener('click',o);scr&&scr.addEventListener('click',c);cls.forEach(el=>el.addEventListener('click',c));window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!oc.hidden)c()});})();
