@@ -9,6 +9,11 @@
   <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png">
   <link rel="stylesheet" href="/assets/emk-theme.css">
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Tydlig skillnad mellan fråga (fet) och svar (normal) */
+    .faq .faq-q { font-weight: 800; }
+    .faq .faq-a { font-weight: 400; }
+  </style>
 </head>
 <body class="site hero-bg">
   <!-- HEADER -->
@@ -62,22 +67,25 @@
       </div>
     </section>
 
-    <section class="container stack">
-      <article class="card">
-        <h2>Hur snabbt kan ni hjälpa i ett ARN-ärende?</h2>
-        <p>Vi går in direkt med diagnos och tidslinje. Normalt levererar vi första utkastet till yttrande mycket snabbt beroende på underlagets status.</p>
+    <section class="container stack faq">
+      <article class="card faq-item">
+        <h2 class="faq-q">Hur snabbt kan ni hjälpa i ett ARN-ärende?</h2>
+        <p class="faq-a">Vi går in direkt med diagnos och tidslinje. Normalt levererar vi första utkastet till yttrande mycket snabbt beroende på underlagets status.</p>
       </article>
-      <article class="card">
-        <h2>Arbetar ni bara med ARN?</h2>
-        <p>Nej. Vi bygger även processer, mallar och beslutsmatriser för reklamationer så att ni minskar antalet tvister över tid.</p>
+
+      <article class="card faq-item">
+        <h2 class="faq-q">Arbetar ni bara med ARN?</h2>
+        <p class="faq-a">Nej. Vi bygger även processer, mallar och beslutsmatriser för reklamationer så att ni minskar antalet tvister över tid.</p>
       </article>
-      <article class="card">
-        <h2>Vem äger materialet ni tar fram?</h2>
-        <p>Ni gör det. Vi lämnar över mallar och rutiner så att ni kan arbeta vidare själva.</p>
+
+      <article class="card faq-item">
+        <h2 class="faq-q">Vem äger materialet ni tar fram?</h2>
+        <p class="faq-a">Ni gör det. Vi lämnar över mallar och rutiner så att ni kan arbeta vidare själva.</p>
       </article>
-      <article class="card">
-        <h2>Hur börjar vi?</h2>
-        <p>Boka ett kort samtal så går vi igenom nuläge och prioriteringar.</p>
+
+      <article class="card faq-item">
+        <h2 class="faq-q">Hur börjar vi?</h2>
+        <p class="faq-a">Boka ett kort samtal så går vi igenom nuläge och prioriteringar.</p>
         <p><a class="btn" href="/formular.html">Boka samtal</a></p>
       </article>
     </section>
@@ -93,7 +101,19 @@
   <!-- SCRIPTS -->
   <script>
     (function(){const b=document.getElementById('topbar');function s(){b.classList.toggle('is-scrolled',window.scrollY>6)}s();window.addEventListener('scroll',s,{passive:true});})();
-    (function(){const t=document.getElementById('navToggle');const oc=document.getElementById('mobileNav');if(!t||!oc)return;const scr=oc.querySelector('.scrim');const cls=oc.querySelectorAll('[data-close]');function o(){oc.hidden=false;oc.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}function c(){oc.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>oc.hidden=true,200)}t.addEventListener('click',o);scr&&scr.addEventListener('click',c);cls.forEach(el=>el.addEventListener('click',c));window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!oc.hidden)c()});})();
+    (function(){
+      const t=document.getElementById('navToggle');
+      const oc=document.getElementById('mobileNav');
+      if(!t||!oc) return;
+      const scr=oc.querySelector('.scrim');
+      const cls=oc.querySelectorAll('[data-close]');
+      function o(){oc.hidden=false;oc.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}
+      function c(){oc.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>oc.hidden=true,200)}
+      t.addEventListener('click',o);
+      scr&&scr.addEventListener('click',c);
+      cls.forEach(el=>el.addEventListener('click',c));
+      window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!oc.hidden)c()});
+    })();
   </script>
 </body>
 </html>
