@@ -14,23 +14,15 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/assets/emk-theme.css" />
   <style>
-    /* Mobil: dölj stor H1, visa chip som rubrik */
     @media (max-width: 767px) {
       .hero .hero-title { display: none !important; }
       .hero .chip { display:block; text-align:left; font-size: clamp(1rem, 2.8vw + 0.6rem, 1.125rem); line-height:1.25; }
     }
-    /* Desktop: finjustering enligt bilden */
-    @media (min-width: 768px) {
-      .hero .chip { font-size: clamp(1rem, 0.6vw + 0.9rem, 1.125rem); font-weight: 600; }
-      .hero .hero-title { font-size: clamp(2.2rem, 2.2vw + 1.2rem, 3.2rem); margin-top: .25rem; }
-    }
     .card, .step, .card h3, .card h4, .card p, .card li { overflow-wrap:anywhere; word-break:break-word; hyphens:auto; }
     .card.step .flex { align-items:flex-start; } .card.step h4 { margin:0; }
-    /* Info-banner i hero-högerkolumnen */
-    .info-banner { text-transform: uppercase; letter-spacing:.04em; font-size:.85rem; }
   </style>
 </head>
-<body class="site">
+<body class="site hero-bg">
   <header>
     <div id="topbar" class="topbar">
       <div class="container wrap" style="height:80px;">
@@ -39,11 +31,11 @@
         </a>
         <nav class="nav hidden md:flex" aria-label="Huvudmeny">
           <a href="/tjanster.html">Tjänster</a>
-          <a href="/process.html">Process</a>
+          <a href="#process">Process</a>
           <a href="/case.html">Case</a>
           <a href="/om-oss.html">Om oss</a>
           <a href="/faq.html">FAQ</a>
-          <a href="/kontakt.html">Kontakt</a>
+          <a href="#kontakt">Kontakt</a>
         </nav>
         <div class="hidden md:block">
           <a href="/formular.html" class="btn btn-primary">Kontakta oss</a>
@@ -62,11 +54,11 @@
         </div>
         <div class="mt-3 grid gap-1">
           <a href="/tjanster.html" data-close="">Tjänster</a>
-          <a href="/process.html" data-close="">Process</a>
+          <a href="#process" data-close="">Process</a>
           <a href="/case.html" data-close="">Case</a>
           <a href="/om-oss.html" data-close="">Om oss</a>
           <a href="/faq.html" data-close="">FAQ</a>
-          <a href="/kontakt.html" data-close="">Kontakt</a>
+          <a href="#kontakt" data-close="">Kontakt</a>
           <a href="/formular.html" class="btn btn-primary mt-2" data-close="">Kontakta oss</a>
         </div>
       </div>
@@ -91,8 +83,6 @@
             <li>• Lång erfarenhet från skadereglering & regressprocesser på bolagssidan</li>
           </ul>
         </div>
-
-        <!-- Högerkolumn: utökad enligt din markering -->
         <div class="relative">
           <div class="soft-glow" aria-hidden="true"></div>
           <div class="card elev">
@@ -106,18 +96,34 @@
             </ul>
             <p class="mt-4 small">*Arbetas vardagar. Brådskande ärenden utanför normal arbetstid, enligt överenskommelse.</p>
           </div>
-
-          <div class="card elev mt-4">
-            <p class="info-banner">
-              Vi arbetar även med mjukvarulösningar som ger kontroll över hela eftermarknadsflödet – klagomål, reklamation och uppföljning.
-            </p>
-          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- (PROCESSSEKTIONEN ÄR BORTTAGEN FRÅN STARTSIDAN ENLIGT ÖNSKAN) -->
+  <!-- Process -->
+  <section id="process" class="section">
+    <div class="container">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="card step">
+          <div class="flex items-start gap-3"><div class="no">1</div><h4 class="break-words min-w-0">Verksamhetsanalys</h4></div>
+          <p class="mt-2 fine">Nuläge, risker, genomlysning av dokumentation & ärenden.</p>
+        </div>
+        <div class="card step">
+          <div class="flex items-start gap-3"><div class="no">2</div><h4 class="break-words min-w-0">Upprättande – Företagsanpassad Eftermarknadsprocess</h4></div>
+          <p class="mt-2 fine">Rutiner, beslutsmatris, mallar och utbildningsupplägg.</p>
+        </div>
+        <div class="card step">
+          <div class="flex items-start gap-3"><div class="no">3</div><h4 class="break-words min-w-0">Implementering – Utbildning</h4></div>
+          <p class="mt-2 fine">Inför nya arbetssätt, stöd i skarpa ärenden (ARN).</p>
+        </div>
+        <div class="card step">
+          <div class="flex items-start gap-3"><div class="no">4</div><h4 class="break-words min-w-0">Resultatuppföljning – Utvärdering</h4></div>
+          <p class="mt-2 fine">Mät effekten, justera, och säkra ägarskap internt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>
