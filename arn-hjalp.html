@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Hjälp med ARN-tvist för bilhandlare | Yttrande & akut stöd | EMK Sverige AB</title>
+  <meta name="description" content="Behöver du hjälp i en ARN-tvist eller när kund anmält till ARN? EMK Sverige AB ger snabbt, praktiskt stöd för bilhandlare: första bedömning inom 12h (vardagar), kompletta yttranden, beslutsmatris och kunddialog.">
+  <link rel="canonical" href="https://www.eftermarknadskonsulten.se/arn-hjalp.html" />
+
+  <!-- Ikoner / Open Graph -->
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
+  <meta property="og:title" content="Hjälp med ARN-tvist för bilhandlare | EMK Sverige AB" />
+  <meta property="og:description" content="Snabb hjälp när kund anmält ARN. Bedömning inom 12h (vardagar), yttranden & bemötanden, och struktur för att förebygga nya ärenden." />
+  <meta property="og:url" content="https://www.eftermarknadskonsulten.se/arn-hjalp.html" />
+  <meta property="og:image" content="/assets/customcolor_textlogo_customcolor_background.png" />
+
+  <!-- Tailwind för layout/typografi -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Ditt tema (samma som övriga sidor) -->
+  <link rel="stylesheet" href="/assets/emk-theme.css?v=1" />
+
+  <style>
+    /* Mobil: dölj stora H1, visa chip som rubrik */
+    @media (max-width: 767px) {
+      .hero .hero-title { display:none !important; }
+      .hero .chip { display:block; text-align:left; font-size:clamp(1rem,2.8vw + .6rem,1.125rem); line-height:1.25; }
+    }
+    /* Desktop: finare typgrad */
+    @media (min-width: 768px) {
+      .hero .chip { font-size: clamp(1rem, 0.6vw + 0.9rem, 1.125rem); font-weight: 600; }
+      .hero .hero-title { font-size: clamp(2.2rem, 2.2vw + 1.2rem, 3.2rem); margin-top:.25rem; }
+    }
+    /* Säker wrap i kort/listor */
+    .card, .step, .card h2, .card h3, .card h4, .card p, .card li { overflow-wrap:anywhere; word-break:break-word; hyphens:auto; }
+    .card.step .flex { align-items:flex-start; }
+    .card.step h4 { margin:0; }
+  </style>
+
+  <!-- FAQ schema (hjälper Google förstå innehållet) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "Kan ni hjälpa snabbt om kund anmält till ARN?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Vi gör en första genomlysning och rekommendation inom 12 timmar på vardagar. Brådskande ärenden utanför normal arbetstid enligt överenskommelse."
+      }
+    },{
+      "@type": "Question",
+      "name": "Skriver ni yttrande och bemötande till ARN?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Vi tar fram kompletta yttranden med hänvisning till Konsumentköplagen och relevant ARN-praxis, inklusive bilagor och tidslinje."
+      }
+    },{
+      "@type": "Question",
+      "name": "Kan ni ta över ett pågående ARN-ärende?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Vi säkrar underlag och bevisning, går igenom status och lägger en strategi för bästa möjliga utfall."
+      }
+    },{
+      "@type": "Question",
+      "name": "Arbetar ni med fasta priser?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Både fast och rörligt beroende på omfattning. Be om offert utifrån ert specifika ärende."
+      }
+    }]
+  }
+  </script>
+</head>
+<body class="site">
+  <!-- Header -->
+  <header>
+    <div id="topbar" class="topbar">
+      <div class="container wrap" style="height:80px;">
+        <a href="/" class="logo inline-flex items-center" aria-label="Gå till startsidan">
+          <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK logotyp" class="h-[56px] w-auto object-contain" />
+        </a>
+        <nav class="nav hidden md:flex" aria-label="Huvudmeny">
+          <a href="/tjanster.html">Tjänster</a>
+          <a href="/process.html">Process</a>
+          <a href="/case.html">Case</a>
+          <a href="/om-oss.html">Om oss</a>
+          <a href="/faq.html">FAQ</a>
+          <a href="/kontakt.html">Kontakt</a>
+        </nav>
+        <div class="hidden md:block">
+          <a href="/formular.html" class="btn btn-primary">Kontakta oss</a>
+        </div>
+        <button id="navToggle" class="md:hidden hambox" aria-expanded="false" aria-controls="mobileNav" aria-label="Öppna meny">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobilmeny -->
+    <div id="mobileNav" class="offcanvas" hidden>
+      <div class="scrim" data-close="" aria-hidden="true"></div>
+      <div class="panel" role="dialog" aria-label="Mobilmeny">
+        <div class="flex items-center justify-between">
+          <strong>Menyn</strong>
+          <button class="hambox" data-close="" aria-label="Stäng meny">×</button>
+        </div>
+        <div class="mt-3 grid gap-1">
+          <a href="/tjanster.html" data-close="">Tjänster</a>
+          <a href="/process.html" data-close="">Process</a>
+          <a href="/case.html" data-close="">Case</a>
+          <a href="/om-oss.html" data-close="">Om oss</a>
+          <a href="/faq.html" data-close="">FAQ</a>
+          <a href="/kontakt.html" data-close="">Kontakt</a>
+          <a href="/formular.html" class="btn btn-primary mt-2" data-close="">Kontakta oss</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero section hero-bg">
+    <div class="container">
+      <span class="chip">Hjälp med ARN-tvist · Yttranden & akut stöd · För bilhandlare</span>
+      <h1 class="hero-title mt-6">Hjälp när <span class="hero-underline">kund anmält till ARN</span></h1>
+      <p class="lead mt-4">Vi hjälper bilhandlare som behöver snabb, praktisk hjälp i en ARN-tvist — från första riskbedömning till komplett yttrande och dialog. Vårt arbetssätt bygger på Konsumentköplagen och aktuell ARN-praxis, med tydlig beslutsmatris för att minimera kostnad och tidsåtgång.</p>
+      <div class="mt-5 flex gap-3 flex-wrap">
+        <a href="/formular.html" class="btn btn-primary">Starta ärende</a>
+        <a href="/tjanster.html" class="btn btn-outline">Se alla tjänster</a>
+      </div>
+      <ul class="bullets mt-6">
+        <li>• Första bedömning inom 12h (vardagar)</li>
+        <li>• Kompletta yttranden & bemötanden till ARN</li>
+        <li>• Beslutsmatris: reparera, omleverera eller prisavdrag?</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Snabb översikt -->
+  <section class="section">
+    <div class="container">
+      <div class="grid md:grid-cols-3 gap-6 items-stretch">
+        <div class="card elev">
+          <div class="flex items-center justify-between">
+            <h3>Akut ARN-stöd</h3><span class="badge">Snabbstart</span>
+          </div>
+          <p class="mt-2 muted">Genomlysning av bakgrund och underlag, riskbedömning, åtgärdsplan och första utkast vid behov.</p>
+          <a href="/formular.html" class="btn btn-outline mt-3">Starta här</a>
+        </div>
+        <div class="card elev">
+          <div class="flex items-center justify-between">
+            <h3>Yttrande & bemötande</h3><span class="badge">Huvudtjänst</span>
+          </div>
+          <p class="mt-2 muted">Komplett yttrande enligt KKL & ARN-praxis, med bilagor, tidslinje och rekommenderad strategi.</p>
+          <a href="/formular.html" class="btn btn-outline mt-3">Be om offert</a>
+        </div>
+        <div class="card elev">
+          <div class="flex items-center justify-between">
+            <h3>Full ärendeledning</h3><span class="badge">End-to-end</span>
+          </div>
+          <p class="mt-2 muted">Vi tar lead på kunddialog, verkstad och förhandling — målet är att undvika eskalation och minimera kostnad.</p>
+          <a href="/formular.html" class="btn btn-outline mt-3">Prata upplägg</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ + CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="grid md:grid-cols-2 gap-6 items-start">
+        <div class="card elev">
+          <h3>FAQ</h3>
+          <p class="mt-2 fine"><b>Hur snabbt kan ni hjälpa i en ARN-tvist?</b><br>Första bedömning inom 12h på vardagar (akut utanför kontorstid enligt överenskommelse).</p>
+          <p class="mt-3 fine"><b>Kan ni skriva yttrande till ARN?</b><br>Ja, vi tar fram kompletta yttranden med bilagor och tidslinje.</p>
+          <p class="mt-3 fine"><b>Kan ni ta över ett pågående ärende?</b><br>Ja. Vi säkrar underlag, gör statusgenomgång och lägger strategi.</p>
+          <p class="mt-3 fine"><b>Arbetar ni med fasta priser?</b><br>Både fast och rörligt beroende på omfattning – be om offert.</p>
+          <div class="mt-4"><a class="btn btn-outline" href="/faq.html">Läs fler frågor & svar</a></div>
+        </div>
+        <div class="card elev">
+          <h3>Boka ett kort samtal</h3>
+          <p class="mt-2 fine">Snabbast är att boka ett kort inledande samtal. Vi återkopplar vanligtvis samma dag.</p>
+          <div class="mt-3 flex gap-3 flex-wrap">
+            <a href="/formular.html" class="btn btn-primary">Kontakta oss</a>
+            <a href="tel:+46708263366" class="btn btn-outline">Ring nu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" style="padding-top:24px; padding-bottom:24px;">
+    <div class="container wrap">
+      <div class="flex items-center gap-2">
+        <img src="/assets/customcolor_icon_customcolor_background.png" alt="EMK logotyp" style="height:32px;width:32px;border-radius:8px;" />
+        <div>
+          <div class="strong">EMK Sverige AB</div>
+          <div>Org.nr 559514-0111 · Trensum</div>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div>
+          <div class="strong">Kontakt</div>
+          <div><a href="mailto:info@emksab.se">info@emksab.se</a></div>
+          <div>0708-26 33 66</div>
+        </div>
+        <div>
+          <div class="strong">Sidor</div>
+          <a href="/tjanster.html">Tjänster</a>
+          <a href="/process.html">Process</a>
+          <a href="/om-oss.html">Om oss</a>
+          <a href="/faq.html">FAQ</a>
+          <a href="/plattform.html">Plattform</a>
+        </div>
+        <div>
+          <div class="strong">Länkar</div>
+          <a href="/integritet.html">Integritet</a>
+          <a href="/cookies.html">Cookies</a>
+          <a href="/villkor.html">Allmänna villkor</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie banner + GA4 via samtycke (din mätare: G-W07T4YVG4E) -->
+  <div id="cookieBanner" class="cookie-banner">
+    <div class="container">
+      <div class="card banner-card">
+        <p class="muted">Vi använder nödvändiga cookies. Analyscookies sätts bara om du samtycker. Läs mer i vår <a href="/cookies.html">cookie-policy</a>.</p>
+        <div class="flex gap-2">
+          <button id="cookieReject" class="btn btn-outline">Avvisa</button>
+          <button id="cookieAccept" class="btn btn-primary">Tillåt analyscookies</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Topbar skugga on scroll
+    (function(){const bar=document.getElementById('topbar');function s(){if(window.scrollY>6)bar.classList.add('is-scrolled');else bar.classList.remove('is-scrolled');}s();window.addEventListener('scroll',s,{passive:true});})();
+
+    // Offcanvas-meny
+    (function(){
+      const t=document.getElementById('navToggle');const oc=document.getElementById('mobileNav');if(!oc||!t)return;
+      const scr=oc.querySelector('.scrim');const cls=oc.querySelectorAll('[data-close]');
+      function o(){oc.hidden=false;oc.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
+      function c(){oc.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>{oc.hidden=true;},200);}
+      t.addEventListener('click',o);scr&&scr.addEventListener('click',c);cls.forEach(el=>el.addEventListener('click',c));
+      window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!oc.hidden)c();});
+    })();
+
+    // Cookie-samtycke + GA4
+    (function(){
+      const KEY='emk_cookie_consent';
+      const GAID='G-W07T4YVG4E'; // <-- din GA4-mätare
+      const b=document.getElementById('cookieBanner');
+      const a=document.getElementById('cookieAccept');
+      const r=document.getElementById('cookieReject');
+      const hide=()=>b.style.display='none';
+      const set=v=>localStorage.setItem(KEY,v);
+      const get=()=>localStorage.getItem(KEY);
+
+      function loadGA(){
+        if(!GAID) return;
+        const s=document.createElement('script');
+        s.src='https://www.googletagmanager.com/gtag/js?id='+GAID;
+        s.async=true; document.head.appendChild(s);
+        window.dataLayer=window.dataLayer||[];
+        function gtag(){dataLayer.push(arguments);} window.gtag=gtag;
+        gtag('js', new Date()); gtag('config', GAID, { anonymize_ip:true });
+      }
+
+      const v=get();
+      if(v==='accepted'){ hide(); loadGA(); }
+      else if(v==='rejected'){ hide(); }
+      else { b.style.display='block'; }
+
+      a.addEventListener('click',()=>{ set('accepted'); hide(); loadGA(); });
+      r.addEventListener('click',()=>{ set('rejected'); hide(); });
+    })();
+  </script>
+</body>
+</html>
