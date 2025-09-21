@@ -1,4 +1,4 @@
-<!doctype html> 
+<!doctype html>
 <html lang="sv">
 <head>
   <meta charset="utf-8" />
@@ -6,127 +6,177 @@
   <title>Health Check | EMK Sverige AB</title>
   <meta name="robots" content="noindex,nofollow" />
   <link rel="icon" href="/favicon.ico" />
-  <link rel="stylesheet" href="/assets/emk-theme.css?v=6" />
+  <link rel="stylesheet" href="/assets/emk-theme.css?v=7" />
   <style>
-    .ok{color:#057a55}.bad{color:#b91c1c}.warn{color:#b45309}
-    .chip{border-radius:999px;padding:.2rem .6rem;background:#eef2f7;display:inline-block}
-    table{width:100%;border-collapse:collapse;margin-top:12px}
-    td,th{padding:.5rem;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:top}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    h1,h2{margin:.2rem 0}
+    .wrap{max-width:960px;margin:0 auto;padding:16px}
+    table{width:100%;border-collapse:collapse;margin:10px 0 20px}
+    th,td{padding:.5rem;border-bottom:1px solid rgba(0,0,0,.08);vertical-align:top}
+    .ok{color:#0a7a4b;font-weight:600}
+    .bad{color:#b91c1c;font-weight:600}
+    .warn{color:#b45309;font-weight:600}
     .muted{opacity:.8}
-    .small{font-size:.9rem}
+    .small{font-size:.92rem}
     .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-    .wrap{max-width:920px;margin-inline:auto;padding:16px}
+    .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:.5rem 0 1rem}
+    input[type=url]{flex:1 1 360px;padding:.45rem .6rem;border:1px solid #cbd5e1;border-radius:8px}
+    button{padding:.45rem .8rem;border-radius:8px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer}
+    button.primary{background:#0ea5e9;border-color:#0ea5e9;color:#fff}
+    .note{background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;padding:.6rem .8rem}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <h1>Health Check</h1>
-    <p class="muted">Snabbkontroll av sidor, assets, cookies/GA och säkerhets­headers. <button id="rerun" class="btn btn-outline btn-sm">Kör igen</button></p>
+<div class="wrap">
+  <h1>Health Check</h1>
+  <p class="muted small">Snabbkontroll av sidor, SEO-taggar, cookies/GA och säkerhetsheaders.</p>
 
-    <h2>Status för nyckel-URL:er</h2>
-    <table id="urls"><thead><tr><th>Resurs</th><th>Status</th><th>Detaljer</th></tr></thead><tbody></tbody></table>
-
-    <h2>Teknik & SEO-baskoll</h2>
-    <table id="seo"><thead><tr><th>Test</th><th>Resultat</th><th>Detaljer</th></tr></thead><tbody></tbody></table>
-
-    <h2>Säkerhets­headers</h2>
-    <table id="sec"><thead><tr><th>Header</th><th>Resultat</th><th>Värde / Tips</th></tr></thead><tbody></tbody></table>
-
-    <p class="small muted">Tips: Lägg till / uppdatera headers i din webbserver / CDN (exempel finns längre ner i min checklista till dig).</p>
+  <div class="row">
+    <label for="base" class="small muted">Bas-URL:</label>
+    <input id="base" type="url" placeholder="https://www.eftermarknadskonsulten.se" />
+    <button id="run" class="primary">Kör test</button>
+    <button id="rerun">Rensa & kör igen</button>
   </div>
+  <div id="info" class="note small" hidden></div>
+
+  <h2>Status för nyckel-URL:er</h2>
+  <table id="urls"><thead><tr><th>Resurs</th><th>Status</th><th>Detaljer</th></tr></thead><tbody></tbody></table>
+
+  <h2>Teknik & SEO (index.html)</h2>
+  <table id="seo"><thead><tr><th>Test</th><th>Resultat</th><th>Detaljer</th></tr></thead><tbody></tbody></table>
+
+  <h2>Säkerhetsheaders (rot /)</h2>
+  <table id="sec"><thead><tr><th>Header</th><th>Resultat</th><th>Värde / Tips</th></tr></thead><tbody></tbody></table>
+
+  <p class="small muted">Tips: Kör den från samma domän som du testar (prod eller lokal). Cross-origin blockeras av webbläsaren.</p>
+</div>
 
 <script>
-(async function(){
+(function(){
   const $u=document.querySelector('#urls tbody');
   const $s=document.querySelector('#seo tbody');
   const $h=document.querySelector('#sec tbody');
-  document.getElementById('rerun').onclick=()=>location.reload();
+  const $base=document.getElementById('base');
+  const $info=document.getElementById('info');
 
-  // ——— 1) URL-check (200/ok?) ———
-  const paths=[
-    '/', '/index.html', '/tjanster.html', '/plattform.html',
-    '/om-oss.html', '/formular.html',
-    '/integritet.html', '/cookies.html', '/villkor.html',
-    '/assets/emk-theme.css', '/assets/customcolor_logo_customcolor_background.png',
-    '/assets/customcolor_icon_customcolor_background.png'
-  ];
-
-  async function headOk(url){
-    try{
-      let res=await fetch(url,{method:'HEAD',cache:'no-store'});
-      if(!res.ok){ // vissa hosts saknar HEAD -> prova GET
-        res=await fetch(url,{method:'GET',cache:'no-store'});
-      }
-      return {ok:res.ok, status:res.status, statusText:res.statusText};
-    }catch(e){ return {ok:false,status:0,statusText:String(e)}}
+  // Förifyll bas-URL om vi kör på en domän
+  if(location.origin && location.origin!=='null' && location.origin!=='file://'){
+    $base.value = location.origin;
   }
-  function row(tbody,a,b,c,cls=''){ const tr=document.createElement('tr');
+
+  function row(tbody,a,b,c,cls=''){const tr=document.createElement('tr');
     tr.innerHTML=`<td class="mono">${a}</td><td class="${cls}">${b}</td><td class="small muted">${c||''}</td>`;
     tbody.appendChild(tr);
   }
+  function ok(v){return `<span class="ok">${v||'OK'}</span>`}
+  function bad(v){return `<span class="bad">${v||'FAIL'}</span>`}
+  function warn(v){return `<span class="warn">${v||'OBS'}</span>`}
 
-  await Promise.all(paths.map(async p=>{
-    const r=await headOk(p);
-    row($u, p, r.ok?'<span class="ok">PASS</span>':'<span class="bad">FAIL</span>', `${r.status} ${r.statusText}`);
-  }));
+  async function headOrGet(url){
+    try{
+      let res = await fetch(url,{method:'HEAD',cache:'no-store',credentials:'include'});
+      if(!res.ok){res = await fetch(url,{method:'GET',cache:'no-store',credentials:'include'});}
+      return res;
+    }catch(e){return {ok:false,status:0,statusText:String(e)}}
+  }
 
-  // ——— 2) SEO/Tech quick checks (på denna sida) ———
-  function meta(name){const m=document.querySelector(`meta[name="${name}"]`);return m?m.content:''}
-  const title=document.title||'';
-  const desc=meta('description')||'';
-  const ogt=document.querySelector('meta[property="og:title"]');
-  const ogd=document.querySelector('meta[property="og:description"]');
-  const ogi=document.querySelector('meta[property="og:image"]');
+  async function run(){
+    // Reset
+    $u.innerHTML=''; $s.innerHTML=''; $h.innerHTML='';
+    $info.hidden=true;
 
-  row($s,'<b>Title</b>', title.length?'<span class="ok">OK</span>':'<span class="bad">SAKNAS</span>',
-      `Längd: ${title.length} tecken`);
-  row($s,'<b>Meta description</b>', (desc.length>=50&&desc.length<=170)?'<span class="ok">OK</span>':'<span class="warn">KORT/LÅNG</span>',
-      desc?`Längd: ${desc.length}`:'Ingen description hittad');
-  row($s,'<b>Open Graph</b>', (ogt&&ogd&&ogi)?'<span class="ok">OK</span>':'<span class="warn">DELAR SAKNAS</span>',
-      `title:${!!ogt} description:${!!ogd} image:${!!ogi}`);
+    const BASE=($base.value||'').replace(/\/+$/,'');
+    if(!/^https?:\/\//i.test(BASE)){
+      $info.hidden=false;
+      $info.innerHTML = 'Ange en giltig <b>https://</b>-adress i fältet Bas-URL. Ex: <code>https://www.eftermarknadskonsulten.se</code>';
+      return;
+    }
+    // Varning om cross-origin
+    if(location.origin !== 'null' && location.origin !== 'file://' && location.origin !== BASE){
+      $info.hidden=false;
+      $info.innerHTML = 'Du kör från en annan domän än den du testar. Vissa headers kan blockeras (CORS). Helst lägg upp <code>health.html</code> på samma domän.';
+    }
 
-  // Cookie/GA4-läge (samma nyckel som på sajten)
-  const consent=localStorage.getItem('emk_cookie_consent');
-  const gaLoaded=typeof window.gtag==='function';
-  let gaMsg='';
-  let gaState='';
-  if(consent==='accepted' && gaLoaded){gaState='<span class="ok">OK</span>';gaMsg='GA4 laddad efter samtycke.';}
-  else if(consent==='accepted' && !gaLoaded){gaState='<span class="bad">FEL</span>';gaMsg='Samtycke finns men gtag saknas – kontrollera GA4-ID i cookiebannerns script.';}
-  else if(consent!=='accepted' && gaLoaded){gaState='<span class="warn">AVVIKELSE</span>';gaMsg='gtag finns trots att samtycke inte är accepterat – se över cookie-scriptet.';}
-  else {gaState='<span class="ok">BLOCKERAD</span>';gaMsg='Ingen spårning innan samtycke (bra).';}
-  row($s,'<b>Cookies & GA4</b>', gaState, `consent="${consent||'none'}". ${gaMsg}`);
+    // —— 1) URL-checks ——
+    const paths=[
+      '/', '/index.html', '/tjanster.html', '/plattform.html',
+      '/om-oss.html', '/formular.html',
+      '/integritet.html', '/cookies.html', '/villkor.html',
+      '/assets/emk-theme.css', '/assets/customcolor_logo_customcolor_background.png',
+      '/assets/customcolor_icon_customcolor_background.png'
+    ];
+    await Promise.all(paths.map(async p=>{
+      const url = BASE + p;
+      const res = await headOrGet(url);
+      const pass = res.ok===true || (res.status && res.status>=200 && res.status<400);
+      row($u, p, pass?ok('PASS'):bad('FAIL'), `${res.status||0} ${res.statusText||''}`, pass?'ok':'bad');
+    }));
 
-  // Mixed-content (http:-resurser)
-  const badHrefs=[...document.querySelectorAll('[src],[href]')]
-    .map(el=>el.getAttribute('src')||el.getAttribute('href'))
-    .filter(Boolean).filter(u=>/^http:\/\//i.test(u));
-  row($s,'<b>Mixed content</b>',badHrefs.length===0?'<span class="ok">OK</span>':'<span class="bad">HITTADE HTTP</span>',
-      badHrefs.length?badHrefs.slice(0,5).join(', ') + (badHrefs.length>5?' …':''):'Endast https/relative.');
+    // —— 2) SEO/Tech: hämta index.html och analysera ——
+    try{
+      const html = await (await fetch(BASE + '/index.html', {cache:'no-store',credentials:'include'})).text();
+      const doc = new DOMParser().parseFromString(html, 'text/html');
 
-  // ——— 3) Säkerhetsheaders (hämtar ”/”) ———
-  const res = await fetch('/', {method:'GET',cache:'no-store'});
-  const headers = (k)=>res.headers.get(k)||'';
+      const title = (doc.querySelector('title')||{}).textContent||'';
+      const desc = (doc.querySelector('meta[name="description"]')||{}).content||'';
+      const ogt  = (doc.querySelector('meta[property="og:title"]')||{}).content||'';
+      const ogd  = (doc.querySelector('meta[property="og:description"]')||{}).content||'';
+      const ogi  = (doc.querySelector('meta[property="og:image"]')||{}).content||'';
 
-  const hsts=headers('strict-transport-security');
-  row($h,'Strict-Transport-Security', hsts?'<span class="ok">OK</span>':'<span class="bad">SAKNAS</span>',
-      hsts || 'Ex: max-age=31536000; includeSubDomains; preload');
+      row($s,'<b>Title</b>', title?ok():bad(), `Längd: ${title.length}`);
+      row($s,'<b>Meta description</b>', (desc && desc.length>=50 && desc.length<=170)?ok():warn('KORT/LÅNG/SAKNAS'),
+          desc?`Längd: ${desc.length}`:'Ingen description hittad');
+      row($s,'<b>Open Graph</b>', (ogt && ogd && ogi)?ok():warn('DELAR SAKNAS'),
+          `title:${!!ogt} description:${!!ogd} image:${!!ogi}`);
 
-  const csp=headers('content-security-policy');
-  row($h,'Content-Security-Policy', csp?'<span class="ok">OK</span>':'<span class="warn">REKOMMENDERAS</span>',
-      csp || "Sätt en CSP som tillåter 'self' och nödvändiga domäner.");
+      // GA/Cookies (kräver att du använder samma localStorage-nyckel överallt)
+      const consent = localStorage.getItem('emk_cookie_consent');
+      const gaLoaded = typeof window.gtag==='function';
+      let state, msg;
+      if(consent==='accepted' && gaLoaded){ state=ok('OK'); msg='GA4 laddad efter samtycke.'; }
+      else if(consent==='accepted' && !gaLoaded){ state=bad('FEL'); msg='Samtycke finns men gtag saknas – kontrollera GA4-ID i cookiebanner-scriptet.'; }
+      else if(consent!=='accepted' && gaLoaded){ state=warn('AVVIKELSE'); msg='gtag finns trots att samtycke inte är accepterat – se över cookiebannern.'; }
+      else { state=ok('BLOCKERAD'); msg='Ingen spårning innan samtycke (bra).'; }
+      row($s,'<b>Cookies & GA4</b>', state, `consent="${consent||'none'}". ${msg}`);
 
-  const xcto=headers('x-content-type-options');
-  row($h,'X-Content-Type-Options', xcto?'<span class="ok">OK</span>':'<span class="bad">SAKNAS</span>',
-      xcto || 'nosniff');
+      // Mixed-content
+      const httpLinks = [...doc.querySelectorAll('[src],[href]')]
+        .map(el=>el.getAttribute('src')||el.getAttribute('href'))
+        .filter(Boolean).filter(u=>/^http:\/\//i.test(u));
+      row($s,'<b>Mixed content</b>', httpLinks.length?bad():ok(), httpLinks.slice(0,5).join(', ') || 'Endast https/relative.');
+    }catch(e){
+      row($s,'Kunde inte analysera index.html', bad('FAIL'), String(e));
+    }
 
-  const refp=headers('referrer-policy');
-  row($h,'Referrer-Policy', refp?'<span class="ok">OK</span>':'<span class="warn">REKOMMENDERAS</span>',
-      refp || 'strict-origin-when-cross-origin');
+    // —— 3) Security headers på rot ——
+    try{
+      const res = await headOrGet(BASE + '/');
+      const headers = (k)=> (res.headers && res.headers.get)? (res.headers.get(k) || '') : '';
+      const hsts = headers('strict-transport-security');
+      row($h,'Strict-Transport-Security', hsts?ok():bad(), hsts || 'Ex: max-age=31536000; includeSubDomains; preload');
 
-  const pp=headers('permissions-policy') || headers('feature-policy');
-  row($h,'Permissions-Policy', pp?'<span class="ok">OK</span>':'<span class="warn">REKOMMENDERAS</span>',
-      pp || 'camera=(), microphone=(), geolocation=()');
+      const csp = headers('content-security-policy');
+      row($h,'Content-Security-Policy', csp?ok():warn('REKOMMENDERAS'),
+          csp || "Minst: default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com");
 
+      const xcto = headers('x-content-type-options');
+      row($h,'X-Content-Type-Options', xcto?ok():bad(), xcto || 'nosniff');
+
+      const refp = headers('referrer-policy');
+      row($h,'Referrer-Policy', refp?ok():warn(), refp || 'strict-origin-when-cross-origin');
+
+      const pp = headers('permissions-policy') || headers('feature-policy');
+      row($h,'Permissions-Policy', pp?ok():warn(), pp || 'camera=(), microphone=(), geolocation=()');
+    }catch(e){
+      row($h,'Header-kontroll', warn('BLOCKERAD'), 'Kör från samma domän för att kunna läsa headers.');
+    }
+  }
+
+  document.getElementById('run').addEventListener('click', run);
+  document.getElementById('rerun').addEventListener('click', ()=>{ $base.value = $base.value.replace(/\/+$/,''); run(); });
+
+  // Auto-kör om vi har en tydlig origin (prod eller lokal server)
+  if($base.value) run();
 })();
 </script>
 </body>
