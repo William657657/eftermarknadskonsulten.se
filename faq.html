@@ -10,9 +10,9 @@
   <link rel="stylesheet" href="/assets/emk-theme.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Tydlig skillnad mellan fråga (fet) och svar (normal) */
-    .faq .faq-q { font-weight: 800; }
-    .faq .faq-a { font-weight: 400; }
+    /* Endast typografi: Fråga = fet, Svar = normal. Inga texter ändras. */
+    .faq .strong { font-weight: 800; }
+    .faq .fine   { font-weight: 400; }
   </style>
 </head>
 <body class="site hero-bg">
@@ -68,25 +68,31 @@
     </section>
 
     <section class="container stack faq">
-      <article class="card faq-item">
-        <h2 class="faq-q">Hur snabbt kan ni hjälpa i ett ARN-ärende?</h2>
-        <p class="faq-a">Vi går in direkt med diagnos och tidslinje. Normalt levererar vi första utkastet till yttrande mycket snabbt beroende på underlagets status.</p>
-      </article>
+      <article class="card">
+        <p class="mt-4 strong">Kan ni ta över ett pågående ARN-ärende?</p>
+        <p class="mt-1 fine">Ja. Vi gör en snabb genomlysning, säkrar bevisning och föreslår strategi. Vid behov tar vi fram första utkast till yttrande.</p>
 
-      <article class="card faq-item">
-        <h2 class="faq-q">Arbetar ni bara med ARN?</h2>
-        <p class="faq-a">Nej. Vi bygger även processer, mallar och beslutsmatriser för reklamationer så att ni minskar antalet tvister över tid.</p>
-      </article>
+        <p class="mt-4 strong">Jobbar ni med fasta priser?</p>
+        <p class="mt-1 fine">Både fast och rörligt beroende på omfattning och tidslinje. Be om offert så specificerar vi upplägget.</p>
 
-      <article class="card faq-item">
-        <h2 class="faq-q">Vem äger materialet ni tar fram?</h2>
-        <p class="faq-a">Ni gör det. Vi lämnar över mallar och rutiner så att ni kan arbeta vidare själva.</p>
-      </article>
+        <p class="mt-4 strong">Är ni en advokatbyrå?</p>
+        <p class="mt-1 fine">Nej. Vi ger praktiskt stöd. När juridiskt ombud behövs samarbetar vi med advokatbyråer.</p>
 
-      <article class="card faq-item">
-        <h2 class="faq-q">Hur börjar vi?</h2>
-        <p class="faq-a">Boka ett kort samtal så går vi igenom nuläge och prioriteringar.</p>
-        <p><a class="btn" href="/formular.html">Boka samtal</a></p>
+        <!-- Tillägg som är relevanta för åtagandet -->
+        <p class="mt-4 strong">Hur snabbt får vi återkoppling?</p>
+        <p class="mt-1 fine">I akuta ärenden får ni en första bedömning normalt inom 12 arbetstimmar (vardagar). Brådskande insatser utanför kontorstid enligt överenskommelse.</p>
+
+        <p class="mt-4 strong">Vilket underlag behöver ni för ett ARN-ärende?</p>
+        <p class="mt-1 fine">Köpeavtal, reklamtidslinje, verkstadsunderlag/diagnoser, korrespondens, eventuella garantier samt interna anteckningar. Vi skickar en kort checklista vid uppstart.</p>
+
+        <p class="mt-4 strong">Kan ni hjälpa innan det blir ett ARN-ärende?</p>
+        <p class="mt-1 fine">Ja. Förebyggande stöd är ofta mest kostnadseffektivt: bedömning, åtgärdsrekommendation och kundkommunikation för att undvika eskalering.</p>
+
+        <p class="mt-4 strong">Vad ingår i en företagsanpassad eftermarknadsprocess?</p>
+        <p class="mt-1 fine">Beslutsmatris kopplad till KKL §§25–28, mallar och svarsbibliotek, verkstadsunderlag, dokumentationskrav, utbildning samt uppföljning.</p>
+
+        <p class="mt-4 strong">Hur hanterar ni personuppgifter?</p>
+        <p class="mt-1 fine">Endast nödvändiga uppgifter behandlas för ändamålet. Läs mer i vår <a href="/integritet.html">integritetspolicy</a>.</p>
       </article>
     </section>
   </main>
