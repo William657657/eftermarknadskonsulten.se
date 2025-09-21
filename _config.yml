@@ -1,0 +1,8 @@
+title: "EMK Sverige AB – Eftermarknadskonsulten"
+description: "ARN-stöd och eftermarknadsprocesser för bilhandlare i Sverige."
+url: "https://www.eftermarknadskonsulten.se"
+lang: sv
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
