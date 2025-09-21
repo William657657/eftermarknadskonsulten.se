@@ -8,6 +8,8 @@
   <link rel="icon" href="/favicon.ico">
   <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png">
   <link rel="stylesheet" href="/assets/emk-theme.css">
+  <!-- Tailwind behövs eftersom innehållet använder Tailwind-klasser -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="site hero-bg">
   <!-- HEADER -->
@@ -28,45 +30,39 @@
     </div>
   </header>
 
-  <!-- INNEHÅLL -->
-  <main id="main" class="page">
-    <section class="hero hero-small">
-      <div class="container">
-        <h1>Vår 4-stegsprocess</h1>
+  <!-- INNEHÅLL (DIN TEXT OFÖRÄNDRAD) -->
+  <main class="max-w-6xl mx-auto px-4 md:px-8 py-10">
+    <h1 class="text-3xl md:text-5xl font-semibold brand-primary">Vår 4-stegsprocess</h1>
+    <div class="grid md:grid-cols-2 gap-6 mt-8">
+      <div class="card p-6">
+        <h2 class="font-semibold brand-primary">1. Verksamhetsanalys</h2>
+        <p class="text-sm text-gray-700 mt-2">Genomlysning av ärendet, underlag och tidslinje. Risk/konsekvens-bedömning samt initial rekommendationer.</p>
+        <ul class="mt-3 text-sm text-gray-700 list-disc ml-5">
+          <li>Insamling: avtal, felbeskrivning, verkstadsintyg</li><li>Gap-analys mot KKL & praxis</li><li>Kommunikationsplan</li>
+        </ul>
       </div>
-    </section>
-
-    <section class="container stack">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <article class="card step">
-          <div class="flex items-start gap-3">
-            <div class="no">1</div><h4 class="break-words min-w-0">Verksamhetsanalys</h4>
-          </div>
-          <p class="mt-2 fine">Nuläge, risker, genomlysning av dokumentation &amp; ärenden.</p>
-        </article>
-
-        <article class="card step">
-          <div class="flex items-start gap-3">
-            <div class="no">2</div><h4 class="break-words min-w-0">Upprättande – Företagsanpassad Eftermarknadsprocess</h4>
-          </div>
-          <p class="mt-2 fine">Rutiner, beslutsmatris, mallar och utbildningsupplägg.</p>
-        </article>
-
-        <article class="card step">
-          <div class="flex items-start gap-3">
-            <div class="no">3</div><h4 class="break-words min-w-0">Implementering – Utbildning</h4>
-          </div>
-          <p class="mt-2 fine">Inför nya arbetssätt, stöd i skarpa ärenden (ARN).</p>
-        </article>
-
-        <article class="card step">
-          <div class="flex items-start gap-3">
-            <div class="no">4</div><h4 class="break-words min-w-0">Resultatuppföljning – Utvärdering</h4>
-          </div>
-          <p class="mt-2 fine">Mät effekten, justera, och säkra ägarskap internt.</p>
-        </article>
+      <div class="card p-6">
+        <h2 class="font-semibold brand-primary">2. Upprättande – Företagsanpassad Eftermarknadsprocess </h2>
+        <p class="text-sm text-gray-700 mt-2">Strategi och beslutsmatris (reparation/omleverans/prisavdrag) + mallar för återkommande situationer.</p>
+        <ul class="mt-3 text-sm text-gray-700 list-disc ml-5">
+          <li>Best practice-mallar</li><li>Argumentationslinje mot ARN</li><li>Ansvars-/kostnadsstyrning</li>
+        </ul>
       </div>
-    </section>
+      <div class="card p-6">
+        <h2 class="font-semibold brand-primary">3.Implementering – Utbildning</h2>
+        <p class="text-sm text-gray-700 mt-2">Operativt stöd i skarpa ärenden och införande av nya arbetssätt.</p>
+        <ul class="mt-3 text-sm text-gray-700 list-disc ml-5">
+          <li>Yttrande & bemötanden</li><li>Verkstadsdialog & offerter</li><li>Spårbar dokumentation</li>
+        </ul>
+      </div>
+      <div class="card p-6">
+        <h2 class="font-semibold brand-primary">4.Resultatuppföljning – Utvärdering</h2>
+        <p class="text-sm text-gray-700 mt-2">Uppföljning av nyckeltal, justeringar och överlämning av ägarskap internt.</p>
+        <ul class="mt-3 text-sm text-gray-700 list-disc ml-5">
+          <li>Ledtider & kostnad/ärende</li><li>Kunskapsöverföring</li><li>Utbildning sälj/eftermarknad</li>
+        </ul>
+      </div>
+    </div>
   </main>
 
   <!-- FOOTER -->
