@@ -1,6 +1,0 @@
-Contact: mailto:info@emksab.se
-Expires: 2026-12-31T23:59:59.000Z
-Preferred-Languages: sv, en
-Canonical: https://www.eftermarknadskonsulten.se/.well-known/security.txt
-Policy: https://www.eftermarknadskonsulten.se/integritet.html
-Hiring: https://www.eftermarknadskonsulten.se/om-oss.html
