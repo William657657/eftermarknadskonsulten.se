@@ -3,33 +3,61 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Eftermarknadskonsulten – ARN-stöd för bilhandlare | EMK Sverige AB</title>
-  <meta name="description" content="Praktiskt stöd i ARN-processen för bilhandlare: snabb respons, kompletta yttranden, beslutsmatris och utbildning.">
+  <title>Plattform | EMK Sverige AB – Eftermarknadskonsulten</title>
+  <meta name="description" content="Eftermarknadsplattformen – ett ägt, kostnadseffektivt system som stödjer eftermarknadsprocessen från ärendeintag till beslut och uppföljning." />
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
-  <meta property="og:title" content="Eftermarknadskonsulten – ARN-stöd för bilhandlare | EMK Sverige AB" />
-  <meta property="og:description" content="Praktiskt stöd i konsumentköpsfrågor och ARN-ärenden för bilhandlare." />
-  <meta property="og:url" content="https://www.eftermarknadskonsulten.se" />
+  <meta property="og:title" content="Plattform | EMK Sverige AB – Eftermarknadskonsulten" />
+  <meta property="og:description" content="Standardiserat men flexibelt arbetssätt: ärendeintag, verkstadsstyrning, beslutsmatris, tidslinje & dokument, dashboard och export – ni äger koden från dag 1." />
+  <meta property="og:url" content="https://www.eftermarknadskonsulten.se/plattform.html" />
   <meta property="og:image" content="/assets/customcolor_textlogo_customcolor_background.png" />
 
-  <!-- Tailwind + tema (samma som andra sidor) -->
+  <!-- Tailwind för layout/typografi -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/assets/emk-theme.css?v=5" />
+  <link rel="stylesheet" href="/assets/emk-theme.css?v=6" />
 
   <style>
-    /* Mobil: dölj stor H1, visa chip som rubrik */
+    /* Mobil: dölj stor H1, låt chip fungera som rubrik */
     @media (max-width: 767px) {
       .hero .hero-title { display: none !important; }
       .hero .chip { display:block; text-align:left; font-size: clamp(1rem, 2.8vw + 0.6rem, 1.125rem); line-height:1.25; }
     }
-    /* Desktop: finjustering */
+    /* Desktop-finputser */
     @media (min-width: 768px) {
       .hero .chip { font-size: clamp(1rem, 0.6vw + 0.9rem, 1.125rem); font-weight: 600; }
       .hero .hero-title { font-size: clamp(2.2rem, 2.2vw + 1.2rem, 3.2rem); margin-top: .25rem; }
     }
-    .card, .step, .card h3, .card h4, .card p, .card li { overflow-wrap:anywhere; word-break:break-word; hyphens:auto; }
+    /* Wrap-skydd i kort */
+    .card, .card h2, .card h3, .card h4, .card p, .card li { overflow-wrap:anywhere; word-break:break-word; hyphens:auto; }
     .card.step .flex { align-items:flex-start; } .card.step h4 { margin:0; }
-    .info-banner { text-transform: uppercase; letter-spacing:.04em; font-size:.85rem; }
+
+    /* Fix för klick: dekorlager/offcanvas blockerar inte längre */
+    .soft-glow { pointer-events: none !important; z-index: 0 !important; }
+    .card, .elev, .step { position: relative; z-index: 1; }
+    .offcanvas { pointer-events: none; }
+    .offcanvas.open { pointer-events: auto; }
+    .offcanvas .scrim { pointer-events: auto; }
+    .offcanvas:not(.open) .scrim { display: none; }
+
+    /* DEMO overlay */
+    .demo-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: none; }
+    .demo-overlay.open { display: block; }
+    .demo-dialog { position: relative; margin: clamp(12px, 3vw, 32px) auto; max-width: 1100px; }
+    .browser-frame { border-radius: 16px; background: white; box-shadow: 0 30px 80px rgba(0,0,0,.25); overflow: hidden; }
+    .browser-top { display:flex; align-items:center; gap:8px; padding:10px 12px; background: #f5f7fb; border-bottom: 1px solid rgba(0,0,0,.08); }
+    .dot { width:10px; height:10px; border-radius:50%; background:#e2e8f0; }
+    .progress { height:4px; background:#eef2f7; }
+    .progress > span { display:block; height:100%; background: var(--brand, #0ea5e9); width:0%; transition: width .25s ease; }
+    .demo-slide { display:none; }
+    .demo-slide.active { display:block; }
+
+    /* Live-bar (visar det man fyllt i) */
+    .livebar { background:#f8fafc; border-bottom:1px solid rgba(0,0,0,.06); padding:.5rem .75rem; display:flex; gap:.5rem; flex-wrap:wrap; align-items:center; }
+    .livebar .chip { font-size:.75rem; text-transform:none; }
+
+    /* Sammanställning */
+    .summary-table td { padding:.25rem .5rem; vertical-align: top; }
+    .summary-table td:first-child { white-space: nowrap; font-weight:600; color:#334155; }
   </style>
 </head>
 <body class="site">
@@ -52,7 +80,7 @@
           <a href="/formular.html" class="btn btn-primary">Kontakta oss</a>
         </div>
         <button id="navToggle" class="md:hidden hambox" aria-expanded="false" aria-controls="mobileNav" aria-label="Öppna meny">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
     </div>
@@ -81,125 +109,294 @@
   <!-- Hero -->
   <section class="hero section hero-bg">
     <div class="container">
-      <div class="grid md:grid-cols-2 gap-8 items-start">
-        <div>
-          <span class="chip">Experter på ARN-processer · Snabbt & strukturerat</span>
-          <h1 class="hero-title mt-6">Hjälp i <span class="hero-underline">ARN-processen</span> för bilhandlare</h1>
-          <p class="lead mt-4">Vi minskar risken för utdragna ARN-processer och därmed onödiga kostnader genom skarpa yttranden, smart dokumentation och en tydlig beslutsmatris — byggt på Konsumentköplagen och aktuell ARN-praxis.</p>
-          <div class="mt-5 flex gap-3 flex-wrap">
-            <a href="/formular.html" target="_blank" rel="noopener" class="btn btn-primary">Kontakta oss</a>
-            <a href="/tjanster.html" class="btn btn-outline">Se tjänster</a>
-          </div>
-          <ul class="bullets mt-6">
-            <li>• 30-dagars sprint: Verksamhetsanalys → Företagsanpassad Eftermarknadsprocess → Implementering samt Utbildning → Resultatuppföljning - Utvärdering</li>
-            <li>• För bilhandlare som säljer 10–10 000 bilar/år</li>
-            <li>• Lång erfarenhet från skadereglering & regressprocesser på bolagssidan</li>
-          </ul>
-        </div>
-
-        <!-- Högerkolumn -->
-        <div class="relative">
-          <div class="soft-glow" aria-hidden="true"></div>
-          <div class="card elev">
-            <h3>Vad vi levererar</h3>
-            <ul class="mt-3 fine">
-              <li>• Akut stöd: första bedömning inom 12h*</li>
-              <li>• Yttranden och bemötanden till ARN</li>
-              <li>• Beslutsmatris: när reparera, omleverera, prisavdrag?</li>
-              <li>• <b>Mötesunderlag</b> (checklista + tidslinje) skickas efter bokning – ej offentlig nedladdning</li>
-              <li>• Utbildning sälj/eftermarknad i KKL §§25–28 & praxis</li>
-            </ul>
-            <p class="mt-4 small">*Arbetas vardagar. Brådskande ärenden utanför normal arbetstid, enligt överenskommelse.</p>
-          </div>
-          <div class="card elev mt-4">
-            <p class="mt-4 small">
-              Vi arbetar även med mjukvarulösningar som ger kontroll över hela eftermarknadsflödet – klagomål, reklamation och uppföljning.
-            </p>
-          </div>
-        </div>
+      <span class="chip">Standardiserat men flexibelt arbetssätt</span>
+      <h1 class="hero-title mt-6">Eftermarknadsplattform – ägd lösning</h1>
+      <p class="lead mt-3">Plattformen stödjer hela eftermarknadsprocessen: från ärendeintag till beslut och uppföljning. Ni äger koden från dag 1 – utan inlåsning.</p>
+      <div class="mt-5 flex gap-3 flex-wrap">
+        <a href="#demo" class="btn btn-primary" id="openDemo">Se interaktiv demo</a>
+        <a href="/formular.html" class="btn btn-outline">Begär demo + genomgång</a>
       </div>
     </div>
   </section>
 
-  <!-- Tre huvudtjänster + info-banner -->
-  <section class="section">
+  <!-- Innehåll -->
+  <main class="section">
     <div class="container">
-      <!-- tre kort (oförändrat innehåll) -->
-      <div class="grid md:grid-cols-3 gap-6 items-stretch">
+      <div class="grid md:grid-cols-2 gap-6 items-start">
         <div class="card elev">
-          <div class="flex items-center justify-between">
-            <h3>Akut ARN-respons</h3>
-            <span class="badge">Snabbstart</span>
-          </div>
-          <p class="mt-2 muted grow">Genomgång av ärende & underlag, riskbedömning, åtgärdsplan och första utkast till yttrande.</p>
-          <ul class="mt-3 fine">
-            <li>• Första bedömning inom 12h* (vardagar)</li>
-            <li>• Checklista & dokumentationskrav</li>
-            <li>• Rekommenderade temporära åtgärder</li>
+          <h2>Vad plattformen täcker</h2>
+          <ul class="fine mt-2">
+            <li>• Ärendeintag (kund/fordon, felbeskrivning, bilagor)</li>
+            <li>• Styrt verkstadsval & felsökningsflöde</li>
+            <li>• Beslutsmatris (reparation/omleverans/prisavdrag)</li>
+            <li>• Tidslinje & dokumentation (spårbarhet)</li>
+            <li>• Roller: handlare, egen verkstad, inköp m.fl.</li>
           </ul>
-          <a href="/formular.html" class="btn btn-outline mt-3">Starta här</a>
         </div>
 
         <div class="card elev">
-          <div class="flex items-center justify-between">
-            <h3>Yttrande & bemötande</h3>
-            <span class="badge">Huvudtjänst</span>
-          </div>
-          <p class="mt-2 muted grow">Komplett yttrande till ARN inklusive bevisning, praxisstöd och strategi för alternativ lösning vid behov.</p>
-          <ul class="mt-3 fine">
-            <li>• KKL & prop. 2021/22:85 kopplat till fallet</li>
-            <li>• Tidplan & milstolpar</li>
-            <li>• Slutgenomläsning med beslutsfattare</li>
+          <h2>Ägande & drift</h2>
+          <ul class="fine mt-2">
+            <li>• Ni får kod och repo från start – ni äger lösningen</li>
+            <li>• Kan hostas där ni vill (eget konto/leverantör)</li>
+            <li>• Inga licenslås – uppgraderingar vid behov</li>
+            <li>• Förvaltnings-/vidareutvecklingsavtal är valfritt</li>
           </ul>
-          <a href="/formular.html" class="btn btn-outline mt-3">Be om offert</a>
         </div>
 
-        <div class="card elev">
-          <div class="flex items-center justify-between">
-            <h3>Full ärendeledning</h3>
-            <span class="badge">End-to-end</span>
-          </div>
-          <p class="mt-2 muted grow">Vi tar lead på hela ärendet: kunddialog, verkstad, offerter och slutlig överenskommelse.</p>
-          <ul class="mt-3 fine">
-            <li>• En kontaktväg för allt</li>
-            <li>• Mål: undvika ARN & minimera kostnad</li>
-            <li>• Lärdomar → rutiner i verksamheten</li>
-          </ul>
-          <a href="/formular.html" class="btn btn-outline mt-3">Prata upplägg</a>
-        </div>
-      </div>
-
-      <!-- Info-kortet där du vill ha knappen -->
-      <div class="relative mt-6">
-        <div class="soft-glow" aria-hidden="true" style="inset:-6px; border-radius:16px;"></div>
-        <div class="card elev">
-          <p class="muted">
-            Vi hjälper även i ärenden som <b>riskerar</b> att bli ARN (förebyggande stöd). Dessutom kan vi bygga en
-            <a href="/plattform.html"><b>kostnadseffektiv eftermarknadsplattform</b></a> som ni själva äger från dag 1.
-          </p>
-          <!-- >>> HÄR ÄR LÄNKEN TILL DEMON <<< -->
-          <div class="mt-3">
-            <a href="/plattform.html#demo" class="btn btn-primary">Se demo</a>
+        <div class="card elev md:col-span-2">
+          <h2>Förebyggande stöd – pre-ARN</h2>
+          <p class="mt-2">Vi hjälper även i ärenden som kan bli ARN-ärenden: tidig analys, dokumentationsplan, kommunikationsstöd och rekommenderade åtgärder för att minska risken för tvist och kostnad.</p>
+          <div class="mt-4 flex gap-3 flex-wrap">
+            <a href="/formular.html" class="btn btn-primary">Boka genomgång</a>
+            <a href="#demo" class="btn btn-outline" id="openDemo2">Prova demo</a>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </main>
+
+  <!-- DEMO OVERLAY -->
+  <div id="demoOverlay" class="demo-overlay" aria-hidden="true">
+    <div class="container demo-dialog">
+      <div class="browser-frame" role="dialog" aria-modal="true" aria-labelledby="demoTitle">
+        <div class="browser-top">
+          <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+          <div class="ml-2 text-sm text-slate-500">Eftermarknadsplattform – Demo</div>
+          <button id="closeDemo" class="ml-auto hambox" aria-label="Stäng demo">×</button>
+        </div>
+
+        <div class="progress"><span id="demoProgress"></span></div>
+
+        <!-- Live-badges bar -->
+        <div class="livebar">
+          <span class="chip">Ärendenr: <span id="liveNr">TEMP-2025-001</span></span>
+          <span class="chip">Regnr/VIN: <span id="liveReg">—</span></span>
+          <span class="chip">Kund: <span id="liveKund">—</span></span>
+          <span class="chip">Verkstad: <span id="liveVerkstad">—</span></span>
+          <span class="chip">Beslut: <span id="liveBeslut">—</span></span>
+        </div>
+
+        <div class="p-4 md:p-6" id="demoSlides">
+          <!-- Slide 1 -->
+          <section class="demo-slide active" data-step="1">
+            <div class="grid md:grid-cols-2 gap-6 items-start">
+              <div>
+                <h2 id="demoTitle">1. Ärendeintag</h2>
+                <p class="muted mt-2">Strukturerat formulär: kund/fordon, felbeskrivning, bilder och samtycken. Inbyggda regler minskar fel och påminner om nödvändig dokumentation.</p>
+                <ul class="fine mt-3">
+                  <li>• Obligatoriska fält och bilageguidning</li>
+                  <li>• Automatisk ärendenummer & tidstämpel</li>
+                  <li>• GDPR-vänlig hantering av persondata</li>
+                </ul>
+              </div>
+              <div class="card elev">
+                <div class="grid gap-2">
+                  <input id="fReg" class="input" placeholder="Regnr / VIN" />
+                  <input id="fKund" class="input" placeholder="Kundnamn" />
+                  <textarea id="fFel" class="input" rows="4" placeholder="Kort felbeskrivning"></textarea>
+                  <button id="btnSparaArende" class="btn btn-primary w-full">Spara ärende</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide 2 -->
+          <section class="demo-slide" data-step="2">
+            <div class="grid md:grid-cols-2 gap-6 items-start">
+              <div>
+                <h2>2. Verkstadsstyrning</h2>
+                <p class="muted mt-2">Styrt val av verkstad och felsökningsflöde med krav på dokumentation för att undvika onödiga kostnader.</p>
+                <ul class="fine mt-3">
+                  <li>• Rekommenderad verkstad per fordonstyp</li>
+                  <li>• Checklista för felsökning & foton</li>
+                  <li>• Tidsstyrda påminnelser</li>
+                </ul>
+              </div>
+              <div class="card elev">
+                <div class="grid gap-2">
+                  <select id="fVerkstad" class="input">
+                    <option value="">Välj verkstad…</option>
+                    <option>EMK Verkstad Syd</option>
+                    <option>Partnerverkstad Norr</option>
+                  </select>
+                  <label class="fine"><input id="fProt" type="checkbox" class="mr-2" />Felsökningsprotokoll bifogat</label>
+                  <label class="fine"><input id="fKundInf" type="checkbox" class="mr-2" />Kund informerad om nästa steg</label>
+                  <button id="btnSkickaUppdrag" class="btn btn-primary w-full">Skicka uppdrag</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide 3 -->
+          <section class="demo-slide" data-step="3">
+            <div class="grid md:grid-cols-2 gap-6 items-start">
+              <div>
+                <h2>3. Beslutsmatris</h2>
+                <p class="muted mt-2">Tydlig beslutslogik enligt KKL §§25–28 och relevant ARN-praxis. Underlag loggas och motiveras.</p>
+                <ul class="fine mt-3">
+                  <li>• Reparation / Omleverans / Prisavdrag</li>
+                  <li>• Riskbedömning & kostnadsestimat</li>
+                  <li>• Spårbar motivering</li>
+                </ul>
+              </div>
+              <div class="card elev">
+                <div class="grid gap-2">
+                  <select id="fBeslut" class="input">
+                    <option value="">Föreslaget beslut…</option>
+                    <option>Reparation</option>
+                    <option>Omleverans</option>
+                    <option>Prisavdrag</option>
+                  </select>
+                  <textarea id="fMotiv" class="input" rows="3" placeholder="Motivering (praxis/KKL)"></textarea>
+                  <button id="btnForesla" class="btn btn-primary w-full">Föreslå beslut</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide 4 -->
+          <section class="demo-slide" data-step="4">
+            <div class="grid md:grid-cols-2 gap-6 items-start">
+              <div>
+                <h2>4. Tidslinje & dokument</h2>
+                <p class="muted mt-2">Varje steg, dokument och kontakt loggas automatiskt. Export för intern kontroll och ev. myndighetsdialog.</p>
+                <ul class="fine mt-3">
+                  <li>• Händelse- och åtgärdslogg</li>
+                  <li>• Bifogade foton/underlag</li>
+                  <li>• Signoff med attest</li>
+                </ul>
+              </div>
+              <div class="card elev">
+                <ul id="timelineList" class="fine">
+                  <li>• 10:12 Kund felanmäler (webb)</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide 5 -->
+          <section class="demo-slide" data-step="5">
+            <div class="grid md:grid-cols-2 gap-6 items-start">
+              <div>
+                <h2>5. Dashboard & uppföljning</h2>
+                <p class="muted mt-2">Nyckeltal för ledning och eftermarknad: ledtider, beslut, kostnader och pågående riskärenden.</p>
+                <ul class="fine mt-3">
+                  <li>• SLA/ledtid per steg</li>
+                  <li>• Kostnad per beslut</li>
+                  <li>• Eskaleringsvarningar</li>
+                </ul>
+              </div>
+              <div class="card elev">
+                <div class="grid grid-cols-2 gap-3">
+                  <div class="chip">Ledtid: 2.4 d</div>
+                  <div class="chip">Riskärenden: 3</div>
+                  <div class="chip">Kostnad/ärende: 1 950 kr</div>
+                  <div class="chip">Förlikningar: 12%</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide 6 -->
+          <section class="demo-slide" data-step="6">
+            <div class="grid md:grid-cols-2 gap-6 items-start">
+              <div>
+                <h2>6. Export & spårbarhet</h2>
+                <p class="muted mt-2">Generera komplett underlagspaket (tidslinje, beslut, bilagor) för styrelse, försäkring eller ev. ARN-yttrande.</p>
+                <ul class="fine mt-3">
+                  <li>• PDF- och ZIP-export</li>
+                  <li>• Mall för yttrande</li>
+                  <li>• Revisionsspår</li>
+                </ul>
+              </div>
+              <div class="card elev">
+                <div class="grid gap-2">
+                  <button class="btn btn-outline w-full">Förhandsgranska paket</button>
+                  <button class="btn btn-primary w-full">Exportera</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide 7: Sammanställning -->
+          <section class="demo-slide" data-step="7">
+            <div class="grid md:grid-cols-2 gap-6 items-start">
+              <div>
+                <h2>7. Sammanställning</h2>
+                <p class="muted mt-2">Så här ser ett komplett ärendeutdrag ut baserat på dina uppgifter.</p>
+                <table class="summary-table mt-3 text-sm">
+                  <tr><td>Ärendenr</td><td id="sumNr">TEMP-2025-001</td></tr>
+                  <tr><td>Regnr / VIN</td><td id="sumReg">—</td></tr>
+                  <tr><td>Kund</td><td id="sumKund">—</td></tr>
+                  <tr><td>Felbeskrivning</td><td id="sumFel">—</td></tr>
+                  <tr><td>Verkstad</td><td id="sumVerkstad">—</td></tr>
+                  <tr><td>Felsökningsprotokoll</td><td id="sumProt">—</td></tr>
+                  <tr><td>Kund informerad</td><td id="sumKinfo">—</td></tr>
+                  <tr><td>Föreslaget beslut</td><td id="sumBeslut">—</td></tr>
+                  <tr><td>Motivering</td><td id="sumMotiv">—</td></tr>
+                </table>
+              </div>
+              <div class="card elev">
+                <h4 class="strong">Förhandsvisning (yttrande/underlag)</h4>
+                <p class="fine mt-2" id="sumPreview">
+                  <i>Fyll i uppgifterna i steg 1–3 så genereras en kort sammanfattning här.</i>
+                </p>
+                <div class="mt-3 flex gap-2 flex-wrap">
+                  <button id="btnPrint" class="btn btn-outline">Skriv ut</button>
+                  <button id="btnReset" class="btn btn-ghost">Rensa uppgifter</button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="flex items-center justify-between p-4 md:p-6 border-t border-slate-100">
+          <div class="fine"><span id="stepNow">1</span>/7</div>
+          <div class="flex gap-2">
+            <button class="btn btn-outline" id="prevStep">Tillbaka</button>
+            <button class="btn btn-primary" id="nextStep">Nästa</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
-  <footer>
-    <div class="container wrap footer">
-      <div class="footer-left">© EMK Sverige AB</div>
-      <nav class="footer-right">
-        <a href="/integritet.html">Integritet</a>
-        <a href="/cookies.html">Cookies</a>
-        <a href="/villkor.html">Villkor</a>
-        <a href="/formular.html">Formulär</a>
-      </nav>
+  <footer class="footer" style="padding-top:24px; padding-bottom:24px;">
+    <div class="container wrap">
+      <div class="flex items-center gap-2">
+        <img src="/assets/customcolor_icon_customcolor_background.png" alt="EMK logotyp" style="height:32px;width:32px;border-radius:8px;" />
+        <div>
+          <div class="strong">EMK Sverige AB</div>
+          <div>Org.nr 559514-0111 · Trensum</div>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div>
+          <div class="strong">Kontakt</div>
+          <div><a href="mailto:info@emksab.se">info@emksab.se</a></div>
+          <div>0708-26 33 66</div>
+        </div>
+        <div>
+          <div class="strong">Sidor</div>
+          <a href="/tjanster.html">Tjänster</a>
+          <a href="/#process">Process</a>
+          <a href="/om-oss.html">Om oss</a>
+          <a href="/#faq">FAQ</a>
+          <a href="/plattform.html" aria-current="page">Plattform</a>
+        </div>
+        <div>
+          <div class="strong">Länkar</div>
+          <a href="/integritet.html">Integritet</a>
+          <a href="/cookies.html">Cookies</a>
+          <a href="/villkor.html">Allmänna villkor</a>
+        </div>
+      </div>
     </div>
   </footer>
 
-  <!-- Cookie banner -->
+  <!-- Cookie banner + GA -->
   <div id="cookieBanner" class="cookie-banner">
     <div class="container">
       <div class="card banner-card">
@@ -214,39 +411,146 @@
 
   <!-- Scripts -->
   <script>
-    /* Topbar scroll skugga */
+    // Topbar skugga
     (function(){const bar=document.getElementById('topbar');function s(){if(window.scrollY>6)bar.classList.add('is-scrolled');else bar.classList.remove('is-scrolled');}s();window.addEventListener('scroll',s,{passive:true});})();
 
-    /* Offcanvas-meny */
+    // Mobilmeny
     (function(){const t=document.getElementById('navToggle');const oc=document.getElementById('mobileNav');if(!oc||!t)return;const scr=oc.querySelector('.scrim');const cls=oc.querySelectorAll('[data-close]');function o(){oc.hidden=false;oc.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}function c(){oc.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>{oc.hidden=true;},200);}t.addEventListener('click',o);scr&&scr.addEventListener('click',c);cls.forEach(el=>el.addEventListener('click',c));window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!oc.hidden)c();});})();
 
-    /* GA4 med samtycke (din riktiga ID) */
+    // Cookie + GA4 (din GA4-ID är redan ifylld)
+    (function(){const KEY='emk_cookie_consent';const b=document.getElementById('cookieBanner');const a=document.getElementById('cookieAccept');const r=document.getElementById('cookieReject');const hide=()=>b.style.display='none';const set=v=>localStorage.setItem(KEY,v);const get=()=>localStorage.getItem(KEY);
+      function load(){const id='G-W07T4YVG4E';if(!id)return;const s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id='+id;s.async=true;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config',id,{anonymize_ip:true});}
+      const v=get();if(v==='accepted'){hide();load();}else if(v==='rejected'){hide();}else{b.style.display='block';}
+      a.addEventListener('click',()=>{set('accepted');hide();load();});r.addEventListener('click',()=>{set('rejected');hide();});
+    })();
+
+    // DEMO overlay / state / live-badges / steg
     (function(){
-      const KEY='emk_cookie_consent';
-      const b=document.getElementById('cookieBanner');
-      const a=document.getElementById('cookieAccept');
-      const r=document.getElementById('cookieReject');
-      const hide=()=>b.style.display='none';
-      const set=v=>localStorage.setItem(KEY,v);
-      const get=()=>localStorage.getItem(KEY);
-      function load(){
-        const id='G-W07T4YVG4E';
-        if(!id) return;
-        const s=document.createElement('script');
-        s.src='https://www.googletagmanager.com/gtag/js?id='+id;
-        s.async=true; document.head.appendChild(s);
-        window.dataLayer=window.dataLayer||[];
-        function gtag(){dataLayer.push(arguments);}
-        window.gtag=gtag;
-        gtag('js', new Date());
-        gtag('config', id, { anonymize_ip:true });
+      const overlay=document.getElementById('demoOverlay');
+      const slides=[...document.querySelectorAll('.demo-slide')];
+      const openBtns=[document.getElementById('openDemo'),document.getElementById('openDemo2')].filter(Boolean);
+      const closeBtn=document.getElementById('closeDemo');
+      const prev=document.getElementById('prevStep');
+      const next=document.getElementById('nextStep');
+      const prog=document.getElementById('demoProgress');
+      const stepNow=document.getElementById('stepNow');
+      let i=0;
+
+      // Demo-state
+      const S = {
+        nr:'TEMP-2025-001',
+        reg:'', kund:'', fel:'',
+        verkstad:'', prot:false, kinfo:false,
+        beslut:'', motiv:''
+      };
+
+      // Fält
+      const $ = sel => document.querySelector(sel);
+      const fReg=$('#fReg'), fKund=$('#fKund'), fFel=$('#fFel');
+      const fVerkstad=$('#fVerkstad'), fProt=$('#fProt'), fKundInf=$('#fKundInf');
+      const fBeslut=$('#fBeslut'), fMotiv=$('#fMotiv');
+      const tl=$('#timelineList');
+
+      // Live-badges
+      const liveNr=$('#liveNr'), liveReg=$('#liveReg'), liveKund=$('#liveKund'),
+            liveVerkstad=$('#liveVerkstad'), liveBeslut=$('#liveBeslut');
+      function updateBadges(){
+        liveNr.textContent = S.nr;
+        liveReg.textContent = S.reg || '—';
+        liveKund.textContent = S.kund || '—';
+        liveVerkstad.textContent = S.verkstad || '—';
+        liveBeslut.textContent = S.beslut || '—';
       }
-      const v=get();
-      if(v==='accepted'){ hide(); load(); }
-      else if(v==='rejected'){ hide(); }
-      else{ b.style.display='block'; }
-      a.addEventListener('click',()=>{ set('accepted'); hide(); load(); });
-      r.addEventListener('click',()=>{ set('rejected'); hide(); });
+      updateBadges();
+
+      // Händelser – live uppdatering medan man skriver/väljer
+      fReg?.addEventListener('input',()=>{ S.reg=fReg.value.trim(); updateBadges(); });
+      fKund?.addEventListener('input',()=>{ S.kund=fKund.value.trim(); updateBadges(); });
+      fFel?.addEventListener('input',()=>{ S.fel=fFel.value.trim(); });
+
+      fVerkstad?.addEventListener('change',()=>{ S.verkstad=fVerkstad.value; updateBadges(); });
+      fProt?.addEventListener('change',()=>{ S.prot=!!fProt.checked; });
+      fKundInf?.addEventListener('change',()=>{ S.kinfo=!!fKundInf.checked; });
+
+      fBeslut?.addEventListener('change',()=>{ S.beslut=fBeslut.value; updateBadges(); });
+      fMotiv?.addEventListener('input',()=>{ S.motiv=fMotiv.value.trim(); });
+
+      // Knappar som även lägger till tidslinje
+      $('#btnSparaArende')?.addEventListener('click', ()=>{
+        addTL('Ärende sparat');
+        if(window.gtag) gtag('event','demo_save_case');
+      });
+      $('#btnSkickaUppdrag')?.addEventListener('click', ()=>{
+        addTL('Uppdrag skickat till verkstad' + (S.verkstad? (': '+S.verkstad):''));
+        if(window.gtag) gtag('event','demo_send_assignment');
+      });
+      $('#btnForesla')?.addEventListener('click', ()=>{
+        addTL('Föreslaget beslut: ' + (S.beslut||'—'));
+        if(window.gtag) gtag('event','demo_propose_decision');
+      });
+
+      function addTL(text){
+        const li=document.createElement('li');
+        const t=new Date(); const hh=String(t.getHours()).padStart(2,'0'); const mm=String(t.getMinutes()).padStart(2,'0');
+        li.textContent=`• ${hh}:${mm} ${text}`;
+        tl?.appendChild(li);
+      }
+
+      // Sammanställning
+      function renderSummary(){
+        const set=(id,val)=>{ const el=document.getElementById(id); if(el) el.textContent = val && String(val).trim() ? val : '—'; };
+        set('sumNr', S.nr); set('sumReg', S.reg); set('sumKund', S.kund); set('sumFel', S.fel);
+        set('sumVerkstad', S.verkstad); set('sumProt', S.prot ? 'Ja' : 'Nej'); set('sumKinfo', S.kinfo ? 'Ja' : 'Nej');
+        set('sumBeslut', S.beslut); set('sumMotiv', S.motiv);
+        const preview=$('#sumPreview');
+        if(preview){
+          preview.innerHTML =
+            `<b>Sammanfattning</b><br/>
+             Regnr/VIN: ${S.reg || '—'}<br/>
+             Kund: ${S.kund || '—'}<br/>
+             Fel: ${S.fel || '—'}<br/>
+             Verkstad: ${S.verkstad || '—'} (${S.prot?'protokoll bifogat':'protokoll saknas'}, ${S.kinfo?'kund informerad':'kund ej informerad'})<br/>
+             Föreslaget beslut: <b>${S.beslut || '—'}</b><br/>
+             Motivering: ${S.motiv || '—'}`;
+        }
+      }
+
+      // Navigering
+      function show(n){
+        i=Math.max(0,Math.min(slides.length-1,n));
+        slides.forEach((s,idx)=>s.classList.toggle('active',idx===i));
+        const p=Math.round(((i+1)/slides.length)*100);
+        prog.style.width=p+'%'; stepNow.textContent=(i+1);
+        if(i===slides.length-1) renderSummary();
+        if(window.gtag) gtag('event','demo_step',{step:i+1});
+      }
+      function open(){ overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; show(i); if(window.gtag) gtag('event','demo_open'); }
+      function close(){ overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+
+      openBtns.forEach(btn=>btn.addEventListener('click',e=>{e.preventDefault();open();history.replaceState(null,'','#demo');}));
+      closeBtn.addEventListener('click',close);
+      prev.addEventListener('click',()=>show(i-1));
+      next.addEventListener('click',()=>show(i+1));
+      window.addEventListener('keydown',e=>{
+        if(overlay.classList.contains('open')){
+          if(e.key==='Escape') close();
+          if(e.key==='ArrowLeft') show(i-1);
+          if(e.key==='ArrowRight') show(i+1);
+        }
+      });
+
+      // Skriv ut / Rensa
+      document.getElementById('btnPrint')?.addEventListener('click', ()=>window.print());
+      document.getElementById('btnReset')?.addEventListener('click', ()=>{
+        Object.assign(S,{reg:'',kund:'',fel:'',verkstad:'',prot:false,kinfo:false,beslut:'',motiv:''});
+        [fReg,fKund,fFel,fVerkstad,fBeslut,fMotiv].forEach(el=>{ if(el) el.value=''; });
+        [fProt,fKundInf].forEach(ch=>{ if(ch) ch.checked=false; });
+        tl.innerHTML = '<li>• 10:12 Kund felanmäler (webb)</li>';
+        updateBadges(); renderSummary();
+      });
+
+      // Direktlänk: #demo
+      if(location.hash==='#demo') open();
     })();
   </script>
 </body>
