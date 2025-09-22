@@ -7,17 +7,15 @@
   <meta name="description" content="Praktiskt stöd i ARN-processen för bilhandlare: snabb respons, kompletta yttranden, beslutsmatris och utbildning.">
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
-
   <meta property="og:title" content="Eftermarknadskonsulten – ARN-stöd för bilhandlare | EMK Sverige AB" />
   <meta property="og:description" content="Praktiskt stöd i konsumentköpsfrågor och ARN-ärenden för bilhandlare." />
   <meta property="og:url" content="https://www.eftermarknadskonsulten.se" />
   <meta property="og:image" content="/assets/customcolor_textlogo_customcolor_background.png" />
 
-  <!-- Tailwind + tema -->
+  <!-- Tailwind + tema (samma som andra sidor) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/assets/emk-theme.css?v=5" />
 
-  <!-- Små, säkra layoutfixar (inga färger) -->
   <style>
     /* Mobil: dölj stor H1, visa chip som rubrik */
     @media (max-width: 767px) {
@@ -31,6 +29,7 @@
     }
     .card, .step, .card h3, .card h4, .card p, .card li { overflow-wrap:anywhere; word-break:break-word; hyphens:auto; }
     .card.step .flex { align-items:flex-start; } .card.step h4 { margin:0; }
+    .info-banner { text-transform: uppercase; letter-spacing:.04em; font-size:.85rem; }
   </style>
 </head>
 <body class="site">
@@ -112,7 +111,6 @@
             </ul>
             <p class="mt-4 small">*Arbetas vardagar. Brådskande ärenden utanför normal arbetstid, enligt överenskommelse.</p>
           </div>
-
           <div class="card elev mt-4">
             <p class="mt-4 small">
               Vi arbetar även med mjukvarulösningar som ger kontroll över hela eftermarknadsflödet – klagomål, reklamation och uppföljning.
@@ -123,9 +121,10 @@
     </div>
   </section>
 
-  <!-- Tjänsteöversikt + infokort -->
+  <!-- Tre huvudtjänster + info-banner -->
   <section class="section">
     <div class="container">
+      <!-- tre kort (oförändrat innehåll) -->
       <div class="grid md:grid-cols-3 gap-6 items-stretch">
         <div class="card elev">
           <div class="flex items-center justify-between">
@@ -170,7 +169,7 @@
         </div>
       </div>
 
-      <!-- Info-kort med DEMO-knapp -->
+      <!-- Info-kortet där du vill ha knappen -->
       <div class="relative mt-6">
         <div class="soft-glow" aria-hidden="true" style="inset:-6px; border-radius:16px;"></div>
         <div class="card elev">
@@ -178,7 +177,7 @@
             Vi hjälper även i ärenden som <b>riskerar</b> att bli ARN (förebyggande stöd). Dessutom kan vi bygga en
             <a href="/plattform.html"><b>kostnadseffektiv eftermarknadsplattform</b></a> som ni själva äger från dag 1.
           </p>
-          <!-- Demoknapp (tillägg) -->
+          <!-- >>> HÄR ÄR LÄNKEN TILL DEMON <<< -->
           <div class="mt-3">
             <a href="/plattform.html#demo" class="btn btn-primary">Se demo</a>
           </div>
@@ -221,7 +220,7 @@
     /* Offcanvas-meny */
     (function(){const t=document.getElementById('navToggle');const oc=document.getElementById('mobileNav');if(!oc||!t)return;const scr=oc.querySelector('.scrim');const cls=oc.querySelectorAll('[data-close]');function o(){oc.hidden=false;oc.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}function c(){oc.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>{oc.hidden=true;},200);}t.addEventListener('click',o);scr&&scr.addEventListener('click',c);cls.forEach(el=>el.addEventListener('click',c));window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!oc.hidden)c();});})();
 
-    /* GA4 med samtycke (din riktiga ID används) */
+    /* GA4 med samtycke (din riktiga ID) */
     (function(){
       const KEY='emk_cookie_consent';
       const b=document.getElementById('cookieBanner');
@@ -231,7 +230,7 @@
       const set=v=>localStorage.setItem(KEY,v);
       const get=()=>localStorage.getItem(KEY);
       function load(){
-        const id='G-W07T4YVG4E'; // din GA4-ID
+        const id='G-W07T4YVG4E';
         if(!id) return;
         const s=document.createElement('script');
         s.src='https://www.googletagmanager.com/gtag/js?id='+id;
