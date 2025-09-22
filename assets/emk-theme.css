@@ -308,3 +308,27 @@ header {
   .nav { gap:12px; }
   h1, .hero-title { font-size: clamp(1.5rem, 1.3rem + 2.6vw, 2.2rem); }
 }
+/* --- Click-through fixar (lägg sist i emk-theme.css) --- */
+
+/* Se till att dekorativa lager aldrig blockerar klick */
+.soft-glow {
+  pointer-events: none !important;   /* släpp igenom klick */
+  z-index: 0 !important;              /* håll bakom innehåll */
+}
+
+/* Kort/sektioner ska ligga över dekorativa lager */
+.card, .elev, .step {
+  position: relative;                 /* skapa nytt stacking context */
+  z-index: 1;
+}
+
+/* Offcanvas-meny: fånga klick bara när den är "open" */
+.offcanvas { pointer-events: none; }
+.offcanvas.open { pointer-events: auto; }
+
+/* Scrim ska bara vara klickbar när panelen är öppen */
+.offcanvas .scrim { pointer-events: auto; }
+.offcanvas:not(.open) .scrim { display: none; }
+
+/* När man hoppar till #demo ska den inte hamna under headern */
+#demo { scroll-margin-top: 88px; }
