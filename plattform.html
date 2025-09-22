@@ -1,52 +1,30 @@
 <!doctype html>
 <html lang="sv">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Plattform | EMK Sverige AB – Eftermarknadskonsulten</title>
-  <meta name="description" content="Eftermarknadsplattformen – ett ägt, kostnadseffektivt system som stödjer eftermarknadsprocessen från ärendeintag till beslut och uppföljning." />
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plattform – ägd eftermarknadslösning | EMK Sverige AB</title>
+  <meta name="description" content="Kostnadseffektiv, webbaserad eftermarknadsplattform: ärendeintag, styrt verkstadsflöde, beslutsmatris, spårbar tidslinje. Ni äger koden från dag 1." />
+  <link rel="canonical" href="https://www.eftermarknadskonsulten.se/plattform.html" />
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
-  <meta property="og:title" content="Plattform | EMK Sverige AB – Eftermarknadskonsulten" />
-  <meta property="og:description" content="Standardiserat men flexibelt arbetssätt: ärendeintag, verkstadsstyrning, beslutsmatris, tidslinje & dokument, dashboard och export – ni äger koden från dag 1." />
+  <meta property="og:title" content="Plattform – ägd eftermarknadslösning | EMK Sverige AB" />
+  <meta property="og:description" content="Webbaserad plattform som stödjer hela eftermarknadsflödet – utan inlåsning. Ni äger koden, vi hjälper er att drifta och vidareutveckla vid behov." />
   <meta property="og:url" content="https://www.eftermarknadskonsulten.se/plattform.html" />
   <meta property="og:image" content="/assets/customcolor_textlogo_customcolor_background.png" />
-
-  <!-- Tailwind för layout/typografi -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data: https://www.google-analytics.com; font-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline'">
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Rätt tema-sökväg (fixar tidigare färg-avvikelse) -->
-  <link rel="stylesheet" href="/assets/emk-theme.css?v=6" />
-
+  <link rel="stylesheet" href="/assets/emk-theme.css?v=5">
   <style>
-    /* Mobil: dölj stor H1, låt chip fungera som rubrik */
     @media (max-width: 767px) {
-      .hero .hero-title { display: none !important; }
-      .hero .chip { display:block; text-align:left; font-size: clamp(1rem, 2.8vw + 0.6rem, 1.125rem); line-height:1.25; }
+      .hero .hero-title { display:none !important; }
+      .hero .chip { display:block; text-align:left; font-size:clamp(1rem,2.8vw + 0.6rem,1.125rem); line-height:1.25; }
     }
-    /* Desktop-finputser */
-    @media (min-width: 768px) {
-      .hero .chip { font-size: clamp(1rem, 0.6vw + 0.9rem, 1.125rem); font-weight: 600; }
-      .hero .hero-title { font-size: clamp(2.2rem, 2.2vw + 1.2rem, 3.2rem); margin-top: .25rem; }
-    }
-    /* Wrap-skydd i kort */
-    .card, .card h2, .card h3, .card h4, .card p, .card li { overflow-wrap:anywhere; word-break:break-word; hyphens:auto; }
-    .card.step .flex { align-items:flex-start; } .card.step h4 { margin:0; }
-
-    /* DEMO overlay */
-    .demo-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: none; }
-    .demo-overlay.open { display: block; }
-    .demo-dialog { position: relative; margin: clamp(12px, 3vw, 32px) auto; max-width: 1100px; }
-    .browser-frame { border-radius: 16px; background: white; box-shadow: 0 30px 80px rgba(0,0,0,.25); overflow: hidden; }
-    .browser-top { display:flex; align-items:center; gap:8px; padding:10px 12px; background: #f5f7fb; border-bottom: 1px solid rgba(0,0,0,.08); }
-    .dot { width:10px; height:10px; border-radius:50%; background:#e2e8f0; }
-    .progress { height:4px; background:#eef2f7; }
-    .progress > span { display:block; height:100%; background: var(--brand, #0ea5e9); width:0%; transition: width .25s ease; }
-    .demo-slide { display:none; }
-    .demo-slide.active { display:block; }
+    .card, .card h2, .card h3, .card p, .card li { overflow-wrap:anywhere; word-break:break-word; hyphens:auto; }
   </style>
 </head>
-<body class="site">
-  <!-- Header -->
+<body>
+  <!-- HEADER -->
   <header>
     <div id="topbar" class="topbar">
       <div class="container wrap" style="height:80px;">
@@ -55,17 +33,17 @@
         </a>
         <nav class="nav hidden md:flex" aria-label="Huvudmeny">
           <a href="/tjanster.html">Tjänster</a>
-          <a href="/#process">Process</a>
-          <a href="/#case">Case</a>
+          <a href="/process.html">Process</a>
+          <a href="/case.html">Case</a>
           <a href="/om-oss.html">Om oss</a>
-          <a href="/#faq">FAQ</a>
-          <a href="/#kontakt">Kontakt</a>
+          <a href="/faq.html">FAQ</a>
+          <a href="/kontakt.html">Kontakt</a>
         </nav>
         <div class="hidden md:block">
           <a href="/formular.html" class="btn btn-primary">Kontakta oss</a>
         </div>
         <button id="navToggle" class="md:hidden hambox" aria-expanded="false" aria-controls="mobileNav" aria-label="Öppna meny">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
     </div>
@@ -80,35 +58,35 @@
         </div>
         <div class="mt-3 grid gap-1">
           <a href="/tjanster.html" data-close="">Tjänster</a>
-          <a href="/#process" data-close="">Process</a>
-          <a href="/#case" data-close="">Case</a>
+          <a href="/process.html" data-close="">Process</a>
+          <a href="/case.html" data-close="">Case</a>
           <a href="/om-oss.html" data-close="">Om oss</a>
-          <a href="/#faq" data-close="">FAQ</a>
-          <a href="/#kontakt" data-close="">Kontakt</a>
+          <a href="/faq.html" data-close="">FAQ</a>
+          <a href="/kontakt.html" data-close="">Kontakt</a>
           <a href="/formular.html" class="btn btn-primary mt-2" data-close="">Kontakta oss</a>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero section hero-bg">
+  <!-- HERO -->
+  <section class="section hero hero-bg">
     <div class="container">
-      <span class="chip">Standardiserat men flexibelt arbetssätt</span>
+      <span class="chip">Ägd lösning · Ingen inlåsning</span>
       <h1 class="hero-title mt-6">Eftermarknadsplattform – ägd lösning</h1>
-      <p class="lead mt-3">Plattformen stödjer hela eftermarknadsprocessen: från ärendeintag till beslut och uppföljning. Ni äger koden från dag 1 – utan inlåsning.</p>
-      <div class="mt-5 flex gap-3 flex-wrap">
-        <a href="#demo" class="btn btn-primary" id="openDemo">Se interaktiv demo</a>
-        <a href="/formular.html" class="btn btn-outline">Begär demo + genomgång</a>
+      <p class="lead mt-3">Vi bygger en kostnadseffektiv, webbaserad plattform som stödjer er eftermarknadsprocess från ärendeintag till beslut och uppföljning. Ni äger koden från dag 1 (repo + rättigheter), utan inlåsning.</p>
+      <div class="mt-4 flex gap-3 flex-wrap">
+        <a class="btn btn-primary" href="/formular.html">Begär demo + genomgång</a>
+        <a class="btn btn-outline" href="/tjanster.html">Tillbaka till tjänster</a>
       </div>
     </div>
   </section>
 
-  <!-- Innehåll -->
+  <!-- INNEHÅLL -->
   <main class="section">
     <div class="container">
       <div class="grid md:grid-cols-2 gap-6 items-start">
-        <div class="card elev">
+        <article class="card elev">
           <h2>Vad plattformen täcker</h2>
           <ul class="fine mt-2">
             <li>• Ärendeintag (kund/fordon, felbeskrivning, bilagor)</li>
@@ -117,9 +95,9 @@
             <li>• Tidslinje & dokumentation (spårbarhet)</li>
             <li>• Roller: handlare, egen verkstad, inköp m.fl.</li>
           </ul>
-        </div>
+        </article>
 
-        <div class="card elev">
+        <article class="card elev">
           <h2>Ägande & drift</h2>
           <ul class="fine mt-2">
             <li>• Ni får kod och repo från start – ni äger lösningen</li>
@@ -127,181 +105,17 @@
             <li>• Inga licenslås – uppgraderingar vid behov</li>
             <li>• Förvaltnings-/vidareutvecklingsavtal är valfritt</li>
           </ul>
-        </div>
+        </article>
 
-        <div class="card elev md:col-span-2">
+        <article class="card elev md:col-span-2">
           <h2>Förebyggande stöd – pre-ARN</h2>
           <p class="mt-2">Vi hjälper även i ärenden som kan bli ARN-ärenden: tidig analys, dokumentationsplan, kommunikationsstöd och rekommenderade åtgärder för att minska risken för tvist och kostnad.</p>
-          <div class="mt-4 flex gap-3 flex-wrap">
-            <a href="/formular.html" class="btn btn-primary">Boka genomgång</a>
-            <a href="#demo" class="btn btn-outline" id="openDemo2">Prova demo</a>
-          </div>
-        </div>
+        </article>
       </div>
     </div>
   </main>
 
-  <!-- DEMO OVERLAY -->
-  <div id="demoOverlay" class="demo-overlay" aria-hidden="true">
-    <div class="container demo-dialog">
-      <div class="browser-frame" role="dialog" aria-modal="true" aria-labelledby="demoTitle">
-        <div class="browser-top">
-          <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-          <div class="ml-2 text-sm text-slate-500">Eftermarknadsplattform – Demo</div>
-          <button id="closeDemo" class="ml-auto hambox" aria-label="Stäng demo">×</button>
-        </div>
-
-        <div class="progress"><span id="demoProgress"></span></div>
-
-        <div class="p-4 md:p-6" id="demoSlides">
-          <!-- Slide 1 -->
-          <section class="demo-slide active" data-step="1">
-            <div class="grid md:grid-cols-2 gap-6 items-start">
-              <div>
-                <h2 id="demoTitle">1. Ärendeintag</h2>
-                <p class="muted mt-2">Strukturerat formulär: kund/fordon, felbeskrivning, bilder och samtycken. Inbyggda regler minskar fel och påminner om nödvändig dokumentation.</p>
-                <ul class="fine mt-3">
-                  <li>• Obligatoriska fält och bilageguidning</li>
-                  <li>• Automatisk ärendenummer & tidstämpel</li>
-                  <li>• GDPR-vänlig hantering av persondata</li>
-                </ul>
-              </div>
-              <div class="card elev">
-                <div class="grid gap-2">
-                  <input class="input" placeholder="Regnr / VIN" />
-                  <input class="input" placeholder="Kundnamn" />
-                  <textarea class="input" rows="4" placeholder="Kort felbeskrivning"></textarea>
-                  <button class="btn btn-primary w-full">Spara ärende</button>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Slide 2 -->
-          <section class="demo-slide" data-step="2">
-            <div class="grid md:grid-cols-2 gap-6 items-start">
-              <div>
-                <h2>2. Verkstadsstyrning</h2>
-                <p class="muted mt-2">Styrt val av verkstad och felsökningsflöde med krav på dokumentation för att undvika onödiga kostnader.</p>
-                <ul class="fine mt-3">
-                  <li>• Rekommenderad verkstad per fordonstyp</li>
-                  <li>• Checklista för felsökning & foton</li>
-                  <li>• Tidsstyrda påminnelser</li>
-                </ul>
-              </div>
-              <div class="card elev">
-                <div class="grid gap-2">
-                  <select class="input"><option>Välj verkstad…</option><option>EMK Verkstad Syd</option><option>Partnerverkstad Norr</option></select>
-                  <label class="fine"><input type="checkbox" class="mr-2" />Felsökningsprotokoll bifogat</label>
-                  <label class="fine"><input type="checkbox" class="mr-2" />Kund informerad om nästa steg</label>
-                  <button class="btn btn-primary w-full">Skicka uppdrag</button>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Slide 3 -->
-          <section class="demo-slide" data-step="3">
-            <div class="grid md:grid-cols-2 gap-6 items-start">
-              <div>
-                <h2>3. Beslutsmatris</h2>
-                <p class="muted mt-2">Tydlig beslutslogik enligt KKL §§25–28 och relevant ARN-praxis. Underlag loggas och motiveras.</p>
-                <ul class="fine mt-3">
-                  <li>• Reparation / Omleverans / Prisavdrag</li>
-                  <li>• Riskbedömning & kostnadsestimat</li>
-                  <li>• Spårbar motivering</li>
-                </ul>
-              </div>
-              <div class="card elev">
-                <div class="grid gap-2">
-                  <select class="input"><option>Föreslaget beslut…</option><option>Reparation</option><option>Omleverans</option><option>Prisavdrag</option></select>
-                  <textarea class="input" rows="3" placeholder="Motivering (praxis/KKL)"></textarea>
-                  <button class="btn btn-primary w-full">Föreslå beslut</button>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Slide 4 -->
-          <section class="demo-slide" data-step="4">
-            <div class="grid md:grid-cols-2 gap-6 items-start">
-              <div>
-                <h2>4. Tidslinje & dokument</h2>
-                <p class="muted mt-2">Varje steg, dokument och kontakt loggas automatiskt. Export för intern kontroll och ev. myndighetsdialog.</p>
-                <ul class="fine mt-3">
-                  <li>• Händelse- och åtgärdslogg</li>
-                  <li>• Bifogade foton/underlag</li>
-                  <li>• Signoff med attest</li>
-                </ul>
-              </div>
-              <div class="card elev">
-                <ul class="fine">
-                  <li>• 10:12 Kund felanmäler (webb)</li>
-                  <li>• 10:45 Underlag granskade (EMK)</li>
-                  <li>• 11:05 Uppdrag till verkstad</li>
-                  <li>• 14:30 Felsökningsprotokoll uppladdat</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          <!-- Slide 5 -->
-          <section class="demo-slide" data-step="5">
-            <div class="grid md:grid-cols-2 gap-6 items-start">
-              <div>
-                <h2>5. Dashboard & uppföljning</h2>
-                <p class="muted mt-2">Nyckeltal för ledning och eftermarknad: ledtider, beslut, kostnader och pågående riskärenden.</p>
-                <ul class="fine mt-3">
-                  <li>• SLA/ledtid per steg</li>
-                  <li>• Kostnad per beslut</li>
-                  <li>• Eskaleringsvarningar</li>
-                </ul>
-              </div>
-              <div class="card elev">
-                <div class="grid grid-cols-2 gap-3">
-                  <div class="chip">Ledtid: 2.4 d</div>
-                  <div class="chip">Riskärenden: 3</div>
-                  <div class="chip">Kostnad/ärende: 1 950 kr</div>
-                  <div class="chip">Förlikningar: 12%</div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Slide 6 -->
-          <section class="demo-slide" data-step="6">
-            <div class="grid md:grid-cols-2 gap-6 items-start">
-              <div>
-                <h2>6. Export & spårbarhet</h2>
-                <p class="muted mt-2">Generera komplett underlagspaket (tidslinje, beslut, bilagor) för styrelse, försäkring eller ev. ARN-yttrande.</p>
-                <ul class="fine mt-3">
-                  <li>• PDF- och ZIP-export</li>
-                  <li>• Mall för yttrande</li>
-                  <li>• Revisionsspår</li>
-                </ul>
-              </div>
-              <div class="card elev">
-                <div class="grid gap-2">
-                  <button class="btn btn-outline w-full">Förhandsgranska paket</button>
-                  <button class="btn btn-primary w-full">Exportera</button>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <div class="flex items-center justify-between p-4 md:p-6 border-t border-slate-100">
-          <div class="fine"><span id="stepNow">1</span>/6</div>
-          <div class="flex gap-2">
-            <button class="btn btn-outline" id="prevStep">Tillbaka</button>
-            <button class="btn btn-primary" id="nextStep">Nästa</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer class="footer" style="padding-top:24px; padding-bottom:24px;">
     <div class="container wrap">
       <div class="flex items-center gap-2">
@@ -320,9 +134,8 @@
         <div>
           <div class="strong">Sidor</div>
           <a href="/tjanster.html">Tjänster</a>
-          <a href="/#process">Process</a>
+          <a href="/process.html">Process</a>
           <a href="/om-oss.html">Om oss</a>
-          <a href="/#faq">FAQ</a>
           <a href="/plattform.html" aria-current="page">Plattform</a>
         </div>
         <div>
@@ -335,7 +148,7 @@
     </div>
   </footer>
 
-  <!-- Cookie banner + GA (samma upplägg som övriga sidor) -->
+  <!-- Cookie banner -->
   <div id="cookieBanner" class="cookie-banner">
     <div class="container">
       <div class="card banner-card">
@@ -350,63 +163,9 @@
 
   <!-- Scripts -->
   <script>
-    // Topbar skugga
     (function(){const bar=document.getElementById('topbar');function s(){if(window.scrollY>6)bar.classList.add('is-scrolled');else bar.classList.remove('is-scrolled');}s();window.addEventListener('scroll',s,{passive:true});})();
-
-    // Mobilmeny
     (function(){const t=document.getElementById('navToggle');const oc=document.getElementById('mobileNav');if(!oc||!t)return;const scr=oc.querySelector('.scrim');const cls=oc.querySelectorAll('[data-close]');function o(){oc.hidden=false;oc.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}function c(){oc.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>{oc.hidden=true;},200);}t.addEventListener('click',o);scr&&scr.addEventListener('click',c);cls.forEach(el=>el.addEventListener('click',c));window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!oc.hidden)c();});})();
-
-    // Cookie + GA4 (byt till ditt riktiga ID)
-    (function(){const KEY='emk_cookie_consent';const b=document.getElementById('cookieBanner');const a=document.getElementById('cookieAccept');const r=document.getElementById('cookieReject');const hide=()=>b.style.display='none';const set=v=>localStorage.setItem(KEY,v);const get=()=>localStorage.getItem(KEY);
-      function load(){const id='G-XXXXXXX';if(id==='G-XXXXXXX')return;const s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id='+id;s.async=true;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config',id,{anonymize_ip:true});}
-      const v=get();if(v==='accepted'){hide();load();}else if(v==='rejected'){hide();}else{b.style.display='block';}
-      a.addEventListener('click',()=>{set('accepted');hide();load();});r.addEventListener('click',()=>{set('rejected');hide();});
-    })();
-
-    // DEMO overlay / stegen
-    (function(){
-      const overlay=document.getElementById('demoOverlay');
-      const slides=[...document.querySelectorAll('.demo-slide')];
-      const openBtns=[document.getElementById('openDemo'),document.getElementById('openDemo2')].filter(Boolean);
-      const closeBtn=document.getElementById('closeDemo');
-      const prev=document.getElementById('prevStep');
-      const next=document.getElementById('nextStep');
-      const prog=document.getElementById('demoProgress');
-      const stepNow=document.getElementById('stepNow');
-      let i=0;
-
-      function show(n){
-        i=Math.max(0,Math.min(slides.length-1,n));
-        slides.forEach((s,idx)=>s.classList.toggle('active',idx===i));
-        const p=Math.round(((i+1)/slides.length)*100);
-        prog.style.width=p+'%';
-        stepNow.textContent=(i+1);
-        if(window.gtag) gtag('event','demo_step',{step:i+1});
-      }
-      function open(){
-        overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false');
-        document.body.style.overflow='hidden'; show(i);
-        if(window.gtag) gtag('event','demo_open');
-      }
-      function close(){
-        overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true');
-        document.body.style.overflow='';
-      }
-
-      openBtns.forEach(btn=>btn.addEventListener('click',e=>{e.preventDefault();open();history.replaceState(null,'','#demo');}));
-      closeBtn.addEventListener('click',close);
-      prev.addEventListener('click',()=>show(i-1));
-      next.addEventListener('click',()=>show(i+1));
-      window.addEventListener('keydown',e=>{
-        if(overlay.classList.contains('open')){
-          if(e.key==='Escape') close();
-          if(e.key==='ArrowLeft') show(i-1);
-          if(e.key==='ArrowRight') show(i+1);
-        }
-      });
-      // Direktlänk: #demo
-      if(location.hash==='#demo') open();
-    })();
   </script>
+  <script src="/assets/consent-ga.js" defer></script>
 </body>
 </html>
