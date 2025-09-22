@@ -1,154 +1,87 @@
 <!doctype html>
 <html lang="sv">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Plattform – ägd eftermarknadslösning | EMK Sverige AB</title>
-  <meta name="description" content="Kostnadseffektiv, webbaserad eftermarknadsplattform: ärendeintag, styrt verkstadsflöde, beslutsmatris, spårbar tidslinje. Ni äger koden från dag 1." />
-  <link rel="canonical" href="https://www.eftermarknadskonsulten.se/plattform.html" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plattform | EMK Sverige AB – Eftermarknadskonsulten</title>
+  <meta name="description" content="Vår plattform och arbetssätt – EMK Sverige AB." />
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
-  <meta property="og:title" content="Plattform – ägd eftermarknadslösning | EMK Sverige AB" />
-  <meta property="og:description" content="Webbaserad plattform som stödjer hela eftermarknadsflödet – utan inlåsning. Ni äger koden, vi hjälper er att drifta och vidareutveckla vid behov." />
+  <meta property="og:title" content="Plattform | EMK Sverige AB" />
+  <meta property="og:description" content="Vår plattform och arbetssätt – EMK Sverige AB." />
   <meta property="og:url" content="https://www.eftermarknadskonsulten.se/plattform.html" />
   <meta property="og:image" content="/assets/customcolor_textlogo_customcolor_background.png" />
-  <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; img-src 'self' data: https://www.google-analytics.com; font-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline'">
+
+  <!-- Säkerhetsmeta -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://forms.gle; upgrade-insecure-requests">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/assets/emk-theme.css?v=5">
+  <link rel="stylesheet" href="/assets/emk-theme.css" />
   <style>
-    @media (max-width: 767px) {
-      .hero .hero-title { display:none !important; }
-      .hero .chip { display:block; text-align:left; font-size:clamp(1rem,2.8vw + 0.6rem,1.125rem); line-height:1.25; }
-    }
-    .card, .card h2, .card h3, .card p, .card li { overflow-wrap:anywhere; word-break:break-word; hyphens:auto; }
+    .container{max-width:1200px;margin:0 auto;padding:16px}
+    header.site{background:var(--header-bg,transparent)}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:40px;width:auto}
+    nav a{text-decoration:none;margin:0 8px;white-space:nowrap}
+    .hero{padding:32px 0}
+    .hero-title{margin:0;font-weight:700;line-height:1.15;font-size:clamp(22px,4.8vw,36px)}
+    .hero-sub{margin-top:8px;line-height:1.5;font-size:clamp(14px,3.6vw,18px)}
+    .card{background:#fff;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.06);padding:18px}
+    .content{overflow-wrap:anywhere;word-break:break-word}
+    .content img{max-width:100%;height:auto}
+    footer{padding:32px 0}
+    .stack{display:grid;gap:16px}
   </style>
 </head>
 <body>
-  <!-- HEADER -->
-  <header>
-    <div id="topbar" class="topbar">
-      <div class="container wrap" style="height:80px;">
-        <a href="/" class="logo inline-flex items-center" aria-label="Gå till startsidan">
-          <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK logotyp" class="h-[56px] w-auto object-contain" />
-        </a>
-        <nav class="nav hidden md:flex" aria-label="Huvudmeny">
-          <a href="/tjanster.html">Tjänster</a>
-          <a href="/process.html">Process</a>
-          <a href="/case.html">Case</a>
-          <a href="/om-oss.html">Om oss</a>
-          <a href="/faq.html">FAQ</a>
-          <a href="/kontakt.html">Kontakt</a>
-        </nav>
-        <div class="hidden md:block">
-          <a href="/formular.html" class="btn btn-primary">Kontakta oss</a>
-        </div>
-        <button id="navToggle" class="md:hidden hambox" aria-expanded="false" aria-controls="mobileNav" aria-label="Öppna meny">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobilmeny -->
-    <div id="mobileNav" class="offcanvas" hidden>
-      <div class="scrim" data-close="" aria-hidden="true"></div>
-      <div class="panel" role="dialog" aria-label="Mobilmeny">
-        <div class="flex items-center justify-between">
-          <strong>Menyn</strong>
-          <button class="hambox" data-close="" aria-label="Stäng meny">×</button>
-        </div>
-        <div class="mt-3 grid gap-1">
-          <a href="/tjanster.html" data-close="">Tjänster</a>
-          <a href="/process.html" data-close="">Process</a>
-          <a href="/case.html" data-close="">Case</a>
-          <a href="/om-oss.html" data-close="">Om oss</a>
-          <a href="/faq.html" data-close="">FAQ</a>
-          <a href="/kontakt.html" data-close="">Kontakt</a>
-          <a href="/formular.html" class="btn btn-primary mt-2" data-close="">Kontakta oss</a>
-        </div>
-      </div>
+  <header class="site">
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:16px;">
+      <a class="brand" href="/index.html" aria-label="Hem">
+        <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK Sverige AB">
+        <strong>Eftermarknadskonsulten</strong>
+      </a>
+      <nav>
+        <a href="/index.html">Hem</a>
+        <a href="/tjanster.html">Tjänster</a>
+        <a href="/plattform.html" aria-current="page"><strong>Plattform</strong></a>
+        <a href="/case.html">Case</a>
+        <a href="/om-oss.html">Om&nbsp;oss</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/kontakt.html">Kontakt</a>
+      </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="section hero hero-bg">
+  <section class="hero">
     <div class="container">
-      <span class="chip">Ägd lösning · Ingen inlåsning</span>
-      <h1 class="hero-title mt-6">Eftermarknadsplattform – ägd lösning</h1>
-      <p class="lead mt-3">Vi bygger en kostnadseffektiv, webbaserad plattform som stödjer er eftermarknadsprocess från ärendeintag till beslut och uppföljning. Ni äger koden från dag 1 (repo + rättigheter), utan inlåsning.</p>
-      <div class="mt-4 flex gap-3 flex-wrap">
-        <a class="btn btn-primary" href="/formular.html">Begär demo + genomgång</a>
-        <a class="btn btn-outline" href="/tjanster.html">Tillbaka till tjänster</a>
-      </div>
+      <h1 class="hero-title">Plattform</h1>
+      <p class="hero-sub">Standardiserat men flexibelt arbetssätt — samma upplevelse i mobil och desktop.</p>
     </div>
   </section>
 
-  <!-- INNEHÅLL -->
-  <main class="section">
-    <div class="container">
-      <div class="grid md:grid-cols-2 gap-6 items-start">
-        <article class="card elev">
-          <h2>Vad plattformen täcker</h2>
-          <ul class="fine mt-2">
-            <li>• Ärendeintag (kund/fordon, felbeskrivning, bilagor)</li>
-            <li>• Styrt verkstadsval & felsökningsflöde</li>
-            <li>• Beslutsmatris (reparation/omleverans/prisavdrag)</li>
-            <li>• Tidslinje & dokumentation (spårbarhet)</li>
-            <li>• Roller: handlare, egen verkstad, inköp m.fl.</li>
-          </ul>
-        </article>
-
-        <article class="card elev">
-          <h2>Ägande & drift</h2>
-          <ul class="fine mt-2">
-            <li>• Ni får kod och repo från start – ni äger lösningen</li>
-            <li>• Kan hostas där ni vill (eget konto/leverantör)</li>
-            <li>• Inga licenslås – uppgraderingar vid behov</li>
-            <li>• Förvaltnings-/vidareutvecklingsavtal är valfritt</li>
-          </ul>
-        </article>
-
-        <article class="card elev md:col-span-2">
-          <h2>Förebyggande stöd – pre-ARN</h2>
-          <p class="mt-2">Vi hjälper även i ärenden som kan bli ARN-ärenden: tidig analys, dokumentationsplan, kommunikationsstöd och rekommenderade åtgärder för att minska risken för tvist och kostnad.</p>
-        </article>
-      </div>
-    </div>
+  <main class="container stack">
+    <article class="card content">
+      <h2>Översikt</h2>
+      <p>Klistra in ditt befintliga innehåll här. Layouten håller texten inom den vita rutan och skalar på mobil.</p>
+    </article>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer" style="padding-top:24px; padding-bottom:24px;">
-    <div class="container wrap">
-      <div class="flex items-center gap-2">
-        <img src="/assets/customcolor_icon_customcolor_background.png" alt="EMK logotyp" style="height:32px;width:32px;border-radius:8px;" />
-        <div>
-          <div class="strong">EMK Sverige AB</div>
-          <div>Org.nr 559514-0111 · Trensum</div>
-        </div>
-      </div>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div>
-          <div class="strong">Kontakt</div>
-          <div><a href="mailto:info@emksab.se">info@emksab.se</a></div>
-          <div>0708-26 33 66</div>
-        </div>
-        <div>
-          <div class="strong">Sidor</div>
-          <a href="/tjanster.html">Tjänster</a>
-          <a href="/process.html">Process</a>
-          <a href="/om-oss.html">Om oss</a>
-          <a href="/plattform.html" aria-current="page">Plattform</a>
-        </div>
-        <div>
-          <div class="strong">Länkar</div>
-          <a href="/integritet.html">Integritet</a>
-          <a href="/cookies.html">Cookies</a>
-          <a href="/villkor.html">Allmänna villkor</a>
-        </div>
+  <footer>
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center">
+      <small>© EMK Sverige AB</small>
+      <div style="display:flex;gap:12px">
+        <a href="/integritet.html">Integritet</a>
+        <a href="/cookies.html">Cookies</a>
+        <a href="/villkor.html">Villkor</a>
+        <a href="/formular.html">Formulär</a>
       </div>
     </div>
   </footer>
 
-  <!-- Cookie banner -->
+  <!-- Cookie banner (samma som övriga sidor) -->
   <div id="cookieBanner" class="cookie-banner">
     <div class="container">
       <div class="card banner-card">
@@ -163,9 +96,33 @@
 
   <!-- Scripts -->
   <script>
-    (function(){const bar=document.getElementById('topbar');function s(){if(window.scrollY>6)bar.classList.add('is-scrolled');else bar.classList.remove('is-scrolled');}s();window.addEventListener('scroll',s,{passive:true});})();
-    (function(){const t=document.getElementById('navToggle');const oc=document.getElementById('mobileNav');if(!oc||!t)return;const scr=oc.querySelector('.scrim');const cls=oc.querySelectorAll('[data-close]');function o(){oc.hidden=false;oc.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}function c(){oc.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>{oc.hidden=true;},200);}t.addEventListener('click',o);scr&&scr.addEventListener('click',c);cls.forEach(el=>el.addEventListener('click',c));window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!oc.hidden)c();});})();
+    (function(){
+      const KEY='emk_cookie_consent';
+      const b=document.getElementById('cookieBanner');
+      const a=document.getElementById('cookieAccept');
+      const r=document.getElementById('cookieReject');
+      const hide=()=>b.style.display='none';
+      const set=v=>localStorage.setItem(KEY,v);
+      const get=()=>localStorage.getItem(KEY);
+      function load(){
+        const id='G-W07T4YVG4E';
+        if(!id) return;
+        const s=document.createElement('script');
+        s.src='https://www.googletagmanager.com/gtag/js?id='+id;
+        s.async=true; document.head.appendChild(s);
+        window.dataLayer=window.dataLayer||[];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag=gtag;
+        gtag('js', new Date());
+        gtag('config', id, { anonymize_ip:true });
+      }
+      const v=get();
+      if(v==='accepted'){ hide(); load(); }
+      else if(v==='rejected'){ hide(); }
+      else{ b.style.display='block'; }
+      a.addEventListener('click',()=>{ set('accepted'); hide(); load(); });
+      r.addEventListener('click',()=>{ set('rejected'); hide(); });
+    })();
   </script>
-  <script src="/assets/consent-ga.js" defer></script>
 </body>
 </html>
