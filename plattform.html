@@ -3,85 +3,254 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Plattform | EMK Sverige AB – Eftermarknadskonsulten</title>
-  <meta name="description" content="Vår plattform och arbetssätt – EMK Sverige AB." />
+  <title>Eftermarknadsplattform – ägd lösning | EMK Sverige AB</title>
+  <meta name="description" content="Kostnadseffektiv, webbaserad eftermarknadsplattform som täcker ärendeintag, felsökning, beslutsmatris, tidslinje och uppföljning. Ni äger koden från dag 1." />
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
-  <meta property="og:title" content="Plattform | EMK Sverige AB" />
-  <meta property="og:description" content="Vår plattform och arbetssätt – EMK Sverige AB." />
+  <meta property="og:title" content="Eftermarknadsplattform – ägd lösning | EMK Sverige AB" />
+  <meta property="og:description" content="Standardiserat men flexibelt arbetssätt – samma upplevelse i mobil och desktop. Ni äger koden från dag 1." />
   <meta property="og:url" content="https://www.eftermarknadskonsulten.se/plattform.html" />
   <meta property="og:image" content="/assets/customcolor_textlogo_customcolor_background.png" />
 
-  <!-- Säkerhetsmeta -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://forms.gle; upgrade-insecure-requests">
-  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
-
+  <!-- Tailwind + tema (som övriga sidor) -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/assets/emk-theme.css" />
+  <link rel="stylesheet" href="/assets/emk-theme.css?v=5" />
+
+  <!-- Små, säkra layoutfixar (inga färger) -->
   <style>
-    .container{max-width:1200px;margin:0 auto;padding:16px}
-    header.site{background:var(--header-bg,transparent)}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand img{height:40px;width:auto}
-    nav a{text-decoration:none;margin:0 8px;white-space:nowrap}
-    .hero{padding:32px 0}
-    .hero-title{margin:0;font-weight:700;line-height:1.15;font-size:clamp(22px,4.8vw,36px)}
-    .hero-sub{margin-top:8px;line-height:1.5;font-size:clamp(14px,3.6vw,18px)}
-    .card{background:#fff;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.06);padding:18px}
-    .content{overflow-wrap:anywhere;word-break:break-word}
-    .content img{max-width:100%;height:auto}
-    footer{padding:32px 0}
-    .stack{display:grid;gap:16px}
+    /* Mobil: dölj stor H1, visa chip som rubrik */
+    @media (max-width: 767px) {
+      .hero .hero-title { display: none !important; }
+      .hero .chip { display:block; text-align:left; font-size: clamp(1rem, 2.8vw + 0.6rem, 1.125rem); line-height:1.25; }
+    }
+    @media (min-width: 768px) {
+      .hero .chip { font-size: clamp(1rem, 0.6vw + 0.9rem, 1.125rem); font-weight: 600; }
+      .hero .hero-title { font-size: clamp(2.2rem, 2.2vw + 1.2rem, 3.2rem); margin-top: .25rem; }
+    }
+    .card, .card h2, .card h3, .card p, .card li { overflow-wrap:anywhere; word-break:break-word; hyphens:auto; }
+
+    /* Demo-karusell */
+    .demo-viewport { overflow:hidden; border-radius:14px; }
+    .demo-track { display:flex; transition: transform 320ms ease; will-change: transform; }
+    .demo-slide { min-width:100%; padding:18px; }
+    .demo-dot { width:10px; height:10px; border-radius:9999px; }
+    .demo-dot[aria-current="true"] { transform:scale(1.1); }
   </style>
 </head>
-<body>
-  <header class="site">
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:16px;">
-      <a class="brand" href="/index.html" aria-label="Hem">
-        <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK Sverige AB">
-        <strong>Eftermarknadskonsulten</strong>
-      </a>
-      <nav>
-        <a href="/index.html">Hem</a>
-        <a href="/tjanster.html">Tjänster</a>
-        <a href="/plattform.html" aria-current="page"><strong>Plattform</strong></a>
-        <a href="/case.html">Case</a>
-        <a href="/om-oss.html">Om&nbsp;oss</a>
-        <a href="/faq.html">FAQ</a>
-        <a href="/kontakt.html">Kontakt</a>
-      </nav>
+<body class="site">
+  <!-- Header -->
+  <header>
+    <div id="topbar" class="topbar">
+      <div class="container wrap" style="height:80px;">
+        <a href="/" class="logo inline-flex items-center" aria-label="Gå till startsidan">
+          <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK logotyp" class="h-[56px] w-auto object-contain" />
+        </a>
+        <nav class="nav hidden md:flex" aria-label="Huvudmeny">
+          <a href="/tjanster.html">Tjänster</a>
+          <a href="/#process">Process</a>
+          <a href="/#case">Case</a>
+          <a href="/om-oss.html">Om oss</a>
+          <a href="/#faq">FAQ</a>
+          <a href="/#kontakt">Kontakt</a>
+        </nav>
+        <div class="hidden md:block">
+          <a href="/formular.html" class="btn btn-primary">Kontakta oss</a>
+        </div>
+        <button id="navToggle" class="md:hidden hambox" aria-expanded="false" aria-controls="mobileNav" aria-label="Öppna meny">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobilmeny -->
+    <div id="mobileNav" class="offcanvas" hidden>
+      <div class="scrim" data-close="" aria-hidden="true"></div>
+      <div class="panel" role="dialog" aria-label="Mobilmeny">
+        <div class="flex items-center justify-between">
+          <strong>Menyn</strong>
+          <button class="hambox" data-close="" aria-label="Stäng meny">×</button>
+        </div>
+        <div class="mt-3 grid gap-1">
+          <a href="/tjanster.html" data-close="">Tjänster</a>
+          <a href="/#process" data-close="">Process</a>
+          <a href="/#case" data-close="">Case</a>
+          <a href="/om-oss.html" data-close="">Om oss</a>
+          <a href="/#faq" data-close="">FAQ</a>
+          <a href="/#kontakt" data-close="">Kontakt</a>
+          <a href="/formular.html" class="btn btn-primary mt-2" data-close="">Kontakta oss</a>
+        </div>
+      </div>
     </div>
   </header>
 
-  <section class="hero">
+  <!-- Hero -->
+  <section class="hero section hero-bg">
     <div class="container">
-      <h1 class="hero-title">Plattform</h1>
-      <p class="hero-sub">Standardiserat men flexibelt arbetssätt — samma upplevelse i mobil och desktop.</p>
+      <span class="chip">Plattform</span>
+      <h1 class="hero-title mt-6">Eftermarknadsplattform – ägd lösning</h1>
+      <p class="lead mt-3">Vi bygger en kostnadseffektiv, webbaserad plattform som stödjer er eftermarknadsprocess från ärendeintag till beslut och uppföljning. Ni äger koden från dag 1 (repo + rättigheter), utan inlåsning.</p>
+      <div class="mt-4 flex gap-3 flex-wrap">
+        <a href="#demo" class="btn btn-primary">Se demo</a>
+        <a href="/tjanster.html" class="btn btn-outline">Tillbaka till tjänster</a>
+      </div>
     </div>
   </section>
 
-  <main class="container stack">
-    <article class="card content">
-      <h2>Översikt</h2>
-      <p>Klistra in ditt befintliga innehåll här. Layouten håller texten inom den vita rutan och skalar på mobil.</p>
-    </article>
-  </main>
+  <!-- DEMO -->
+  <section id="demo" class="section">
+    <div class="container">
+      <div class="soft-glow" aria-hidden="true" style="inset:-6px; border-radius:16px;"></div>
+      <div class="card elev">
+        <div class="flex items-center justify-between gap-4 flex-wrap">
+          <h2 class="m-0">Interaktiv demo (prototyp)</h2>
+          <div class="flex items-center gap-2">
+            <button type="button" class="btn btn-outline" id="demoPrev" aria-label="Föregående steg">◀</button>
+            <button type="button" class="btn btn-outline" id="demoNext" aria-label="Nästa steg">▶</button>
+          </div>
+        </div>
 
+        <div class="demo-viewport mt-3">
+          <div class="demo-track" id="demoTrack" style="transform:translateX(0%)">
+            <!-- Slide 1 -->
+            <section class="demo-slide">
+              <h3>1) Ärendeintag</h3>
+              <p class="muted">Kund- och fordonsdata, felbeskrivning, bilagor. Obligatoriska fält säkerställer komplett underlag.</p>
+              <div class="grid md:grid-cols-2 gap-4 mt-3">
+                <div class="card">
+                  <h4>Formulär (exempel)</h4>
+                  <label class="fine block mt-2">Reg.nr</label>
+                  <input class="input" placeholder="ABC123" />
+                  <label class="fine block mt-2">Kund</label>
+                  <input class="input" placeholder="Namn" />
+                  <label class="fine block mt-2">Felbeskrivning</label>
+                  <textarea class="input" rows="3" placeholder="Kort beskrivning"></textarea>
+                  <div class="mt-3"><button class="btn btn-primary">Spara utkast</button></div>
+                </div>
+                <div class="card">
+                  <h4>Bilagor & status</h4>
+                  <ul class="fine bullets mt-2">
+                    <li>• Foto laddat upp (3)</li>
+                    <li>• Kvitto mottaget</li>
+                    <li>• Garanti kollad</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <!-- Slide 2 -->
+            <section class="demo-slide">
+              <h3>2) Felsökning & verkstad</h3>
+              <p class="muted">Styrt verkstadsval och enkel tidbokning. Åtgärder loggas.</p>
+              <div class="grid md:grid-cols-2 gap-4 mt-3">
+                <div class="card">
+                  <h4>Rekommenderad verkstad</h4>
+                  <p>EMK Verkstad Syd · SLA: 48h</p>
+                  <button class="btn btn-outline">Boka tid</button>
+                </div>
+                <div class="card">
+                  <h4>Åtgärder</h4>
+                  <ul class="fine bullets mt-2">
+                    <li>• Felsökning nivå 1</li>
+                    <li>• Provkörning 10 km</li>
+                    <li>• Diagnosprotokoll</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <!-- Slide 3 -->
+            <section class="demo-slide">
+              <h3>3) Beslutsmatris</h3>
+              <p class="muted">Guidat beslut enligt KKL §§25–28 och praxis: reparation, omleverans eller prisavdrag.</p>
+              <div class="grid md:grid-cols-3 gap-4 mt-3">
+                <div class="card"><h4>Reparation</h4><p>1–2 verkstadsförsök · kostnad X</p></div>
+                <div class="card"><h4>Omleverans</h4><p>Om felet ej kan avhjälpas</p></div>
+                <div class="card"><h4>Prisavdrag</h4><p>Proportionerligt mot felet</p></div>
+              </div>
+            </section>
+
+            <!-- Slide 4 -->
+            <section class="demo-slide">
+              <h3>4) Tidslinje & spårbarhet</h3>
+              <p class="muted">All kommunikation och dokumentation i en spårbar tidslinje.</p>
+              <div class="card mt-3">
+                <ul class="fine">
+                  <li>• 08:41 Kund anmäler fel</li>
+                  <li>• 10:12 Underlag komplett</li>
+                  <li>• 12:05 Verkstad bokad</li>
+                  <li>• 16:30 Felsökning klar</li>
+                </ul>
+              </div>
+            </section>
+
+            <!-- Slide 5 -->
+            <section class="demo-slide">
+              <h3>5) Rapporter & uppföljning</h3>
+              <p class="muted">Översikt över kostnader, ledtider och utfall – för ständiga förbättringar.</p>
+              <div class="grid md:grid-cols-2 gap-4 mt-3">
+                <div class="card"><h4>Ledtider</h4><p>Median 3,2 dagar</p></div>
+                <div class="card"><h4>Kostnad/ärende</h4><p>Trend −18% sista kvartalet</p></div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <!-- Dots -->
+        <div class="flex items-center justify-center gap-2 mt-4" id="demoDots" aria-label="Stegindikator"></div>
+
+        <div class="mt-4">
+          <a href="/formular.html" class="btn btn-primary">Begär demo + genomgång</a>
+          <a href="/tjanster.html" class="btn btn-outline ml-2">Tillbaka till tjänster</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Innehållskort (din text, oförändrad) -->
+  <section class="section">
+    <div class="container">
+      <div class="grid md:grid-cols-2 gap-6 items-start">
+        <div class="card elev">
+          <h3>Vad plattformen täcker</h3>
+          <ul class="fine bullets mt-2">
+            <li>• Ärendeintag (kund/fordon, felbeskrivning, bilagor)</li>
+            <li>• Styrt verkstadsval & felsökningsflöde</li>
+            <li>• Beslutsmatris (reparation/omleverans/prisavdrag)</li>
+            <li>• Tidslinje & dokumentation (spårbarhet)</li>
+            <li>• Roller: handlare, egen verkstad, inköp m.fl.</li>
+          </ul>
+        </div>
+        <div class="card elev">
+          <h3>Ägande & drift</h3>
+          <ul class="fine bullets mt-2">
+            <li>• Ni får kod och repo från start – ni äger lösningen</li>
+            <li>• Kan hostas där ni vill (eget konto/leverantör)</li>
+            <li>• Inga licenslås – uppgraderingar vid behov</li>
+            <li>• Förvaltnings-/vidareutvecklingsavtal är valfritt</li>
+          </ul>
+        </div>
+        <div class="card elev md:col-span-2">
+          <h3>Förebyggande stöd – pre-ARN</h3>
+          <p class="mt-2">Vi hjälper även i ärenden som kan bli ARN-ärenden: tidig analys, dokumentationsplan, kommunikationsstöd och rekommenderade åtgärder för att minska risken för tvist och kostnad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center">
-      <small>© EMK Sverige AB</small>
-      <div style="display:flex;gap:12px">
+    <div class="container wrap footer">
+      <div class="footer-left">© EMK Sverige AB</div>
+      <nav class="footer-right">
         <a href="/integritet.html">Integritet</a>
         <a href="/cookies.html">Cookies</a>
         <a href="/villkor.html">Villkor</a>
         <a href="/formular.html">Formulär</a>
-      </div>
+      </nav>
     </div>
   </footer>
 
-  <!-- Cookie banner (samma som övriga sidor) -->
+  <!-- Cookie banner -->
   <div id="cookieBanner" class="cookie-banner">
     <div class="container">
       <div class="card banner-card">
@@ -96,6 +265,13 @@
 
   <!-- Scripts -->
   <script>
+    /* Topbar scroll skugga */
+    (function(){const bar=document.getElementById('topbar');function s(){if(window.scrollY>6)bar.classList.add('is-scrolled');else bar.classList.remove('is-scrolled');}s();window.addEventListener('scroll',s,{passive:true});})();
+
+    /* Offcanvas-meny */
+    (function(){const t=document.getElementById('navToggle');const oc=document.getElementById('mobileNav');if(!oc||!t)return;const scr=oc.querySelector('.scrim');const cls=oc.querySelectorAll('[data-close]');function o(){oc.hidden=false;oc.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}function c(){oc.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>{oc.hidden=true;},200);}t.addEventListener('click',o);scr&&scr.addEventListener('click',c);cls.forEach(el=>el.addEventListener('click',c));window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!oc.hidden)c();});})();
+
+    /* GA4 med samtycke (din riktiga ID används) */
     (function(){
       const KEY='emk_cookie_consent';
       const b=document.getElementById('cookieBanner');
@@ -122,6 +298,44 @@
       else{ b.style.display='block'; }
       a.addEventListener('click',()=>{ set('accepted'); hide(); load(); });
       r.addEventListener('click',()=>{ set('rejected'); hide(); });
+    })();
+
+    /* Demo-karusell (ingen extern lib) */
+    (function(){
+      const track = document.getElementById('demoTrack');
+      const prev = document.getElementById('demoPrev');
+      const next = document.getElementById('demoNext');
+      const dotsWrap = document.getElementById('demoDots');
+      const slides = track.children;
+      let i = 0;
+
+      function renderDots(){
+        dotsWrap.innerHTML = '';
+        for(let n=0;n<slides.length;n++){
+          const b=document.createElement('button');
+          b.type='button';
+          b.className='demo-dot btn-plain';
+          b.setAttribute('aria-label','Gå till steg '+(n+1));
+          b.style.background = 'var(--muted-border)';
+          if(n===i){ b.setAttribute('aria-current','true'); b.style.background='var(--primary)'; }
+          b.addEventListener('click',()=>{ i=n; update(); });
+          dotsWrap.appendChild(b);
+        }
+      }
+      function update(){
+        track.style.transform = 'translateX(' + (-100*i) + '%)';
+        renderDots();
+        prev.disabled = (i===0);
+        next.disabled = (i===slides.length-1);
+      }
+      prev.addEventListener('click',()=>{ if(i>0){ i--; update(); }});
+      next.addEventListener('click',()=>{ if(i<slides.length-1){ i++; update(); }});
+      update();
+
+      // Hoppa till demo om hash redan finns
+      if(location.hash === '#demo'){
+        document.getElementById('demo').scrollIntoView({behavior:'smooth', block:'start'});
+      }
     })();
   </script>
 </body>
