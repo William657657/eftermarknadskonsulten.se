@@ -5,17 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tjänster | EMK Sverige AB – Eftermarknadskonsulten</title>
   <meta name="description" content="Strukturerat stöd i ARN-ärenden och eftermarknadsprocesser för bilhandlare. Akut ARN-respons, yttranden, full ärendeledning och förebyggande arbete." />
-  <link rel="canonical" href="https://www.eftermarknadskonsulten.se/tjanster.html" />
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
   <meta property="og:title" content="Tjänster | EMK Sverige AB – Eftermarknadskonsulten" />
   <meta property="og:description" content="Snabb, affärsnära hjälp i ARN och eftermarknad – med processer ni kan äga själva." />
   <meta property="og:url" content="https://www.eftermarknadskonsulten.se/tjanster.html" />
   <meta property="og:image" content="/assets/customcolor_textlogo_customcolor_background.png" />
-  <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; img-src 'self' data: https://www.google-analytics.com; font-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline'">
+
+  <!-- Säkerhetsmeta -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://forms.gle; upgrade-insecure-requests">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/assets/emk-theme.css?v=1" />
+
   <style>
     @media (max-width: 767px) {
       .hero .hero-title { display: none !important; }
@@ -48,7 +53,6 @@
           <a href="/#process">Process</a>
           <a href="/#case">Case</a>
           <a href="/om-oss.html">Om oss</a>
-          <!-- Policy -> FAQ (enda ändringen) -->
           <a href="/#faq">FAQ</a>
           <a href="/#kontakt">Kontakt</a>
         </nav>
@@ -74,7 +78,6 @@
           <a href="/#process" data-close="">Process</a>
           <a href="/#case" data-close="">Case</a>
           <a href="/om-oss.html" data-close="">Om oss</a>
-          <!-- Policy -> FAQ (enda ändringen) -->
           <a href="/#faq" data-close="">FAQ</a>
           <a href="/#kontakt" data-close="">Kontakt</a>
           <a href="/formular.html" class="btn btn-primary mt-2" data-close="">Kontakta oss</a>
@@ -143,7 +146,6 @@
         </div>
       </div>
 
-      <!-- Info-kort -->
       <div class="relative mt-6">
         <div class="soft-glow" aria-hidden="true" style="inset:-6px; border-radius:16px;"></div>
         <div class="card elev">
@@ -279,7 +281,7 @@
     </div>
   </footer>
 
-  <!-- Cookie banner -->
+  <!-- Cookie banner + GA -->
   <div id="cookieBanner" class="cookie-banner">
     <div class="container">
       <div class="card banner-card">
@@ -292,11 +294,36 @@
     </div>
   </div>
 
-  <!-- Scripts -->
   <script>
     (function(){const bar=document.getElementById('topbar');function s(){if(window.scrollY>6)bar.classList.add('is-scrolled');else bar.classList.remove('is-scrolled');}s();window.addEventListener('scroll',s,{passive:true});})();
     (function(){const t=document.getElementById('navToggle');const oc=document.getElementById('mobileNav');if(!oc||!t)return;const scr=oc.querySelector('.scrim');const cls=oc.querySelectorAll('[data-close]');function o(){oc.hidden=false;oc.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}function c(){oc.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>{oc.hidden=true;},200);}t.addEventListener('click',o);scr&&scr.addEventListener('click',c);cls.forEach(el=>el.addEventListener('click',c));window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!oc.hidden)c();});})();
+    (function(){
+      const KEY='emk_cookie_consent';
+      const b=document.getElementById('cookieBanner');
+      const a=document.getElementById('cookieAccept');
+      const r=document.getElementById('cookieReject');
+      const hide=()=>b.style.display='none';
+      const set=v=>localStorage.setItem(KEY,v);
+      const get=()=>localStorage.getItem(KEY);
+      function load(){
+        const id='G-W07T4YVG4E';
+        if(!id) return;
+        const s=document.createElement('script');
+        s.src='https://www.googletagmanager.com/gtag/js?id='+id;
+        s.async=true; document.head.appendChild(s);
+        window.dataLayer=window.dataLayer||[];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag=gtag;
+        gtag('js', new Date());
+        gtag('config', id, { anonymize_ip:true });
+      }
+      const v=get();
+      if(v==='accepted'){ hide(); load(); }
+      else if(v==='rejected'){ hide(); }
+      else{ b.style.display='block'; }
+      a.addEventListener('click',()=>{ set('accepted'); hide(); load(); });
+      r.addEventListener('click',()=>{ set('rejected'); hide(); });
+    })();
   </script>
-  <script src="/assets/consent-ga.js" defer></script>
 </body>
 </html>
