@@ -1,45 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Start -->
   <url>
     <loc>https://www.eftermarknadskonsulten.se/</loc>
-    <lastmod>2025-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <lastmod>2025-09-23</lastmod>
+    <image:image>
+      <image:loc>https://www.eftermarknadskonsulten.se/assets/customcolor_logo_customcolor_background.png</image:loc>
+      <image:title>EMK Sverige AB – Eftermarknadskonsulten</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.eftermarknadskonsulten.se/favicon.ico</image:loc>
+      <image:title>Eftermarknadskonsulten – favicon</image:title>
+    </image:image>
   </url>
+
+  <!-- Huvudsidor -->
   <url>
     <loc>https://www.eftermarknadskonsulten.se/tjanster.html</loc>
-    <lastmod>2025-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
+    <lastmod>2025-09-23</lastmod>
+  </url>
+  <url>
+    <loc>https://www.eftermarknadskonsulten.se/plattform.html</loc>
+    <lastmod>2025-09-23</lastmod>
   </url>
   <url>
     <loc>https://www.eftermarknadskonsulten.se/case.html</loc>
-    <lastmod>2025-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
+    <lastmod>2025-09-23</lastmod>
   </url>
   <url>
     <loc>https://www.eftermarknadskonsulten.se/om-oss.html</loc>
-    <lastmod>2025-09-21</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.60</priority>
+    <lastmod>2025-09-23</lastmod>
   </url>
   <url>
     <loc>https://www.eftermarknadskonsulten.se/kontakt.html</loc>
-    <lastmod>2025-09-21</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.60</priority>
+    <lastmod>2025-09-23</lastmod>
   </url>
   <url>
     <loc>https://www.eftermarknadskonsulten.se/integritet.html</loc>
-    <lastmod>2025-09-21</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.50</priority>
+    <lastmod>2025-09-23</lastmod>
   </url>
   <url>
     <loc>https://www.eftermarknadskonsulten.se/policy.html</loc>
-    <lastmod>2025-09-21</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.50</priority>
+    <lastmod>2025-09-23</lastmod>
   </url>
+
 </urlset>
