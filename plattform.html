@@ -14,7 +14,7 @@
 
   <!-- Tailwind för layout/typografi -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Rätt tema-sökväg -->
+  <!-- Rätt tema-sökväg (fixar tidigare färg-avvikelse) -->
   <link rel="stylesheet" href="/assets/emk-theme.css?v=6" />
 
   <style>
@@ -32,16 +32,6 @@
     .card, .card h2, .card h3, .card h4, .card p, .card li { overflow-wrap:anywhere; word-break:break-word; hyphens:auto; }
     .card.step .flex { align-items:flex-start; } .card.step h4 { margin:0; }
 
-    /* --- Fixar från idag: se till att dekorlager inte blockerar klick --- */
-    .soft-glow { pointer-events: none !important; z-index: 0 !important; }
-    .card, .elev, .step { position: relative; z-index: 1; }
-
-    /* Offcanvas ska inte fånga klick när den är stängd */
-    .offcanvas { pointer-events: none; }
-    .offcanvas.open { pointer-events: auto; }
-    .offcanvas .scrim { pointer-events: auto; }
-    .offcanvas:not(.open) .scrim { display: none; }
-
     /* DEMO overlay */
     .demo-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: none; }
     .demo-overlay.open { display: block; }
@@ -53,6 +43,8 @@
     .progress > span { display:block; height:100%; background: var(--brand, #0ea5e9); width:0%; transition: width .25s ease; }
     .demo-slide { display:none; }
     .demo-slide.active { display:block; }
+    .summary-table td { padding:6px 8px; border-bottom:1px solid #eef2f7; vertical-align:top; }
+    .summary-table td:first-child { color:#64748b; white-space:nowrap; width:40%; }
   </style>
 </head>
 <body class="site">
@@ -178,10 +170,10 @@
               </div>
               <div class="card elev">
                 <div class="grid gap-2">
-                  <input class="input" placeholder="Regnr / VIN" />
-                  <input class="input" placeholder="Kundnamn" />
-                  <textarea class="input" rows="4" placeholder="Kort felbeskrivning"></textarea>
-                  <button class="btn btn-primary w-full">Spara ärende</button>
+                  <input id="fReg" class="input" placeholder="Regnr / VIN" />
+                  <input id="fKund" class="input" placeholder="Kundnamn" />
+                  <textarea id="fFel" class="input" rows="4" placeholder="Kort felbeskrivning"></textarea>
+                  <button id="btnSaveCase" class="btn btn-primary w-full">Spara ärende</button>
                 </div>
               </div>
             </div>
@@ -201,10 +193,14 @@
               </div>
               <div class="card elev">
                 <div class="grid gap-2">
-                  <select class="input"><option>Välj verkstad…</option><option>EMK Verkstad Syd</option><option>Partnerverkstad Norr</option></select>
-                  <label class="fine"><input type="checkbox" class="mr-2" />Felsökningsprotokoll bifogat</label>
-                  <label class="fine"><input type="checkbox" class="mr-2" />Kund informerad om nästa steg</label>
-                  <button class="btn btn-primary w-full">Skicka uppdrag</button>
+                  <select id="fVerkstad" class="input">
+                    <option value="">Välj verkstad…</option>
+                    <option>EMK Verkstad Syd</option>
+                    <option>Partnerverkstad Norr</option>
+                  </select>
+                  <label class="fine"><input id="fProt" type="checkbox" class="mr-2" />Felsökningsprotokoll bifogat</label>
+                  <label class="fine"><input id="fKundInf" type="checkbox" class="mr-2" />Kund informerad om nästa steg</label>
+                  <button id="btnSendJob" class="btn btn-primary w-full">Skicka uppdrag</button>
                 </div>
               </div>
             </div>
@@ -224,9 +220,14 @@
               </div>
               <div class="card elev">
                 <div class="grid gap-2">
-                  <select class="input"><option>Föreslaget beslut…</option><option>Reparation</option><option>Omleverans</option><option>Prisavdrag</option></select>
-                  <textarea class="input" rows="3" placeholder="Motivering (praxis/KKL)"></textarea>
-                  <button class="btn btn-primary w-full">Föreslå beslut</button>
+                  <select id="fBeslut" class="input">
+                    <option value="">Föreslaget beslut…</option>
+                    <option>Reparation</option>
+                    <option>Omleverans</option>
+                    <option>Prisavdrag</option>
+                  </select>
+                  <textarea id="fMotiv" class="input" rows="3" placeholder="Motivering (praxis/KKL)"></textarea>
+                  <button id="btnSuggest" class="btn btn-primary w-full">Föreslå beslut</button>
                 </div>
               </div>
             </div>
@@ -245,7 +246,7 @@
                 </ul>
               </div>
               <div class="card elev">
-                <ul class="fine">
+                <ul id="timelineList" class="fine">
                   <li>• 10:12 Kund felanmäler (webb)</li>
                   <li>• 10:45 Underlag granskade (EMK)</li>
                   <li>• 11:05 Uppdrag till verkstad</li>
@@ -269,10 +270,10 @@
               </div>
               <div class="card elev">
                 <div class="grid grid-cols-2 gap-3">
-                  <div class="chip">Ledtid: 2.4 d</div>
-                  <div class="chip">Riskärenden: 3</div>
-                  <div class="chip">Kostnad/ärende: 1 950 kr</div>
-                  <div class="chip">Förlikningar: 12%</div>
+                  <div class="chip" id="kpiLedtid">Ledtid: 2.4 d</div>
+                  <div class="chip" id="kpiRisk">Riskärenden: 3</div>
+                  <div class="chip" id="kpiKost">Kostnad/ärende: 1 950 kr</div>
+                  <div class="chip" id="kpiForl">Förlikningar: 12%</div>
                 </div>
               </div>
             </div>
@@ -298,10 +299,41 @@
               </div>
             </div>
           </section>
+
+          <!-- Slide 7: Sammanställning -->
+          <section class="demo-slide" data-step="7">
+            <div class="grid md:grid-cols-2 gap-6 items-start">
+              <div>
+                <h2>7. Sammanställning</h2>
+                <p class="muted mt-2">Så här ser ett komplett ärendeutdrag ut baserat på dina uppgifter.</p>
+                <table class="summary-table mt-3 text-sm">
+                  <tr><td>Ärendenr</td><td id="sumNr">TEMP-2025-001</td></tr>
+                  <tr><td>Regnr / VIN</td><td id="sumReg">—</td></tr>
+                  <tr><td>Kund</td><td id="sumKund">—</td></tr>
+                  <tr><td>Felbeskrivning</td><td id="sumFel">—</td></tr>
+                  <tr><td>Verkstad</td><td id="sumVerkstad">—</td></tr>
+                  <tr><td>Felsökningsprotokoll</td><td id="sumProt">—</td></tr>
+                  <tr><td>Kund informerad</td><td id="sumKinfo">—</td></tr>
+                  <tr><td>Föreslaget beslut</td><td id="sumBeslut">—</td></tr>
+                  <tr><td>Motivering</td><td id="sumMotiv">—</td></tr>
+                </table>
+              </div>
+              <div class="card elev">
+                <h4 class="strong">Förhandsvisning (yttrande/underlag)</h4>
+                <p class="fine mt-2" id="sumPreview">
+                  <i>Fyll i uppgifterna i steg 1–3 så genereras en kort sammanfattning här.</i>
+                </p>
+                <div class="mt-3 flex gap-2 flex-wrap">
+                  <button id="btnPrint" class="btn btn-outline">Skriv ut</button>
+                  <button id="btnReset" class="btn btn-ghost">Rensa uppgifter</button>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
 
         <div class="flex items-center justify-between p-4 md:p-6 border-t border-slate-100">
-          <div class="fine"><span id="stepNow">1</span>/6</div>
+          <div class="fine"><span id="stepNow">1</span>/7</div>
           <div class="flex gap-2">
             <button class="btn btn-outline" id="prevStep">Tillbaka</button>
             <button class="btn btn-primary" id="nextStep">Nästa</button>
@@ -345,7 +377,7 @@
     </div>
   </footer>
 
-  <!-- Cookie banner + GA (samma upplägg som övriga sidor) -->
+  <!-- Cookie banner + GA4 -->
   <div id="cookieBanner" class="cookie-banner">
     <div class="container">
       <div class="card banner-card">
@@ -366,14 +398,14 @@
     // Mobilmeny
     (function(){const t=document.getElementById('navToggle');const oc=document.getElementById('mobileNav');if(!oc||!t)return;const scr=oc.querySelector('.scrim');const cls=oc.querySelectorAll('[data-close]');function o(){oc.hidden=false;oc.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}function c(){oc.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>{oc.hidden=true;},200);}t.addEventListener('click',o);scr&&scr.addEventListener('click',c);cls.forEach(el=>el.addEventListener('click',c));window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!oc.hidden)c();});})();
 
-    // Cookie + GA4 (efter samtycke)
+    // Cookie + GA4 (med ditt ID)
     (function(){const KEY='emk_cookie_consent';const b=document.getElementById('cookieBanner');const a=document.getElementById('cookieAccept');const r=document.getElementById('cookieReject');const hide=()=>b.style.display='none';const set=v=>localStorage.setItem(KEY,v);const get=()=>localStorage.getItem(KEY);
       function load(){const id='G-W07T4YVG4E';if(!id)return;const s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id='+id;s.async=true;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config',id,{anonymize_ip:true});}
       const v=get();if(v==='accepted'){hide();load();}else if(v==='rejected'){hide();}else{b.style.display='block';}
       a.addEventListener('click',()=>{set('accepted');hide();load();});r.addEventListener('click',()=>{set('rejected');hide();});
     })();
 
-    // DEMO overlay / stegen
+    // DEMO overlay / stegen + datainsamling
     (function(){
       const overlay=document.getElementById('demoOverlay');
       const slides=[...document.querySelectorAll('.demo-slide')];
@@ -385,12 +417,74 @@
       const stepNow=document.getElementById('stepNow');
       let i=0;
 
+      // Enkel demo-state
+      const S={ nr:'TEMP-2025-001', reg:'', kund:'', fel:'', verkstad:'', prot:false, kinfo:false, beslut:'', motiv:'' };
+
+      // Inputs
+      const fReg=document.getElementById('fReg');
+      const fKund=document.getElementById('fKund');
+      const fFel=document.getElementById('fFel');
+      const fVerkstad=document.getElementById('fVerkstad');
+      const fProt=document.getElementById('fProt');
+      const fKundInf=document.getElementById('fKundInf');
+      const fBeslut=document.getElementById('fBeslut');
+      const fMotiv=document.getElementById('fMotiv');
+
+      // Händelselogg
+      const timeline=document.getElementById('timelineList');
+
+      // Knapphändelser (steg 1–3)
+      document.getElementById('btnSaveCase')?.addEventListener('click',()=>{
+        S.reg=fReg.value; S.kund=fKund.value; S.fel=fFel.value;
+        if(timeline){ const li=document.createElement('li'); li.textContent='• '+new Date().toLocaleTimeString().slice(0,5)+' Ärende sparat'; li.className='fine'; timeline.prepend(li); }
+      });
+      document.getElementById('btnSendJob')?.addEventListener('click',()=>{
+        S.verkstad=fVerkstad.value; S.prot=!!fProt.checked; S.kinfo=!!fKundInf.checked;
+        if(timeline){ const li=document.createElement('li'); li.textContent='• '+new Date().toLocaleTimeString().slice(0,5)+' Uppdrag skickat till '+(S.verkstad||'—'); li.className='fine'; timeline.prepend(li); }
+      });
+      document.getElementById('btnSuggest')?.addEventListener('click',()=>{
+        S.beslut=fBeslut.value; S.motiv=fMotiv.value;
+        if(timeline){ const li=document.createElement('li'); li.textContent='• '+new Date().toLocaleTimeString().slice(0,5)+' Beslutsförslag: '+(S.beslut||'—'); li.className='fine'; timeline.prepend(li); }
+      });
+
+      function updateBadges(){
+        // (placeholder-uppdateringar – lämnar grundvärdena om inget ifyllt)
+        const led=document.getElementById('kpiLedtid');
+        const risk=document.getElementById('kpiRisk');
+        const kost=document.getElementById('kpiKost');
+        const forl=document.getElementById('kpiForl');
+        if(led && S.verkstad) led.textContent='Ledtid: 2.1 d';
+        if(risk && S.prot) risk.textContent='Riskärenden: 2';
+        if(kost && S.beslut==='Reparation') kost.textContent='Kostnad/ärende: 1 650 kr';
+        if(forl && S.beslut==='Prisavdrag') forl.textContent='Förlikningar: 15%';
+      }
+
+      function renderSummary(){
+        const set=(id,val)=>{ const el=document.getElementById(id); if(el) el.textContent = (val && String(val).trim()) ? val : '—'; };
+        set('sumNr', S.nr); set('sumReg', S.reg); set('sumKund', S.kund); set('sumFel', S.fel);
+        set('sumVerkstad', S.verkstad); set('sumProt', S.prot ? 'Ja' : 'Nej'); set('sumKinfo', S.kinfo ? 'Ja' : 'Nej');
+        set('sumBeslut', S.beslut); set('sumMotiv', S.motiv);
+        const preview=document.getElementById('sumPreview');
+        if(preview){
+          preview.innerHTML =
+            `<b>Sammanfattning</b><br/>
+             Regnr/VIN: ${S.reg || '—'}<br/>
+             Kund: ${S.kund || '—'}<br/>
+             Fel: ${S.fel || '—'}<br/>
+             Verkstad: ${S.verkstad || '—'} (${S.prot?'protokoll bifogat':'protokoll saknas'}, ${S.kinfo?'kund informerad':'kund ej informerad'})<br/>
+             Föreslaget beslut: <b>${S.beslut || '—'}</b><br/>
+             Motivering: ${S.motiv || '—'}`;
+        }
+      }
+
+      // Demo-navigation
       function show(n){
         i=Math.max(0,Math.min(slides.length-1,n));
         slides.forEach((s,idx)=>s.classList.toggle('active',idx===i));
         const p=Math.round(((i+1)/slides.length)*100);
         prog.style.width=p+'%';
         stepNow.textContent=(i+1);
+        if(i===slides.length-1){ updateBadges(); renderSummary(); }
         if(window.gtag) gtag('event','demo_step',{step:i+1});
       }
       function open(){
@@ -414,8 +508,19 @@
           if(e.key==='ArrowRight') show(i+1);
         }
       });
-      // Direktlänk: #demo
+
+      // Direkthash: #demo öppnar overlay
       if(location.hash==='#demo') open();
+
+      // Sammanställning: knappar
+      document.getElementById('btnPrint')?.addEventListener('click', ()=>window.print());
+      document.getElementById('btnReset')?.addEventListener('click', ()=>{
+        Object.assign(S,{reg:'',kund:'',fel:'',verkstad:'',prot:false,kinfo:false,beslut:'',motiv:''});
+        [fReg,fKund,fFel,fVerkstad,fBeslut,fMotiv].forEach(el=>{ if(el) el.value=''; });
+        [fProt,fKundInf].forEach(ch=>{ if(ch) ch.checked=false; });
+        if(timeline) timeline.innerHTML = '<li>• 10:12 Kund felanmäler (webb)</li>';
+        updateBadges(); renderSummary();
+      });
     })();
   </script>
 </body>
