@@ -332,3 +332,86 @@ header {
 
 /* När man hoppar till #demo ska den inte hamna under headern */
 #demo { scroll-margin-top: 88px; }
+/* ===== Kontaktformulär: tydligare fält ===== */
+.kontakt form { 
+  display: grid; 
+  gap: 12px; 
+}
+
+/* Stöd om .kontakt saknas: fallback selektorer */
+section[id*="kontakt"] form { display: grid; gap: 12px; }
+
+/* Gör input/textarea tydliga med separata "celler" */
+.kontakt input[type="text"],
+.kontakt input[type="email"],
+.kontakt input[type="tel"],
+.kontakt input[type="search"],
+.kontakt input[type="url"],
+.kontakt textarea,
+section[id*="kontakt"] input[type="text"],
+section[id*="kontakt"] input[type="email"],
+section[id*="kontakt"] input[type="tel"],
+section[id*="kontakt"] input[type="search"],
+section[id*="kontakt"] input[type="url"],
+section[id*="kontakt"] textarea {
+  background: #fff;                    /* tydlig kontrast i cellen */
+  border: 1px solid #E5E7EB;           /* diskret grå ram */
+  border-radius: 8px;
+  padding: 10px 12px;
+  line-height: 1.4;
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.02);
+  width: 100%;
+}
+
+/* Fokusmarkering (använder en neutral guld-ton för synlighet) */
+.kontakt input:focus,
+.kontakt textarea:focus,
+section[id*="kontakt"] input:focus,
+section[id*="kontakt"] textarea:focus {
+  outline: 2px solid rgba(212,175,55,0.9); /* fokusring */
+  outline-offset: 0;
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.20);
+}
+
+/* Etiketter och hjälptexter separeras från fälten */
+.kontakt label,
+section[id*="kontakt"] label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.kontakt .fine,
+section[id*="kontakt"] .fine {
+  margin-top: 2px;
+  color: #6B7280;       /* diskret grå för “hjälptext” */
+  font-size: 0.95rem;
+}
+
+/* Extra luft mellan “fältgrupper” */
+.kontakt .field,
+section[id*="kontakt"] .field {
+  display: grid;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+/* Knapp-rad */
+.kontakt .actions,
+section[id*="kontakt"] .actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+/* Gör textarean lagom hög från start */
+.kontakt textarea,
+section[id*="kontakt"] textarea { min-height: 140px; }
+
+/* Hindra att text “flyter ut” i cellkanten på små skärmar */
+.kontakt .card, 
+section[id*="kontakt"] .card {
+  overflow: hidden;
+}
