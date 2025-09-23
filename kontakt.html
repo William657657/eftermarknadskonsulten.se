@@ -6,14 +6,14 @@
   <title>Kontakt | EMK Sverige AB – Eftermarknadskonsulten</title>
   <meta name="description" content="Kontakta EMK Sverige AB – Eftermarknadskonsulten. Formulär som öppnar din e-postklient eller direktkontakt via e-post och telefon.">
   <link rel="icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/assets/emk-theme.css?v=5">
+  <link rel="stylesheet" href="/assets/emk-theme.css?v=6">
 </head>
 <body>
   <!-- HEADER -->
   <header class="topbar" role="banner">
     <div class="container wrap">
       <a class="logo" href="/index.html">
-        <img src="/favicon.ico" alt="EMK Sverige AB">
+        <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK Sverige AB – Eftermarknadskonsulten" height="44" width="44">
         <span>EMK Sverige AB</span>
       </a>
       <nav class="nav" aria-label="Huvudmeny">
@@ -29,22 +29,15 @@
   </header>
 
   <!-- MAIN -->
-  <main class="container">
-    <section class="kontakt">
+  <main class="container section">
+    <section class="kontakt" id="kontakt">
       <h1>Kontakt</h1>
 
       <!-- FORM CARD -->
       <div class="card">
         <div class="card-body">
-          <p class="fine">
-            <strong>Formulär</strong><br>
-            Formuläret öppnar din e-postklient. Ingen data lagras på vår server.
-          </p>
+          <p class="fine"><strong>Formulär</strong><br>Formuläret öppnar din e-postklient. Ingen data lagras på vår server.</p>
 
-          <!--
-            Enkelt mailto-formulär. Skickar in matad text till din e-postklient.
-            (Ingen ny JS tillagd – följer era regler.)
-          -->
           <form action="mailto:info@emksab.se" method="post" enctype="text/plain">
             <div class="field">
               <label for="namn">Namn *</label>
@@ -78,22 +71,20 @@
 
             <div class="actions">
               <button type="submit" class="btn primary">Skicka via e-post</button>
-              <button type="reset" class="btn">Rensa</button>
+              <button type="reset" class="btn ghost">Rensa</button>
             </div>
           </form>
         </div>
       </div>
 
       <!-- DIRECT CONTACT CARD -->
-      <div class="card mt-4">
+      <div class="card" style="margin-top:16px;">
         <div class="card-body">
           <h2 class="h5">Direktkontakt</h2>
           <p><strong>E-post:</strong> <a href="mailto:info@emksab.se">info@emksab.se</a></p>
           <p><strong>Telefon:</strong> <a href="tel:+46708263366">+46 708 26 33 66</a></p>
-
           <div class="actions">
-            <a class="btn" href="mailto:info@emksab.se?subject=Kontakt%20via%20webb&body=Hej%20EMK%2C%0A%0A">Skicka e-post</a>
-            <a class="btn ghost" href="/kontakt.html">Öppna formulärsidan</a>
+            <a class="btn ghost" href="mailto:info@emksab.se?subject=Kontakt%20via%20webb&body=Hej%20EMK%2C%0A%0A">Skicka e-post</a>
           </div>
         </div>
       </div>
@@ -113,7 +104,6 @@
   </footer>
 
   <script>
-    // Liten hjälp för årtal i footer (ingen layoutförändring)
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
