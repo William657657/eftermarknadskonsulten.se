@@ -108,21 +108,29 @@ hr { border:0; border-top:1px solid var(--brand-border); }
   border:1px solid transparent;
   text-decoration:none;
   font-weight:600;
+  line-height:1.2;
+  cursor:pointer;
 }
 
-.btn-primary {
+/* Stöd både .btn-primary och .btn.primary */
+.btn-primary,
+.btn.primary {
   background:var(--brand-accent);
   color:var(--brand-contrast);
   border-color:var(--brand-accent);
 }
 
-.btn-outline {
+/* Stöd både .btn-outline och .btn.ghost */
+.btn-outline,
+.btn.ghost {
   background:transparent;
   border-color:var(--brand-accent);
   color:var(--brand-accent);
 }
 
 .btn:hover { filter:brightness(0.98); }
+.btn:disabled,
+.btn[disabled] { opacity:.6; cursor:not-allowed; }
 
 /* ==========================================================
    Navbar
@@ -308,12 +316,13 @@ header {
   .nav { gap:12px; }
   h1, .hero-title { font-size: clamp(1.5rem, 1.3rem + 2.6vw, 2.2rem); }
 }
+
 /* --- Click-through fixar (lägg sist i emk-theme.css) --- */
 
 /* Se till att dekorativa lager aldrig blockerar klick */
 .soft-glow {
   pointer-events: none !important;   /* släpp igenom klick */
-  z-index: 0 !important;              /* håll bakom innehåll */
+  z-index: 0 !important;             /* håll bakom innehåll */
 }
 
 /* Kort/sektioner ska ligga över dekorativa lager */
@@ -332,14 +341,16 @@ header {
 
 /* När man hoppar till #demo ska den inte hamna under headern */
 #demo { scroll-margin-top: 88px; }
-/* ===== Kontaktformulär: tydligare fält ===== */
-.kontakt form { 
-  display: grid; 
-  gap: 12px; 
-}
 
-/* Stöd om .kontakt saknas: fallback selektorer */
-section[id*="kontakt"] form { display: grid; gap: 12px; }
+/* ==========================================================
+   Kontaktformulär: tydligare fält (utan att röra layout)
+   ========================================================== */
+
+.kontakt form,
+section[id*="kontakt"] form {
+  display:grid;
+  gap:12px;
+}
 
 /* Gör input/textarea tydliga med separata "celler" */
 .kontakt input[type="text"],
@@ -354,64 +365,66 @@ section[id*="kontakt"] input[type="tel"],
 section[id*="kontakt"] input[type="search"],
 section[id*="kontakt"] input[type="url"],
 section[id*="kontakt"] textarea {
-  background: #fff;                    /* tydlig kontrast i cellen */
-  border: 1px solid #E5E7EB;           /* diskret grå ram */
-  border-radius: 8px;
-  padding: 10px 12px;
-  line-height: 1.4;
+  appearance:none;
+  -webkit-appearance:none;
+  background:#fff;                    /* tydlig kontrast i cellen */
+  border:1px solid #E5E7EB;           /* diskret grå ram */
+  border-radius:8px;
+  padding:10px 12px;
+  line-height:1.4;
   box-shadow: inset 0 1px 0 rgba(0,0,0,0.02);
-  width: 100%;
+  width:100%;
 }
 
-/* Fokusmarkering (använder en neutral guld-ton för synlighet) */
+/* Fokusmarkering – synlig men subtil i varumärkeslinje */
 .kontakt input:focus,
 .kontakt textarea:focus,
 section[id*="kontakt"] input:focus,
 section[id*="kontakt"] textarea:focus {
-  outline: 2px solid rgba(212,175,55,0.9); /* fokusring */
-  outline-offset: 0;
-  box-shadow: 0 0 0 3px rgba(212,175,55,0.20);
+  outline:2px solid rgba(212,175,55,0.9);
+  outline-offset:0;
+  box-shadow:0 0 0 3px rgba(212,175,55,0.20);
 }
 
 /* Etiketter och hjälptexter separeras från fälten */
 .kontakt label,
 section[id*="kontakt"] label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 4px;
+  display:block;
+  font-weight:600;
+  margin-bottom:4px;
 }
 
 .kontakt .fine,
 section[id*="kontakt"] .fine {
-  margin-top: 2px;
-  color: #6B7280;       /* diskret grå för “hjälptext” */
-  font-size: 0.95rem;
+  margin-top:2px;
+  color:#6B7280;        /* diskret grå för hjälptext */
+  font-size:0.95rem;
 }
 
-/* Extra luft mellan “fältgrupper” */
+/* Extra luft mellan fältgrupper */
 .kontakt .field,
 section[id*="kontakt"] .field {
-  display: grid;
-  gap: 6px;
-  margin-top: 6px;
+  display:grid;
+  gap:6px;
+  margin-top:6px;
 }
 
 /* Knapp-rad */
 .kontakt .actions,
 section[id*="kontakt"] .actions {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 8px;
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+  margin-top:8px;
 }
 
-/* Gör textarean lagom hög från start */
+/* Textarea höjd från start */
 .kontakt textarea,
-section[id*="kontakt"] textarea { min-height: 140px; }
+section[id*="kontakt"] textarea { min-height:140px; }
 
 /* Hindra att text “flyter ut” i cellkanten på små skärmar */
-.kontakt .card, 
+.kontakt .card,
 section[id*="kontakt"] .card {
-  overflow: hidden;
+  overflow:hidden;
 }
