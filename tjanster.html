@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="/assets/emk-theme.css?v=1" />
 
   <style>
+    /* Mobil: dölj stor H1 i hero, lyft chip */
     @media (max-width: 767px) {
       .hero .hero-title { display: none !important; }
       .hero .chip {
@@ -31,6 +32,8 @@
         line-height: 1.25;
       }
     }
+
+    /* Robust radbrytning i kort */
     .card, .step, .card h2, .card h3, .card h4, .card p, .card li {
       overflow-wrap: anywhere;
       word-break: break-word;
@@ -38,6 +41,25 @@
     }
     .card.step .flex { align-items: flex-start; }
     .card.step h4 { margin: 0; }
+
+    /* === Enhetliga punktlistor (fix för "knas") ===
+       - riktig marker (disc/decimal)
+       - hängande indrag så rad 2+ linjerar under text, inte under punkten
+       - kompakt men läsbart vertikalt mellanrum
+    */
+    .bullets {
+      margin-top: 0.5rem;
+      padding-left: 1.25rem;       /* basindrag */
+      list-style-position: outside; /* marker utanför textkolumn */
+    }
+    .bullets.list-disc { list-style-type: disc; }
+    .bullets.list-decimal { list-style-type: decimal; }
+    .bullets li {
+      margin: 0.25rem 0;
+      padding-left: 0.125rem;      /* liten putt så texten inte nuddar marker */
+    }
+    /* Finjustering för mindre textstorlek på "fine" */
+    .fine.bullets li { line-height: 1.4; }
   </style>
 </head>
 <body>
@@ -109,10 +131,10 @@
             <span class="badge">Snabbstart</span>
           </div>
           <p class="mt-2 muted grow">Genomgång av ärende & underlag, riskbedömning, åtgärdsplan och första utkast till yttrande.</p>
-          <ul class="mt-3 fine">
-            <li>• Första bedömning inom 12h* (vardagar)</li>
-            <li>• Checklista & dokumentationskrav</li>
-            <li>• Rekommenderade temporära åtgärder</li>
+          <ul class="mt-3 fine bullets list-disc">
+            <li>Första bedömning inom 12h* (vardagar)</li>
+            <li>Checklista & dokumentationskrav</li>
+            <li>Rekommenderade temporära åtgärder</li>
           </ul>
           <a href="/formular.html" class="btn btn-outline mt-3">Starta här</a>
         </div>
@@ -123,10 +145,10 @@
             <span class="badge">Huvudtjänst</span>
           </div>
           <p class="mt-2 muted grow">Komplett yttrande till ARN inklusive bevisning, praxisstöd och strategi för alternativ lösning vid behov.</p>
-          <ul class="mt-3 fine">
-            <li>• KKL & prop. 2021/22:85 kopplat till fallet</li>
-            <li>• Tidplan & milstolpar</li>
-            <li>• Slutgenomläsning med beslutsfattare</li>
+          <ul class="mt-3 fine bullets list-disc">
+            <li>KKL & prop. 2021/22:85 kopplat till fallet</li>
+            <li>Tidplan & milstolpar</li>
+            <li>Slutgenomläsning med beslutsfattare</li>
           </ul>
           <a href="/formular.html" class="btn btn-outline mt-3">Be om offert</a>
         </div>
@@ -137,10 +159,10 @@
             <span class="badge">End-to-end</span>
           </div>
           <p class="mt-2 muted grow">Vi tar lead på hela ärendet: kunddialog, verkstad, offerter och slutlig överenskommelse.</p>
-          <ul class="mt-3 fine">
-            <li>• En kontaktväg för allt</li>
-            <li>• Mål: undvika ARN & minimera kostnad</li>
-            <li>• Lärdomar → rutiner i verksamheten</li>
+          <ul class="mt-3 fine bullets list-disc">
+            <li>En kontaktväg för allt</li>
+            <li>Mål: undvika ARN & minimera kostnad</li>
+            <li>Lärdomar → rutiner i verksamheten</li>
           </ul>
           <a href="/formular.html" class="btn btn-outline mt-3">Prata upplägg</a>
         </div>
@@ -164,42 +186,42 @@
       <div class="grid md:grid-cols-2 gap-6 items-start">
         <div class="card elev">
           <h3>Akut ARN-respons – innehåll</h3>
-          <ul class="mt-2 fine bullets">
-            <li>• Snabb genomlysning av bakgrund, bevisning och tidslinje</li>
-            <li>• Riskanalys: ARN-risk, kostnadsrisk, kommunikationsrisk</li>
-            <li>• Rekommenderad strategi (omgående)</li>
-            <li>• Första utkast till yttrande (vid behov)</li>
+          <ul class="mt-2 fine bullets list-disc">
+            <li>Snabb genomlysning av bakgrund, bevisning och tidslinje</li>
+            <li>Riskanalys: ARN-risk, kostnadsrisk, kommunikationsrisk</li>
+            <li>Rekommenderad strategi (omgående)</li>
+            <li>Första utkast till yttrande (vid behov)</li>
           </ul>
           <p class="small mt-3">*Brådskande ärenden utanför kontorstid enligt överenskommelse.</p>
         </div>
 
         <div class="card elev">
           <h3>Yttrande & bemötande – leverabel</h3>
-          <ul class="mt-2 fine bullets">
-            <li>• Yttrande enligt KKL och aktuell ARN-praxis</li>
-            <li>• Bilagor: bevisning, utlåtanden, tidslinje</li>
-            <li>• Rådgivning om eventuell förlikning/alternativ lösning</li>
-            <li>• Kommunikationsstöd mot kund/ARN</li>
+          <ul class="mt-2 fine bullets list-disc">
+            <li>Yttrande enligt KKL och aktuell ARN-praxis</li>
+            <li>Bilagor: bevisning, utlåtanden, tidslinje</li>
+            <li>Rådgivning om eventuell förlikning/alternativ lösning</li>
+            <li>Kommunikationsstöd mot kund/ARN</li>
           </ul>
         </div>
 
         <div class="card elev">
           <h3>Full ärendeledning – omfattning</h3>
-          <ul class="mt-2 fine bullets">
-            <li>• Kunddialog och förväntansstyrning</li>
-            <li>• Verkstadsstyrning och offertprocess</li>
-            <li>• Beslutsmatris: reparation/omleverans/prisavdrag</li>
-            <li>• Slutlig överenskommelse & uppföljning</li>
+          <ul class="mt-2 fine bullets list-disc">
+            <li>Kunddialog och förväntansstyrning</li>
+            <li>Verkstadsstyrning och offertprocess</li>
+            <li>Beslutsmatris: reparation/omleverans/prisavdrag</li>
+            <li>Slutlig överenskommelse & uppföljning</li>
           </ul>
         </div>
 
         <div class="card elev">
           <h3>Förebyggande stöd & utbildning</h3>
-          <ul class="mt-2 fine bullets">
-            <li>• Mallar: svarsmallar, villkorsbilagor, verkstadsunderlag</li>
-            <li>• Beslutsmatris kopplad till KKL §§25–28</li>
-            <li>• Utbildning för sälj/eftermarknad</li>
-            <li>• Processgranskning & förbättringsförslag</li>
+          <ul class="mt-2 fine bullets list-disc">
+            <li>Mallar: svarsmallar, villkorsbilagor, verkstadsunderlag</li>
+            <li>Beslutsmatris kopplad till KKL §§25–28</li>
+            <li>Utbildning för sälj/eftermarknad</li>
+            <li>Processgranskning & förbättringsförslag</li>
           </ul>
         </div>
       </div>
@@ -211,11 +233,11 @@
     <div class="container">
       <div class="card elev">
         <h3>Så startar vi</h3>
-        <ol class="mt-2 fine bullets">
-          <li>• 15-min uppstart: nuläge, mål, tidslinje</li>
-          <li>• Dokumentlista & behörigheter</li>
-          <li>• Snabb riskbedömning och första rekommendation</li>
-          <li>• Leveransplan: utkast, milstolpar, beslutsmöten</li>
+        <ol class="mt-2 fine bullets list-decimal">
+          <li>15-min uppstart: nuläge, mål, tidslinje</li>
+          <li>Dokumentlista & behörigheter</li>
+          <li>Snabb riskbedömning och första rekommendation</li>
+          <li>Leveransplan: utkast, milstolpar, beslutsmöten</li>
         </ol>
         <div class="mt-4">
           <a href="/formular.html" class="btn btn-primary">Boka startmöte</a>
