@@ -4,70 +4,85 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cookies | EMK Sverige AB – Eftermarknadskonsulten</title>
-  <meta name="description" content="Cookieinformation för EMK Sverige AB." />
+  <meta name="description" content="Information om hur vi använder cookies." />
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
-  <meta property="og:title" content="Cookies | EMK Sverige AB" />
-  <meta property="og:description" content="Cookieinformation för EMK Sverige AB." />
-  <link rel="stylesheet" href="/emk-theme.css" />
-  <style>
-    .container{max-width:1200px;margin:0 auto;padding:16px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand img{height:40px;width:auto}
-    nav a{text-decoration:none;margin:0 8px;white-space:nowrap}
-    .hero{padding:32px 0}
-    .hero-title{margin:0;font-weight:700;line-height:1.15;font-size:clamp(22px,4.8vw,36px)}
-    .hero-sub{margin-top:8px;line-height:1.5;font-size:clamp(14px,3.6vw,18px)}
-    .card{background:#fff;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.06);padding:18px}
-    .content{overflow-wrap:anywhere;word-break:break-word}
-    .content img{max-width:100%;height:auto}
-    .stack{display:grid;gap:16px}
-    footer{padding:32px 0}
-  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/assets/emk-theme.css?v=5" />
 </head>
-<body>
-  <header class="site">
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:16px;">
-      <a class="brand" href="/index.html" aria-label="Hem">
-        <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK Sverige AB">
-        <strong>Eftermarknadskonsulten</strong>
-      </a>
-      <nav>
-        <a href="/index.html">Hem</a>
-        <a href="/tjanster.html">Tjänster</a>
-        <a href="/plattform.html">Plattform</a>
-        <a href="/case.html">Case</a>
-        <a href="/om-oss.html">Om&nbsp;oss</a>
-        <a href="/kontakt.html">Kontakt</a>
-      </nav>
+<body class="site">
+  <!-- HEADER (enhetlig + FAQ) -->
+  <header>
+    <div id="topbar" class="topbar">
+      <div class="container wrap" style="height:80px;">
+        <a href="/" class="logo inline-flex items-center" aria-label="Gå till startsidan">
+          <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK logotyp" class="h-[56px] w-auto object-contain" />
+        </a>
+        <nav class="nav hidden md:flex" aria-label="Huvudmeny">
+          <a href="/tjanster.html">Tjänster</a>
+          <a href="/#process">Process</a>
+          <a href="/#case">Case</a>
+          <a href="/om-oss.html">Om oss</a>
+          <a href="/faq.html">FAQ</a>
+          <a href="/#kontakt">Kontakt</a>
+        </nav>
+        <div class="hidden md:block">
+          <a href="/formular.html" class="btn btn-primary">Kontakta oss</a>
+        </div>
+        <button id="navToggle" class="md:hidden hambox" aria-expanded="false" aria-controls="mobileNav" aria-label="Öppna meny">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobilmeny -->
+    <div id="mobileNav" class="offcanvas" hidden>
+      <div class="scrim" data-close="" aria-hidden="true"></div>
+      <div class="panel" role="dialog" aria-label="Mobilmeny">
+        <div class="flex items-center justify-between">
+          <strong>Menyn</strong>
+          <button class="hambox" data-close="" aria-label="Stäng meny">×</button>
+        </div>
+        <div class="mt-3 grid gap-1">
+          <a href="/tjanster.html" data-close="">Tjänster</a>
+          <a href="/#process" data-close="">Process</a>
+          <a href="/#case" data-close="">Case</a>
+          <a href="/om-oss.html" data-close="">Om oss</a>
+          <a href="/faq.html" data-close="">FAQ</a>
+          <a href="/#kontakt" data-close="">Kontakt</a>
+          <a href="/formular.html" class="btn btn-primary mt-2" data-close="">Kontakta oss</a>
+        </div>
+      </div>
     </div>
   </header>
 
-  <section class="hero">
+  <!-- INNEHÅLL (från live, texter orörda) -->
+  <main class="section">
     <div class="container">
       <h1 class="hero-title">Cookies</h1>
-      <p class="hero-sub">Information om hur vi använder kakor.</p>
-    </div>
-  </section>
-
-  <main class="container stack">
-    <article class="card content">
-      <!-- BEFINTLIG COOKIE-TEXT HÄR (oförändrad) -->
-      <h2>Översikt</h2>
-      <p>Klistra in ditt befintliga cookieinnehåll här. Layouten är responsiv och texten stannar i kortet.</p>
-    </article>
-  </main>
-
-  <footer>
-    <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center">
-      <small>© EMK Sverige AB</small>
-      <div style="display:flex;gap:12px">
-        <a href="/integritet.html">Integritet</a>
-        <a href="/cookies.html" aria-current="page"><strong>Cookies</strong></a>
-        <a href="/villkor.html">Villkor</a>
-        <a href="/formular.html">Formulär</a>
+      <div class="card elev mt-4">
+        <h2>Översikt</h2>
+        <p>Klistra in ditt befintliga cookieinnehåll här. Layouten är responsiv och texten stannar i kortet.</p>
       </div>
     </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container wrap footer">
+      <div class="footer-left">© EMK Sverige AB</div>
+      <nav class="footer-right" aria-label="Sekundärmeny">
+        <a href="/integritet.html">Integritet</a>
+        <a href="/cookies.html" aria-current="page">Cookies</a>
+        <a href="/villkor.html">Villkor</a>
+        <a href="/formular.html">Formulär</a>
+      </nav>
+    </div>
   </footer>
+
+  <!-- Scripts (enhetliga) -->
+  <script>
+    (function(){const b=document.getElementById('topbar');function s(){b.classList.toggle('is-scrolled',window.scrollY>6)}s();window.addEventListener('scroll',s,{passive:true});})();
+    (function(){const t=document.getElementById('navToggle');const oc=document.getElementById('mobileNav');if(!t||!oc)return;const scr=oc.querySelector('.scrim');const cls=oc.querySelectorAll('[data-close]');function o(){oc.hidden=false;oc.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}function c(){oc.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>oc.hidden=true,200)}t.addEventListener('click',o);scr&&scr.addEventListener('click',c);cls.forEach(el=>el.addEventListener('click',c));window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!oc.hidden)c()});})();
+  </script>
 </body>
 </html>
