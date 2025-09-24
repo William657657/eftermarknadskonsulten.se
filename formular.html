@@ -1,109 +1,120 @@
 <!doctype html>
 <html lang="sv">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Formulär | EMK Sverige AB – Eftermarknadskonsulten</title>
-  <meta name="description" content="Skicka din förfrågan via formulär. Din e-postklient öppnas med ett färdigifyllt meddelande.">
-  <link rel="icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/assets/emk-theme.css?v=6">
+  <meta name="description" content="Kontaktformulär som öppnar din e-postklient med färdigifyllt meddelande." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/assets/emk-theme.css?v=5" />
 </head>
-<body>
-  <!-- HEADER -->
-  <header class="topbar" role="banner">
-    <div class="container wrap">
-      <a class="logo" href="/index.html">
-        <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK Sverige AB – Eftermarknadskonsulten" height="44" width="44">
-        <span>EMK Sverige AB</span>
-      </a>
-      <nav class="nav" aria-label="Huvudmeny">
-        <a href="/index.html">Hem</a>
-        <a href="/tjanster.html">Tjänster</a>
-        <a href="/plattform.html">Plattform</a>
-        <a href="/case.html">Case</a>
-        <a href="/policy.html">Policy</a>
-        <a href="/om-oss.html">Om oss</a>
-        <a href="/kontakt.html">Kontakt</a>
-      </nav>
+<body class="site">
+  <!-- HEADER (enhetlig + FAQ) -->
+  <header>
+    <div id="topbar" class="topbar">
+      <div class="container wrap" style="height:80px;">
+        <a href="/" class="logo inline-flex items-center" aria-label="Gå till startsidan">
+          <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK logotyp" class="h-[56px] w-auto object-contain" />
+        </a>
+        <nav class="nav hidden md:flex" aria-label="Huvudmeny">
+          <a href="/tjanster.html">Tjänster</a>
+          <a href="/#process">Process</a>
+          <a href="/#case">Case</a>
+          <a href="/om-oss.html">Om oss</a>
+          <a href="/faq.html">FAQ</a>
+          <a href="/#kontakt">Kontakt</a>
+        </nav>
+        <div class="hidden md:block">
+          <a href="/formular.html" class="btn btn-primary" aria-current="page">Kontakta oss</a>
+        </div>
+        <button id="navToggle" class="md:hidden hambox" aria-expanded="false" aria-controls="mobileNav" aria-label="Öppna meny">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobilmeny -->
+    <div id="mobileNav" class="offcanvas" hidden>
+      <div class="scrim" data-close="" aria-hidden="true"></div>
+      <div class="panel" role="dialog" aria-label="Mobilmeny">
+        <div class="flex items-center justify-between">
+          <strong>Menyn</strong>
+          <button class="hambox" data-close="" aria-label="Stäng meny">×</button>
+        </div>
+        <div class="mt-3 grid gap-1">
+          <a href="/tjanster.html" data-close="">Tjänster</a>
+          <a href="/#process" data-close="">Process</a>
+          <a href="/#case" data-close="">Case</a>
+          <a href="/om-oss.html" data-close="">Om oss</a>
+          <a href="/faq.html" data-close="">FAQ</a>
+          <a href="/#kontakt" data-close="">Kontakt</a>
+          <a href="/formular.html" class="btn btn-primary mt-2" data-close="" aria-current="page">Kontakta oss</a>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- MAIN -->
-  <main class="container section">
-    <section class="kontakt" id="kontakt-formular">
-      <h1>Kontaktformulär</h1>
+  <!-- INNEHÅLL (funktion oförändrad: mailto) -->
+  <main class="section">
+    <div class="container">
+      <h1 class="hero-title">Kontaktformulär</h1>
+      <p class="lead mt-3">Skicka din förfrågan – din e-postklient öppnas med ett färdigifyllt meddelande.</p>
 
-      <!-- FORM CARD (samma markup som på kontakt.html) -->
-      <div class="card">
-        <div class="card-body">
-          <p class="fine"><strong>Formulär</strong><br>Skicka din förfrågan – din e-postklient öppnas med ett färdigifyllt meddelande.</p>
+      <div class="card elev mt-4">
+        <form action="mailto:info@emksab.se" method="post" enctype="text/plain" class="grid gap-4">
+          <div class="field">
+            <label for="namn">Namn *</label>
+            <input id="namn" name="Namn" type="text" required placeholder="Ditt namn" />
+          </div>
+          <div class="field">
+            <label for="foretag">Företag <span class="fine">(valfritt)</span></label>
+            <input id="foretag" name="Företag" type="text" placeholder="Företag" />
+          </div>
+          <div class="field">
+            <label for="epost">E-post *</label>
+            <input id="epost" name="E-post" type="email" required placeholder="namn@företag.se" />
+          </div>
+          <div class="field">
+            <label for="telefon">Telefon <span class="fine">(valfritt)</span></label>
+            <input id="telefon" name="Telefon" type="tel" placeholder="+46 708 26 33 66" />
+          </div>
+          <div class="field">
+            <label for="amne">Ämne <span class="fine">(valfritt)</span></label>
+            <input id="amne" name="Ämne" type="text" placeholder="Ämne" />
+          </div>
+          <div class="field">
+            <label for="meddelande">Meddelande *</label>
+            <textarea id="meddelande" name="Meddelande" required placeholder="Beskriv kort vad du vill ha hjälp med…"></textarea>
+          </div>
 
-          <form action="mailto:info@emksab.se" method="post" enctype="text/plain">
-            <div class="field">
-              <label for="namn">Namn *</label>
-              <input id="namn" name="Namn" type="text" required placeholder="Ditt namn">
-            </div>
-
-            <div class="field">
-              <label for="foretag">Företag <span class="fine">(valfritt)</span></label>
-              <input id="foretag" name="Företag" type="text" placeholder="Företag">
-            </div>
-
-            <div class="field">
-              <label for="epost">E-post *</label>
-              <input id="epost" name="E-post" type="email" required placeholder="namn@företag.se">
-            </div>
-
-            <div class="field">
-              <label for="telefon">Telefon <span class="fine">(valfritt)</span></label>
-              <input id="telefon" name="Telefon" type="tel" placeholder="0708-26 33 66">
-            </div>
-
-            <div class="field">
-              <label for="amne">Ämne <span class="fine">(valfritt)</span></label>
-              <input id="amne" name="Ämne" type="text" placeholder="Ämne">
-            </div>
-
-            <div class="field">
-              <label for="meddelande">Meddelande *</label>
-              <textarea id="meddelande" name="Meddelande" required placeholder="Beskriv kort vad du vill ha hjälp med…"></textarea>
-            </div>
-
-            <div class="actions">
-              <button type="submit" class="btn primary">Skicka via e-post</button>
-              <button type="reset" class="btn ghost">Rensa</button>
-            </div>
-          </form>
-        </div>
+          <div class="flex gap-2">
+            <button type="submit" class="btn btn-primary">Skicka via e-post</button>
+            <button type="reset" class="btn btn-outline">Rensa</button>
+          </div>
+        </form>
+        <p class="small mt-4"><b>Integritet:</b> När du skickar öppnas din e-postklient. Ingenting skickas eller lagras på vår server. Mottagare är alltid <b>info@emksab.se</b>.</p>
       </div>
-
-      <!-- INFO CARD (valfritt – samma stil som övriga sidor) -->
-      <div class="card" style="margin-top:16px;">
-        <div class="card-body">
-          <h2 class="h5">Integritet</h2>
-          <p class="fine">
-            När du skickar öppnas din e-postklient. Ingenting skickas eller lagras på vår server.
-            Mottagare är alltid <a href="mailto:info@emksab.se">info@emksab.se</a>.
-          </p>
-        </div>
-      </div>
-    </section>
+    </div>
   </main>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container wrap">
-      <p>&copy; <span id="year"></span> EMK Sverige AB – Eftermarknadskonsulten</p>
-      <nav class="subnav">
+  <footer>
+    <div class="container wrap footer">
+      <div class="footer-left">© EMK Sverige AB</div>
+      <nav class="footer-right" aria-label="Sekundärmeny">
         <a href="/integritet.html">Integritet</a>
-        <a href="/policy.html">Policy</a>
-        <a href="/kontakt.html">Kontakt</a>
+        <a href="/cookies.html">Cookies</a>
+        <a href="/villkor.html">Villkor</a>
+        <a href="/formular.html" aria-current="page">Formulär</a>
       </nav>
     </div>
   </footer>
 
+  <!-- Scripts (enhetliga) -->
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    (function(){const b=document.getElementById('topbar');function s(){b.classList.toggle('is-scrolled',window.scrollY>6)}s();window.addEventListener('scroll',s,{passive:true});})();
+    (function(){const t=document.getElementById('navToggle');const oc=document.getElementById('mobileNav');if(!t||!oc)return;const scr=oc.querySelector('.scrim');const cls=oc.querySelectorAll('[data-close]');function o(){oc.hidden=false;oc.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}function c(){oc.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>oc.hidden=true,200)}t.addEventListener('click',o);scr&&scr.addEventListener('click',c);cls.forEach(el=>el.addEventListener('click',c));window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!oc.hidden)c()});})();
   </script>
 </body>
 </html>
