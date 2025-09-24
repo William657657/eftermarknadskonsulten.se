@@ -10,421 +10,92 @@
   --brand-elev:      #faf7f0;   /* lätt upphöjd yta */
 
   /* Text */
-  --brand-text:      #2B2410;   /* djup mörk text (låst) */
-  --brand-muted:     #6b7280;   /* sekundär text */
+  --brand-text:      #1C1C1C;   /* primär text */
+  --brand-sub:       #555555;   /* sekundär text */
+  --brand-link:      #B9975B;   /* länkar */
+  --brand-link-hov:  #8C6B2F;   /* länkar hover */
 
-  /* Brand */
-  --brand-accent:    #D4AF37;   /* EMK guld (låst) */
-  --brand-contrast:  #1f2937;   /* text på guldknapp */
-  --brand-tint:      #f6ecd2;   /* mjuk markering för hover/active */
-  --brand-link:      var(--brand-accent);
+  /* Accent */
+  --brand-accent:    #D4AF37;   /* guld */
+  --brand-accent-bg: #F9F5E7;
 
-  /* Linjer & radius */
-  --brand-border:    #e8e2d6;
-  --brand-radius:    16px;
-
-  /* Layout */
-  --brand-maxw:      1140px;
-  --brand-pad:       24px;
+  /* Logga */
+  --logo-size: 54px; /* ändra här för att justera loggans höjd */
 }
 
-/* ==========================================================
-   Bas
-   ========================================================== */
-
-* { box-sizing:border-box; }
-
-html {
-  height:100%;
-  scrollbar-gutter:stable both-edges;
-  overflow-y:scroll;
-}
+/* ===========================
+   Layout
+   =========================== */
 
 body {
-  min-height:100%;
-  margin:0;
-  background:var(--brand-bg);
-  color:var(--brand-text);
-  font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
-  line-height:1.6;
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--brand-bg);
+  color: var(--brand-text);
 }
 
-/* ==========================================================
-   Layout utilities
-   ========================================================== */
+a { color: var(--brand-link); text-decoration: none; }
+a:hover { color: var(--brand-link-hov); }
 
-.container { max-width:var(--brand-maxw); margin:0 auto; padding:var(--brand-pad); }
-.section   { padding:56px 0; }
+/* ===========================
+   Header
+   =========================== */
+
+.topbar {
+  background: var(--brand-surface);
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.topbar .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+
+.topbar .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.topbar .logo img {
+  height: var(--logo-size);
+  width: auto;
+}
+
+.topbar .logo span {
+  font-weight: bold;
+  color: var(--brand-text);
+  white-space: nowrap;
+}
+
+.nav a {
+  margin-left: 1rem;
+  font-weight: 500;
+}
+
+/* ===========================
+   Kort / sektioner
+   =========================== */
 
 .card {
-  background:var(--brand-surface);
-  border:1px solid var(--brand-border);
-  border-radius:var(--brand-radius);
-  padding:24px;
+  background: var(--brand-surface);
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  margin-bottom: 1.5rem;
 }
 
-/* Liten elevation som tilläggsklass – påverkar inte paletten */
-.elev {
-  box-shadow: 0 10px 30px color-mix(in srgb, var(--brand-text) 10%, transparent);
-}
-
-.textcell {
-  background:var(--brand-surface);
-  border:1px solid var(--brand-border);
-  border-radius:var(--brand-radius);
-  padding:24px;
-}
-
-.muted { color:var(--brand-text); opacity:.88; }
-.fine  { color:var(--brand-text); opacity:.78; }
-.small { font-size:.85rem; opacity:.72; }
-.strong{ font-weight:700; color:var(--brand-text); }
-
-/* Punktlista med jämn läsbarhet */
-.bullets { color:var(--brand-text); opacity:.85; }
-
-/* ==========================================================
-   Typografi & länkar
-   ========================================================== */
-
-.text-primary { color:var(--brand-accent); }
-
-a {
-  color:var(--brand-link);
-  text-decoration:none;
-}
-a:hover { text-decoration:underline; }
-
-hr { border:0; border-top:1px solid var(--brand-border); }
-
-/* ==========================================================
-   Knappar
-   ========================================================== */
-
-.btn {
-  display:inline-block;
-  padding:12px 18px;
-  border-radius:12px;
-  border:1px solid transparent;
-  text-decoration:none;
-  font-weight:600;
-  line-height:1.2;
-  cursor:pointer;
-}
-
-/* Stöd både .btn-primary och .btn.primary */
-.btn-primary,
-.btn.primary {
-  background:var(--brand-accent);
-  color:var(--brand-contrast);
-  border-color:var(--brand-accent);
-}
-
-/* Stöd både .btn-outline och .btn.ghost */
-.btn-outline,
-.btn.ghost {
-  background:transparent;
-  border-color:var(--brand-accent);
-  color:var(--brand-accent);
-}
-
-.btn:hover { filter:brightness(0.98); }
-.btn:disabled,
-.btn[disabled] { opacity:.6; cursor:not-allowed; }
-
-/* ==========================================================
-   Navbar
-   ========================================================== */
-
-header {
-  position:sticky; top:0; z-index:50;
-  background:var(--brand-surface);
-  border-bottom:1px solid var(--brand-border);
-}
-
-.topbar { background:var(--brand-surface); border-bottom:1px solid var(--brand-border); }
-.topbar .wrap { display:flex; align-items:center; justify-content:space-between; }
-
-.logo { display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--brand-text); font-weight:800; }
-.logo img { height:44px; width:auto; display:block; border-radius:6px; }
-
-.nav { display:flex; gap:24px; align-items:center; flex-wrap:wrap; }
-.nav a {
-  color:var(--brand-text);
-  text-decoration:none;
-  padding:12px 14px;
-  border-radius:10px;
-  transition:background .15s,color .15s;
-  font-weight:600;
-}
-.nav a.active,
-.nav a[aria-current="page"],
-.nav a:hover {
-  color:var(--brand-text);
-  background:var(--brand-tint);
-}
-
-/* Sticky-skugga vid scroll */
-.topbar.is-scrolled{
-  box-shadow:0 6px 18px color-mix(in srgb,var(--brand-text) 10%, transparent);
-  backdrop-filter:saturate(1.05) blur(6px);
-}
-
-/* Hamburger-klickyta */
-.hambox{
-  display:inline-flex; align-items:center; justify-content:center;
-  padding:10px 12px; border-radius:12px;
-  border:1px solid var(--brand-border); background:var(--brand-surface);
-}
-
-/* Off-canvas mobilmeny */
-.offcanvas{ position:fixed; inset:0; z-index:60; display:none; }
-.offcanvas.open{ display:block; }
-.offcanvas .scrim{ position:absolute; inset:0; background:color-mix(in srgb,var(--brand-text) 45%, transparent); opacity:0; transition:opacity .2s ease; }
-.offcanvas.open .scrim{ opacity:.35; }
-.offcanvas .panel{
-  position:absolute; top:0; right:0; height:100%; width:min(82vw, 360px);
-  background:var(--brand-surface); border-left:1px solid var(--brand-border);
-  transform:translateX(100%); transition:transform .25s ease;
-  display:flex; flex-direction:column; padding:18px;
-}
-.offcanvas.open .panel{ transform:translateX(0); }
-.offcanvas .panel a{ padding:12px; border-radius:10px; text-decoration:none; color:var(--brand-text); }
-.offcanvas .panel a:hover{ background:var(--brand-tint); }
-
-/* ==========================================================
-   Hero
-   ========================================================== */
-
-.hero .kicker {
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  color:var(--brand-muted);
-  font-size:.9rem;
-  margin:0 0 6px;
-}
-.hero h1 { margin:0 0 10px 0; line-height:1.25; }
-.hero .cta { display:flex; gap:12px; flex-wrap:wrap; }
-
-/* Bakgrund och typkänsla */
-.hero-bg{
-  background:
-    radial-gradient(1200px 420px at 10% -10%, var(--brand-tint), transparent),
-    linear-gradient(180deg, var(--brand-tint), var(--brand-bg));
-}
-
-/* Rubrik – kontrollerad radbrytning */
-.hero-title{
-  font-weight:800;
-  line-height:1.18;
-  font-size:clamp(1.6rem, 2.4rem + 1vw, 2.6rem);
-  max-width:26ch;
-}
-.hero-underline{
-  text-decoration:underline;
-  text-decoration-thickness:4px;
-  text-decoration-color:var(--brand-accent);
-  text-underline-offset:6px;
-}
-
-/* Lead och listor */
-.lead   { max-width:60ch; color:var(--brand-text); opacity:.88; }
-.bullets{ max-width:66ch; }
-
-/* Badge/chip */
-.chip{
-  display:inline-block;
-  padding:6px 10px;
-  border-radius:999px;
-  background:var(--brand-tint);
-  color:var(--brand-text);
-  font-weight:700;
-  font-size:.8rem;
-  letter-spacing:.02em;
-}
-
-/* Glow-dekor bakom kort */
-.soft-glow{
-  position:absolute; inset:-8px; border-radius:24px;
-  background:var(--brand-accent); opacity:.18; filter:blur(18px);
-}
-
-/* ==========================================================
+/* ===========================
    Footer
-   ========================================================== */
+   =========================== */
 
-.footer {
-  border-top:1px solid var(--brand-border);
-  color:var(--brand-muted);
-}
-.footer .wrap {
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  justify-content:space-between;
-  align-items:center;
-}
-
-/* ==========================================================
-   Badge (guld)
-   ========================================================== */
-
-.badge {
-  display:inline-block;
-  padding:6px 10px;
-  border-radius:999px;
-  background:linear-gradient(90deg,var(--brand-accent),#f3d37a);
-  color:#1f2937;
-  font-weight:700;
-  font-size:.8rem;
-}
-
-/* ==========================================================
-   Cookie banner
-   ========================================================== */
-
-.cookie-banner{
-  position:fixed; left:0; right:0; bottom:0; z-index:40;
-  padding:16px 0;
-}
-.cookie-banner .banner-card{
-  display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap;
-  background:var(--brand-elev);
-}
-
-/* ==========================================================
-   Scrollbars (diskreta)
-   ========================================================== */
-
-/* Firefox */
-*{ scrollbar-width:thin; scrollbar-color: color-mix(in srgb, var(--brand-text) 25%, transparent) var(--brand-bg); }
-/* WebKit */
-::-webkit-scrollbar{ width:10px; height:10px; }
-::-webkit-scrollbar-track{ background:var(--brand-bg); }
-::-webkit-scrollbar-thumb{
-  background: color-mix(in srgb, var(--brand-text) 25%, var(--brand-tint));
-  border:3px solid var(--brand-bg); border-radius:999px;
-}
-
-/* ==========================================================
-   Mobiljusteringar
-   ========================================================== */
-
-@media (max-width:720px) {
-  .section { padding:40px 0; }
-  .card, .textcell { padding:18px; }
-  .nav { gap:12px; }
-  h1, .hero-title { font-size: clamp(1.5rem, 1.3rem + 2.6vw, 2.2rem); }
-}
-
-/* --- Click-through fixar (lägg sist i emk-theme.css) --- */
-
-/* Se till att dekorativa lager aldrig blockerar klick */
-.soft-glow {
-  pointer-events: none !important;   /* släpp igenom klick */
-  z-index: 0 !important;             /* håll bakom innehåll */
-}
-
-/* Kort/sektioner ska ligga över dekorativa lager */
-.card, .elev, .step {
-  position: relative;                 /* skapa nytt stacking context */
-  z-index: 1;
-}
-
-/* Offcanvas-meny: fånga klick bara när den är "open" */
-.offcanvas { pointer-events: none; }
-.offcanvas.open { pointer-events: auto; }
-
-/* Scrim ska bara vara klickbar när panelen är öppen */
-.offcanvas .scrim { pointer-events: auto; }
-.offcanvas:not(.open) .scrim { display: none; }
-
-/* När man hoppar till #demo ska den inte hamna under headern */
-#demo { scroll-margin-top: 88px; }
-
-/* ==========================================================
-   Kontaktformulär: tydligare fält (utan att röra layout)
-   ========================================================== */
-
-.kontakt form,
-section[id*="kontakt"] form {
-  display:grid;
-  gap:12px;
-}
-
-/* Gör input/textarea tydliga med separata "celler" */
-.kontakt input[type="text"],
-.kontakt input[type="email"],
-.kontakt input[type="tel"],
-.kontakt input[type="search"],
-.kontakt input[type="url"],
-.kontakt textarea,
-section[id*="kontakt"] input[type="text"],
-section[id*="kontakt"] input[type="email"],
-section[id*="kontakt"] input[type="tel"],
-section[id*="kontakt"] input[type="search"],
-section[id*="kontakt"] input[type="url"],
-section[id*="kontakt"] textarea {
-  appearance:none;
-  -webkit-appearance:none;
-  background:#fff;                    /* tydlig kontrast i cellen */
-  border:1px solid #E5E7EB;           /* diskret grå ram */
-  border-radius:8px;
-  padding:10px 12px;
-  line-height:1.4;
-  box-shadow: inset 0 1px 0 rgba(0,0,0,0.02);
-  width:100%;
-}
-
-/* Fokusmarkering – synlig men subtil i varumärkeslinje */
-.kontakt input:focus,
-.kontakt textarea:focus,
-section[id*="kontakt"] input:focus,
-section[id*="kontakt"] textarea:focus {
-  outline:2px solid rgba(212,175,55,0.9);
-  outline-offset:0;
-  box-shadow:0 0 0 3px rgba(212,175,55,0.20);
-}
-
-/* Etiketter och hjälptexter separeras från fälten */
-.kontakt label,
-section[id*="kontakt"] label {
-  display:block;
-  font-weight:600;
-  margin-bottom:4px;
-}
-
-.kontakt .fine,
-section[id*="kontakt"] .fine {
-  margin-top:2px;
-  color:#6B7280;        /* diskret grå för hjälptext */
-  font-size:0.95rem;
-}
-
-/* Extra luft mellan fältgrupper */
-.kontakt .field,
-section[id*="kontakt"] .field {
-  display:grid;
-  gap:6px;
-  margin-top:6px;
-}
-
-/* Knapp-rad */
-.kontakt .actions,
-section[id*="kontakt"] .actions {
-  display:flex;
-  gap:12px;
-  align-items:center;
-  flex-wrap:wrap;
-  margin-top:8px;
-}
-
-/* Textarea höjd från start */
-.kontakt textarea,
-section[id*="kontakt"] textarea { min-height:140px; }
-
-/* Hindra att text “flyter ut” i cellkanten på små skärmar */
-.kontakt .card,
-section[id*="kontakt"] .card {
-  overflow:hidden;
+footer {
+  background: var(--brand-surface);
+  border-top: 1px solid #e0e0e0;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--brand-sub);
 }
