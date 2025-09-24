@@ -1,30 +1,30 @@
 <!doctype html>
 <html lang="sv">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Case & resultat | EMK Sverige AB</title>
-  <meta name="description" content="Urval av verkliga case: fördröjd leverans, tekniskt fel och egna garantier. Resultat och lärdomar från EMK Sverige AB.">
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png">
-  <link rel="stylesheet" href="/assets/emk-theme.css">
+  <meta name="description" content="Exempel på uppdrag och resultat inom eftermarknad, KKL och ARN." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/assets/emk-theme.css?v=5" />
 </head>
-<body class="site hero-bg">
-  <!-- HEADER -->
+<body class="site">
+  <!-- HEADER (uppdaterad: FAQ-länk till /faq.html) -->
   <header>
     <div id="topbar" class="topbar">
       <div class="container wrap" style="height:80px;">
-        <a class="logo inline-flex items-center" href="/index.html" aria-label="EMK Sverige AB">
-          <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK Sverige AB" class="h-[56px] w-auto object-contain">
+        <a href="/" class="logo inline-flex items-center" aria-label="Gå till startsidan">
+          <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK logotyp" class="h-[56px] w-auto object-contain" />
         </a>
         <nav class="nav hidden md:flex" aria-label="Huvudmeny">
           <a href="/tjanster.html">Tjänster</a>
-          <a href="/process.html">Process</a>
-          <a class="active" href="/case.html" aria-current="page">Case</a>
+          <a href="/#process">Process</a>
+          <a href="/#case" aria-current="page">Case</a>
           <a href="/om-oss.html">Om oss</a>
           <a href="/faq.html">FAQ</a>
-          <a href="/kontakt.html">Kontakt</a>
+          <a href="/#kontakt">Kontakt</a>
         </nav>
         <div class="hidden md:block">
           <a href="/formular.html" class="btn btn-primary">Kontakta oss</a>
@@ -34,6 +34,7 @@
         </button>
       </div>
     </div>
+    <!-- Mobilmeny (uppdaterad: FAQ) -->
     <div id="mobileNav" class="offcanvas" hidden>
       <div class="scrim" data-close="" aria-hidden="true"></div>
       <div class="panel" role="dialog" aria-label="Mobilmeny">
@@ -43,57 +44,59 @@
         </div>
         <div class="mt-3 grid gap-1">
           <a href="/tjanster.html" data-close="">Tjänster</a>
-          <a href="/process.html" data-close="">Process</a>
-          <a class="active" href="/case.html" data-close="" aria-current="page">Case</a>
+          <a href="/#process" data-close="">Process</a>
+          <a href="/#case" data-close="" aria-current="page">Case</a>
           <a href="/om-oss.html" data-close="">Om oss</a>
           <a href="/faq.html" data-close="">FAQ</a>
-          <a href="/kontakt.html" data-close="">Kontakt</a>
+          <a href="/#kontakt" data-close="">Kontakt</a>
           <a href="/formular.html" class="btn btn-primary mt-2" data-close="">Kontakta oss</a>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- INNEHÅLL -->
-  <main id="main" class="page">
-    <section class="hero hero-small">
-      <div class="container">
-        <h1>Case & resultat</h1>
-      </div>
-    </section>
+  <!-- INNEHÅLL (oförändrat) -->
+  <main class="section">
+    <div class="container">
+      <h1 class="hero-title">Case & resultat</h1>
 
-    <section class="container stack">
-      <article class="card">
+      <div class="card elev mt-6">
         <h2>Fördröjd leverans</h2>
-        <p>Kund yrkade hävning p.g.a. väntetid. Vi drev proportionalitet &amp; alternativa lösningar.</p>
-        <p><strong>Utfall:</strong> 2&nbsp;% prisavdrag, ingen hävning.</p>
-      </article>
+        <p>Kund yrkade hävning p.g.a. väntetid. Vi drev proportionalitet & alternativa lösningar.</p>
+        <p><b>Utfall:</b> 2 % prisavdrag, ingen hävning.</p>
+      </div>
 
-      <article class="card">
+      <div class="card elev mt-6">
         <h2>Tekniskt fel – BMW M6</h2>
-        <p>Auktoriserad verkstad kopplades in utan samråd. Vi styrde beviskrav &amp; process tillbaka till säljaren.</p>
-        <p><strong>Utfall:</strong> felaktigt kostnadsansvar undveks.</p>
-      </article>
+        <p>Auktoriserad verkstad kopplades in utan samråd. Vi styrde beviskrav & process tillbaka till säljaren.</p>
+        <p><b>Utfall:</b> felaktigt kostnadsansvar undveks.</p>
+      </div>
 
-      <article class="card">
+      <div class="card elev mt-6">
         <h2>Egna garantier</h2>
         <p>Otydliga villkor skapade tvist. Vi standardiserade bilagor och utbildade personal.</p>
-        <p><strong>Utfall:</strong> färre tvister &amp; snabbare beslut.</p>
-      </article>
-    </section>
+        <p><b>Utfall:</b> färre tvister & snabbare beslut.</p>
+      </div>
+    </div>
   </main>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <p>© EMK Sverige AB</p>
+  <footer>
+    <div class="container wrap footer">
+      <div class="footer-left">© EMK Sverige AB</div>
+      <nav class="footer-right" aria-label="Sekundärmeny">
+        <a href="/integritet.html">Integritet</a>
+        <a href="/cookies.html">Cookies</a>
+        <a href="/villkor.html">Villkor</a>
+        <a href="/formular.html">Formulär</a>
+      </nav>
     </div>
   </footer>
 
-  <!-- SCRIPTS -->
+  <!-- Scripts -->
   <script>
-    (function(){const b=document.getElementById('topbar');function s(){b.classList.toggle('is-scrolled',window.scrollY>6)}s();window.addEventListener('scroll',s,{passive:true});})();
-    (function(){const t=document.getElementById('navToggle');const oc=document.getElementById('mobileNav');if(!t||!oc)return;const scr=oc.querySelector('.scrim');const cls=oc.querySelectorAll('[data-close]');function o(){oc.hidden=false;oc.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}function c(){oc.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>oc.hidden=true,200)}t.addEventListener('click',o);scr&&scr.addEventListener('click',c);cls.forEach(el=>el.addEventListener('click',c));window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!oc.hidden)c()});})();
+    (function(){const bar=document.getElementById('topbar');function s(){bar.classList.toggle('is-scrolled',window.scrollY>6)}s();window.addEventListener('scroll',s,{passive:true});})();
+    (function(){const t=document.getElementById('navToggle');const oc=document.getElementById('mobileNav');if(!oc||!t)return;const scr=oc.querySelector('.scrim');const cls=oc.querySelectorAll('[data-close]');function o(){oc.hidden=false;oc.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}function c(){oc.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>{oc.hidden=true;},200)}t.addEventListener('click',o);scr&&scr.addEventListener('click',c);cls.forEach(el=>el.addEventListener('click',c));window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!oc.hidden)c()});})();
   </script>
 </body>
 </html>
