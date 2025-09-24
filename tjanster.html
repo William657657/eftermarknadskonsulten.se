@@ -12,14 +12,15 @@
   <meta property="og:url" content="https://www.eftermarknadskonsulten.se/tjanster.html" />
   <meta property="og:image" content="/assets/customcolor_textlogo_customcolor_background.png" />
 
-  <!-- Säkerhetsmeta -->
+  <!-- Säkerhetsmeta (oförändrat) -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://forms.gle; upgrade-insecure-requests">
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
 
+  <!-- Tailwind + tema (synkat med index) -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/assets/emk-theme.css?v=1" />
+  <link rel="stylesheet" href="/assets/emk-theme.css?v=5" />
 
   <style>
     /* Mobil: dölj stor H1 i hero, lyft chip */
@@ -42,28 +43,23 @@
     .card.step .flex { align-items: flex-start; }
     .card.step h4 { margin: 0; }
 
-    /* === Enhetliga punktlistor (fix för "knas") ===
-       - riktig marker (disc/decimal)
-       - hängande indrag så rad 2+ linjerar under text, inte under punkten
-       - kompakt men läsbart vertikalt mellanrum
-    */
+    /* Enhetliga punktlistor */
     .bullets {
       margin-top: 0.5rem;
-      padding-left: 1.25rem;       /* basindrag */
-      list-style-position: outside; /* marker utanför textkolumn */
+      padding-left: 1.25rem;
+      list-style-position: outside;
     }
     .bullets.list-disc { list-style-type: disc; }
     .bullets.list-decimal { list-style-type: decimal; }
     .bullets li {
       margin: 0.25rem 0;
-      padding-left: 0.125rem;      /* liten putt så texten inte nuddar marker */
+      padding-left: 0.125rem;
     }
-    /* Finjustering för mindre textstorlek på "fine" */
     .fine.bullets li { line-height: 1.4; }
   </style>
 </head>
 <body>
-  <!-- Header -->
+  <!-- Header (enhetlig med index) -->
   <header>
     <div id="topbar" class="topbar">
       <div class="container wrap" style="height:80px;">
@@ -210,7 +206,7 @@
           <ul class="mt-2 fine bullets list-disc">
             <li>Kunddialog och förväntansstyrning</li>
             <li>Verkstadsstyrning och offertprocess</li>
-            <li>Beslutsmatris: reparation/omleverans/prisavdrag</li>
+            <li>Beslutsmatris: reparation, omleverans eller prisavdrag</li>
             <li>Slutlig överenskommelse & uppföljning</li>
           </ul>
         </div>
@@ -262,48 +258,27 @@
           <p class="mt-2 fine">Snabbast är att boka ett kort samtal. Vi återkopplar vanligtvis samma dag.</p>
           <div class="mt-3 flex gap-3 flex-wrap">
             <a href="/formular.html" class="btn btn-primary">Kontakta oss</a>
-            <a href="tel:+46708263366" class="btn btn-outline">Ring nu</a>
+            <a href="tel:+46708263366" class="btn btn-outline">Ring nu (+46 708 26 33 66)</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer" style="padding-top:24px; padding-bottom:24px;">
-    <div class="container wrap">
-      <div class="flex items-center gap-2">
-        <img src="/assets/customcolor_icon_customcolor_background.png" alt="EMK logotyp" style="height:32px;width:32px;border-radius:8px;" />
-        <div>
-          <div class="strong">EMK Sverige AB</div>
-          <div>Org.nr 559514-0111 · Trensum</div>
-        </div>
-      </div>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div>
-          <div class="strong">Kontakt</div>
-          <div><a href="mailto:info@emksab.se">info@emksab.se</a></div>
-          <div>0708-26 33 66</div>
-        </div>
-        <div>
-          <div class="strong">Sidor</div>
-          <a href="/tjanster.html" aria-current="page">Tjänster</a>
-          <a href="/#process">Process</a>
-          <a href="/om-oss.html">Om oss</a>
-          <a href="/#policy">Policy</a>
-          <a href="/plattform.html">Plattform</a>
-        </div>
-        <div>
-          <div class="strong">Länkar</div>
-          <a href="/integritet.html">Integritet</a>
-          <a href="/cookies.html">Cookies</a>
-          <a href="/villkor.html">Allmänna villkor</a>
-        </div>
-      </div>
+  <!-- Footer (enhetlig med index) -->
+  <footer>
+    <div class="container wrap footer">
+      <div class="footer-left">© EMK Sverige AB</div>
+      <nav class="footer-right" aria-label="Sekundärmeny">
+        <a href="/integritet.html">Integritet</a>
+        <a href="/cookies.html">Cookies</a>
+        <a href="/villkor.html">Villkor</a>
+        <a href="/formular.html">Formulär</a>
+      </nav>
     </div>
   </footer>
 
-  <!-- Cookie banner + GA -->
+  <!-- Cookie banner + GA (oförändrat) -->
   <div id="cookieBanner" class="cookie-banner">
     <div class="container">
       <div class="card banner-card">
@@ -317,8 +292,30 @@
   </div>
 
   <script>
-    (function(){const bar=document.getElementById('topbar');function s(){if(window.scrollY>6)bar.classList.add('is-scrolled');else bar.classList.remove('is-scrolled');}s();window.addEventListener('scroll',s,{passive:true});})();
-    (function(){const t=document.getElementById('navToggle');const oc=document.getElementById('mobileNav');if(!oc||!t)return;const scr=oc.querySelector('.scrim');const cls=oc.querySelectorAll('[data-close]');function o(){oc.hidden=false;oc.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}function c(){oc.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>{oc.hidden=true;},200);}t.addEventListener('click',o);scr&&scr.addEventListener('click',c);cls.forEach(el=>el.addEventListener('click',c));window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!oc.hidden)c();});})();
+    /* Topbar scroll skugga (enhetlig med index) */
+    (function(){
+      const bar = document.getElementById('topbar');
+      function s(){ if(window.scrollY>6) bar.classList.add('is-scrolled'); else bar.classList.remove('is-scrolled'); }
+      s();
+      window.addEventListener('scroll', s, { passive:true });
+    })();
+
+    /* Offcanvas-meny (enhetlig med index) */
+    (function(){
+      const t = document.getElementById('navToggle');
+      const oc = document.getElementById('mobileNav');
+      if(!oc||!t) return;
+      const scr = oc.querySelector('.scrim');
+      const cls = oc.querySelectorAll('[data-close]');
+      function o(){ oc.hidden=false; oc.classList.add('open'); t.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+      function c(){ oc.classList.remove('open'); t.setAttribute('aria-expanded','false'); document.body.style.overflow=''; setTimeout(()=>{ oc.hidden=true; },200); }
+      t.addEventListener('click', o);
+      scr && scr.addEventListener('click', c);
+      cls.forEach(el => el.addEventListener('click', c));
+      window.addEventListener('keydown', e => { if(e.key==='Escape'&&!oc.hidden) c(); });
+    })();
+
+    /* GA4 med samtycke (oförändrat) */
     (function(){
       const KEY='emk_cookie_consent';
       const b=document.getElementById('cookieBanner');
