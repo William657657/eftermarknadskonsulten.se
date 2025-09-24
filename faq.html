@@ -1,35 +1,49 @@
 <!doctype html>
 <html lang="sv">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FAQ | EMK Sverige AB</title>
-  <meta name="description" content="Vanliga frågor om vårt arbete med ARN och eftermarknadsprocesser för bilhandlare.">
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png">
-  <link rel="stylesheet" href="/assets/emk-theme.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ | EMK Sverige AB – Eftermarknadskonsulten</title>
+  <meta name="description" content="Vanliga frågor om vårt arbete med ARN och eftermarknadsprocesser för bilhandlare." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
+  <meta property="og:title" content="FAQ | EMK Sverige AB – Eftermarknadskonsulten" />
+  <meta property="og:description" content="Svar på vanliga frågor om stöd i ARN-ärenden, process och leveranser." />
+  <meta property="og:url" content="https://www.eftermarknadskonsulten.se/faq.html" />
+  <meta property="og:image" content="/assets/customcolor_textlogo_customcolor_background.png" />
+
+  <!-- Tailwind + tema (synkat med övriga sidor) -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/assets/emk-theme.css?v=5" />
+
   <style>
-    /* Endast typografi: Fråga = fet, Svar = normal. Inga texter ändras. */
+    /* Typografi för FAQ: fråga = fet, svar = normal */
     .faq .strong { font-weight: 800; }
     .faq .fine   { font-weight: 400; }
+    /* Robust radbrytning i kort */
+    .card, .card p { overflow-wrap:anywhere; word-break:break-word; hyphens:auto; }
+    /* Mobil: följ samma hero-beteende som övriga sidor */
+    @media (max-width: 767px){
+      .hero .hero-title{ display:none!important; }
+      .hero .chip{ display:block; text-align:left; font-size:clamp(1rem,2.8vw + .6rem,1.125rem); line-height:1.25; }
+    }
   </style>
 </head>
-<body class="site hero-bg">
-  <!-- HEADER -->
+<body class="site">
+  <!-- HEADER (enhetlig) -->
   <header>
     <div id="topbar" class="topbar">
       <div class="container wrap" style="height:80px;">
-        <a class="logo inline-flex items-center" href="/index.html" aria-label="EMK Sverige AB">
-          <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK Sverige AB" class="h-[56px] w-auto object-contain">
+        <a href="/" class="logo inline-flex items-center" aria-label="Gå till startsidan">
+          <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK logotyp" class="h-[56px] w-auto object-contain" />
         </a>
         <nav class="nav hidden md:flex" aria-label="Huvudmeny">
           <a href="/tjanster.html">Tjänster</a>
-          <a href="/process.html">Process</a>
-          <a href="/case.html">Case</a>
-          <a class="active" href="/faq.html" aria-current="page">FAQ</a>
+          <a href="/#process">Process</a>
+          <a href="/#case">Case</a>
           <a href="/om-oss.html">Om oss</a>
-          <a href="/kontakt.html">Kontakt</a>
+          <a href="/faq.html" aria-current="page">FAQ</a>
+          <a href="/#kontakt">Kontakt</a>
         </nav>
         <div class="hidden md:block">
           <a href="/formular.html" class="btn btn-primary">Kontakta oss</a>
@@ -39,6 +53,7 @@
         </button>
       </div>
     </div>
+    <!-- Mobilmeny -->
     <div id="mobileNav" class="offcanvas" hidden>
       <div class="scrim" data-close="" aria-hidden="true"></div>
       <div class="panel" role="dialog" aria-label="Mobilmeny">
@@ -48,27 +63,30 @@
         </div>
         <div class="mt-3 grid gap-1">
           <a href="/tjanster.html" data-close="">Tjänster</a>
-          <a href="/process.html" data-close="">Process</a>
-          <a href="/case.html" data-close="">Case</a>
-          <a class="active" href="/faq.html" data-close="" aria-current="page">FAQ</a>
+          <a href="/#process" data-close="">Process</a>
+          <a href="/#case" data-close="">Case</a>
           <a href="/om-oss.html" data-close="">Om oss</a>
-          <a href="/kontakt.html" data-close="">Kontakt</a>
+          <a href="/faq.html" data-close="" aria-current="page">FAQ</a>
+          <a href="/#kontakt" data-close="">Kontakt</a>
           <a href="/formular.html" class="btn btn-primary mt-2" data-close="">Kontakta oss</a>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- INNEHÅLL -->
-  <main id="main" class="page">
-    <section class="hero hero-small">
-      <div class="container">
-        <h1>Vanliga frågor</h1>
-      </div>
-    </section>
+  <!-- HERO -->
+  <section class="section hero-bg hero">
+    <div class="container">
+      <span class="chip">Vanliga frågor</span>
+      <h1 class="hero-title mt-6">FAQ</h1>
+      <p class="lead mt-3 max-w-[60ch]">Svar på vanliga frågor om vårt arbete i ARN-ärenden och eftermarknad.</p>
+    </div>
+  </section>
 
-    <section class="container stack faq">
-      <article class="card">
+  <!-- INNEHÅLL -->
+  <main class="section">
+    <div class="container">
+      <article class="card elev faq">
         <p class="mt-4 strong">Kan ni ta över ett pågående ARN-ärende?</p>
         <p class="mt-1 fine">Ja. Vi gör en snabb genomlysning, säkrar bevisning och föreslår strategi. Vid behov tar vi fram första utkast till yttrande.</p>
 
@@ -94,31 +112,87 @@
         <p class="mt-4 strong">Hur hanterar ni personuppgifter?</p>
         <p class="mt-1 fine">Endast nödvändiga uppgifter behandlas för ändamålet. Läs mer i vår <a href="/integritet.html">integritetspolicy</a>.</p>
       </article>
-    </section>
+    </div>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <p>© EMK Sverige AB</p>
+  <!-- FOOTER (enhetlig) -->
+  <footer>
+    <div class="container wrap footer">
+      <div class="footer-left">© EMK Sverige AB</div>
+      <nav class="footer-right" aria-label="Sekundärmeny">
+        <a href="/integritet.html">Integritet</a>
+        <a href="/cookies.html">Cookies</a>
+        <a href="/villkor.html">Villkor</a>
+        <a href="/formular.html">Formulär</a>
+      </nav>
     </div>
   </footer>
 
-  <!-- SCRIPTS -->
+  <!-- Cookie banner -->
+  <div id="cookieBanner" class="cookie-banner" role="region" aria-label="Cookie-banner">
+    <div class="container">
+      <div class="card banner-card">
+        <p class="muted">Vi använder nödvändiga cookies. Analyscookies sätts bara om du samtycker. Läs mer i vår <a href="/cookies.html">cookie-policy</a>.</p>
+        <div class="flex gap-2">
+          <button id="cookieReject" class="btn btn-outline">Avvisa</button>
+          <button id="cookieAccept" class="btn btn-primary">Tillåt analyscookies</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts (enhetliga) -->
   <script>
-    (function(){const b=document.getElementById('topbar');function s(){b.classList.toggle('is-scrolled',window.scrollY>6)}s();window.addEventListener('scroll',s,{passive:true});})();
+    /* Topbar scroll skugga */
     (function(){
-      const t=document.getElementById('navToggle');
-      const oc=document.getElementById('mobileNav');
-      if(!t||!oc) return;
-      const scr=oc.querySelector('.scrim');
-      const cls=oc.querySelectorAll('[data-close]');
-      function o(){oc.hidden=false;oc.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}
-      function c(){oc.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>oc.hidden=true,200)}
-      t.addEventListener('click',o);
-      scr&&scr.addEventListener('click',c);
-      cls.forEach(el=>el.addEventListener('click',c));
-      window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!oc.hidden)c()});
+      const bar = document.getElementById('topbar');
+      function s(){ if (window.scrollY > 6) bar.classList.add('is-scrolled'); else bar.classList.remove('is-scrolled'); }
+      s();
+      window.addEventListener('scroll', s, { passive:true });
+    })();
+
+    /* Offcanvas-meny */
+    (function(){
+      const t = document.getElementById('navToggle');
+      const oc = document.getElementById('mobileNav');
+      if (!oc || !t) return;
+      const scr = oc.querySelector('.scrim');
+      const cls = oc.querySelectorAll('[data-close]');
+      function o(){ oc.hidden=false; oc.classList.add('open'); t.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+      function c(){ oc.classList.remove('open'); t.setAttribute('aria-expanded','false'); document.body.style.overflow=''; setTimeout(()=>{ oc.hidden=true; },200); }
+      t.addEventListener('click', o);
+      scr && scr.addEventListener('click', c);
+      cls.forEach(el => el.addEventListener('click', c));
+      window.addEventListener('keydown', e => { if (e.key === 'Escape' && !oc.hidden) c(); });
+    })();
+
+    /* GA4 med samtycke (samma som övriga sidor) */
+    (function(){
+      const KEY='emk_cookie_consent';
+      const b=document.getElementById('cookieBanner');
+      const a=document.getElementById('cookieAccept');
+      const r=document.getElementById('cookieReject');
+      const hide=()=>b.style.display='none';
+      const set=v=>localStorage.setItem(KEY,v);
+      const get=()=>localStorage.getItem(KEY);
+      function load(){
+        const id='G-W07T4YVG4E';
+        if(!id) return;
+        const s=document.createElement('script');
+        s.src='https://www.googletagmanager.com/gtag/js?id='+id;
+        s.async=true; document.head.appendChild(s);
+        window.dataLayer=window.dataLayer||[];
+        function gtag(){ dataLayer.push(arguments); }
+        window.gtag=gtag;
+        gtag('js', new Date());
+        gtag('config', id, { anonymize_ip:true });
+      }
+      const v=get();
+      if(v==='accepted'){ hide(); load(); }
+      else if(v==='rejected'){ hide(); }
+      else{ b.style.display='block'; }
+      a.addEventListener('click',()=>{ set('accepted'); hide(); load(); });
+      r.addEventListener('click',()=>{ set('rejected'); hide(); });
     })();
   </script>
 </body>
