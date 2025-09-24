@@ -87,7 +87,7 @@
           <h1 class="hero-title mt-6">Hjälp i <span class="hero-underline">ARN-processen</span> för bilhandlare</h1>
           <p class="lead mt-4">Vi minskar risken för utdragna ARN-processer och onödiga kostnader genom väl underbyggda yttranden, smart dokumentation och en beslutsmatris — med stöd i Konsumentköplagen §§ 20 och 22 samt gällande ARN-praxis för bilhandlare.</p>
           <div class="mt-5 flex gap-3 flex-wrap">
-            <a href="/formular.html" target="_blank" rel="noopener" class="btn btn-primary">Kontakta oss</a>
+            <a href="/formular.html" rel="noopener" class="btn btn-primary">Kontakta oss</a>
             <a href="/tjanster.html" class="btn btn-outline">Se tjänster</a>
           </div>
 
@@ -108,11 +108,11 @@
             <ul class="mt-3 fine list-disc pl-5 space-y-1">
               <li>Akut stöd: första bedömning inom 12h*</li>
               <li>Yttranden och bemötanden till ARN</li>
-              <li>Beslutsmatris: när reparera, omleverera, prisavdrag?</li>
+              <li>Beslutsmatris: när reparera, omleverera eller prisavdrag?</li>
               <li><b>Mötesunderlag</b> (checklista + tidslinje) skickas efter bokning – ej offentlig nedladdning</li>
               <li>Utbildning sälj/eftermarknad i KKL §§25–28 & praxis</li>
             </ul>
-            <p class="mt-4 small">*Arbetas vardagar. Brådskande ärenden utanför normal arbetstid, enligt överenskommelse.</p>
+            <p class="mt-4 small">*Gäller vardagar. Brådskande ärenden utanför normal arbetstid, enligt överenskommelse.</p>
           </div>
           <div class="card elev mt-4">
             <p class="mt-4 small">
@@ -192,7 +192,7 @@
   <footer>
     <div class="container wrap footer">
       <div class="footer-left">© EMK Sverige AB</div>
-      <nav class="footer-right">
+      <nav class="footer-right" aria-label="Sekundärmeny">
         <a href="/integritet.html">Integritet</a>
         <a href="/cookies.html">Cookies</a>
         <a href="/villkor.html">Villkor</a>
@@ -202,7 +202,7 @@
   </footer>
 
   <!-- Cookie banner -->
-  <div id="cookieBanner" class="cookie-banner">
+  <div id="cookieBanner" class="cookie-banner" role="region" aria-label="Cookie-banner">
     <div class="container">
       <div class="card banner-card">
         <p class="muted">Vi använder nödvändiga cookies. Analyscookies sätts bara om du samtycker. Läs mer i vår <a href="/cookies.html">cookie-policy</a>.</p>
@@ -217,10 +217,27 @@
   <!-- Scripts -->
   <script>
     /* Topbar scroll skugga */
-    (function(){const bar=document.getElementById('topbar');function s(){if(window.scrollY>6)bar.classList.add('is-scrolled');else bar.classList.remove('is-scrolled');}s();window.addEventListener('scroll',s,{passive:true});})();
+    (function(){
+      const bar = document.getElementById('topbar');
+      function s(){ if (window.scrollY > 6) bar.classList.add('is-scrolled'); else bar.classList.remove('is-scrolled'); }
+      s();
+      window.addEventListener('scroll', s, { passive:true });
+    })();
 
     /* Offcanvas-meny */
-    (function(){const t=document.getElementById('navToggle');const oc=document.getElementById('mobileNav');if(!oc||!t)return;const scr=oc.querySelector('.scrim');const cls=oc.querySelectorAll('[data-close]');function o(){oc.hidden=false;oc.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}function c(){oc.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>{oc.hidden=true;},200);}t.addEventListener('click',o);scr&&scr.addEventListener('click',c);cls.forEach(el=>el.addEventListener('click',c));window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!oc.hidden)c();});})();
+    (function(){
+      const t = document.getElementById('navToggle');
+      const oc = document.getElementById('mobileNav');
+      if (!oc || !t) return;
+      const scr = oc.querySelector('.scrim');
+      const cls = oc.querySelectorAll('[data-close]');
+      function o(){ oc.hidden=false; oc.classList.add('open'); t.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+      function c(){ oc.classList.remove('open'); t.setAttribute('aria-expanded','false'); document.body.style.overflow=''; setTimeout(()=>{ oc.hidden=true; },200); }
+      t.addEventListener('click', o);
+      scr && scr.addEventListener('click', c);
+      cls.forEach(el => el.addEventListener('click', c));
+      window.addEventListener('keydown', e => { if (e.key === 'Escape' && !oc.hidden) c(); });
+    })();
 
     /* GA4 med samtycke (din riktiga ID) */
     (function(){
@@ -238,7 +255,7 @@
         s.src='https://www.googletagmanager.com/gtag/js?id='+id;
         s.async=true; document.head.appendChild(s);
         window.dataLayer=window.dataLayer||[];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag(){ dataLayer.push(arguments); }
         window.gtag=gtag;
         gtag('js', new Date());
         gtag('config', id, { anonymize_ip:true });
