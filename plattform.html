@@ -25,10 +25,50 @@
       .hero .hero-title { font-size:clamp(2.4rem, 2.3vw + 1.2rem, 3.45rem); }
     }
     .card, .card h2, .card h3, .card p, .card li { overflow-wrap:anywhere; hyphens:auto; }
-    .feature-icon {
-      display:inline-flex; align-items:center; justify-content:center;
-      width:42px; height:42px; border-radius:12px;
-      background:var(--brand-tint); color:var(--brand-text); font-weight:800;
+    .capability-shell {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      border-top:1px solid var(--brand-border);
+      border-bottom:1px solid var(--brand-border);
+    }
+    .capability-item {
+      padding:32px 34px 34px 0;
+      border-bottom:1px solid var(--brand-border);
+    }
+    .capability-item:nth-child(odd) {
+      padding-right:42px;
+      border-right:1px solid var(--brand-border);
+    }
+    .capability-item:nth-child(even) { padding-left:42px; }
+    .capability-item:nth-last-child(-n+2) { border-bottom:0; }
+    .capability-label {
+      display:block;
+      margin-bottom:10px;
+      color:var(--brand-gold);
+      font-size:.72rem;
+      font-weight:750;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .expert-strip {
+      display:grid;
+      grid-template-columns:minmax(180px,.7fr) minmax(0,1.3fr);
+      gap:36px;
+      align-items:start;
+      padding:30px 0;
+      border-bottom:1px solid var(--brand-border);
+    }
+    @media (max-width:767px) {
+      .capability-shell { grid-template-columns:1fr; }
+      .capability-item,
+      .capability-item:nth-child(odd),
+      .capability-item:nth-child(even) {
+        padding:26px 0;
+        border-right:0;
+        border-bottom:1px solid var(--brand-border);
+      }
+      .capability-item:nth-last-child(2) { border-bottom:1px solid var(--brand-border); }
+      .expert-strip { grid-template-columns:1fr; gap:10px; }
     }
     .flow-step { position:relative; padding-left:64px; min-height:48px; }
     .flow-number {
@@ -139,37 +179,35 @@
           <p class="mt-3 muted">Fordonsskador.se skapar samma tydliga väg oavsett vem som tar emot ärendet. Det minskar risken för borttappade underlag, olika besked och kostnader som upptäcks för sent.</p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6 mt-8 items-stretch">
-          <article class="card elev">
-            <span class="feature-icon">01</span>
-            <h3 class="mt-4">Strukturerat ärendeintag</h3>
-            <p class="mt-2 fine">Kunden lämnar felbeskrivning, bilder och övriga underlag i ett styrt formulär. Endast fordon registrerade hos en ansluten handlare kan anmälas.</p>
+        <div class="capability-shell mt-10">
+          <article class="capability-item">
+            <span class="capability-label">Ärendeintag</span>
+            <h3>Rätt fordon. Rätt handlare. Rätt underlag.</h3>
+            <p class="mt-2 fine">Kunden lämnar felbeskrivning, bilder och dokumentation i ett styrt flöde. Registreringsnumret säkerställer att ärendet kopplas rätt från början.</p>
           </article>
-          <article class="card elev">
-            <span class="feature-icon">02</span>
-            <h3 class="mt-4">Samlad dokumentation</h3>
-            <p class="mt-2 fine">Historik, bilagor, kunddialog, bedömningar och beslut hålls ihop per fordon och ärende.</p>
+          <article class="capability-item">
+            <span class="capability-label">Dokumentation</span>
+            <h3>En obruten historik genom hela ärendet</h3>
+            <p class="mt-2 fine">Bilagor, kunddialog, bedömningar och beslut hålls ihop per fordon – tillgängligt för dem som behöver agera.</p>
           </article>
-          <article class="card elev">
-            <span class="feature-icon">03</span>
-            <h3 class="mt-4">Kontroll och uppföljning</h3>
-            <p class="mt-2 fine">Pågående garantiärenden och reklamationer kan följas med tydliga statusar, kostnader och beslutsunderlag.</p>
+          <article class="capability-item">
+            <span class="capability-label">Bedömning</span>
+            <h3>Garanti och reklamation hålls isär</h3>
+            <p class="mt-2 fine">Rätt villkor och rätt beslutsgrund används beroende på om ärendet gäller garanti eller konsumentköplagen.</p>
           </article>
-          <article class="card elev">
-            <span class="feature-icon">04</span>
-            <h3 class="mt-4">Garanti eller KKL</h3>
-            <p class="mt-2 fine">Flödet skiljer på garantiärenden och reklamationer enligt konsumentköplagen så att rätt villkor och bedömning används.</p>
+          <article class="capability-item">
+            <span class="capability-label">Uppföljning</span>
+            <h3>Status, verkstad och kostnader i samma vy</h3>
+            <p class="mt-2 fine">Pågående ärenden kan följas med verkstadsunderlag, åtgärder, kostnader och tydliga beslutsunderlag.</p>
           </article>
-          <article class="card elev">
-            <span class="feature-icon">05</span>
-            <h3 class="mt-4">Verkstad och felsökning</h3>
-            <p class="mt-2 fine">Ärendet kan kompletteras med verkstadsunderlag och kunden kan, när fordonet är registrerat, gå vidare till bokning av felsökning.</p>
-          </article>
-          <article class="card elev">
-            <span class="feature-icon">06</span>
-            <h3 class="mt-4">Specialist bakom systemet</h3>
-            <p class="mt-2 fine">När ett ärende blir komplicerat finns EMK:s erfarenhet av skadereglering, regress, KKL och ARN nära till hands.</p>
-          </article>
+        </div>
+
+        <div class="expert-strip">
+          <div>
+            <span class="capability-label">Bakom systemet</span>
+            <h3>Specialiststöd från EMK</h3>
+          </div>
+          <p class="fine">När ärendet kräver mer än ett digitalt flöde finns EMK:s erfarenhet av skadereglering, regress, KKL och ARN nära till hands – från analys och kunddialog till förlikning eller yttrande.</p>
         </div>
       </div>
     </section>
