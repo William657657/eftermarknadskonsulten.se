@@ -37,13 +37,14 @@
       background:var(--brand-accent); color:var(--brand-contrast); font-weight:800;
     }
     .product-panel {
-      background:linear-gradient(145deg, #fff 0%, var(--brand-elev) 100%);
-      border:1px solid color-mix(in srgb, var(--brand-accent) 45%, var(--brand-border));
+      background:rgba(13,14,16,.9);
+      border:1px solid rgba(255,255,255,.16);
+      backdrop-filter:blur(10px);
     }
     .check-list { list-style:none; padding:0; margin:0; }
     .check-list li { position:relative; padding-left:30px; margin-top:10px; }
     .check-list li::before {
-      content:'✓'; position:absolute; left:0; top:0; font-weight:900; color:#7a651b;
+      content:'✓'; position:absolute; left:0; top:0; font-weight:900; color:var(--brand-gold);
     }
   </style>
 </head>
