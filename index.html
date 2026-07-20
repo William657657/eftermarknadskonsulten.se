@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Eftermarknadskonsulten – ARN-stöd för bilhandlare | EMK Sverige AB</title>
-  <meta name="description" content="Praktiskt stöd i ARN-processen för bilhandlare: snabb respons, kompletta yttranden, beslutsmatris och utbildning.">
+  <title>Eftermarknad för bilhandlare | Fordonsskador.se &amp; ARN-stöd</title>
+  <meta name="description" content="EMK Sverige AB kombinerar fordonsskador.se med personligt stöd inom garanti, reklamation, KKL och ARN för bilhandlare.">
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" href="/assets/customcolor_icon_customcolor_background.png" type="image/png" />
-  <meta property="og:title" content="Eftermarknadskonsulten – ARN-stöd för bilhandlare | EMK Sverige AB" />
-  <meta property="og:description" content="Praktiskt stöd i konsumentköpsfrågor och ARN-ärenden för bilhandlare." />
+  <meta property="og:title" content="Eftermarknad för bilhandlare | Fordonsskador.se &amp; ARN-stöd" />
+  <meta property="og:description" content="Digital ärendehantering genom fordonsskador.se kombinerad med personlig eftermarknadsexpertis från EMK Sverige AB." />
   <meta property="og:url" content="https://www.eftermarknadskonsulten.se" />
   <meta property="og:image" content="/assets/customcolor_textlogo_customcolor_background.png" />
 
@@ -41,6 +41,7 @@
           <img src="/assets/customcolor_logo_customcolor_background.png" alt="EMK logotyp" class="h-[56px] w-auto object-contain" />
         </a>
         <nav class="nav hidden md:flex" aria-label="Huvudmeny">
+          <a href="/plattform.html">Fordonsskador.se</a>
           <a href="/tjanster.html">Tjänster</a>
           <a href="/#process">Process</a>
           <a href="/case.html">Case</a><!-- ändrat -->
@@ -51,7 +52,7 @@
         <div class="hidden md:block">
           <a href="/formular.html" class="btn btn-primary">Kontakta oss</a>
         </div>
-        <button id="navToggle" class="md:hidden hambox" aria-expanded="false" aria-controls="mobileNav" aria-label="Öppna meny">
+        <button type="button" id="navToggle" class="md:hidden hambox" aria-expanded="false" aria-controls="mobileNav" aria-label="Öppna meny">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
@@ -63,9 +64,10 @@
       <div class="panel" role="dialog" aria-label="Mobilmeny">
         <div class="flex items-center justify-between">
           <strong>Menyn</strong>
-          <button class="hambox" data-close="" aria-label="Stäng meny">×</button>
+          <button type="button" class="hambox" data-close="" aria-label="Stäng meny">×</button>
         </div>
         <div class="mt-3 grid gap-1">
+          <a href="/plattform.html" data-close="">Fordonsskador.se</a>
           <a href="/tjanster.html" data-close="">Tjänster</a>
           <a href="/#process" data-close="">Process</a>
           <a href="/case.html" data-close="">Case</a><!-- ändrat -->
@@ -83,88 +85,94 @@
     <div class="container">
       <div class="grid md:grid-cols-2 gap-8 items-start">
         <div>
-          <span class="chip">Experter på ARN-processer · Snabbt & strukturerat</span>
-          <h1 class="hero-title mt-6">Hjälp i <span class="hero-underline">ARN-processen</span> för bilhandlare</h1>
-          <p class="lead mt-4">Vi minskar risken för utdragna ARN-processer och onödiga kostnader genom väl underbyggda yttranden, smart dokumentation och en beslutsmatris — med stöd i Konsumentköplagen §§ 20 och 22 samt gällande ARN-praxis för bilhandlare.</p>
+          <span class="chip">Digital eftermarknad · Personlig expertis</span>
+          <h1 class="hero-title mt-6">Kontroll över eftermarknaden – <span class="hero-underline">från anmälan till beslut</span></h1>
+          <p class="lead mt-4">EMK Sverige AB kombinerar specialiststöd inom garanti, reklamation, konsumentköplagen och ARN med fordonsskador.se – vår digitala tjänst för en strukturerad, spårbar och kostnadseffektiv eftermarknad.</p>
           <div class="mt-5 flex gap-3 flex-wrap">
-            <a href="/formular.html" class="btn btn-primary">Kontakta oss</a>
-            <a href="/tjanster.html" class="btn btn-outline">Se tjänster</a>
+            <a href="/plattform.html" class="btn btn-primary">Upptäck fordonsskador.se</a>
+            <a href="/formular.html" class="btn btn-outline">Boka en genomgång</a>
           </div>
 
           <!-- Punktlista -->
           <ul class="bullets mt-6 list-disc pl-5 space-y-1">
-            <li>Sprintbaserat upplägg: färdig eftermarknadsprocess på cirka en månad – anpassat efter era behov</li>
-            <li>För bilhandlare som säljer 10–10 000 bilar/år</li>
-            <li>Djup insyn i hur försäkringsbolag arbetar med skadereglering och regress – en fördel i varje tvist</li>
+            <li>Skadeanmälan, reklamation och dokumentation i ett sammanhållet flöde</li>
+            <li>Personlig ärendeledning när ett ärende kräver mer än ett system</li>
+            <li>Beslutsstöd grundat i praktisk skadereglering, KKL och ARN-praxis</li>
           </ul>
         </div>
 
         <!-- Högerkolumn -->
         <div class="relative">
           <div class="soft-glow" aria-hidden="true"></div>
-          <div class="card elev">
-            <h3>Vad vi levererar</h3>
+          <div class="card elev product-card">
+            <div class="flex items-center justify-between gap-3">
+              <h3>fordonsskador.se</h3>
+              <span class="badge">Digital tjänst</span>
+            </div>
+            <p class="mt-3 muted">Ett komplett arbetsflöde för bilhandlarens eftermarknad – byggt för tydlighet, kontroll och spårbarhet.</p>
             <ul class="mt-3 fine list-disc pl-5 space-y-1">
-              <li>Akut stöd: första bedömning inom 12h*</li>
-              <li>Yttranden och bemötanden till ARN</li>
-              <li>Beslutsmatris: när reparera, omleverera, prisavdrag?</li>
-              <li><b>Mötesunderlag</b> (checklista + tidslinje) skickas efter bokning – ej offentlig nedladdning</li>
-              <li>Utbildning sälj/eftermarknad i KKL §§25–28 & praxis</li>
+              <li>Digital skadeanmälan och reklamation</li>
+              <li>Kontroll mot handlarens registrerade fordon</li>
+              <li>Bilder, underlag och historik samlade per ärende</li>
+              <li>Tydliga statusar, kostnader och beslutsunderlag</li>
+              <li>Strukturerad kommunikation med kund och verkstad</li>
             </ul>
-            <p class="mt-4 small">*Arbetas vardagar. Brådskande ärenden utanför normal arbetstid, enligt överenskommelse.</p>
+            <div class="mt-4 flex gap-3 flex-wrap">
+              <a href="/plattform.html" class="btn btn-primary">Läs mer</a>
+              <a href="https://fordonsskador.se/" class="btn btn-outline" target="_blank" rel="noopener">Besök tjänsten</a>
+            </div>
           </div>
           <div class="card elev mt-4">
-            <p class="mt-4 small">
-              Vi arbetar även med mjukvarulösningar som ger kontroll över hela eftermarknadsflödet – klagomål, reklamation och uppföljning.
-            </p>
+            <h3>Expertstöd när det behövs</h3>
+            <p class="mt-2 small">EMK kan ta ledning i kunddialog, verkstadsstyrning, bedömning, förlikning och yttranden till ARN.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Tre huvudtjänster + info-banner -->
+  <!-- Två erbjudanden + ärendeledning -->
   <section class="section">
     <div class="container">
       <div class="grid md:grid-cols-3 gap-6 items-stretch">
         <div class="card elev">
           <div class="flex items-center justify-between">
-            <h3>Akut ARN-respons</h3>
-            <span class="badge">Snabbstart</span>
+            <h3>Fordonsskador.se</h3>
+            <span class="badge">Plattform</span>
           </div>
-          <p class="mt-2 muted grow">Genomgång av ärende & underlag, riskbedömning, åtgärdsplan och första utkast till yttrande.</p>
+          <p class="mt-2 muted grow">Digital hantering av garantiärenden och reklamationer – från första anmälan till dokumenterat beslut.</p>
           <ul class="mt-3 fine list-disc pl-5 space-y-1">
-            <li>Första bedömning inom 12h* (vardagar)</li>
-            <li>Checklista & dokumentationskrav</li>
-            <li>Rekommenderade temporära åtgärder</li>
+            <li>En ingång för kundens anmälan</li>
+            <li>Samlad historik och bilagor</li>
+            <li>Kontroll på status och kostnader</li>
           </ul>
-          <a href="/formular.html" class="btn btn-outline mt-3">Starta här</a>
+          <a href="/plattform.html" class="btn btn-outline mt-3">Se hur det fungerar</a>
         </div>
 
         <div class="card elev">
           <div class="flex items-center justify-between">
-            <h3>Yttrande & bemötande</h3>
-            <span class="badge">Huvudtjänst</span>
+            <h3>Eftermarknadskonsulten</h3>
+            <span class="badge">Expertstöd</span>
           </div>
-          <p class="mt-2 muted grow">Komplett yttrande till ARN inklusive bevisning, praxisstöd och strategi för alternativ lösning vid behov.</p>
+          <p class="mt-2 muted grow">Praktiskt stöd i komplicerade reklamationer, konsumentköprätt och tvister som riskerar att hamna hos ARN.</p>
           <ul class="mt-3 fine list-disc pl-5 space-y-1">
-            <li>KKL & prop. 2021/22:85 kopplat till fallet</li>
-            <li>Tidplan & milstolpar</li>
-            <li>Slutgenomläsning med beslutsfattare</li>
+            <li>Riskbedömning och handlingsplan</li>
+            <li>Yttranden och bemötanden</li>
+            <li>Stöd i kunddialog och förlikning</li>
           </ul>
-          <a href="/formular.html" class="btn btn-outline mt-3">Be om offert</a>
+          <a href="/tjanster.html" class="btn btn-outline mt-3">Se konsulttjänster</a>
         </div>
 
         <div class="card elev">
           <div class="flex items-center justify-between">
             <h3>Full ärendeledning</h3>
-            <span class="badge">End-to-end</span>
+            <span class="badge">Helhet</span>
           </div>
-          <p class="mt-2 muted grow">Vi tar lead på hela ärendet: kunddialog, verkstad, offerter och slutlig överenskommelse.</p>
+          <p class="mt-2 muted grow">Teknik och mänsklig erfarenhet i samma leverans: vi kan ta ansvar för hela flödet när ni vill avlasta organisationen.</p>
           <ul class="mt-3 fine list-disc pl-5 space-y-1">
             <li>En kontaktväg för allt</li>
-            <li>Mål: undvika ARN & minimera kostnad</li>
-            <li>Lärdomar → rutiner i verksamheten</li>
+            <li>Styrning av kund, verkstad och underlag</li>
+            <li>Mål: snabbare beslut och lägre kostnad</li>
           </ul>
           <a href="/formular.html" class="btn btn-outline mt-3">Prata upplägg</a>
         </div>
@@ -174,12 +182,10 @@
       <div class="relative mt-6">
         <div class="soft-glow" aria-hidden="true" style="inset:-6px; border-radius:16px;"></div>
         <div class="card elev">
-          <p class="muted">
-            Vi hjälper även i ärenden som <b>riskerar</b> att hamna hos ARN (förebyggande stöd). Dessutom kan vi bygga en
-            <a href="/plattform.html"><b>kostnadseffektiv eftermarknadsplattform</b></a> som ni själva äger från dag 1.
-          </p>
-          <div class="mt-3">
-            <a href="/plattform.html#demo" class="btn btn-primary">Se demo</a>
+          <p class="muted"><b>En lösning – två nivåer av stöd.</b> Använd fordonsskador.se som ert dagliga system och koppla in EMK:s specialister när ett ärende kräver analys, förhandling eller ett komplett ARN-yttrande.</p>
+          <div class="mt-3 flex gap-3 flex-wrap">
+            <a href="/plattform.html" class="btn btn-primary">Se fordonsskador.se</a>
+            <a href="/formular.html" class="btn btn-outline">Boka presentation</a>
           </div>
         </div>
       </div>
@@ -205,8 +211,8 @@
       <div class="card banner-card">
         <p class="muted">Vi använder nödvändiga cookies. Analyscookies sätts bara om du samtycker. Läs mer i vår <a href="/cookies.html">cookie-policy</a>.</p>
         <div class="flex gap-2">
-          <button id="cookieReject" class="btn btn-outline">Avvisa</button>
-          <button id="cookieAccept" class="btn btn-primary">Tillåt analyscookies</button>
+          <button type="button" id="cookieReject" class="btn btn-outline">Avvisa</button>
+          <button type="button" id="cookieAccept" class="btn btn-primary">Tillåt analyscookies</button>
         </div>
       </div>
     </div>
