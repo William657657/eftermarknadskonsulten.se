@@ -1,30 +1,32 @@
 /* ==========================================================
    EMK Sverige AB – Globalt tema
-   Färgpalett: guld / beige / ljus varm bakgrund
+   Färgpalett: grafitsvart / varmvit / diskret EMK-guld
    ========================================================== */
 
 :root {
   /* Ytor */
-  --brand-bg:        #FAF7EF;   /* varm ljus bakgrund (låst) */
-  --brand-surface:   #ffffff;   /* kort/sektioner */
-  --brand-elev:      #faf7f0;   /* lätt upphöjd yta */
+  --brand-bg:        #090a0b;
+  --brand-surface:   #121315;
+  --brand-elev:      #191b1e;
 
   /* Text */
-  --brand-text:      #2B2410;   /* djup mörk text (låst) */
-  --brand-muted:     #6b7280;   /* sekundär text */
+  --brand-text:      #f4f4f1;
+  --brand-muted:     #b9bdc1;
 
   /* Brand */
-  --brand-accent:    #D4AF37;   /* EMK guld (låst) */
-  --brand-contrast:  #1f2937;   /* text på guldknapp */
-  --brand-tint:      #f6ecd2;   /* mjuk markering för hover/active */
+  --brand-accent:    #f0f0ed;
+  --brand-accent-dark:#d6d7d5;
+  --brand-contrast:  #111214;
+  --brand-tint:      #222427;
+  --brand-gold:      #d4af37;
   --brand-link:      var(--brand-accent);
 
   /* Linjer & radius */
-  --brand-border:    #e8e2d6;
+  --brand-border:    #2b2e32;
   --brand-radius:    16px;
 
   /* Layout */
-  --brand-maxw:      1140px;
+  --brand-maxw:      1260px;
   --brand-pad:       24px;
 }
 
@@ -61,11 +63,12 @@ body {
   border:1px solid var(--brand-border);
   border-radius:var(--brand-radius);
   padding:24px;
+  color:var(--brand-text);
 }
 
 /* Liten elevation som tilläggsklass – påverkar inte paletten */
 .elev {
-  box-shadow: 0 10px 30px color-mix(in srgb, var(--brand-text) 10%, transparent);
+  box-shadow:0 18px 42px rgba(0,0,0,.28);
 }
 
 .textcell {
@@ -115,9 +118,10 @@ hr { border:0; border-top:1px solid var(--brand-border); }
 /* Stöd både .btn-primary och .btn.primary */
 .btn-primary,
 .btn.primary {
-  background:var(--brand-accent);
+  background:linear-gradient(135deg,var(--brand-accent),var(--brand-accent-dark));
   color:var(--brand-contrast);
   border-color:var(--brand-accent);
+  box-shadow:0 8px 20px rgba(0,0,0,.24);
 }
 
 /* Stöd både .btn-outline och .btn.ghost */
@@ -129,6 +133,8 @@ hr { border:0; border-top:1px solid var(--brand-border); }
 }
 
 .btn:hover { filter:brightness(0.98); }
+.btn-primary:hover,
+.btn.primary:hover { filter:brightness(1.06); text-decoration:none; }
 .btn:disabled,
 .btn[disabled] { opacity:.6; cursor:not-allowed; }
 
@@ -138,21 +144,21 @@ hr { border:0; border-top:1px solid var(--brand-border); }
 
 header {
   position:sticky; top:0; z-index:50;
-  background:var(--brand-surface);
-  border-bottom:1px solid var(--brand-border);
+  background:#090a0b;
+  border-bottom:1px solid rgba(255,255,255,.12);
 }
 
-.topbar { background:var(--brand-surface); border-bottom:1px solid var(--brand-border); }
+.topbar { background:#090a0b; border-bottom:1px solid rgba(255,255,255,.12); }
 .topbar .wrap { display:flex; align-items:center; justify-content:space-between; }
 
 .logo { display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--brand-text); font-weight:800; }
 .logo img { height:44px; width:auto; display:block; border-radius:6px; }
 
-.nav { display:flex; gap:24px; align-items:center; flex-wrap:wrap; }
+.nav { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
 .nav a {
-  color:var(--brand-text);
+  color:#eceeeb;
   text-decoration:none;
-  padding:12px 14px;
+  padding:10px 11px;
   border-radius:10px;
   transition:background .15s,color .15s;
   font-weight:600;
@@ -160,8 +166,8 @@ header {
 .nav a.active,
 .nav a[aria-current="page"],
 .nav a:hover {
-  color:var(--brand-text);
-  background:var(--brand-tint);
+  color:#ffffff;
+  background:rgba(255,255,255,.12);
 }
 
 /* Sticky-skugga vid scroll */
@@ -174,7 +180,7 @@ header {
 .hambox{
   display:inline-flex; align-items:center; justify-content:center;
   padding:10px 12px; border-radius:12px;
-  border:1px solid var(--brand-border); background:var(--brand-surface);
+  border:1px solid rgba(255,255,255,.28); background:rgba(255,255,255,.08); color:#fff;
 }
 
 /* Off-canvas mobilmeny */
@@ -188,6 +194,7 @@ header {
   transform:translateX(100%); transition:transform .25s ease;
   display:flex; flex-direction:column; padding:18px;
 }
+.offcanvas .panel .hambox{ color:var(--brand-text); border-color:var(--brand-border); background:var(--brand-surface); }
 .offcanvas.open .panel{ transform:translateX(0); }
 .offcanvas .panel a{ padding:12px; border-radius:10px; text-decoration:none; color:var(--brand-text); }
 .offcanvas .panel a:hover{ background:var(--brand-tint); }
@@ -209,9 +216,29 @@ header {
 /* Bakgrund och typkänsla */
 .hero-bg{
   background:
-    radial-gradient(1200px 420px at 10% -10%, var(--brand-tint), transparent),
-    linear-gradient(180deg, var(--brand-tint), var(--brand-bg));
+    radial-gradient(900px 440px at 5% -15%, rgba(255,255,255,.08), transparent 68%),
+    linear-gradient(135deg,#0a0b0d 0%,#141619 100%);
+  color:#ffffff;
 }
+.hero.hero-bg{
+  background-image:
+    linear-gradient(90deg,rgba(4,5,6,.72) 0%,rgba(5,6,7,.36) 48%,rgba(4,5,6,.56) 100%),
+    url('/assets/hero-road-daylight.webp');
+  background-size:cover;
+  background-position:center;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.hero-bg h1,
+.hero-bg h2,
+.hero-bg h3,
+.hero-bg p,
+.hero-bg li { color:#ffffff; }
+.hero-bg .card,
+.hero-bg .card h1,
+.hero-bg .card h2,
+.hero-bg .card h3,
+.hero-bg .card p,
+.hero-bg .card li { color:var(--brand-text); }
 
 /* Rubrik – kontrollerad radbrytning */
 .hero-title{
@@ -223,12 +250,12 @@ header {
 .hero-underline{
   text-decoration:underline;
   text-decoration-thickness:4px;
-  text-decoration-color:var(--brand-accent);
+  text-decoration-color:var(--brand-gold);
   text-underline-offset:6px;
 }
 
 /* Lead och listor */
-.lead   { max-width:60ch; color:var(--brand-text); opacity:.88; }
+.lead   { max-width:60ch; color:inherit; opacity:.9; }
 .bullets{ max-width:66ch; }
 
 /* Badge/chip */
@@ -242,11 +269,17 @@ header {
   font-size:.8rem;
   letter-spacing:.02em;
 }
+.hero-bg .chip{
+  background:rgba(255,255,255,.12);
+  color:#ffffff;
+  border:1px solid rgba(255,255,255,.2);
+  backdrop-filter:blur(8px);
+}
 
 /* Glow-dekor bakom kort */
 .soft-glow{
   position:absolute; inset:-8px; border-radius:24px;
-  background:var(--brand-accent); opacity:.18; filter:blur(18px);
+  background:#ffffff; opacity:.08; filter:blur(24px);
 }
 
 /* ==========================================================
@@ -273,10 +306,47 @@ header {
   display:inline-block;
   padding:6px 10px;
   border-radius:999px;
-  background:linear-gradient(90deg,var(--brand-accent),#f3d37a);
-  color:#1f2937;
+  background:linear-gradient(135deg,#323438,#222427);
+  color:#f4f4f1;
+  border:1px solid rgba(255,255,255,.12);
   font-weight:700;
   font-size:.8rem;
+}
+
+/* ==========================================================
+   Förtroende / kundomdömen
+   ========================================================== */
+
+.trust-section {
+  background:linear-gradient(180deg,#111315 0%,#090a0b 100%);
+  border-top:1px solid #2b2e32;
+  border-bottom:1px solid #2b2e32;
+}
+.rating-number {
+  font-size:clamp(3rem,7vw,5rem);
+  line-height:1;
+  font-weight:850;
+  letter-spacing:-.05em;
+  color:#f4f4f1;
+}
+.rating-stars {
+  color:var(--brand-gold);
+  font-size:1.45rem;
+  letter-spacing:.12em;
+}
+.quote-card {
+  position:relative;
+  border-top:4px solid var(--brand-gold);
+}
+.quote-card::before {
+  content:'“';
+  position:absolute;
+  right:22px;
+  top:4px;
+  font-size:4.5rem;
+  line-height:1;
+  color:var(--brand-tint);
+  font-family:Georgia,serif;
 }
 
 /* ==========================================================
