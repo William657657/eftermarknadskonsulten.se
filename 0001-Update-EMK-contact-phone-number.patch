@@ -1,0 +1,113 @@
+From 2fb690a2e5af88253135a074baf371a5c5a40464 Mon Sep 17 00:00:00 2001
+From: Codex <codex@openai.com>
+Date: Tue, 21 Jul 2026 10:31:32 +0200
+Subject: [PATCH] Update EMK contact phone number
+
+---
+ arn-hjalp.html  | 4 ++--
+ formular.html   | 2 +-
+ integritet.html | 2 +-
+ kontakt.html    | 4 ++--
+ plattform.html  | 2 +-
+ tjanster.html   | 2 +-
+ 6 files changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/arn-hjalp.html b/arn-hjalp.html
+index 187bec0..baca1d1 100644
+--- a/arn-hjalp.html
++++ b/arn-hjalp.html
+@@ -187,7 +187,7 @@
+           <p class="mt-2 fine">Snabbast är att boka ett kort inledande samtal. Vi återkopplar vanligtvis samma dag.</p>
+           <div class="mt-3 flex gap-3 flex-wrap">
+             <a href="/formular.html" class="btn btn-primary">Kontakta oss</a>
+-            <a href="tel:+46708263366" class="btn btn-outline">Ring nu</a>
++            <a href="tel:+46760002210" class="btn btn-outline">Ring nu</a>
+           </div>
+         </div>
+       </div>
+@@ -208,7 +208,7 @@
+         <div>
+           <div class="strong">Kontakt</div>
+           <div><a href="mailto:info@emksab.se">info@emksab.se</a></div>
+-          <div>0708-26 33 66</div>
++          <div><a href="tel:+46760002210">+46 76 000 22 10</a></div>
+         </div>
+         <div>
+           <div class="strong">Sidor</div>
+diff --git a/formular.html b/formular.html
+index ca3972d..aa235f0 100644
+--- a/formular.html
++++ b/formular.html
+@@ -79,7 +79,7 @@
+           </div>
+           <div class="field">
+             <label for="telefon">Telefon <span class="fine">(valfritt)</span></label>
+-            <input id="telefon" name="Telefon" type="tel" placeholder="+46 708 26 33 66" />
++            <input id="telefon" name="Telefon" type="tel" placeholder="+46 76 000 22 10" />
+           </div>
+           <div class="field">
+             <label for="amne">Ämne <span class="fine">(valfritt)</span></label>
+diff --git a/integritet.html b/integritet.html
+index a4fba80..af751d4 100644
+--- a/integritet.html
++++ b/integritet.html
+@@ -63,7 +63,7 @@
+       <h1 class="hero-title">Integritetspolicy</h1>
+       <div class="card elev mt-4">
+         <h2>Personuppgiftsansvarig och kontakt</h2>
+-        <p>EMK Sverige AB – Org.nr 559514-0111<br/>Adress: Törnerydsvägen 42-40, 37496 Trensum<br/>E-post: <a href="mailto:info@emksab.se">info@emksab.se</a><br/>Telefon: <a href="tel:+46708263366">+46 708 26 33 66</a></p>
++        <p>EMK Sverige AB – Org.nr 559514-0111<br/>Adress: Törnerydsvägen 42-40, 37496 Trensum<br/>E-post: <a href="mailto:info@emksab.se">info@emksab.se</a><br/>Telefon: <a href="tel:+46760002210">+46 76 000 22 10</a></p>
+       </div>
+       <div class="card elev mt-4">
+         <h2>Kontaktformulär via e-post</h2>
+diff --git a/kontakt.html b/kontakt.html
+index b71e1f0..326ac63 100644
+--- a/kontakt.html
++++ b/kontakt.html
+@@ -56,7 +56,7 @@
+ 
+             <div class="field">
+               <label for="telefon">Telefon <span class="fine">(valfritt)</span></label>
+-              <input id="telefon" name="Telefon" type="tel" placeholder="0708-26 33 66">
++              <input id="telefon" name="Telefon" type="tel" placeholder="+46 76 000 22 10">
+             </div>
+ 
+             <div class="field">
+@@ -82,7 +82,7 @@
+         <div class="card-body">
+           <h2 class="h5">Direktkontakt</h2>
+           <p><strong>E-post:</strong> <a href="mailto:info@emksab.se">info@emksab.se</a></p>
+-          <p><strong>Telefon:</strong> <a href="tel:+46708263366">+46 708 26 33 66</a></p>
++          <p><strong>Telefon:</strong> <a href="tel:+46760002210">+46 76 000 22 10</a></p>
+           <div class="actions">
+             <a class="btn ghost" href="mailto:info@emksab.se?subject=Kontakt%20via%20webb&body=Hej%20EMK%2C%0A%0A">Skicka e-post</a>
+           </div>
+diff --git a/plattform.html b/plattform.html
+index bd22545..0ab36fc 100644
+--- a/plattform.html
++++ b/plattform.html
+@@ -300,7 +300,7 @@
+         <div>
+           <div class="strong">Kontakt</div>
+           <div><a href="mailto:info@emksab.se">info@emksab.se</a></div>
+-          <div>0708-26 33 66</div>
++          <div><a href="tel:+46760002210">+46 76 000 22 10</a></div>
+         </div>
+         <div>
+           <div class="strong">Sidor</div>
+diff --git a/tjanster.html b/tjanster.html
+index 3b9d25f..8f245ff 100644
+--- a/tjanster.html
++++ b/tjanster.html
+@@ -257,7 +257,7 @@
+           <p class="mt-2 fine">Snabbast är att boka ett kort samtal. Vi återkopplar vanligtvis samma dag.</p>
+           <div class="mt-3 flex gap-3 flex-wrap">
+             <a href="/formular.html" class="btn btn-primary">Kontakta oss</a>
+-            <a href="tel:+46708263366" class="btn btn-outline">Ring nu (+46 708 26 33 66)</a>
++            <a href="tel:+46760002210" class="btn btn-outline">Ring nu (+46 76 000 22 10)</a>
+           </div>
+         </div>
+       </div>
+-- 
+2.51.1
+
